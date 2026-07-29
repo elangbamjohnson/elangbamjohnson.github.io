@@ -12,28 +12,32 @@
     <meta property="og:type" content="website">
     
     <!-- Favicon -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%232dd4bf%22/><text y=%2254%%22 x=%2250%%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22system-ui, sans-serif%22 font-size=%2244%22 font-weight=%22800%22 fill=%22%230f172a%22>JE</text></svg>">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%23B25D4A%22/><text y=%2254%%22 x=%2250%%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Georgia, serif%22 font-size=%2244%22 font-weight=%22600%22 fill=%22%23FAF9F5%22>JE</text></svg>">
 
     <style>
         :root {
-            /* Colors: Deep Slate & Teal Theme */
-            --bg-color: #0f172a; /* Slate 900 */
-            --nav-bg: rgba(15, 23, 42, 0.85);
-            --card-bg: #1e293b; /* Slate 800 */
-            --card-hover-bg: #334155; /* Slate 700 */
-            --text-primary: #f8fafc; /* Slate 50 */
-            --text-secondary: #94a3b8; /* Slate 400 */
-            --border-color: #334155;
-            --border-hover: #475569;
+            /* Anthropic-inspired Cream & Terracotta Theme */
+            --bg-color: #FAF9F5; /* Warm off-white / cream */
+            --nav-bg: rgba(250, 249, 245, 0.95);
+            --card-bg: #FFFFFF; /* Pure white for subtle contrast */
+            --card-hover-bg: #FFFFFF;
             
-            /* Signature Accent: Muted Teal */
-            --accent: #2dd4bf; /* Teal 400 */
-            --accent-soft: rgba(45, 212, 191, 0.1);
-            --accent-hover: #14b8a6; /* Teal 500 */
+            /* Text Colors */
+            --text-primary: #2C2A29; /* Deep charcoal/espresso */
+            --text-secondary: #5E5B5A; /* Muted brown-grey */
+            
+            /* Borders and Accents */
+            --border-color: #EAE6DB;
+            --border-hover: #D5D0C5;
+            
+            /* Signature Accent: Soft Terracotta / Clay */
+            --accent: #B25D4A; 
+            --accent-soft: #F5EAE7;
+            --accent-hover: #964A3A;
 
             /* Typography */
-            --font-display: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            --font-display: Georgia, "Times New Roman", Times, serif;
+            --font-body: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             
             /* Transitions */
             --transition-smooth: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -53,7 +57,7 @@
             font-family: var(--font-body);
             background-color: var(--bg-color);
             color: var(--text-secondary);
-            line-height: 1.7;
+            line-height: 1.75;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
@@ -71,7 +75,8 @@
         h1, h2, h3, h4 {
             font-family: var(--font-display);
             color: var(--text-primary);
-            line-height: 1.2;
+            line-height: 1.25;
+            font-weight: 500;
         }
 
         /* Layout */
@@ -88,8 +93,8 @@
             width: 100%;
             z-index: 100;
             background-color: var(--nav-bg);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
             border-bottom: 1px solid transparent;
             transition: border-color 0.3s ease;
         }
@@ -102,14 +107,15 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            height: 70px;
+            height: 80px;
         }
 
         .nav-logo {
-            font-weight: 800;
-            font-size: 1.25rem;
+            font-family: var(--font-display);
+            font-weight: 600;
+            font-size: 1.4rem;
             color: var(--text-primary);
-            letter-spacing: -0.5px;
+            letter-spacing: -0.2px;
         }
 
         .nav-logo span {
@@ -118,7 +124,7 @@
 
         .nav-links {
             display: flex;
-            gap: 2rem;
+            gap: 2.5rem;
             list-style: none;
         }
 
@@ -154,7 +160,7 @@
             .nav-links.active {
                 display: flex;
                 position: absolute;
-                top: 70px;
+                top: 80px;
                 left: 0;
                 width: 100%;
                 background-color: var(--nav-bg);
@@ -162,26 +168,27 @@
                 -webkit-backdrop-filter: blur(12px);
                 flex-direction: column;
                 align-items: center;
-                padding: 1.5rem 0;
-                gap: 1.5rem;
+                padding: 1.5rem 0 2rem 0;
+                gap: 1.75rem;
                 border-bottom: 1px solid var(--border-color);
+                box-shadow: 0 10px 20px rgba(0,0,0,0.03);
             }
         }
 
         /* Hero */
         .hero {
-            min-height: 100vh;
+            min-height: 90vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            padding-top: 70px; /* offset nav */
+            padding-top: 100px;
         }
         
         .hero-content {
             display: flex;
             flex-direction: column-reverse;
             align-items: flex-start;
-            gap: 3rem;
+            gap: 3.5rem;
         }
 
         @media (min-width: 768px) {
@@ -202,40 +209,40 @@
         
         .profile-img {
             display: block;
-            width: 180px;
-            height: 180px;
-            border-radius: 28px; /* Rounded square */
+            width: 160px;
+            height: 160px;
+            border-radius: 20px;
             object-fit: cover;
-            border: 2px solid var(--border-color);
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4), 0 0 0 6px var(--accent-soft);
-            background-color: var(--card-bg); /* Placeholder background */
+            border: 1px solid var(--border-color);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+            background-color: var(--card-bg);
         }
 
-        @media (max-width: 767px) {
+        @media (min-width: 768px) {
             .profile-img {
-                width: 140px;
-                height: 140px;
+                width: 190px;
+                height: 190px;
             }
         }
 
         .hero h1 {
-            font-size: clamp(3rem, 8vw, 5.5rem);
-            font-weight: 900;
-            letter-spacing: -2px;
-            margin-bottom: 1rem;
-            display: inline-block;
+            font-size: clamp(2.8rem, 7vw, 4.5rem);
+            font-weight: 600;
+            letter-spacing: -1px;
+            margin-bottom: 1.25rem;
+            color: var(--text-primary);
         }
         
-        /* Typing animation specific */
         .typewriter {
+            display: inline-block;
             overflow: hidden; 
-            border-right: .12em solid var(--accent);
+            border-right: 2px solid var(--accent);
             white-space: nowrap;
             margin: 0;
-            padding-right: 5px;
+            padding-right: 6px;
             animation: 
                 typing 1.5s steps(30, end),
-                blink-caret .75s step-end infinite;
+                blink-caret 1s step-end infinite;
         }
 
         @keyframes typing {
@@ -249,11 +256,11 @@
         }
 
         .hero h2 {
-            font-size: clamp(1.25rem, 3vw, 2rem);
-            font-weight: 500;
+            font-size: clamp(1.2rem, 2.5vw, 1.75rem);
+            font-weight: 400;
             color: var(--text-secondary);
             margin-bottom: 2rem;
-            max-width: 700px;
+            font-family: var(--font-body);
         }
 
         .hero p.subheadline {
@@ -261,19 +268,21 @@
             max-width: 600px;
             margin-bottom: 2.5rem;
             color: var(--text-secondary);
+            line-height: 1.8;
         }
 
         .hero .location {
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.6rem;
             font-size: 0.95rem;
             color: var(--text-secondary);
             font-weight: 500;
             padding: 0.6rem 1.25rem;
-            background: rgba(255,255,255,0.03);
-            border-radius: 30px;
+            background: var(--card-bg);
+            border-radius: 40px;
             border: 1px solid var(--border-color);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
         }
 
         .hero .location svg {
@@ -295,9 +304,9 @@
         }
         
         .section-header h3 {
-            font-size: 2rem;
-            font-weight: 800;
-            letter-spacing: -1px;
+            font-size: 2.25rem;
+            font-weight: 600;
+            letter-spacing: -0.5px;
         }
 
         .section-header::after {
@@ -305,7 +314,7 @@
             height: 1px;
             background-color: var(--border-color);
             flex-grow: 1;
-            margin-top: 5px;
+            margin-top: 4px;
         }
 
         /* About */
@@ -318,13 +327,14 @@
         @media (min-width: 768px) {
             .about-grid {
                 grid-template-columns: 3fr 2fr;
-                gap: 4rem;
+                gap: 5rem;
             }
         }
 
         .about-text p {
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
+            margin-bottom: 1.75rem;
+            font-size: 1.125rem;
+            color: var(--text-secondary);
         }
         
         .about-text p strong {
@@ -335,25 +345,29 @@
         .stats-pull {
             background-color: var(--card-bg);
             border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 2.5rem 2rem;
+            border-radius: 16px;
+            padding: 2.5rem;
             display: flex;
             flex-direction: column;
             gap: 2.5rem;
-            border-top: 3px solid var(--accent);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
         }
 
         .stat-item h4 {
             font-size: 2.75rem;
             color: var(--accent);
-            margin-bottom: 0.5rem;
-            font-weight: 800;
-            letter-spacing: -1px;
+            margin-bottom: 0.25rem;
+            font-weight: 600;
+            font-family: var(--font-display);
         }
 
         .stat-item p {
             font-size: 0.95rem;
-            line-height: 1.5;
+            line-height: 1.6;
+            color: var(--text-secondary);
+        }
+        
+        .stat-item p strong {
             color: var(--text-primary);
         }
 
@@ -373,65 +387,48 @@
         .project-card {
             background-color: var(--card-bg);
             border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 2.5rem 2rem;
+            border-radius: 16px;
+            padding: 2.5rem;
             display: flex;
             flex-direction: column;
             transition: var(--transition-smooth);
             position: relative;
-            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
         }
         
-        /* Subtle top accent for cards */
-        .project-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background-color: var(--accent);
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-        }
-
         .project-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-4px);
             border-color: var(--border-hover);
-            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
-        }
-        
-        .project-card:hover::before {
-            transform: scaleX(1);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.06);
         }
 
         .project-card h4 {
             font-size: 1.5rem;
             margin-bottom: 1rem;
-            font-weight: 700;
-            letter-spacing: -0.5px;
+            font-weight: 600;
+            letter-spacing: -0.2px;
         }
 
         .project-card p {
-            font-size: 1rem;
+            font-size: 1.05rem;
             margin-bottom: 2rem;
             flex-grow: 1;
+            color: var(--text-secondary);
         }
 
         .project-tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 2rem;
+            gap: 0.6rem;
+            margin-bottom: 2.5rem;
         }
 
         .tag {
             background-color: var(--accent-soft);
-            color: var(--accent);
+            color: var(--accent-hover);
             font-size: 0.8rem;
-            font-weight: 600;
-            padding: 0.3rem 0.85rem;
+            font-weight: 500;
+            padding: 0.35rem 0.9rem;
             border-radius: 20px;
         }
 
@@ -439,9 +436,9 @@
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            font-weight: 600;
+            font-weight: 500;
             font-size: 0.95rem;
-            color: var(--text-primary);
+            color: var(--accent);
             margin-top: auto;
         }
         
@@ -451,12 +448,11 @@
             fill: currentColor;
             transition: transform 0.2s;
         }
-
-        .btn-link:hover {
-            color: var(--accent);
-            text-decoration: none;
-        }
         
+        .btn-link:hover {
+            color: var(--accent-hover);
+        }
+
         .btn-link:hover svg {
             transform: translateX(4px);
         }
@@ -464,26 +460,28 @@
         /* Contact / Footer */
         .contact-section {
             text-align: center;
-            padding: 8rem 0;
+            padding: 7rem 0 5rem 0;
+            max-width: 700px;
+            margin: 0 auto;
         }
 
         .contact-section h3 {
             font-size: 2.5rem;
             margin-bottom: 1.5rem;
-            letter-spacing: -1px;
+            letter-spacing: -0.5px;
             color: var(--text-primary);
         }
 
         .contact-section p {
-            max-width: 600px;
             margin: 0 auto 3rem;
             font-size: 1.15rem;
+            color: var(--text-secondary);
         }
 
         .button-group {
             display: flex;
             justify-content: center;
-            gap: 1rem;
+            gap: 1.25rem;
             flex-wrap: wrap;
             margin-bottom: 4rem;
         }
@@ -493,33 +491,37 @@
             align-items: center;
             gap: 0.75rem;
             padding: 0.85rem 1.75rem;
-            border-radius: 8px;
-            font-weight: 600;
+            border-radius: 12px;
+            font-weight: 500;
             font-size: 1rem;
             transition: var(--transition-smooth);
+            font-family: var(--font-body);
+            cursor: pointer;
+            border: 1px solid transparent;
+            min-height: 48px; /* Touch target size */
+            outline: none;
         }
 
         .btn-primary {
             background-color: var(--accent);
-            color: var(--bg-color) !important;
-            border: 1px solid var(--accent);
+            color: #FFFFFF !important;
         }
 
-        .btn-primary:hover {
+        .btn-primary:hover, .btn-primary:focus {
             background-color: var(--accent-hover);
-            border-color: var(--accent-hover);
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(45, 212, 191, 0.25);
+            box-shadow: 0 6px 16px rgba(178, 93, 74, 0.2);
         }
 
         .btn-secondary {
             background-color: var(--card-bg);
             color: var(--text-primary) !important;
             border: 1px solid var(--border-color);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
         }
 
-        .btn-secondary:hover {
-            background-color: var(--card-hover-bg);
+        .btn-secondary:hover, .btn-secondary:focus {
+            background-color: var(--bg-color);
             border-color: var(--border-hover);
             transform: translateY(-2px);
         }
@@ -530,17 +532,69 @@
             fill: currentColor;
         }
 
+        /* Tooltip Styles */
+        .email-btn {
+            position: relative;
+        }
+        
+        .tooltip {
+            position: absolute;
+            bottom: 115%;
+            left: 50%;
+            transform: translateX(-50%) translateY(5px);
+            background-color: var(--text-primary);
+            color: #FAF9F5;
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+            pointer-events: none;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .tooltip::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: var(--text-primary) transparent transparent transparent;
+        }
+
+        /* Show tooltip on hover (if supported) and focus */
+        @media (hover: hover) {
+            .email-btn:hover .tooltip {
+                opacity: 1;
+                visibility: visible;
+                transform: translateX(-50%) translateY(0);
+            }
+        }
+        
+        .email-btn:focus-visible .tooltip,
+        .email-btn .tooltip.copied {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+
         footer {
             text-align: center;
             padding: 2.5rem 0;
             border-top: 1px solid var(--border-color);
             font-size: 0.9rem;
+            color: var(--text-secondary);
         }
 
         /* Reveal Animations */
         .reveal {
             opacity: 0;
-            transform: translateY(30px);
+            transform: translateY(20px);
             transition: all 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
 
@@ -549,7 +603,6 @@
             transform: translateY(0);
         }
         
-        /* Stagger delays for grid items */
         @media (min-width: 768px) {
             .delay-1 { transition-delay: 0.1s; }
             .delay-2 { transition-delay: 0.2s; }
@@ -557,7 +610,6 @@
             .delay-4 { transition-delay: 0.4s; }
             .delay-5 { transition-delay: 0.5s; }
             .delay-6 { transition-delay: 0.6s; }
-            .delay-7 { transition-delay: 0.7s; }
         }
 
     </style>
@@ -668,9 +720,8 @@
                     </a>
                 </div>
 
-
-                <!-- Project 4 -->
-                <div class="project-card reveal delay-4">
+                <!-- Project 3 -->
+                <div class="project-card reveal delay-3">
                     <h4>Genesis</h4>
                     <p>A full-stack local-AI "digital legacy" platform. Features a SwiftUI iOS front end backed by a FastAPI + local MLX inference engine (Qwen2.5-14B). Fully on-device and local with no cloud dependency.</p>
                     <div class="project-tags">
@@ -685,8 +736,8 @@
                     </a>
                 </div>
                 
-                <!-- Project 5 -->
-                <div class="project-card reveal delay-1">
+                <!-- Project 4 -->
+                <div class="project-card reveal delay-4">
                     <h4>Meitei Mayek Transliterator</h4>
                     <p>An iOS app for OCR extraction and transliteration of the Meitei Mayek script. Includes a custom-built from-scratch glyph recognition pipeline since Apple Vision has no native support for this script.</p>
                     <div class="project-tags">
@@ -701,8 +752,8 @@
                     </a>
                 </div>
 
-                <!-- Project 6 -->
-                <div class="project-card reveal delay-2">
+                <!-- Project 5 -->
+                <div class="project-card reveal delay-5">
                     <h4>SeekAndDestroy</h4>
                     <p>A macOS security scanner for Apple Silicon. On-demand scanning covering SHA-256 hashing, code signature validation, persistence scanning, YARA integration, and FSEvents monitoring.</p>
                     <div class="project-tags">
@@ -716,8 +767,8 @@
                     </a>
                 </div>
                 
-                <!-- Project 7 -->
-                <div class="project-card reveal delay-3">
+                <!-- Project 6 -->
+                <div class="project-card reveal delay-6">
                     <h4>BLE Robot Controller</h4>
                     <p>An iOS app for controlling a robot over Bluetooth Low Energy, demonstrating hardware/IoT integration alongside mobile AI work.</p>
                     <div class="project-tags">
@@ -737,13 +788,14 @@
         <!-- Contact Section -->
         <section id="contact" class="contact-section reveal">
             <h3>Let's Connect</h3>
-            <p>I'm currently looking for Staff, Lead, or Principal iOS engineering opportunities. My inbox is always open.</p>
+            <p>I'm currently looking for Staff, Lead, or Principal iOS engineering opportunities, and open to freelance engagements. My inbox is always open.</p>
             
             <div class="button-group">
-                <a href="mailto:your.email@example.com" class="btn btn-primary">
+                <button class="btn btn-primary email-btn" aria-label="Copy email address" onclick="copyEmail(event)" onkeydown="if(event.key==='Enter') copyEmail(event)">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z"/></svg>
                     Say Hello
-                </a>
+                    <span class="tooltip" id="email-tooltip">Click to copy</span>
+                </button>
                 <a href="https://linkedin.com/in/elangbamjohnson" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                     LinkedIn
@@ -778,8 +830,6 @@
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('active');
-                        // Optional: stop observing once revealed to keep it visible
-                        // observer.unobserve(entry.target);
                     }
                 });
             }, observerOptions);
@@ -823,6 +873,64 @@
                     navLinks.classList.remove('active');
                 });
             });
+        }
+
+        // Email Copy-to-Clipboard
+        function copyEmail(e) {
+            if (e) e.preventDefault();
+            
+            // Replace with your actual email
+            const email = 'your.email@example.com';
+            const tooltip = document.getElementById('email-tooltip');
+            
+            // Modern Clipboard API
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(email).then(() => {
+                    showCopied(tooltip);
+                }).catch(err => {
+                    console.error('Failed to copy text: ', err);
+                    fallbackCopy(email, tooltip);
+                });
+            } else {
+                fallbackCopy(email, tooltip);
+            }
+        }
+        
+        function fallbackCopy(text, tooltip) {
+            const textArea = document.createElement("textarea");
+            textArea.value = text;
+            
+            // Move out of view
+            textArea.style.position = "fixed";
+            textArea.style.left = "-999999px";
+            textArea.style.top = "-999999px";
+            document.body.appendChild(textArea);
+            
+            textArea.focus();
+            textArea.select();
+            
+            try {
+                document.execCommand('copy');
+                showCopied(tooltip);
+            } catch (err) {
+                console.error('Fallback: Oops, unable to copy', err);
+            }
+            
+            document.body.removeChild(textArea);
+        }
+        
+        function showCopied(tooltip) {
+            if (!tooltip) return;
+            tooltip.textContent = 'Copied!';
+            tooltip.classList.add('copied');
+            
+            // Reset tooltip text after 1.5s
+            setTimeout(() => {
+                tooltip.classList.remove('copied');
+                setTimeout(() => {
+                    tooltip.textContent = 'Click to copy';
+                }, 200); // Wait for fade out transition
+            }, 1500);
         }
     </script>
 </body>
