@@ -251,33 +251,11 @@
         }
 
         .hero h1 {
-            font-size: clamp(1.5rem, 7vw, 4.5rem);
+            font-size: clamp(1.75rem, 8vw, 3.5rem);
             font-weight: 600;
             letter-spacing: -1px;
             margin-bottom: 1.25rem;
             color: var(--text-primary);
-        }
-        
-        .typewriter {
-            display: inline-block;
-            overflow: hidden; 
-            border-right: 2px solid var(--accent);
-            white-space: nowrap;
-            margin: 0;
-            padding-right: 6px;
-            animation: 
-                typing 1.5s steps(30, end),
-                blink-caret 1s step-end infinite;
-        }
-
-        @keyframes typing {
-            from { width: 0 }
-            to { width: 100% }
-        }
-
-        @keyframes blink-caret {
-            from, to { border-color: transparent }
-            50% { border-color: var(--accent); }
         }
 
         .hero h2 {
@@ -649,11 +627,6 @@
                 opacity: 0.3;
                 transform: none !important;
             }
-            .typewriter {
-                animation: none !important;
-                border-right: none;
-                white-space: normal;
-            }
         }
 
     </style>
@@ -682,7 +655,7 @@
         <main class="hero reveal active">
             <div class="hero-content">
                 <div class="hero-text">
-                    <h1><span class="typewriter">Johnson Elangbam</span></h1>
+                    <h1>Johnson Elangbam</h1>
                     <h2>Senior / Staff iOS Engineer</h2>
                     <p class="subheadline">18+ years building iOS apps across enterprise VoIP, automotive, retail, and on-device AI/ML.</p>
                     <div>
