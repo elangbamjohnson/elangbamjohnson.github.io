@@ -177,11 +177,36 @@
 
         /* Hero */
         .hero {
+            position: relative;
             min-height: 90vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             padding-top: 100px;
+            overflow: hidden; /* Contains the ambient gradient */
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at center, var(--accent-soft) 0%, transparent 45%);
+            opacity: 0.5;
+            z-index: -1;
+            animation: ambient-shift 25s ease-in-out infinite alternate;
+            pointer-events: none;
+        }
+
+        @keyframes ambient-shift {
+            0% {
+                transform: translate(0%, 0%) scale(1);
+            }
+            100% {
+                transform: translate(-3%, 2%) scale(1.05);
+            }
         }
         
         .hero-content {
@@ -594,8 +619,8 @@
         /* Reveal Animations */
         .reveal {
             opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+            transform: translateY(15px);
+            transition: opacity 0.7s ease-out, transform 0.7s ease-out;
         }
 
         .reveal.active {
@@ -604,12 +629,31 @@
         }
         
         @media (min-width: 768px) {
-            .delay-1 { transition-delay: 0.1s; }
-            .delay-2 { transition-delay: 0.2s; }
-            .delay-3 { transition-delay: 0.3s; }
-            .delay-4 { transition-delay: 0.4s; }
-            .delay-5 { transition-delay: 0.5s; }
-            .delay-6 { transition-delay: 0.6s; }
+            .delay-1 { transition-delay: 0.05s; }
+            .delay-2 { transition-delay: 0.1s; }
+            .delay-3 { transition-delay: 0.15s; }
+            .delay-4 { transition-delay: 0.2s; }
+            .delay-5 { transition-delay: 0.25s; }
+            .delay-6 { transition-delay: 0.3s; }
+        }
+        
+        /* Reduced Motion */
+        @media (prefers-reduced-motion: reduce) {
+            .reveal {
+                opacity: 1 !important;
+                transform: none !important;
+                transition: none !important;
+            }
+            .hero::before {
+                animation: none !important;
+                opacity: 0.3;
+                transform: none !important;
+            }
+            .typewriter {
+                animation: none !important;
+                border-right: none;
+                white-space: normal;
+            }
         }
 
     </style>
@@ -830,6 +874,7 @@
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('active');
+                        observer.unobserve(entry.target);
                     }
                 });
             }, observerOptions);
