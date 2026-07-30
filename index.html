@@ -296,6 +296,47 @@
 
         .hero-ctas {
             margin-top: 1.75rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+
+        .hero-intent-btns {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.85rem;
+            align-items: center;
+        }
+
+        .btn-intent-primary {
+            background-color: var(--accent);
+            color: #FFFFFF !important;
+            font-size: 0.9rem;
+            padding: 0.7rem 1.4rem;
+            min-height: 44px;
+        }
+
+        .btn-intent-primary:hover, .btn-intent-primary:focus {
+            background-color: var(--accent-hover);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(178, 93, 74, 0.2);
+        }
+
+        .btn-intent-outline {
+            background-color: transparent;
+            color: var(--text-primary) !important;
+            border: 1px solid var(--border-hover);
+            font-size: 0.9rem;
+            padding: 0.7rem 1.4rem;
+            min-height: 44px;
+        }
+
+        .btn-intent-outline:hover, .btn-intent-outline:focus {
+            background-color: var(--card-bg);
+            border-color: var(--accent);
+            color: var(--accent) !important;
+            transform: translateY(-1px);
         }
 
         .hero-resume-btn svg {
@@ -1016,6 +1057,14 @@
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 16l-6-6h4V4h4v6h4l-6 6zm-6 4h12v-2H6v2z"/></svg>
                             Download Resume
                         </a>
+                        <div class="hero-intent-btns">
+                            <a href="#contact" class="btn btn-intent-primary" aria-label="Contact Johnson about full-time hiring">
+                                Looking to hire full-time?
+                            </a>
+                            <a href="#contact" class="btn btn-intent-outline" aria-label="Contact Johnson about freelance engineering">
+                                Need a freelance engineer?
+                            </a>
+                        </div>
                     </div>
                 </div>
                 <div class="hero-photo">
