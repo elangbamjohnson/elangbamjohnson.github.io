@@ -1091,6 +1091,63 @@
             font-weight: 600;
         }
 
+        /* Project card numbering */
+        .projects-grid {
+            counter-reset: project-counter;
+        }
+        .project-card {
+            counter-increment: project-counter;
+        }
+        .project-card::before {
+            content: counter(project-counter, decimal-leading-zero);
+            font-family: var(--font-display);
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--border-hover);
+            position: absolute;
+            top: 1.25rem;
+            right: 1.5rem;
+            letter-spacing: 0.05em;
+        }
+
+        /* FAQ Accordion Section */
+        .faq-section { padding: 6rem 0; border-top: 1px solid var(--border-color); }
+        .faq-list { max-width: 720px; margin-top: 3rem; }
+        .faq-item {
+            border-bottom: 1px solid var(--border-color);
+        }
+        .faq-item summary {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 1.5rem 0; cursor: pointer; list-style: none;
+            font-family: var(--font-display); font-size: 1.1rem; font-weight: 500;
+            color: var(--text-primary); transition: color 0.2s;
+        }
+        .faq-item summary::-webkit-details-marker { display: none; }
+        .faq-item summary::after {
+            content: '+'; font-size: 1.5rem; font-weight: 300;
+            color: var(--text-secondary); transition: transform 0.2s;
+            flex-shrink: 0; margin-left: 1rem;
+        }
+        .faq-item[open] summary::after { content: '−'; }
+        .faq-item summary:hover { color: var(--accent); }
+        .faq-answer {
+            padding: 0 0 1.5rem 0; font-size: 1rem; line-height: 1.75;
+            color: var(--text-secondary);
+        }
+
+        /* Bold Footer Sign-off */
+        .footer-signoff {
+            text-align: center; padding: 5rem 0 3rem; border-top: 1px solid var(--border-color);
+        }
+        .footer-signoff-name {
+            font-family: var(--font-display); font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 600; color: var(--text-primary); letter-spacing: -1px;
+            line-height: 1.1; margin-bottom: 1rem; text-transform: uppercase;
+        }
+        .footer-signoff-copy {
+            font-size: 0.85rem; color: var(--text-secondary);
+        }
+
         /* Reduced Motion */
         @media (prefers-reduced-motion: reduce) {
             .reveal {
@@ -1132,6 +1189,7 @@
             </button>
             
             <ul class="nav-links" id="nav-links">
+                <li><a href="#">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -1233,7 +1291,7 @@
                         </button>
                         <button class="btn-link" onclick="openCaseStudy()" aria-label="Read AIAnalyzer case study">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16h12a2 2 0 0 0 2-2V8l-6-6zm-1 1.5L16.5 7H13V3.5zM18 20H6V4h5v4h4v12zm-3-5H9v2h6v-2zm0-4H9v2h6v-2z"/></svg>
-                            Case Study
+                            View Case Study →
                         </button>
                         <a href="https://github.com/elangbamjohnson/AIAnalyzer" target="_blank" rel="noopener noreferrer" class="btn-link">
                             View on GitHub
@@ -1417,6 +1475,31 @@
             </div>
         </section>
 
+        <!-- FAQ Section -->
+        <section class="faq-section reveal">
+            <div class="section-header">
+                <h3>FAQ</h3>
+            </div>
+            <div class="faq-list">
+                <details class="faq-item">
+                    <summary>What kind of engagements do you take?</summary>
+                    <div class="faq-answer">Full-time Staff/Lead/Principal iOS roles, and freelance engagements in iOS development and on-device AI integration.</div>
+                </details>
+                <details class="faq-item">
+                    <summary>Do you work remote-only?</summary>
+                    <div class="faq-answer">Yes, remote-first, based in Imphal, India (GMT+5:30).</div>
+                </details>
+                <details class="faq-item">
+                    <summary>What's your typical availability?</summary>
+                    <div class="faq-answer">Currently available for new opportunities — see the Contact section for the most up-to-date status.</div>
+                </details>
+                <details class="faq-item">
+                    <summary>What industries have you worked in?</summary>
+                    <div class="faq-answer">Enterprise VoIP, automotive, retail, and legal/financial — see the Enterprise Experience section for details.</div>
+                </details>
+            </div>
+        </section>
+
         <!-- Contact Section -->
         <section id="contact" class="contact-section reveal">
             <h3>Let's Connect</h3>
@@ -1441,9 +1524,10 @@
 
     </div>
 
-    <footer>
+    <footer class="footer-signoff">
         <div class="container">
-            <p>&copy; 2026 Johnson Elangbam. All rights reserved.</p>
+            <div class="footer-signoff-name">Johnson Elangbam</div>
+            <p class="footer-signoff-copy">&copy; 2026 Johnson Elangbam. All rights reserved.</p>
         </div>
     </footer>
 
@@ -1708,6 +1792,17 @@
                     closeCaseStudy();
                 }
             }
+        });
+
+        // FAQ Accordion — only one open at a time
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.addEventListener('toggle', () => {
+                if (item.open) {
+                    document.querySelectorAll('.faq-item').forEach(other => {
+                        if (other !== item) other.removeAttribute('open');
+                    });
+                }
+            });
         });
     </script>
 </body>
