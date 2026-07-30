@@ -1222,6 +1222,8 @@
                 <li><a href="#">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#projects">Projects</a></li>
+                <li><a href="#enterprise">Enterprise</a></li>
+                <li><a href="#faq">FAQ</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
@@ -1442,7 +1444,7 @@
         </section>
 
         <!-- Enterprise Experience Section -->
-        <section class="enterprise-section reveal">
+        <section id="enterprise" class="enterprise-section reveal">
             <div class="section-header">
                 <h3>Enterprise Experience</h3>
             </div>
@@ -1506,7 +1508,7 @@
         </section>
 
         <!-- FAQ Section -->
-        <section class="faq-section reveal">
+        <section id="faq" class="faq-section reveal">
             <div class="section-header">
                 <h3>FAQ</h3>
             </div>
@@ -1585,11 +1587,12 @@
             </div>
             <div class="case-study-section">
                 <h5>The Approach</h5>
-                <p>AIAnalyzer is a Swift CLI that parses codebases with SwiftSyntax, detects architectural smells (God Objects, Large Classes, High Method Density), and — the part I'm most proud of — offers AI-powered fix suggestions through three modes:</p>
+                <p>AIAnalyzer is a Swift CLI that parses codebases with SwiftSyntax, detects architectural smells (God Objects, Large Classes, High Method Density), and — the part I'm most proud of — offers AI-powered fix suggestions through four provider modes:</p>
                 <ul>
-                    <li><strong>Cloud (Google Gemini API)</strong> — best quality, requires network + API key</li>
-                    <li><strong>Local (Ollama + Qwen2.5 Coder)</strong> — fully on-device, no data leaves the machine, ideal for teams that can't send proprietary code to a third party</li>
-                    <li><strong>Hybrid</strong> — attempts local inference first, evaluates its own confidence based on output quality, and automatically escalates to cloud only when the local result looks weak</li>
+                    <li><strong>Gemini (Cloud)</strong> — best quality, requires network + API key</li>
+                    <li><strong>Ollama (Local LLM)</strong> — a full local language model running via Ollama, fully on-device, no data leaves the machine</li>
+                    <li><strong>Local (Core ML)</strong> — a lighter-weight on-device option with its own heuristic fallback, useful when a full Ollama-hosted model isn't available</li>
+                    <li><strong>Hybrid</strong> — attempts a local-preferred provider first, evaluates confidence based on output quality, and automatically escalates to Gemini only when the local result looks weak</li>
                 </ul>
                 <p>That fallback logic is the core engineering problem I wanted to solve: not "which AI should I use," but "how does the system know, in real time, whether its own answer is good enough to trust."</p>
             </div>
