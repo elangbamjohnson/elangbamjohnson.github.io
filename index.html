@@ -990,6 +990,76 @@
             .enterprise-stat:last-child { border-bottom: none; }
         }
 
+        /* Testimonials Section */
+        .testimonials-section {
+            padding: 6rem 0;
+            border-top: 1px solid var(--border-color);
+        }
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 1.75rem;
+            margin-top: 3rem;
+            /* Single card: constrain and center */
+            max-width: 700px;
+        }
+        /* When 2+ cards exist, let grid fill the full container */
+        .testimonials-grid:has(.testimonial-card:nth-child(2)) {
+            max-width: none;
+        }
+        .testimonial-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2.5rem 2.5rem 2rem;
+            position: relative;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.02);
+        }
+        .testimonial-card::before {
+            content: '\201C';
+            font-family: var(--font-display);
+            font-size: 7rem;
+            line-height: 1;
+            color: var(--accent);
+            opacity: 0.1;
+            position: absolute;
+            top: 1rem;
+            left: 1.75rem;
+            pointer-events: none;
+            user-select: none;
+        }
+        .testimonial-quote {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            line-height: 1.75;
+            color: var(--text-primary);
+            font-weight: 400;
+            font-style: italic;
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+        .testimonial-attribution {
+            border-top: 1px solid var(--border-color);
+            padding-top: 1.25rem;
+        }
+        .testimonial-name {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.2rem;
+        }
+        .testimonial-title {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.4;
+        }
+        @media (max-width: 560px) {
+            .testimonials-grid { max-width: none; }
+            .testimonial-card { padding: 2rem 1.75rem 1.75rem; }
+            .testimonial-quote { font-size: 1.1rem; }
+        }
+
         /* Reduced Motion */
         @media (prefers-reduced-motion: reduce) {
             .reveal {
@@ -1287,6 +1357,22 @@
                 <div class="enterprise-stat">
                     <span class="enterprise-stat-number">5</span>
                     <span class="enterprise-stat-label">Fortune 500 / enterprise clients served</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials-section reveal">
+            <div class="section-header">
+                <h3>What people say</h3>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-quote">"Johnson is a very sound iOS lead. His technical grip as well as leadership skills are the right combination to get projects done... He has excellent communication skills with the team as well as with the customer."</p>
+                    <div class="testimonial-attribution">
+                        <div class="testimonial-name">Alok Kulkarni</div>
+                        <div class="testimonial-title">Principal Architect at Neurealm (CTO Office)</div>
+                    </div>
                 </div>
             </div>
         </section>
