@@ -818,6 +818,61 @@
             .case-study-title { font-size: 1.4rem; }
         }
 
+        /* What I Can Help With Section */
+        .services-section {
+            padding: 6rem 0;
+            border-top: 1px solid var(--border-color);
+        }
+        .services-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            margin-top: 3rem;
+        }
+        .service-item {
+            display: grid;
+            grid-template-columns: 260px 1fr;
+            gap: 2rem 3rem;
+            padding: 2rem 0;
+            border-bottom: 1px solid var(--border-color);
+            align-items: start;
+        }
+        .service-item:first-child {
+            border-top: 1px solid var(--border-color);
+        }
+        .service-label {
+            font-family: var(--font-display);
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            line-height: 1.4;
+            padding-top: 0.15rem;
+        }
+        .service-label::before {
+            content: '';
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background-color: var(--accent);
+            margin-right: 0.75rem;
+            vertical-align: middle;
+            position: relative;
+            top: -1px;
+        }
+        .service-desc {
+            font-size: 1rem;
+            line-height: 1.75;
+            color: var(--text-secondary);
+        }
+        @media (max-width: 640px) {
+            .service-item {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+                padding: 1.75rem 0;
+            }
+        }
+
         /* Reduced Motion */
         @media (prefers-reduced-motion: reduce) {
             .reveal {
@@ -1031,6 +1086,35 @@
                     </a>
                 </div>
 
+            </div>
+        </section>
+
+        <!-- What I Can Help With Section -->
+        <section class="services-section reveal">
+            <div class="section-header">
+                <h3>What I can help with</h3>
+            </div>
+            <div class="services-list">
+                <div class="service-item">
+                    <div class="service-label">iOS Development &amp; Architecture</div>
+                    <div class="service-desc">Building and refactoring iOS apps with Clean Architecture / MVVM, Swift Concurrency, and modern SwiftUI — real track record of turning unstable codebases into reliable ones (96%→99% crash-free, 40-50% fewer production defects)</div>
+                </div>
+                <div class="service-item">
+                    <div class="service-label">On-Device &amp; Cloud AI Integration</div>
+                    <div class="service-desc">Building hybrid AI systems that intelligently choose between local inference (Core ML, MLX, Ollama) and cloud APIs (Gemini) based on confidence — privacy-conscious, cost-conscious AI features for iOS apps</div>
+                </div>
+                <div class="service-item">
+                    <div class="service-label">CI/CD &amp; Release Automation</div>
+                    <div class="service-desc">Cutting build/release cycles from days to minutes (real track record: 30-70% faster releases), automated testing, GitHub Actions pipelines, Homebrew/App Store release automation</div>
+                </div>
+                <div class="service-item">
+                    <div class="service-label">App Stability Engineering</div>
+                    <div class="service-desc">Swift Concurrency migrations (async/await, Actors), thread-safety fixes, crash diagnosis and resolution at production scale</div>
+                </div>
+                <div class="service-item">
+                    <div class="service-label">VoIP &amp; Real-Time Communication</div>
+                    <div class="service-desc">Enterprise voice/video applications, SIP/PJSIP/WebRTC (background depth from 18 years in the space, available if it's the right fit)</div>
+                </div>
             </div>
         </section>
 
