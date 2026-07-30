@@ -345,6 +345,36 @@
             fill: currentColor;
         }
 
+        .status-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.85rem;
+            font-family: var(--font-body);
+            font-weight: 500;
+            color: var(--accent);
+            margin-left: 0.75rem;
+            vertical-align: middle;
+            letter-spacing: normal;
+        }
+        
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: var(--accent);
+            display: inline-block;
+            flex-shrink: 0;
+        }
+        
+        @media (max-width: 768px) {
+            .status-indicator {
+                display: flex;
+                margin-left: 0;
+                margin-top: 0.5rem;
+            }
+        }
+
         /* Sections */
         section {
             padding: 6rem 0;
@@ -1203,7 +1233,7 @@
             <div class="hero-content">
                 <div class="hero-text">
                     <h1>Johnson Elangbam</h1>
-                    <h2>Senior / Staff iOS Engineer</h2>
+                    <h2>Senior / Staff iOS Engineer <span class="status-indicator"><span class="status-dot"></span>Available for work</span></h2>
                     <p class="subheadline">18+ years building iOS apps across enterprise VoIP, automotive, retail, and on-device AI/ML.</p>
                     <div>
                         <div class="location">
