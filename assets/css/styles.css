@@ -396,13 +396,20 @@ h1, h2, h3, h4, h5, h6 {
     fill: currentColor;
 }
 
-/* Hero Right: Photo & Floats */
-.hero-visual {
+.hero-visual-wrapper {
     position: relative;
-    max-width: 400px; /* Matched to the larger screenshot size */
-    width: 100%;
+    width: 100px;
+    height: 100px;
     margin: 0 auto;
-    aspect-ratio: 1; /* Perfectly square */
+}
+.hero-visual {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 500px; /* Base original size */
+    height: 500px;
+    transform: scale(0.2); /* 20% of original */
+    transform-origin: top left;
 }
 .hero-photo {
     width: 100%;
