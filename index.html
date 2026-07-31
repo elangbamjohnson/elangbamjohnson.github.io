@@ -359,6 +359,166 @@
             }
         }
 
+        /* ─── Bento Grid ─────────────────────────────────────────── */
+        .bento-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-template-rows: auto;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        /* Tile base */
+        .bento-tile {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 1.75rem;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+            transition: var(--transition-smooth);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .bento-tile:hover {
+            border-color: var(--border-hover);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.07);
+        }
+
+        /* Grid placement */
+        .bento-profile   { grid-column: 1 / 3; grid-row: 1 / 3; }
+        .bento-flagship  { grid-column: 3 / 5; grid-row: 1 / 2; }
+        .bento-metric-1  { grid-column: 3 / 4; grid-row: 2 / 3; }
+        .bento-metric-2  { grid-column: 4 / 5; grid-row: 2 / 3; }
+        .bento-secondary { grid-column: 1 / 3; grid-row: 3 / 4; }
+        .bento-stack     { grid-column: 3 / 5; grid-row: 3 / 4; }
+
+        /* Profile tile internals */
+        .bento-profile-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.25rem;
+            margin-bottom: 1.25rem;
+        }
+        .bento-profile img {
+            width: 80px;
+            height: 80px;
+            border-radius: 14px;
+            object-fit: cover;
+            border: 1px solid var(--border-color);
+            flex-shrink: 0;
+        }
+        .bento-profile-name {
+            flex: 1;
+        }
+        .bento-profile-name h1 {
+            font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+            margin-bottom: 0.5rem;
+        }
+        .bento-profile-name h2 {
+            font-size: clamp(0.9rem, 1.8vw, 1.1rem);
+            margin-bottom: 0;
+        }
+        .bento-profile p.subheadline {
+            font-size: 1rem;
+            margin-bottom: 0;
+            flex: 1;
+        }
+        .bento-ctas {
+            margin-top: auto;
+            padding-top: 1.5rem;
+        }
+
+        /* Label badge used in project tiles */
+        .bento-label {
+            font-size: 0.72rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent);
+            background: var(--accent-soft);
+            border-radius: 6px;
+            padding: 0.2rem 0.55rem;
+            display: inline-block;
+            margin-bottom: 0.75rem;
+            align-self: flex-start;
+        }
+
+        .bento-project-title {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .bento-project-desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            flex: 1;
+            margin-bottom: 1rem;
+        }
+
+        /* Metric tiles */
+        .bento-metric-value {
+            font-family: var(--font-display);
+            font-size: clamp(1.8rem, 3vw, 2.5rem);
+            font-weight: 600;
+            color: var(--accent);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+        .bento-metric-label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.4;
+        }
+
+        /* Tech stack tile */
+        .bento-stack-title {
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+        .bento-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        /* Responsive: collapse to single column on mobile */
+        @media (max-width: 767px) {
+            .bento-grid {
+                grid-template-columns: 1fr;
+            }
+            .bento-profile,
+            .bento-flagship,
+            .bento-metric-1,
+            .bento-metric-2,
+            .bento-secondary,
+            .bento-stack {
+                grid-column: 1 / 2;
+                grid-row: auto;
+            }
+            .bento-profile img { width: 64px; height: 64px; }
+        }
+
+        @media (min-width: 768px) and (max-width: 1023px) {
+            .bento-grid { grid-template-columns: 1fr 1fr; }
+            .bento-profile   { grid-column: 1 / 3; grid-row: 1 / 2; }
+            .bento-flagship  { grid-column: 1 / 2; grid-row: 2 / 3; }
+            .bento-metric-1  { grid-column: 2 / 3; grid-row: 2 / 3; }
+            .bento-metric-2  { grid-column: 1 / 2; grid-row: 3 / 4; }
+            .bento-secondary { grid-column: 2 / 3; grid-row: 3 / 4; }
+            .bento-stack     { grid-column: 1 / 3; grid-row: 4 / 5; }
+            .bento-profile img { width: 72px; height: 72px; }
+        }
+        /* ─── End Bento Grid ─────────────────────────────────────── */
+
         .hero-resume-btn svg {
             width: 18px;
             height: 18px;
@@ -1250,12 +1410,19 @@
     </nav>
 
     <div class="container">
-        <!-- Hero Section -->
-        <main class="hero reveal active">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <h1>Johnson Elangbam</h1>
-                    <h2>Senior / Staff iOS Engineer <span class="status-indicator"><span class="status-dot"></span>Available for work</span></h2>
+        <!-- Bento Grid Hero -->
+        <main class="hero reveal active" style="min-height: unset; padding-bottom: 3rem; padding-top: 100px;">
+            <div class="bento-grid">
+
+                <!-- 1. Profile Tile -->
+                <div class="bento-tile bento-profile">
+                    <div class="bento-profile-header">
+                        <img src="profile.png" alt="Johnson Elangbam">
+                        <div class="bento-profile-name">
+                            <h1>Johnson Elangbam</h1>
+                            <h2>Senior / Staff iOS Engineer <span class="status-indicator"><span class="status-dot"></span>Available for work</span></h2>
+                        </div>
+                    </div>
                     <p class="subheadline">
                         18+ years building iOS apps across enterprise VoIP, automotive, retail, and on-device AI/ML.<br><br>
                         <span class="location-inline">
@@ -1263,7 +1430,7 @@
                             Based in Imphal, India (Remote-friendly)
                         </span>
                     </p>
-                    <div class="hero-ctas">
+                    <div class="bento-ctas hero-ctas">
                         <a href="assets/resume/Johnson_Elangbam_Resume_July_30_2026.pdf" download class="btn btn-secondary hero-resume-btn" aria-label="Download Johnson Elangbam's resume">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 16l-6-6h4V4h4v6h4l-6 6zm-6 4h12v-2H6v2z"/></svg>
                             Download Resume
@@ -1279,9 +1446,51 @@
                         </div>
                     </div>
                 </div>
-                <div class="hero-photo">
-                    <img src="profile.png" alt="Johnson Elangbam" class="profile-img">
+
+                <!-- 2. Flagship Project Tile — AIAnalyzer -->
+                <div class="bento-tile bento-flagship">
+                    <span class="bento-label">Featured Open Source</span>
+                    <div class="bento-project-title">AIAnalyzer <span style="font-size:0.75em; color:var(--text-secondary); font-family:var(--font-body);">v0.2.0</span></div>
+                    <p class="bento-project-desc">Swift CLI that detects architectural smells and offers AI-powered fix suggestions via four provider modes: Gemini, Ollama, Core ML, and Hybrid.</p>
+                    <a href="https://github.com/elangbamjohnson/AIAnalyzer" target="_blank" rel="noopener noreferrer" class="btn-link">View on GitHub →</a>
                 </div>
+
+                <!-- 3. Metric Tile 1 -->
+                <div class="bento-tile bento-metric-1">
+                    <div class="bento-metric-value">99%</div>
+                    <div class="bento-metric-label"><strong>Crash-free rate</strong> achieved at Neurealm, up from 96%</div>
+                </div>
+
+                <!-- 4. Metric Tile 2 -->
+                <div class="bento-tile bento-metric-2">
+                    <div class="bento-metric-value">30–70%</div>
+                    <div class="bento-metric-label"><strong>Build time reduction</strong> at Cognizant via CI/CD automation</div>
+                </div>
+
+                <!-- 5. Secondary Project Tile — Genesis -->
+                <div class="bento-tile bento-secondary">
+                    <span class="bento-label">Personal Build</span>
+                    <div class="bento-project-title">Genesis — A Personal AI Legacy Platform</div>
+                    <p class="bento-project-desc">A fully local AI system to preserve knowledge, voice, and memory for future generations. SwiftUI + FastAPI + MLX, entirely on-device. No cloud dependency.</p>
+                    <a href="https://github.com/elangbamjohnson/Genesis" target="_blank" rel="noopener noreferrer" class="btn-link">View on GitHub →</a>
+                </div>
+
+                <!-- 6. Tech Stack Tile -->
+                <div class="bento-tile bento-stack">
+                    <div class="bento-stack-title">Core Stack</div>
+                    <div class="bento-tags">
+                        <span class="tag">Swift</span>
+                        <span class="tag">SwiftUI</span>
+                        <span class="tag">Core ML</span>
+                        <span class="tag">Vision</span>
+                        <span class="tag">Async/Await</span>
+                        <span class="tag">CI/CD</span>
+                        <span class="tag">SwiftSyntax</span>
+                        <span class="tag">FastAPI</span>
+                        <span class="tag">MLX</span>
+                    </div>
+                </div>
+
             </div>
         </main>
 
