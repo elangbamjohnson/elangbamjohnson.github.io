@@ -223,7 +223,7 @@ svg    { display: block; flex-shrink: 0; }
 .name-solid {
     font-family: var(--font-serif);
     font-weight: 800;
-    font-size: clamp(3.5rem, 8vw, 6.25rem);
+    font-size: clamp(4.5rem, 9.5vw, 8.5rem);
     color: var(--navy);
     letter-spacing: -0.02em;
 }
@@ -231,7 +231,7 @@ svg    { display: block; flex-shrink: 0; }
     font-family: var(--font-outline);
     font-weight: 400;
     font-style: italic;
-    font-size: clamp(3rem, 7.5vw, 5.85rem);
+    font-size: clamp(4rem, 9vw, 8rem);
     color: transparent;
     -webkit-text-stroke: 1.5px var(--navy);
     letter-spacing: -0.01em;
@@ -343,15 +343,15 @@ svg    { display: block; flex-shrink: 0; }
 
 .hero-photo-wrap {
     position: relative;
-    width: clamp(300px, 32vw, 440px); /* Reduced size */
+    width: clamp(260px, 28vw, 380px); /* Reduced size relative to text */
 }
 
 .hero-photo {
     width: 100%;
     height: auto;
-    aspect-ratio: 1 / 1; /* Changed to a perfect square */
+    aspect-ratio: 380 / 440; /* Slightly taller than it is wide */
     object-fit: cover;
-    border-radius: 44px; /* Slightly more rounded */
+    border-radius: 48px; /* Smooth large rounding */
     box-shadow: 0 30px 80px rgba(26,27,46,0.14);
 }
 
