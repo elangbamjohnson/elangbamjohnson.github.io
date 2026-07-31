@@ -4,603 +4,448 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Johnson Elangbam | Staff iOS Engineer</title>
-    <meta name="description" content="Senior/Staff iOS Engineer specializing in Clean Architecture, Swift Concurrency, and On-Device AI Integration.">
     
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Johnson Elangbam | Staff iOS Engineer">
-    <meta property="og:description" content="Senior/Staff iOS Engineer specializing in Clean Architecture, Swift Concurrency, and On-Device AI Integration.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://elangbamjohnson.github.io/">
-
-    <!-- Favicon -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👨🏽‍💻</text></svg>">
-
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,700;0,800;1,700;1,800&family=Lora:ital,wght@1,400;1,500&display=swap" rel="stylesheet">
-
-    <!-- Stylesheet -->
-    <link rel="stylesheet" href="assets/css/styles.css?v=3">
-
-    <!-- Tailwind CDN (used by dark sections below the hero) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,700;0,800;1,700;1,800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
-            corePlugins: { preflight: false },
             theme: {
                 extend: {
                     fontFamily: {
                         sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
                         serif: ['Playfair Display', 'ui-serif', 'Georgia', 'serif'],
                     },
+                    colors: {
+                        brand: {
+                            light: '#f8f9fa',
+                            orange: '#f97316', /* orange-500 */
+                        }
+                    },
                     keyframes: {
                         float: {
                             '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-8px)' },
+                            '50%': { transform: 'translateY(-10px)' },
                         }
                     },
                     animation: {
-                        'float':              'float 3.5s ease-in-out infinite',
-                        'float-delayed':      'float 3.5s ease-in-out -1.75s infinite',
-                        'float-slow':         'float 4.5s ease-in-out -0.75s infinite',
+                        'float-slow': 'float 4s ease-in-out infinite',
+                        'float-delayed': 'float 4s ease-in-out 2s infinite',
                     }
                 }
             }
         }
     </script>
-    <style>
-        /* FAQ accordion */
-        .faq-item[open] summary ~ * { animation: fadeIn 0.3s ease; }
-        @keyframes fadeIn { from { opacity:0; transform:translateY(-8px); } to { opacity:1; transform:none; } }
-    </style>
 </head>
-<body>
+<body class="bg-[#f8f9fa] text-slate-900 font-sans antialiased overflow-x-hidden selection:bg-orange-500 selection:text-white">
 
-    <!-- Navigation -->
-    <header class="nav" id="navbar">
-        <div class="nav-inner">
-            <a href="#" class="nav-logo">JE<span>.</span></a>
-            
-            <nav class="nav-links">
-                <a href="#">Home</a>
-                <a href="#about">About</a>
-                <a href="#projects">Projects</a>
-                <a href="#enterprise">Enterprise</a>
-                <a href="#faq">FAQ</a>
-                <a href="#contact">Contact</a>
-            </nav>
-
-            <a href="#contact" class="nav-cta">Hire Me &rarr;</a>
-            <button class="nav-hamburger" aria-label="Toggle menu">&#9776;</button>
+    <!-- Floating Sticky Navbar -->
+    <nav class="sticky top-4 z-50 max-w-4xl mx-auto rounded-full bg-white/80 backdrop-blur-md shadow-sm border border-gray-100 flex items-center justify-between px-6 py-3 transition-all">
+        <!-- Logo -->
+        <a href="#" class="font-serif text-2xl font-bold tracking-tight">JE.</a>
+        
+        <!-- Links -->
+        <div class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-600">
+            <a href="#" class="hover:text-black transition-colors">Home</a>
+            <a href="#about" class="hover:text-black transition-colors">About</a>
+            <a href="#projects" class="hover:text-black transition-colors">Projects</a>
+            <a href="#enterprise" class="hover:text-black transition-colors">Enterprise</a>
+            <a href="#services" class="hover:text-black transition-colors">FAQ</a>
+            <a href="#contact" class="hover:text-black transition-colors">Contact</a>
         </div>
-    </header>
+        
+        <!-- CTA -->
+        <a href="#contact" class="bg-black text-white rounded-full px-6 py-2 text-sm font-medium hover:bg-slate-800 transition-colors">Hire Me</a>
+    </nav>
 
     <main>
-        <!-- ===== HERO SECTION ===== -->
-        <section id="hero" class="hero">
-            <div class="hero-inner">
-
-                <!-- ── LEFT COLUMN ── -->
-                <div class="hero-left">
-
-                    <!-- 1. Pill badge -->
-                    <div class="hero-badge">
-                        <span class="ping-wrapper">
-                            <span class="ping-ring"></span>
-                            <span class="ping-dot"></span>
-                        </span>
-                        Available for work
-                    </div>
-
-                    <!-- 2–3. Name -->
-                    <h1 class="hero-name">
-                        <span class="name-solid">Johnson</span>
-                        <span class="name-outline">Elangbam</span>
+        <!-- HERO SECTION -->
+        <section id="hero" class="relative max-w-7xl mx-auto px-6 pt-32 pb-24 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            
+            <!-- Left Content -->
+            <div class="flex flex-col items-start space-y-8">
+                
+                <!-- Availability Pill -->
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-gray-200 shadow-sm text-sm font-medium">
+                    <span class="relative flex h-3 w-3">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+                    </span>
+                    Available for work
+                </div>
+                
+                <!-- Massive Header -->
+                <div class="leading-[0.9]">
+                    <h1 class="font-serif text-[6rem] md:text-[8rem] font-bold text-black tracking-tight">
+                        Johnson
                     </h1>
-
-                    <!-- 4. Subheading -->
-                    <p class="hero-sub">Senior / Staff iOS Engineer</p>
-
-                    <!-- 5. Body paragraph -->
-                    <p class="hero-body">
-                        18+ years building iOS apps across enterprise VoIP,
-                        automotive, retail, and on-device AI/ML.
-                    </p>
-
-                    <!-- 6. Location -->
-                    <div class="hero-location">
-                        <svg class="pin-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 0c-4.198 0-8 3.403-8 7.602 0 4.198 3.469 9.21 8 16.398 4.531-7.188 8-12.2 8-16.398 0-4.199-3.801-7.602-8-7.602zm0 11c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3z"/></svg>
-                        Based in Imphal, India &mdash; Remote&#8209;friendly
-                    </div>
-
-                    <!-- 7. CTA buttons -->
-                    <div class="hero-ctas">
-                        <a href="assets/resume/Johnson_Elangbam_Resume_July_30_2026.pdf"
-                           target="_blank" rel="noopener noreferrer"
-                           class="btn btn-dark">
-                            <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
-                            Download Resume
-                        </a>
-                        <a href="#contact" class="btn btn-outline">Full&#8209;time hire?</a>
-                        <a href="#contact" class="btn btn-outline">Freelance project?</a>
-                    </div>
-
-                    <!-- 8. Scroll indicator -->
-                    <div class="hero-scroll">
-                        <span class="scroll-label">SCROLL</span>
-                        <svg class="scroll-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
-                    </div>
-
+                    <h1 class="font-serif text-[5.5rem] md:text-[7.5rem] font-normal italic text-transparent [-webkit-text-stroke:1.5px_black] tracking-tight">
+                        Elangbam
+                    </h1>
                 </div>
-
-                <!-- ── RIGHT COLUMN ── -->
-                <div class="hero-right">
-
-                    <!-- Profile photo -->
-                    <div class="hero-photo-wrap">
-                        <img src="profile.png" alt="Johnson Elangbam" class="hero-photo" width="360" height="380">
-
-                        <!-- Stat card 1: 99% — top-left -->
-                        <div class="stat-card stat-card--tl">
-                            <div class="stat-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
-                            </div>
-                            <div class="stat-text">
-                                <strong class="stat-number">99%</strong>
-                                <span class="stat-label">Crash-free rate</span>
-                            </div>
-                        </div>
-
-                        <!-- Stat card 2: 30-70% — bottom-right -->
-                        <div class="stat-card stat-card--br">
-                            <div class="stat-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 21h-1l1-7H7.5c-.58 0-.57-.32-.38-.66C7.67 12.24 10.72 7 13 3h1l-1 7h3.5c.49 0 .56.33.47.51l-.07.15C12.96 17.55 11 21 11 21z"/></svg>
-                            </div>
-                            <div class="stat-text">
-                                <strong class="stat-number">30&ndash;70%</strong>
-                                <span class="stat-label">Build time faster</span>
-                            </div>
-                        </div>
-
-                        <!-- Pill: 18+ years iOS — bottom-left -->
-                        <div class="stat-pill stat-pill--bl">
-                            <span class="pill-dot"></span>
-                            18+ years iOS
-                        </div>
-
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- Status Banner -->
-        <section id="status-banner">
-            <div class="container">
-                <div class="status-pill">
-                    <span class="status-dot"></span>
-                    WHAT I'M WORKING ON NOW
-                </div>
-                <p>
-                    Currently maintaining <strong>AIAnalyzer</strong> — an open-source Swift static analysis CLI with hybrid on-device/cloud AI fix suggestions, recently shipped v0.2.0 with automated Homebrew releases. Also open to Staff/Lead iOS roles and freelance engagements in iOS development and on-device AI integration.
+                
+                <!-- Subtitle -->
+                <p class="text-xl md:text-2xl font-medium text-slate-500">
+                    Senior / Staff iOS Engineer
                 </p>
+                
+                <!-- Buttons -->
+                <div class="flex flex-wrap items-center gap-6 pt-4">
+                    <a href="assets/resume/Johnson_Elangbam_Resume_July_30_2026.pdf" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-black text-white rounded-full px-8 py-4 font-semibold hover:bg-slate-800 transition-all shadow-lg hover:shadow-xl hover:-translate-y-1">
+                        <svg class="w-5 h-5 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                        Download Resume
+                    </a>
+                    <a href="#contact" class="font-medium text-slate-600 hover:text-black underline underline-offset-4 decoration-slate-300 hover:decoration-black transition-colors">Full-time hire?</a>
+                    <a href="#contact" class="font-medium text-slate-600 hover:text-black underline underline-offset-4 decoration-slate-300 hover:decoration-black transition-colors">Freelance project?</a>
+                </div>
+            </div>
+
+            <!-- Right Content (Profile) -->
+            <div class="relative w-full max-w-md mx-auto lg:ml-auto aspect-[4/5]">
+                
+                <!-- Profile Image -->
+                <img src="profile.png" alt="Johnson Elangbam" class="w-full h-full object-cover rounded-3xl shadow-2xl">
+                
+                <!-- Glassmorphism Pills -->
+                
+                <!-- Top Left Badge -->
+                <div class="absolute -top-6 -left-12 md:-left-20 bg-white/70 backdrop-blur-md rounded-2xl p-4 shadow-lg border border-white/50 flex items-center gap-4 animate-float-slow">
+                    <div class="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center">
+                        <svg class="w-5 h-5 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <div>
+                        <div class="font-serif text-2xl font-bold text-black">99%</div>
+                        <div class="text-xs font-medium text-slate-500 uppercase tracking-wide">Crash-free rate</div>
+                    </div>
+                </div>
+                
+                <!-- Bottom Right Badge -->
+                <div class="absolute bottom-16 -right-12 md:-right-16 bg-white/70 backdrop-blur-md rounded-2xl p-4 shadow-lg border border-white/50 flex items-center gap-4 animate-float-delayed">
+                    <div class="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center">
+                        <svg class="w-5 h-5 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    </div>
+                    <div>
+                        <div class="font-serif text-2xl font-bold text-black">30-70%</div>
+                        <div class="text-xs font-medium text-slate-500 uppercase tracking-wide">Build time reduction</div>
+                    </div>
+                </div>
+
+                <!-- Bottom Center Badge -->
+                <div class="absolute -bottom-6 left-1/2 -translate-x-1/2 bg-white/70 backdrop-blur-md rounded-full px-6 py-3 shadow-lg border border-white/50 flex items-center gap-3 animate-float-slow">
+                    <span class="w-2.5 h-2.5 rounded-full bg-orange-500"></span>
+                    <span class="font-bold text-black text-sm whitespace-nowrap">18+ years iOS</span>
+                </div>
+                
+            </div>
+            
+        </section>
+
+        <!-- ABOUT SECTION -->
+        <section id="about" class="bg-slate-900 text-white py-32 rounded-t-[3rem]">
+            <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                
+                <!-- Left: Text content -->
+                <div class="space-y-8">
+                    <!-- Working On Pill -->
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-slate-700 bg-slate-800 text-xs font-bold text-slate-300 tracking-wider">
+                        <span class="w-2 h-2 rounded-full bg-orange-500"></span>
+                        WHAT I'M WORKING ON NOW
+                    </div>
+                    
+                    <p class="text-slate-400 text-lg leading-relaxed max-w-xl">
+                        Currently maintaining <strong class="text-white">AIAnalyzer</strong> — an open-source Swift static analysis CLI. I specialize in untangling legacy code, establishing clean MVVM architectures, and driving modern Swift concurrency adoption.
+                    </p>
+                    
+                    <h2 class="font-serif text-5xl md:text-6xl font-bold leading-tight">
+                        Engineer who builds AI-enabled, production-grade iOS systems.
+                    </h2>
+                </div>
+                
+                <!-- Right: Metrics -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 lg:pl-12">
+                    <div class="space-y-2">
+                        <div class="font-serif text-6xl md:text-7xl font-bold text-orange-500">99%</div>
+                        <div class="text-xl font-bold text-white">Crash-free reliability</div>
+                        <p class="text-slate-400">Track record of reducing production defect rates across massive userbases.</p>
+                    </div>
+                    <div class="space-y-2">
+                        <div class="font-serif text-6xl md:text-7xl font-bold text-orange-500">30-70%</div>
+                        <div class="text-xl font-bold text-white">Faster build pipelines</div>
+                        <p class="text-slate-400">Via optimized CI/CD workflows and aggressive modularization.</p>
+                    </div>
+                </div>
+                
             </div>
         </section>
 
-        <!-- Projects (Bento Grid) -->
-        <section id="projects" class="py-24">
+        <!-- PROJECTS SECTION (BENTO GRID) -->
+        <section id="projects" class="py-32">
             <div class="max-w-7xl mx-auto px-6">
-                <div class="flex justify-between items-end mb-12 reveal">
+                
+                <!-- Header -->
+                <div class="flex flex-col md:flex-row md:justify-between md:items-end mb-16 gap-6">
                     <div>
-                        <span class="text-amber-500 font-bold text-xs tracking-widest uppercase mb-2 block">Selected Work</span>
-                        <h2 class="font-serif text-4xl md:text-5xl text-white font-bold">Featured Projects</h2>
+                        <span class="text-orange-500 font-bold text-sm tracking-widest uppercase mb-3 block">Selected Projects</span>
+                        <h2 class="font-serif text-4xl md:text-5xl font-bold text-black">What I've been building.</h2>
                     </div>
-                    <a href="https://github.com/elangbamjohnson" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-2 text-slate-400 hover:text-amber-500 transition-colors">
-                        View all on GitHub &rarr;
+                    <a href="https://github.com/elangbamjohnson" target="_blank" rel="noopener noreferrer" class="font-medium text-slate-500 hover:text-orange-500 transition-colors flex items-center gap-2">
+                        View all on GitHub <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                     </a>
                 </div>
                 
+                <!-- Grid -->
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     
-                    <!-- AIAnalyzer (Spans 2 cols on Large) -->
-                    <div class="col-span-1 md:col-span-2 lg:col-span-2 bg-slate-900/50 border border-slate-800 rounded-3xl p-8 backdrop-blur-sm hover:border-slate-700 hover:bg-slate-900 transition-all group flex flex-col justify-between reveal">
+                    <!-- Card 1 -->
+                    <div class="col-span-1 md:col-span-2 lg:col-span-2 bg-white rounded-3xl p-8 md:p-10 shadow-sm border border-gray-100 flex flex-col justify-between hover:shadow-md transition-shadow">
                         <div>
                             <div class="flex flex-wrap gap-2 mb-6">
-                                <span class="text-xs font-semibold px-3 py-1 rounded-full border border-amber-500/30 text-amber-500 bg-amber-500/10">Swift</span>
-                                <span class="text-xs font-semibold px-3 py-1 rounded-full border border-slate-700 text-slate-300 bg-slate-800">CLI</span>
-                                <span class="text-xs font-semibold px-3 py-1 rounded-full border border-slate-700 text-slate-300 bg-slate-800">Static Analysis</span>
-                                <span class="text-xs font-semibold px-3 py-1 rounded-full border border-slate-700 text-slate-300 bg-slate-800">AI</span>
+                                <span class="text-xs font-bold px-3 py-1 rounded-full bg-slate-100 text-slate-600">Swift</span>
+                                <span class="text-xs font-bold px-3 py-1 rounded-full bg-slate-100 text-slate-600">CLI</span>
+                                <span class="text-xs font-bold px-3 py-1 rounded-full bg-orange-100 text-orange-600">AI / ML</span>
                             </div>
-                            <h3 class="font-serif text-3xl text-white font-bold mb-4">AIAnalyzer</h3>
-                            <p class="text-slate-400 mb-8 max-w-2xl leading-relaxed">
-                                A Swift CLI that detects architectural smells (God Objects, Large Classes) via SwiftSyntax and offers AI-powered fix suggestions. Features intelligent fallback logic, defaulting to local inference (Core ML/Ollama) and escalating to Gemini only when confidence is low.
+                            <h3 class="font-serif text-3xl font-bold text-black mb-4">AIAnalyzer</h3>
+                            <p class="text-slate-500 leading-relaxed mb-8 max-w-2xl text-lg">
+                                A Swift CLI that detects architectural smells (God Objects, Large Classes) via SwiftSyntax and offers AI-powered fix suggestions. Features intelligent fallback logic, defaulting to local inference (Ollama/Core ML) and escalating to Gemini only when confidence is low.
                             </p>
                         </div>
-                        <div class="flex flex-wrap gap-3">
-                            <a href="https://github.com/elangbamjohnson/AIAnalyzer" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white text-slate-950 font-medium hover:bg-slate-200 transition-colors">View Code &rarr;</a>
-                            <button onclick="openVideoModal()" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-slate-800 text-white font-medium hover:bg-slate-700 transition-colors">Watch Demo</button>
-                            <button onclick="openCaseStudy()" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-amber-500/10 text-amber-500 font-medium hover:bg-amber-500/20 transition-colors">Read Case Study</button>
-                        </div>
+                        <a href="https://github.com/elangbamjohnson/AIAnalyzer" target="_blank" rel="noopener noreferrer" class="inline-flex self-start items-center gap-2 px-6 py-3 rounded-full bg-black text-white font-medium hover:bg-slate-800 transition-colors">
+                            View on GitHub
+                        </a>
                     </div>
 
-                    <!-- Genesis (Tall card) -->
-                    <div class="col-span-1 lg:col-span-1 bg-slate-900/50 border border-slate-800 rounded-3xl p-8 backdrop-blur-sm hover:border-slate-700 hover:bg-slate-900 transition-all group flex flex-col justify-between reveal">
+                    <!-- Card 2 -->
+                    <div class="col-span-1 bg-white rounded-3xl p-8 md:p-10 shadow-sm border border-gray-100 flex flex-col justify-between hover:shadow-md transition-shadow">
                         <div>
                             <div class="flex flex-wrap gap-2 mb-6">
-                                <span class="text-xs font-semibold px-3 py-1 rounded-full border border-amber-500/30 text-amber-500 bg-amber-500/10">SwiftUI</span>
-                                <span class="text-xs font-semibold px-3 py-1 rounded-full border border-slate-700 text-slate-300 bg-slate-800">MLX</span>
+                                <span class="text-xs font-bold px-3 py-1 rounded-full bg-slate-100 text-slate-600">SwiftUI</span>
+                                <span class="text-xs font-bold px-3 py-1 rounded-full bg-orange-100 text-orange-600">MLX</span>
                             </div>
-                            <h3 class="font-serif text-2xl text-white font-bold mb-4">Genesis</h3>
-                            <p class="text-slate-400 mb-8 leading-relaxed">
+                            <h3 class="font-serif text-2xl font-bold text-black mb-4">Genesis</h3>
+                            <p class="text-slate-500 leading-relaxed mb-8">
                                 A full-stack, fully local AI system designed to preserve knowledge. SwiftUI iOS front end backed by a FastAPI + local MLX inference engine, running entirely on-device with zero cloud dependency.
                             </p>
                         </div>
-                        <a href="https://github.com/elangbamjohnson/Genesis" target="_blank" rel="noopener noreferrer" class="inline-flex self-start items-center gap-2 px-5 py-2.5 rounded-full bg-slate-800 text-white font-medium hover:bg-slate-700 transition-colors">View Code &rarr;</a>
+                        <a href="https://github.com/elangbamjohnson/Genesis" target="_blank" rel="noopener noreferrer" class="inline-flex self-start items-center gap-2 px-6 py-3 rounded-full bg-black text-white font-medium hover:bg-slate-800 transition-colors">
+                            View on GitHub
+                        </a>
                     </div>
                     
-                    <!-- Smart Attendance -->
-                    <div class="col-span-1 bg-slate-900/50 border border-slate-800 rounded-3xl p-8 backdrop-blur-sm hover:border-slate-700 hover:bg-slate-900 transition-all flex flex-col justify-between reveal">
+                    <!-- Card 3 -->
+                    <div class="col-span-1 bg-white rounded-3xl p-8 shadow-sm border border-gray-100 flex flex-col justify-between hover:shadow-md transition-shadow">
                         <div>
                             <div class="flex flex-wrap gap-2 mb-6">
-                                <span class="text-xs font-semibold px-3 py-1 rounded-full border border-amber-500/30 text-amber-500 bg-amber-500/10">Core ML</span>
-                                <span class="text-xs font-semibold px-3 py-1 rounded-full border border-slate-700 text-slate-300 bg-slate-800">Vision</span>
+                                <span class="text-xs font-bold px-3 py-1 rounded-full bg-slate-100 text-slate-600">Core ML</span>
+                                <span class="text-xs font-bold px-3 py-1 rounded-full bg-slate-100 text-slate-600">Vision</span>
                             </div>
-                            <h3 class="font-serif text-2xl text-white font-bold mb-4">Smart Attendance System</h3>
-                            <p class="text-slate-400 mb-8">iOS prototype for facial recognition attendance via Vision and custom Core ML models, processing entirely on-device.</p>
+                            <h3 class="font-serif text-2xl font-bold text-black mb-4">Smart Attendance</h3>
+                            <p class="text-slate-500 leading-relaxed mb-8">iOS prototype for facial recognition attendance via Vision and custom Core ML models, processing entirely on-device.</p>
                         </div>
-                        <a href="https://github.com/elangbamjohnson/Smart_Attendance_System" target="_blank" rel="noopener noreferrer" class="inline-flex self-start items-center gap-2 px-5 py-2.5 rounded-full bg-slate-800 text-white font-medium hover:bg-slate-700 transition-colors">View Code &rarr;</a>
-                    </div>
-
-                    <!-- Meitei Mayek -->
-                    <div class="col-span-1 bg-slate-900/50 border border-slate-800 rounded-3xl p-8 backdrop-blur-sm hover:border-slate-700 hover:bg-slate-900 transition-all flex flex-col justify-between reveal">
-                        <div>
-                            <div class="flex flex-wrap gap-2 mb-6">
-                                <span class="text-xs font-semibold px-3 py-1 rounded-full border border-amber-500/30 text-amber-500 bg-amber-500/10">OCR</span>
-                                <span class="text-xs font-semibold px-3 py-1 rounded-full border border-slate-700 text-slate-300 bg-slate-800">Computer Vision</span>
-                            </div>
-                            <h3 class="font-serif text-2xl text-white font-bold mb-4">Meitei Mayek Transliterator</h3>
-                            <p class="text-slate-400 mb-8">iOS app for OCR extraction and transliteration of the Meitei Mayek script with a custom glyph recognition pipeline.</p>
-                        </div>
-                        <a href="https://github.com/elangbamjohnson/MeiteiMayekTransliterator" target="_blank" rel="noopener noreferrer" class="inline-flex self-start items-center gap-2 px-5 py-2.5 rounded-full bg-slate-800 text-white font-medium hover:bg-slate-700 transition-colors">View Code &rarr;</a>
+                        <a href="https://github.com/elangbamjohnson/Smart_Attendance_System" target="_blank" rel="noopener noreferrer" class="inline-flex self-start items-center gap-2 px-6 py-2.5 rounded-full bg-black text-white text-sm font-medium hover:bg-slate-800 transition-colors">
+                            View Code
+                        </a>
                     </div>
                     
-                    <!-- SeekAndDestroy -->
-                    <div class="col-span-1 md:col-span-2 lg:col-span-1 bg-slate-900/50 border border-slate-800 rounded-3xl p-8 backdrop-blur-sm hover:border-slate-700 hover:bg-slate-900 transition-all flex flex-col justify-between reveal">
+                    <!-- Card 4 -->
+                    <div class="col-span-1 bg-white rounded-3xl p-8 shadow-sm border border-gray-100 flex flex-col justify-between hover:shadow-md transition-shadow">
                         <div>
                             <div class="flex flex-wrap gap-2 mb-6">
-                                <span class="text-xs font-semibold px-3 py-1 rounded-full border border-amber-500/30 text-amber-500 bg-amber-500/10">macOS</span>
-                                <span class="text-xs font-semibold px-3 py-1 rounded-full border border-slate-700 text-slate-300 bg-slate-800">Security</span>
+                                <span class="text-xs font-bold px-3 py-1 rounded-full bg-slate-100 text-slate-600">OCR</span>
+                                <span class="text-xs font-bold px-3 py-1 rounded-full bg-slate-100 text-slate-600">Computer Vision</span>
                             </div>
-                            <h3 class="font-serif text-2xl text-white font-bold mb-4">SeekAndDestroy</h3>
-                            <p class="text-slate-400 mb-8">A macOS security scanner for Apple Silicon covering hashing, signatures, YARA, and FSEvents.</p>
+                            <h3 class="font-serif text-2xl font-bold text-black mb-4">Meitei Mayek Transliterator</h3>
+                            <p class="text-slate-500 leading-relaxed mb-8">iOS app for OCR extraction and transliteration of the Meitei Mayek script with a custom glyph recognition pipeline.</p>
                         </div>
-                        <a href="https://github.com/elangbamjohnson/SeekAndDestroy" target="_blank" rel="noopener noreferrer" class="inline-flex self-start items-center gap-2 px-5 py-2.5 rounded-full bg-slate-800 text-white font-medium hover:bg-slate-700 transition-colors">View Code &rarr;</a>
+                        <a href="https://github.com/elangbamjohnson/MeiteiMayekTransliterator" target="_blank" rel="noopener noreferrer" class="inline-flex self-start items-center gap-2 px-6 py-2.5 rounded-full bg-black text-white text-sm font-medium hover:bg-slate-800 transition-colors">
+                            View Code
+                        </a>
                     </div>
                     
-                    <!-- BLE Robot -->
-                    <div class="col-span-1 md:col-span-2 lg:col-span-3 bg-slate-900/50 border border-slate-800 rounded-3xl p-8 backdrop-blur-sm hover:border-slate-700 hover:bg-slate-900 transition-all flex flex-col md:flex-row gap-8 justify-between items-start md:items-center reveal">
-                        <div class="max-w-3xl">
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="text-xs font-semibold px-3 py-1 rounded-full border border-amber-500/30 text-amber-500 bg-amber-500/10">Bluetooth LE</span>
-                                <span class="text-xs font-semibold px-3 py-1 rounded-full border border-slate-700 text-slate-300 bg-slate-800">IoT</span>
+                    <!-- Card 5 -->
+                    <div class="col-span-1 bg-white rounded-3xl p-8 shadow-sm border border-gray-100 flex flex-col justify-between hover:shadow-md transition-shadow">
+                        <div>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="text-xs font-bold px-3 py-1 rounded-full bg-slate-100 text-slate-600">macOS</span>
+                                <span class="text-xs font-bold px-3 py-1 rounded-full bg-slate-100 text-slate-600">Security</span>
                             </div>
-                            <h3 class="font-serif text-2xl text-white font-bold mb-2">BLE Robot Controller</h3>
-                            <p class="text-slate-400">iOS application for controlling a robot over Bluetooth Low Energy, demonstrating hardware and IoT integration capabilities alongside mobile development work.</p>
+                            <h3 class="font-serif text-2xl font-bold text-black mb-4">SeekAndDestroy</h3>
+                            <p class="text-slate-500 leading-relaxed mb-8">A macOS security scanner for Apple Silicon covering hashing, signatures, YARA, and FSEvents.</p>
                         </div>
-                        <a href="https://github.com/elangbamjohnson/BLERobotController" target="_blank" rel="noopener noreferrer" class="inline-flex flex-shrink-0 items-center gap-2 px-5 py-2.5 rounded-full bg-slate-800 text-white font-medium hover:bg-slate-700 transition-colors">View Code &rarr;</a>
+                        <a href="https://github.com/elangbamjohnson/SeekAndDestroy" target="_blank" rel="noopener noreferrer" class="inline-flex self-start items-center gap-2 px-6 py-2.5 rounded-full bg-black text-white text-sm font-medium hover:bg-slate-800 transition-colors">
+                            View Code
+                        </a>
                     </div>
-
+                    
                 </div>
             </div>
         </section>
 
-        <!-- About Section -->
-        <section id="about" class="py-24 bg-slate-900/30 border-y border-slate-800">
-            <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16">
-                <div class="reveal">
-                    <span class="text-amber-500 font-bold text-xs tracking-widest uppercase mb-4 block">About Me</span>
-                    <h2 class="font-serif text-4xl md:text-5xl text-white font-bold italic mb-6 leading-tight">Turning complex requirements into resilient iOS architectures.</h2>
-                    <div class="w-16 h-1 bg-amber-500 mb-8 rounded-full"></div>
-                    <div class="space-y-6 text-slate-400 text-lg leading-relaxed">
-                        <p>I specialize in untangling legacy code, establishing clean MVVM architectures, and driving modern Swift concurrency adoption. But beyond just writing code, my core focus is <strong class="text-white">shipping stability</strong>.</p>
-                        <p>Over the past 18 years, I've seen exactly how apps fail at scale. Whether it's memory leaks, race conditions, or deeply coupled God Objects, I bring the engineering rigor needed to fix those fundamental issues while keeping feature delivery fast.</p>
-                        <p>Currently, I'm highly focused on the intersection of <strong class="text-white">mobile engineering and artificial intelligence</strong> — specifically building systems that make smart decisions about when to run inference locally on-device versus calling out to the cloud.</p>
-                    </div>
-                </div>
-                
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 reveal">
-                    <div class="bg-slate-900 border border-slate-800 rounded-3xl p-8">
-                        <div class="font-serif text-5xl text-amber-500 font-bold mb-4">18</div>
-                        <strong class="block text-white mb-2">Years in Software</strong>
-                        <p class="text-sm text-slate-400">From early iOS to modern Swift Concurrency</p>
-                    </div>
-                    <div class="bg-slate-900 border border-slate-800 rounded-3xl p-8">
-                        <div class="font-serif text-5xl text-amber-500 font-bold mb-4">40%</div>
-                        <strong class="block text-white mb-2">Fewer Bugs</strong>
-                        <p class="text-sm text-slate-400">Track record of reducing production defect rates</p>
-                    </div>
-                    <div class="bg-slate-900 border border-slate-800 rounded-3xl p-8">
-                        <div class="font-serif text-5xl text-amber-500 font-bold mb-4">30%</div>
-                        <strong class="block text-white mb-2">Faster Builds</strong>
-                        <p class="text-sm text-slate-400">Via optimized CI/CD pipelines</p>
-                    </div>
-                    <div class="bg-slate-900 border border-slate-800 rounded-3xl p-8">
-                        <div class="font-serif text-5xl text-amber-500 font-bold mb-4">5+</div>
-                        <strong class="block text-white mb-2">Enterprise Clients</strong>
-                        <p class="text-sm text-slate-400">Ford, Domino's, AutoZone, Avaya</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Services Section -->
+        <!-- SERVICES SECTION -->
         <section id="services" class="py-24">
             <div class="max-w-7xl mx-auto px-6">
-                <span class="text-amber-500 font-bold text-xs tracking-widest uppercase mb-2 block">Capabilities</span>
-                <h2 class="font-serif text-4xl md:text-5xl text-white font-bold italic mb-16">What I can help with</h2>
+                
+                <div class="mb-16">
+                    <span class="text-orange-500 font-bold text-sm tracking-widest uppercase mb-3 block">What I can help with</span>
+                    <h2 class="font-serif text-4xl md:text-5xl font-bold text-black">Services</h2>
+                </div>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="bg-slate-900/50 border border-slate-800 rounded-3xl p-8 hover:bg-slate-900 transition-colors reveal">
-                        <div class="w-14 h-14 rounded-full bg-amber-500/10 flex items-center justify-center text-amber-500 mb-6">
-                            <svg class="w-7 h-7 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-2 17h-2v-10h2v10zm4-10h-2v10h2v-10z"/></svg>
+                    
+                    <div class="bg-white rounded-3xl p-10 shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                        <div class="w-14 h-14 rounded-2xl bg-slate-50 flex items-center justify-center mb-6">
+                            <span class="text-2xl">🏗️</span>
                         </div>
-                        <h4 class="font-serif text-2xl text-white font-bold mb-4">iOS Architecture & Refactoring</h4>
-                        <p class="text-slate-400 leading-relaxed">Building and refactoring iOS apps with Clean Architecture / MVVM, Swift Concurrency, and modern SwiftUI. Real track record of turning unstable codebases into reliable ones (96%→99% crash-free, 40-50% fewer production defects).</p>
+                        <h4 class="font-serif text-2xl font-bold text-black mb-4">iOS Architecture & Refactoring</h4>
+                        <p class="text-slate-500 leading-relaxed">Building and refactoring iOS apps with Clean Architecture / MVVM, Swift Concurrency, and modern SwiftUI. Real track record of turning unstable codebases into reliable ones.</p>
                     </div>
                     
-                    <div class="bg-slate-900/50 border border-slate-800 rounded-3xl p-8 hover:bg-slate-900 transition-colors reveal">
-                        <div class="w-14 h-14 rounded-full bg-amber-500/10 flex items-center justify-center text-amber-500 mb-6">
-                            <svg class="w-7 h-7 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-3.5 13.5c-.828 0-1.5-.672-1.5-1.5s.672-1.5 1.5-1.5 1.5.672 1.5 1.5-.672 1.5-1.5 1.5zm7 0c-.828 0-1.5-.672-1.5-1.5s.672-1.5 1.5-1.5 1.5.672 1.5 1.5-.672 1.5-1.5 1.5z"/></svg>
+                    <div class="bg-white rounded-3xl p-10 shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                        <div class="w-14 h-14 rounded-2xl bg-orange-50 flex items-center justify-center mb-6">
+                            <span class="text-2xl">🧠</span>
                         </div>
-                        <h4 class="font-serif text-2xl text-white font-bold mb-4">On-Device & Cloud AI Integration</h4>
-                        <p class="text-slate-400 leading-relaxed">Building hybrid AI systems that intelligently choose between local inference (Core ML, MLX, Ollama) and cloud APIs (Gemini) based on confidence. Privacy-conscious, cost-conscious AI features for iOS apps.</p>
+                        <h4 class="font-serif text-2xl font-bold text-black mb-4">On-Device AI Integration</h4>
+                        <p class="text-slate-500 leading-relaxed">Building hybrid AI systems that intelligently choose between local inference (Core ML, MLX, Ollama) and cloud APIs. Privacy-conscious, cost-conscious AI features for iOS apps.</p>
                     </div>
                     
-                    <div class="bg-slate-900/50 border border-slate-800 rounded-3xl p-8 hover:bg-slate-900 transition-colors reveal">
-                        <div class="w-14 h-14 rounded-full bg-amber-500/10 flex items-center justify-center text-amber-500 mb-6">
-                            <svg class="w-7 h-7 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 12h-14v-2h14v2zm0 4h-14v-2h14v2zm0 4h-14v-2h14v2zm-14-16h14v2h-14v-2z"/></svg>
+                    <div class="bg-white rounded-3xl p-10 shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                        <div class="w-14 h-14 rounded-2xl bg-slate-50 flex items-center justify-center mb-6">
+                            <span class="text-2xl">⚡</span>
                         </div>
-                        <h4 class="font-serif text-2xl text-white font-bold mb-4">CI/CD & Release Automation</h4>
-                        <p class="text-slate-400 leading-relaxed">Cutting build/release cycles from days to minutes (real track record: 30-70% faster releases), automated testing, GitHub Actions pipelines, Homebrew/App Store release automation.</p>
+                        <h4 class="font-serif text-2xl font-bold text-black mb-4">CI/CD & Release Automation</h4>
+                        <p class="text-slate-500 leading-relaxed">Cutting build/release cycles from days to minutes, automated testing, GitHub Actions pipelines, Homebrew, and App Store release automation.</p>
                     </div>
                     
-                    <div class="bg-slate-900/50 border border-slate-800 rounded-3xl p-8 hover:bg-slate-900 transition-colors reveal">
-                        <div class="w-14 h-14 rounded-full bg-amber-500/10 flex items-center justify-center text-amber-500 mb-6">
-                            <svg class="w-7 h-7 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-1.25 17.292l-4.5-4.364 1.857-1.858 2.643 2.506 5.643-5.784 1.857 1.857-7.5 7.643z"/></svg>
+                    <div class="bg-white rounded-3xl p-10 shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                        <div class="w-14 h-14 rounded-2xl bg-slate-50 flex items-center justify-center mb-6">
+                            <span class="text-2xl">🛡️</span>
                         </div>
-                        <h4 class="font-serif text-2xl text-white font-bold mb-4">App Stability Engineering</h4>
-                        <p class="text-slate-400 leading-relaxed">Swift Concurrency migrations (async/await, Actors), thread-safety fixes, crash diagnosis and resolution at production scale.</p>
+                        <h4 class="font-serif text-2xl font-bold text-black mb-4">App Stability Engineering</h4>
+                        <p class="text-slate-500 leading-relaxed">Swift Concurrency migrations (async/await, Actors), thread-safety fixes, crash diagnosis and resolution at production scale.</p>
                     </div>
+                    
                 </div>
             </div>
         </section>
 
-        <!-- Enterprise Experience -->
-        <section id="enterprise" class="py-24 bg-slate-900/30 border-y border-slate-800">
+        <!-- ENTERPRISE EXPERIENCE -->
+        <section id="enterprise" class="py-32">
             <div class="max-w-7xl mx-auto px-6">
-                <span class="text-amber-500 font-bold text-xs tracking-widest uppercase mb-2 block">Track Record</span>
-                <h2 class="font-serif text-4xl md:text-5xl text-white font-bold mb-16">Enterprise Experience</h2>
                 
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
-                    <div class="lg:col-span-2 space-y-4 reveal">
-                        <div class="flex items-center gap-6 p-6 rounded-2xl border border-slate-800 bg-slate-900/50 hover:bg-slate-900 transition-colors">
-                            <div class="text-3xl w-14 h-14 flex items-center justify-center bg-slate-800 rounded-full flex-shrink-0">🚗</div>
-                            <div>
-                                <h4 class="font-serif text-xl font-bold text-white mb-1">Ford Motors</h4>
-                                <p class="text-slate-400 text-sm">Automotive • CI/CD automation cutting release cycles to minutes (30-70% faster)</p>
+                <div class="mb-16">
+                    <span class="text-orange-500 font-bold text-sm tracking-widest uppercase mb-3 block">Enterprise Experience</span>
+                    <h2 class="font-serif text-4xl md:text-5xl font-bold text-black">Fortune 500 track record.</h2>
+                </div>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-16">
+                    
+                    <!-- Left: List -->
+                    <div class="lg:col-span-2">
+                        <div class="flex flex-col border-t border-gray-200">
+                            
+                            <!-- Item 1 -->
+                            <div class="py-6 border-b border-gray-200 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                                <div>
+                                    <h4 class="text-xl font-bold text-black">Ford Motors</h4>
+                                    <p class="text-slate-500">CI/CD automation cutting release cycles to minutes</p>
+                                </div>
+                                <span class="text-xs font-bold px-3 py-1 rounded-full bg-slate-100 text-slate-600 self-start sm:self-center">AUTOMOTIVE</span>
                             </div>
-                        </div>
-                        <div class="flex items-center gap-6 p-6 rounded-2xl border border-slate-800 bg-slate-900/50 hover:bg-slate-900 transition-colors">
-                            <div class="text-3xl w-14 h-14 flex items-center justify-center bg-slate-800 rounded-full flex-shrink-0">🛒</div>
-                            <div>
-                                <h4 class="font-serif text-xl font-bold text-white mb-1">AutoZone</h4>
-                                <p class="text-slate-400 text-sm">Retail • Led iOS development, mentored engineers on architecture</p>
+                            
+                            <!-- Item 2 -->
+                            <div class="py-6 border-b border-gray-200 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                                <div>
+                                    <h4 class="text-xl font-bold text-black">AutoZone</h4>
+                                    <p class="text-slate-500">Led iOS development, mentored engineers on architecture</p>
+                                </div>
+                                <span class="text-xs font-bold px-3 py-1 rounded-full bg-slate-100 text-slate-600 self-start sm:self-center">RETAIL</span>
                             </div>
-                        </div>
-                        <div class="flex items-center gap-6 p-6 rounded-2xl border border-slate-800 bg-slate-900/50 hover:bg-slate-900 transition-colors">
-                            <div class="text-3xl w-14 h-14 flex items-center justify-center bg-slate-800 rounded-full flex-shrink-0">📞</div>
-                            <div>
-                                <h4 class="font-serif text-xl font-bold text-white mb-1">Avaya</h4>
-                                <p class="text-slate-400 text-sm">Enterprise VoIP • Workplace & Spaces SDK across real-time communication</p>
+                            
+                            <!-- Item 3 -->
+                            <div class="py-6 border-b border-gray-200 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                                <div>
+                                    <h4 class="text-xl font-bold text-black">Avaya</h4>
+                                    <p class="text-slate-500">Workplace & Spaces SDK across real-time communication</p>
+                                </div>
+                                <span class="text-xs font-bold px-3 py-1 rounded-full bg-slate-100 text-slate-600 self-start sm:self-center">ENTERPRISE VOIP</span>
                             </div>
-                        </div>
-                        <div class="flex items-center gap-6 p-6 rounded-2xl border border-slate-800 bg-slate-900/50 hover:bg-slate-900 transition-colors">
-                            <div class="text-3xl w-14 h-14 flex items-center justify-center bg-slate-800 rounded-full flex-shrink-0">🍕</div>
-                            <div>
-                                <h4 class="font-serif text-xl font-bold text-white mb-1">Domino's Pizza</h4>
-                                <p class="text-slate-400 text-sm">Food-Tech • Voice-ordering iOS app, national rollout to 5,000+ locations</p>
+                            
+                            <!-- Item 4 -->
+                            <div class="py-6 border-b border-gray-200 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                                <div>
+                                    <h4 class="text-xl font-bold text-black">Domino's Pizza</h4>
+                                    <p class="text-slate-500">Voice-ordering iOS app, national rollout to 5,000+ locations</p>
+                                </div>
+                                <span class="text-xs font-bold px-3 py-1 rounded-full bg-slate-100 text-slate-600 self-start sm:self-center">FOOD-TECH</span>
                             </div>
+                            
+                            <!-- Item 5 -->
+                            <div class="py-6 border-b border-gray-200 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                                <div>
+                                    <h4 class="text-xl font-bold text-black">Thomson Reuters</h4>
+                                    <p class="text-slate-500">Elite 3E law-firm management iPad app</p>
+                                </div>
+                                <span class="text-xs font-bold px-3 py-1 rounded-full bg-slate-100 text-slate-600 self-start sm:self-center">LEGAL / FINANCE</span>
+                            </div>
+                            
                         </div>
-                        <div class="flex items-center gap-6 p-6 rounded-2xl border border-slate-800 bg-slate-900/50 hover:bg-slate-900 transition-colors">
-                            <div class="text-3xl w-14 h-14 flex items-center justify-center bg-slate-800 rounded-full flex-shrink-0">⚖️</div>
+                    </div>
+                    
+                    <!-- Right: Dark Bento Card -->
+                    <div class="lg:col-span-1 bg-slate-900 rounded-3xl p-10 flex flex-col justify-center shadow-xl">
+                        <span class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-10 block">By The Numbers</span>
+                        
+                        <div class="space-y-10">
                             <div>
-                                <h4 class="font-serif text-xl font-bold text-white mb-1">Thomson Reuters</h4>
-                                <p class="text-slate-400 text-sm">Legal/Finance • Elite 3E law-firm management iPad app</p>
+                                <h4 class="font-serif text-5xl text-orange-500 font-bold mb-2">30–35%</h4>
+                                <p class="text-slate-300 font-medium">Faster feature delivery velocity</p>
+                            </div>
+                            <div>
+                                <h4 class="font-serif text-5xl text-orange-500 font-bold mb-2">4–5</h4>
+                                <p class="text-slate-300 font-medium">Engineers mentored per team</p>
+                            </div>
+                            <div>
+                                <h4 class="font-serif text-5xl text-orange-500 font-bold mb-2">5</h4>
+                                <p class="text-slate-300 font-medium">Fortune 500 enterprise clients</p>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="lg:col-span-1 bg-slate-900 border border-slate-800 rounded-3xl p-8 flex flex-col justify-between reveal">
-                        <div>
-                            <span class="text-xs font-bold uppercase tracking-widest text-slate-500 mb-8 block">By The Numbers</span>
-                            <div class="space-y-8">
-                                <div>
-                                    <h4 class="font-serif text-4xl text-amber-500 font-bold mb-2">30–35%</h4>
-                                    <p class="text-slate-400 text-sm">Faster feature delivery velocity</p>
-                                </div>
-                                <div>
-                                    <h4 class="font-serif text-4xl text-amber-500 font-bold mb-2">4–5</h4>
-                                    <p class="text-slate-400 text-sm">Engineers mentored per team</p>
-                                </div>
-                                <div>
-                                    <h4 class="font-serif text-4xl text-amber-500 font-bold mb-2">5</h4>
-                                    <p class="text-slate-400 text-sm">Fortune 500 enterprise clients</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="mt-12 pt-8 border-t border-slate-800 font-serif italic text-white leading-relaxed">
-                            "His technical grip as well as leadership skills are the right combination to get projects done."
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>
-
-        <!-- Testimonial Section -->
-        <section class="py-24">
-            <div class="max-w-4xl mx-auto px-6 text-center reveal">
-                <div class="font-serif text-8xl text-amber-500/20 leading-none h-16">&ldquo;</div>
-                <p class="font-serif italic text-2xl md:text-3xl text-white leading-relaxed mb-10">
-                    Johnson is a very sound iOS lead. His technical grip as well as leadership skills are the right combination to get projects done... He has excellent communication skills with the team as well as with the customer.
-                </p>
-                <div class="inline-flex items-center gap-4 text-left">
-                    <div class="w-12 h-12 rounded-full bg-amber-500 text-slate-950 flex items-center justify-center font-bold text-lg">AK</div>
-                    <div>
-                        <div class="font-bold text-white">Alok Kulkarni</div>
-                        <div class="text-sm text-slate-400">Principal Architect at Neurealm (CTO Office)</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- FAQ Section -->
-        <section id="faq" class="py-24 bg-slate-900/30 border-t border-slate-800">
-            <div class="max-w-3xl mx-auto px-6">
-                <h2 class="font-serif text-3xl md:text-4xl text-white font-bold italic text-center mb-12">Frequently Asked Questions</h2>
-                
-                <div class="space-y-4 reveal">
-                    <details class="faq-item group bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden">
-                        <summary class="flex justify-between items-center cursor-pointer p-6 font-serif text-xl font-bold text-white list-none">
-                            What kind of engagements do you take?
-                            <span class="text-amber-500 text-2xl transition-transform group-open:rotate-45">+</span>
-                        </summary>
-                        <div class="px-6 pb-6 text-slate-400">Full-time Staff/Lead/Principal iOS roles, and freelance engagements in iOS development and on-device AI integration.</div>
-                    </details>
-                    
-                    <details class="faq-item group bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden">
-                        <summary class="flex justify-between items-center cursor-pointer p-6 font-serif text-xl font-bold text-white list-none">
-                            Do you work remote-only?
-                            <span class="text-amber-500 text-2xl transition-transform group-open:rotate-45">+</span>
-                        </summary>
-                        <div class="px-6 pb-6 text-slate-400">Yes, remote-first, based in Imphal, India (GMT+5:30).</div>
-                    </details>
-                    
-                    <details class="faq-item group bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden">
-                        <summary class="flex justify-between items-center cursor-pointer p-6 font-serif text-xl font-bold text-white list-none">
-                            What's your typical availability?
-                            <span class="text-amber-500 text-2xl transition-transform group-open:rotate-45">+</span>
-                        </summary>
-                        <div class="px-6 pb-6 text-slate-400">Currently available for new opportunities — see the Contact section for the most up-to-date status.</div>
-                    </details>
-                    
-                    <details class="faq-item group bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden">
-                        <summary class="flex justify-between items-center cursor-pointer p-6 font-serif text-xl font-bold text-white list-none">
-                            What industries have you worked in?
-                            <span class="text-amber-500 text-2xl transition-transform group-open:rotate-45">+</span>
-                        </summary>
-                        <div class="px-6 pb-6 text-slate-400">Enterprise VoIP, automotive, retail, and legal/financial — see the Enterprise Experience section for details.</div>
-                    </details>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="py-32 text-center relative overflow-hidden">
-            <!-- Background glow -->
-            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-amber-500/5 blur-[100px] rounded-full pointer-events-none"></div>
-            
-            <div class="max-w-3xl mx-auto px-6 relative z-10 reveal">
-                <span class="text-amber-500 font-bold text-xs tracking-widest uppercase mb-4 block">Let's Connect</span>
-                <h2 class="font-serif text-5xl md:text-6xl text-white font-bold italic mb-6">Ready to build?</h2>
-                <p class="text-lg text-slate-400 mb-12 max-w-2xl mx-auto">I'm currently looking for Staff, Lead, or Principal iOS engineering opportunities, and open to freelance engagements. My inbox is always open.</p>
-                
-                <div class="flex flex-wrap justify-center gap-4 mb-12">
-                    <button class="inline-flex justify-center items-center px-8 py-3.5 rounded-full bg-amber-500 text-slate-950 font-bold hover:bg-amber-400 transition-all" aria-label="Copy email address" onclick="copyEmail(event)">
-                        Say Hello &rarr;
-                    </button>
-                    <a href="https://linkedin.com/in/elangbamjohnson" target="_blank" rel="noopener noreferrer" class="inline-flex justify-center items-center px-8 py-3.5 rounded-full bg-slate-900 border border-slate-800 text-white font-medium hover:bg-slate-800 transition-all">LinkedIn</a>
-                    <a href="https://github.com/elangbamjohnson" target="_blank" rel="noopener noreferrer" class="inline-flex justify-center items-center px-8 py-3.5 rounded-full bg-slate-900 border border-slate-800 text-white font-medium hover:bg-slate-800 transition-all">GitHub</a>
-                </div>
-                
-                <div class="text-slate-500 text-sm">
-                    Email directly at elangbamjohnson@gmail.com
-                </div>
-            </div>
-        </section>
+        
     </main>
 
-    <footer class="border-t border-slate-900 bg-slate-950 py-10">
-        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
-            <div class="font-serif text-xl font-bold text-white">Johnson<span class="text-amber-500">.</span></div>
-            <div class="text-slate-500 text-sm">&copy; 2026 Johnson Elangbam. All rights reserved.</div>
-            <div class="flex gap-6">
-                <a href="#about" class="text-sm text-slate-400 hover:text-white transition-colors">About</a>
-                <a href="#projects" class="text-sm text-slate-400 hover:text-white transition-colors">Work</a>
-                <a href="#contact" class="text-sm text-slate-400 hover:text-white transition-colors">Contact</a>
+    <!-- FOOTER & CONTACT -->
+    <footer id="contact" class="bg-slate-900 text-white rounded-t-[3rem] pt-32 pb-12 mt-20">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            
+            <h2 class="font-serif text-6xl md:text-8xl font-bold mb-16 tracking-tight">Let's Connect</h2>
+            
+            <div class="flex flex-wrap justify-center items-center gap-4 mb-24">
+                <a href="mailto:elangbamjohnson@gmail.com" class="inline-flex justify-center items-center px-10 py-4 rounded-full bg-orange-500 text-white font-bold hover:bg-orange-600 transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 text-lg">
+                    Say Hello
+                </a>
+                <a href="https://linkedin.com/in/elangbamjohnson" target="_blank" rel="noopener noreferrer" class="inline-flex justify-center items-center px-8 py-4 rounded-full bg-slate-800 text-white font-medium hover:bg-slate-700 transition-all text-lg">
+                    LinkedIn
+                </a>
+                <a href="https://github.com/elangbamjohnson" target="_blank" rel="noopener noreferrer" class="inline-flex justify-center items-center px-8 py-4 rounded-full bg-slate-800 text-white font-medium hover:bg-slate-700 transition-all text-lg">
+                    GitHub
+                </a>
             </div>
+            
+            <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-slate-500 text-sm">
+                <div class="font-serif font-bold text-white text-xl">Johnson<span class="text-orange-500">.</span></div>
+                <div>&copy; 2026 Johnson Elangbam. All rights reserved.</div>
+                <div>Based in Imphal, India</div>
+            </div>
+            
         </div>
     </footer>
 
-    <!-- Video Modal -->
-    <div id="videoModal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-[100] flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300 [&.active]:opacity-100 [&.active]:pointer-events-auto" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Demo Video Player">
-        <div class="bg-slate-900 border border-slate-800 rounded-3xl w-11/12 max-w-4xl p-2 relative translate-y-8 transition-transform duration-300 [[aria-hidden=false]_&]:translate-y-0" role="document">
-            <button onclick="closeVideoModal()" class="absolute -top-12 right-0 text-white hover:text-amber-500 text-4xl leading-none" aria-label="Close video">&times;</button>
-            <video id="demoVideo" class="w-full rounded-2xl bg-black" controls preload="none" loop>
-                <source src="" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-    </div>
-
-    <!-- Case Study Modal -->
-    <div id="caseStudyModal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-[100] flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300 [&.active]:opacity-100 [&.active]:pointer-events-auto" aria-hidden="true" role="dialog" aria-modal="true" aria-label="AIAnalyzer Case Study">
-        <div class="bg-slate-900 border border-slate-800 rounded-3xl w-11/12 max-w-3xl max-h-[90vh] overflow-y-auto p-8 md:p-12 relative translate-y-8 transition-transform duration-300 [[aria-hidden=false]_&]:translate-y-0" role="document">
-            <button onclick="closeCaseStudy()" class="absolute top-6 right-8 text-slate-400 hover:text-white text-3xl leading-none" aria-label="Close case study">&times;</button>
-            
-            <h2 class="font-serif text-3xl md:text-4xl text-white font-bold mb-3 pr-8">AIAnalyzer: A Static Analysis Tool That Knows When to Ask AI for Help</h2>
-            <div class="text-amber-500 text-sm font-bold tracking-widest uppercase mb-10">Swift · CLI · Static Analysis · AI</div>
-            
-            <div class="space-y-8 text-slate-400">
-                <section>
-                    <h5 class="font-serif text-xl text-white font-bold mb-3">The Problem</h5>
-                    <p class="mb-3">Over 18 years of iOS work, I kept hitting the same wall: messy, hard-to-maintain Swift codebases with no good tooling to catch architectural rot early. Most static analysis tools for Swift are either too generic (linting style, not architecture) or don't exist at all for the specific smells that actually sink a codebase over time — God Objects, oversized classes, tangled responsibilities.</p>
-                    <p>At the same time, I wanted to go deeper on something I'd started exploring in an earlier project: combining on-device AI with cloud AI in a single system that intelligently chooses between them, rather than picking one or the other.</p>
-                </section>
-                
-                <section>
-                    <h5 class="font-serif text-xl text-white font-bold mb-3">The Approach</h5>
-                    <p class="mb-3">AIAnalyzer is a Swift CLI that parses codebases with SwiftSyntax, detects architectural smells (God Objects, Large Classes, High Method Density), and — the part I'm most proud of — offers AI-powered fix suggestions through four provider modes:</p>
-                    <ul class="list-disc pl-5 space-y-2">
-                        <li><strong class="text-white">Gemini (Cloud)</strong> — best quality, requires network + API key</li>
-                        <li><strong class="text-white">Ollama (Local LLM)</strong> — a full local language model running via Ollama, fully on-device, no data leaves the machine</li>
-                        <li><strong class="text-white">Local (Core ML)</strong> — a lighter-weight on-device option with its own heuristic fallback, useful when a full Ollama-hosted model isn't available</li>
-                        <li><strong class="text-white">Hybrid</strong> — attempts a local-preferred provider first, evaluates confidence based on output quality, and automatically escalates to Gemini only when the local result looks weak</li>
-                    </ul>
-                </section>
-                
-                <section>
-                    <h5 class="font-serif text-xl text-white font-bold mb-3">Outcome</h5>
-                    <ul class="list-disc pl-5 space-y-2">
-                        <li>Fully automated CI/CD: 59 passing tests, automated Homebrew formula updates, SARIF output for GitHub code scanning integration</li>
-                        <li>A working, publicly installable tool (<code class="text-slate-300 bg-slate-800 px-1.5 py-0.5 rounded text-sm">brew install elangbamjohnson/tap/aianalyzer</code>), not just a demo</li>
-                    </ul>
-                </section>
-                
-                <div class="pt-8 text-center">
-                    <a href="https://dev.to/elangbamjohnson/building-aianalyzer-a-swift-static-analysis-tool-that-knows-when-to-trust-its-own-ai-46d7" target="_blank" rel="noopener noreferrer" class="inline-flex justify-center items-center px-8 py-3 rounded-full bg-slate-800 text-white font-bold hover:bg-slate-700 transition-colors border border-slate-700">
-                        Read full technical write-up &rarr;
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Scripts -->
-    <script src="assets/js/main.js"></script>
-    <script>
-        // Override main.js specific logic for modals if necessary to work with Tailwind classes
-        // The modal logic in main.js toggles 'active' class which we tied to opacity in Tailwind CSS style block
-    </script>
 </body>
 </html>
