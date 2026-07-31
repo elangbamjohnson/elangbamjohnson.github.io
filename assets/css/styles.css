@@ -521,49 +521,47 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
-/* Dark Navy Card (Working On + About) */
-.dark-card-wrapper {
-    max-width: var(--max-width);
-    margin: 0 auto var(--section-gap);
-    padding: 0 2rem;
-}
-.dark-card {
+/* Dark Navy Section (Edge-to-edge) */
+.dark-section {
     background-color: var(--navy);
     color: var(--text-light);
-    border-radius: var(--radius-xl);
-    padding: 4rem;
+    padding: 6rem 0; /* vertical padding */
+    width: 100%;
+}
+.dark-section .container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 2rem;
 }
 
 /* Working On Banner */
-.working-on-banner-wrapper {
-    max-width: var(--max-width);
-    margin: 0 auto 3rem;
-    padding: 0 2rem;
-}
 .working-on-banner {
-    background-color: var(--navy);
-    color: var(--text-light);
-    border-radius: 100px;
-    padding: 1.5rem 3rem;
+    background-color: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    padding: 1.5rem 2.5rem;
     display: flex;
     align-items: center;
     gap: 2rem;
+    margin-bottom: 4rem; /* Gap between banner and ABOUT ME label */
+    width: 100%;
 }
 .working-on-pill {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
     padding: 0.4rem 1rem;
-    border: 1px solid var(--border-dark);
-    border-radius: var(--radius-pill);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 100px;
     font-size: 0.75rem;
     font-weight: 700;
+    color: var(--gold-dark); /* Match screenshot */
     letter-spacing: 0.05em;
     white-space: nowrap;
     flex-shrink: 0;
 }
 .working-on-text {
-    font-size: 1.05rem;
+    font-size: 0.95rem;
     color: var(--text-light-muted);
     line-height: 1.6;
 }
@@ -583,48 +581,59 @@ h1, h2, h3, h4, h5, h6 {
 
 .about-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 4fr 6fr; /* ~40/60 split */
     gap: 4rem;
+    align-items: flex-start;
 }
 .about-headline {
+    font-family: var(--font-serif);
     font-size: clamp(2.5rem, 4vw, 3.5rem);
-    line-height: 1.2;
+    line-height: 1.1;
+    color: var(--white);
 }
 .gold-underline {
-    width: 60px;
-    height: 3px;
-    background-color: var(--gold);
+    width: 40px;
+    height: 2px;
+    background-color: var(--gold-dark);
     margin-top: 1.5rem;
-    border-radius: 2px;
 }
 .about-text p {
-    font-size: 1.1rem;
+    font-size: 1rem;
     color: var(--text-light-muted);
     margin-bottom: 1.5rem;
+    line-height: 1.7;
 }
 .about-text strong {
-    color: var(--gold);
-    font-weight: 600;
+    color: var(--white); /* Match screenshot */
+    font-weight: 700;
 }
 .about-stats {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    margin-top: 3rem;
+    gap: 1.5rem;
+    margin-top: 3rem; /* Generous gap */
+}
+.stat-box {
+    background-color: rgba(255, 255, 255, 0.03); /* Lighter navy */
+    border: 1px solid rgba(255, 255, 255, 0.08); /* Subtle border */
+    border-radius: 24px;
+    padding: 2rem;
 }
 .stat-box h4 {
+    font-family: var(--font-serif);
     font-size: 3rem;
-    color: var(--gold);
+    color: var(--gold-dark);
     margin-bottom: 0.5rem;
+    line-height: 1;
 }
 .stat-box p {
-    font-size: 0.95rem;
-    color: var(--text-light);
-    margin-bottom: 0.25rem;
-    font-weight: 600;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 0.5rem;
 }
 .stat-box span {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     color: var(--text-light-muted);
 }
 
