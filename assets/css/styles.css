@@ -491,19 +491,22 @@ h1, h2, h3, h4, h5, h6 {
 .hero-scroll-indicator {
     width: 100%;
     display: flex;
+    justify-content: center;
+    margin-top: 1.5rem; /* Tighter gap */
+    margin-bottom: 2rem; /* Tighter gap */
+    grid-column: 1 / -1;
+}
+.hero-scroll-bounce {
+    display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     gap: 0.5rem;
-    margin-top: 4rem;
-    margin-bottom: 4rem;
     color: var(--text-muted);
     font-size: 0.75rem;
     font-weight: 600;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-}
-.hero-scroll-indicator svg {
+    opacity: 0.4;
     animation: scroll-bounce 2s infinite;
 }
 @keyframes scroll-bounce {
@@ -531,13 +534,20 @@ h1, h2, h3, h4, h5, h6 {
     padding: 4rem;
 }
 
-.working-on {
+/* Working On Banner */
+.working-on-banner-wrapper {
+    max-width: var(--max-width);
+    margin: 0 auto 3rem;
+    padding: 0 2rem;
+}
+.working-on-banner {
+    background-color: var(--navy);
+    color: var(--text-light);
+    border-radius: 100px;
+    padding: 1.5rem 3rem;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     gap: 2rem;
-    padding-bottom: 4rem;
-    border-bottom: 1px solid var(--border-dark);
-    margin-bottom: 4rem;
 }
 .working-on-pill {
     display: inline-flex;
@@ -550,14 +560,25 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
     letter-spacing: 0.05em;
     white-space: nowrap;
+    flex-shrink: 0;
 }
 .working-on-text {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     color: var(--text-light-muted);
-    line-height: 1.8;
+    line-height: 1.6;
 }
 .working-on-text strong {
     color: var(--white);
+}
+
+@media (max-width: 900px) {
+    .working-on-banner {
+        flex-direction: column;
+        border-radius: var(--radius-xl);
+        padding: 2rem;
+        gap: 1.5rem;
+        text-align: left;
+    }
 }
 
 .about-grid {
