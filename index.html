@@ -512,6 +512,14 @@
 </div>
     <!-- Minimal JS for Nav Toggle -->
     <script>
+        const hamburger = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {

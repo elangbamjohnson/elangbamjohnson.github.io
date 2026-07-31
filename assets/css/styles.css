@@ -6,9 +6,10 @@
     --cream: #F5F3EE;
     --navy: #1A1B2E;
     --gold: #C9975B;
+    --gold-dark: #A67B45; /* Darker variant for accessible contrast on cream */
     --white: #FFFFFF;
-    --border: rgba(26, 27, 46, 0.08); /* Dark border for cream bg */
-    --border-dark: rgba(255, 255, 255, 0.1); /* Light border for dark bg */
+    --border: rgba(26, 27, 46, 0.1); /* Dark border for cream bg */
+    --border-dark: rgba(245, 243, 238, 0.1); /* Light border for dark bg */
     --text-main: #1A1B2E;
     --text-muted: rgba(26, 27, 46, 0.6);
     --text-light: #FFFFFF;
@@ -51,6 +52,11 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
+*:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 4px;
+}
+
 a {
     color: inherit;
     text-decoration: none;
@@ -84,12 +90,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .section-label {
-    display: block;
+    display: inline-block;
+    font-family: var(--font-sans);
     font-size: 0.8rem;
-    font-weight: 700;
-    text-transform: uppercase;
+    font-weight: 600;
     letter-spacing: 0.1em;
-    color: var(--gold);
+    text-transform: uppercase;
+    color: var(--gold-dark);
     margin-bottom: 1rem;
 }
 
@@ -114,18 +121,6 @@ h1, h2, h3, h4, h5, h6 {
 .section-padding {
     padding-top: var(--section-gap);
     padding-bottom: var(--section-gap);
-}
-
-.grid-2 {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-}
-
-.grid-3 {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
 }
 
 /* ==========================================================================
@@ -180,17 +175,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .tag-pill {
-    display: inline-flex;
-    align-items: center;
-    padding: 0.2rem 0.8rem;
+    display: inline-block;
+    padding: 0.4rem 1rem;
+    border: 1px solid var(--border);
     border-radius: var(--radius-pill);
-    font-size: 0.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    background-color: var(--cream);
-    color: var(--gold);
-    border: 1px solid rgba(201, 151, 91, 0.3);
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--gold-dark);
 }
 
 /* ==========================================================================
@@ -302,9 +293,12 @@ h1, h2, h3, h4, h5, h6 {
     line-height: 1;
 }
 .hero-title-solid {
-    display: block;
-    font-size: clamp(4rem, 8vw, 6.5rem);
+    font-family: var(--font-serif);
+    font-size: clamp(2.5rem, 8vw, 6.5rem);
+    font-weight: 700;
+    line-height: 1.1;
     color: var(--navy);
+    margin-bottom: 1.5rem;
 }
 .hero-title-outline {
     display: block;
@@ -399,19 +393,19 @@ h1, h2, h3, h4, h5, h6 {
     z-index: 10;
 }
 .float-card--tl {
-    top: -20px;
-    left: -40px;
+    top: -10%;
+    left: -20%;
     animation: float 4s ease-in-out 0s infinite;
 }
 .float-card--br {
-    bottom: 30px;
-    right: -40px;
+    bottom: 15%;
+    right: -20%;
     animation: float 4s ease-in-out 1.5s infinite;
 }
 .float-pill {
     position: absolute;
-    bottom: -20px;
-    left: 20px;
+    bottom: -10%;
+    left: 10%;
     background: var(--white);
     padding: 0.6rem 1.2rem;
     border-radius: var(--radius-pill);
@@ -463,8 +457,9 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Dark Navy Card (Working On + About) */
 .dark-card-wrapper {
+    max-width: var(--max-width);
+    margin: 0 auto var(--section-gap);
     padding: 0 2rem;
-    margin-bottom: var(--section-gap);
 }
 .dark-card {
     background-color: var(--navy);
@@ -564,12 +559,6 @@ h1, h2, h3, h4, h5, h6 {
     .bento-narrow { grid-column: span 4; }
     .bento-half { grid-column: span 6; }
     .bento-full { grid-column: span 12; }
-}
-
-.card-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    gap: 2rem;
 }
 
 .content-card {
@@ -717,10 +706,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 .numbers-label {
     font-size: 0.75rem;
-    font-weight: 700;
+    font-weight: 600;
     letter-spacing: 0.1em;
+    text-transform: uppercase;
     color: var(--gold);
-    margin-bottom: 3rem;
+    margin-bottom: 0.5rem;
 }
 .number-item {
     margin-bottom: 2.5rem;
@@ -949,12 +939,21 @@ details[open] .faq-icon {
 @media (max-width: 768px) {
     .navbar {
         padding: 1rem 1.5rem;
+        flex-wrap: wrap;
     }
     .nav-links, .nav-cta {
         display: none;
     }
+    .nav-links.active {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 1rem;
+        padding: 1rem;
+        border-radius: var(--radius-lg);
+    }
     .nav-toggle {
-        display: block;
+        display: flex;
     }
     
     .card-grid {
