@@ -39,7 +39,7 @@
         <!-- Hero Section -->
         <section class="container hero">
             <div class="hero-content">
-                <div class="hero-status">
+                <div class="status-badge">
                     <div class="status-dot-wrap">
                         <span class="status-dot-pulse"></span>
                         <span class="status-dot"></span>
@@ -59,22 +59,17 @@
                 </p>
                 
                 <div class="hero-location">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                    <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
                     Based in Imphal, India &mdash; Remote-friendly
                 </div>
                 
                 <div class="hero-actions">
                     <a href="assets/resume/Johnson_Elangbam_Resume_July_30_2026.pdf" target="_blank" rel="noopener noreferrer" class="btn btn--navy">
-                        <svg class="btn-icon" viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                        <svg class="btn-icon" viewBox="0 0 24 24" style="width: 16px; height: 16px; fill: currentColor;"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
                         Download Resume
                     </a>
-                    <a href="#contact" class="btn btn--outline">Full-time hire?</a>
-                    <a href="#contact" class="btn btn--outline">Freelance project?</a>
-                </div>
-                
-                <div class="hero-scroll">
-                    SCROLL
-                    <svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
+                    <a href="#contact" class="btn btn--pill-outline">Full-time hire?</a>
+                    <a href="#contact" class="btn btn--pill-outline">Freelance project?</a>
                 </div>
             </div>
 
@@ -83,9 +78,7 @@
                 
                 <!-- Float Card TL -->
                 <div class="float-card float-card--tl">
-                    <div class="float-icon">
-                        <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
-                    </div>
+                    <svg viewBox="0 0 24 24" class="float-icon-raw" style="fill:none;stroke:var(--gold-dark);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
                     <div class="float-text">
                         <strong>99%</strong>
                         <span>Crash-free rate</span>
@@ -94,22 +87,25 @@
 
                 <!-- Float Card BR -->
                 <div class="float-card float-card--br">
-                    <div class="float-icon">
-                        <svg viewBox="0 0 24 24"><path d="M11 21h-1l1-7H7.5c-.58 0-.57-.32-.38-.66C7.67 12.24 10.72 7 13 3h1l-1 7h3.5c.49 0 .56.33.47.51l-.07.15C12.96 17.55 11 21 11 21z"/></svg>
-                    </div>
+                    <svg viewBox="0 0 24 24" class="float-icon-raw" style="fill:none;stroke:var(--navy);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
                     <div class="float-text">
                         <strong>30-70%</strong>
                         <span>Build time faster</span>
                     </div>
                 </div>
 
-                <!-- Float Pill BL -->
+                <!-- Float Pill Center Bottom -->
                 <div class="float-pill">
-                    <span class="gold-dot"></span>
+                    <div class="gold-dot"></div>
                     18+ years iOS
                 </div>
             </div>
         </section>
+        
+        <div class="hero-scroll-indicator">
+            <span class="scroll-text">SCROLL</span>
+            <svg viewBox="0 0 24 24" width="16" height="16" style="fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
 
         <!-- Working On & About Section -->
         <section id="about" class="dark-card-wrapper">

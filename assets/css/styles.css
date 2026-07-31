@@ -138,6 +138,25 @@ h1, h2, h3, h4, h5, h6 {
     transition: all 0.2s ease;
 }
 
+.btn--pill-outline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--white);
+    color: var(--navy);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-pill);
+    font-family: var(--font-sans);
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: var(--transition);
+}
+.btn--pill-outline:hover {
+    background-color: var(--cream);
+    border-color: var(--navy);
+}
+
 .btn--navy {
     background-color: var(--navy);
     color: var(--white);
@@ -247,38 +266,44 @@ h1, h2, h3, h4, h5, h6 {
     align-items: center;
 }
 
-.hero-status {
+.status-badge {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--navy);
+    margin-bottom: 2rem;
     background: var(--white);
     padding: 0.4rem 1rem;
     border-radius: var(--radius-pill);
     border: 1px solid var(--border);
-    font-size: 0.85rem;
-    font-weight: 600;
-    margin-bottom: 2rem;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.02);
 }
 
 .status-dot-wrap {
     position: relative;
     width: 8px;
     height: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .status-dot-pulse {
     position: absolute;
-    inset: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #10B981;
     border-radius: 50%;
-    background-color: #22c55e;
-    opacity: 0.75;
-    animation: ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+    animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+    z-index: 1;
 }
 .status-dot {
-    position: absolute;
-    inset: 0;
+    width: 8px;
+    height: 8px;
     border-radius: 50%;
-    background-color: #22c55e;
+    background-color: #10B981; /* Green dot */
+    position: relative;
+    z-index: 2;
 }
 
 @keyframes ping {
@@ -293,27 +318,32 @@ h1, h2, h3, h4, h5, h6 {
     line-height: 1;
 }
 .hero-title-solid {
+    display: block;
     font-family: var(--font-serif);
-    font-size: clamp(2.5rem, 8vw, 6.5rem);
+    font-size: clamp(4rem, 8vw, 7.5rem);
     font-weight: 700;
-    line-height: 1.1;
+    line-height: 1;
     color: var(--navy);
-    margin-bottom: 1.5rem;
+    margin-bottom: 0;
 }
 .hero-title-outline {
     display: block;
-    font-size: clamp(3.5rem, 7vw, 5.5rem);
+    font-family: var(--font-serif);
+    font-size: clamp(4rem, 8vw, 7.5rem);
+    font-weight: 700;
     font-style: italic;
     color: transparent;
-    -webkit-text-stroke: 2px var(--navy);
-    transform: translateY(-0.1em);
+    -webkit-text-stroke: 1.5px var(--navy);
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
 }
 
 .hero-subtitle {
     font-family: var(--font-serif);
-    font-size: 1.5rem;
-    color: var(--gold);
+    font-size: clamp(1.4rem, 3vw, 1.8rem);
+    color: var(--gold-dark);
     margin-bottom: 1.5rem;
+    font-weight: 500;
 }
 
 .hero-desc {
@@ -327,21 +357,22 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    font-size: 0.95rem;
+    font-size: 0.85rem;
     color: var(--text-muted);
     margin-bottom: 2.5rem;
 }
 .hero-location svg {
-    width: 18px;
-    height: 18px;
-    fill: var(--gold);
+    width: 14px;
+    height: 14px;
+    fill: var(--gold-dark);
 }
 
 .hero-actions {
     display: flex;
-    flex-wrap: wrap;
     gap: 1rem;
-    margin-bottom: 4rem;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
 }
 .hero-actions .btn-icon {
     width: 20px;
@@ -368,17 +399,17 @@ h1, h2, h3, h4, h5, h6 {
 /* Hero Right: Photo & Floats */
 .hero-visual {
     position: relative;
+    max-width: 400px; /* Matched to the larger screenshot size */
     width: 100%;
-    max-width: 170px;
     margin: 0 auto;
+    aspect-ratio: 1; /* Perfectly square */
 }
 .hero-photo {
     width: 100%;
-    height: auto;
-    aspect-ratio: 170 / 190;
+    height: 100%;
     object-fit: cover;
-    border-radius: var(--radius-xl);
-    box-shadow: 0 20px 40px rgba(26, 27, 46, 0.1);
+    border-radius: 40px; /* Big smooth rounded corners */
+    box-shadow: 0 30px 60px rgba(0,0,0,0.08); /* Soft glow behind image */
 }
 
 .float-card {
