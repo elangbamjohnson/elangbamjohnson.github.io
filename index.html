@@ -3,1858 +3,544 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Johnson Elangbam | Senior/Staff iOS Engineer</title>
-    <meta name="description" content="Johnson Elangbam is a Senior/Staff iOS Engineer with 18+ years of experience in Swift, VoIP/SIP, and on-device AI/ML.">
-    
-    <!-- Open Graph Tags -->
-    <meta property="og:title" content="Johnson Elangbam | Senior/Staff iOS Engineer">
-    <meta property="og:description" content="Johnson Elangbam is a Senior/Staff iOS Engineer with 18+ years of experience in Swift, VoIP/SIP, and on-device AI/ML.">
+    <title>Johnson Elangbam | Senior / Staff iOS Engineer</title>
+    <meta name="description" content="Johnson Elangbam — Senior / Staff iOS Engineer with 18+ years of experience building iOS apps across enterprise VoIP, automotive, retail, and on-device AI/ML.">
+    <meta property="og:title" content="Johnson Elangbam — Senior / Staff iOS Engineer">
+    <meta property="og:description" content="18+ years building iOS apps across enterprise VoIP, automotive, retail, and on-device AI/ML.">
     <meta property="og:type" content="website">
-    
-    <!-- Favicon -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%23B25D4A%22/><text y=%2254%%22 x=%2250%%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Georgia, serif%22 font-size=%2244%22 font-weight=%22600%22 fill=%22%23FAF9F5%22>JE</text></svg>">
 
-    <!-- Google Fonts: Space Grotesk (heading) + Inter (body/subtitle) -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
-
-    <style>
-        :root {
-            /* Anthropic-inspired Cream & Terracotta Theme */
-            --bg-color: #FAF9F5; /* Warm off-white / cream */
-            --nav-bg: rgba(250, 249, 245, 0.95);
-            --card-bg: #FFFFFF; /* Pure white for subtle contrast */
-            --card-hover-bg: #FFFFFF;
-            
-            /* Text Colors */
-            --text-primary: #2C2A29; /* Deep charcoal/espresso */
-            --text-secondary: #5E5B5A; /* Muted brown-grey */
-            
-            /* Borders and Accents */
-            --border-color: #EAE6DB;
-            --border-hover: #D5D0C5;
-            
-            /* Signature Accent: Soft Terracotta / Clay */
-            --accent: #B25D4A; 
-            --accent-soft: #F5EAE7;
-            --accent-hover: #964A3A;
-
-            /* Typography */
-            --font-display: Georgia, "Times New Roman", Times, serif;
-            --font-body: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            
-            /* Transitions */
-            --transition-smooth: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: var(--font-body);
-            background-color: var(--bg-color);
-            color: var(--text-secondary);
-            line-height: 1.75;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
-        a {
-            color: var(--accent);
-            text-decoration: none;
-            transition: var(--transition-smooth);
-        }
-
-        a:hover {
-            color: var(--accent-hover);
-        }
-
-        h1, h2, h3, h4 {
-            font-family: var(--font-display);
-            color: var(--text-primary);
-            line-height: 1.25;
-            font-weight: 500;
-        }
-
-        /* Layout */
-        .container {
-            max-width: 960px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
-
-        /* Nav */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 100;
-            background-color: var(--nav-bg);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            border-bottom: 1px solid transparent;
-            transition: border-color 0.3s ease;
-        }
-
-        nav.scrolled {
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .nav-inner {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 80px;
-        }
-
-        .nav-logo {
-            font-family: var(--font-display);
-            font-weight: 600;
-            font-size: 1.4rem;
-            color: var(--text-primary);
-            letter-spacing: -0.2px;
-        }
-
-        .nav-logo span {
-            color: var(--accent);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2.5rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            font-weight: 500;
-        }
-
-        .nav-links a:hover {
-            color: var(--text-primary);
-        }
-
-        /* Mobile Nav Toggle */
-        .mobile-toggle {
-            display: none;
-            background: none;
-            border: none;
-            color: var(--text-primary);
-            cursor: pointer;
-            padding: 0.5rem;
-        }
-
-        @media (max-width: 768px) {
-            .mobile-toggle {
-                display: block;
-            }
-            
-            .nav-links {
-                display: none;
-            }
-            
-            .nav-links.active {
-                display: flex;
-                position: absolute;
-                top: 80px;
-                left: 0;
-                width: 100%;
-                background-color: var(--nav-bg);
-                backdrop-filter: blur(12px);
-                -webkit-backdrop-filter: blur(12px);
-                flex-direction: column;
-                align-items: center;
-                padding: 1.5rem 0 2rem 0;
-                gap: 1.75rem;
-                border-bottom: 1px solid var(--border-color);
-                box-shadow: 0 10px 20px rgba(0,0,0,0.03);
-            }
-        }
-
-        /* Hero */
-        .hero {
-            position: relative;
-            min-height: 90vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding-top: 100px;
-            overflow: hidden; /* Contains the ambient gradient */
-        }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle at center, var(--accent-soft) 0%, transparent 45%);
-            opacity: 0.5;
-            z-index: -1;
-            animation: ambient-shift 25s ease-in-out infinite alternate;
-            pointer-events: none;
-        }
-
-        @keyframes ambient-shift {
-            0% {
-                transform: translate(0%, 0%) scale(1);
-            }
-            100% {
-                transform: translate(-3%, 2%) scale(1.05);
-            }
-        }
-        
-        .hero-content {
-            display: flex;
-            flex-direction: column-reverse;
-            align-items: flex-start;
-            gap: 3.5rem;
-        }
-
-        @media (min-width: 768px) {
-            .hero-content {
-                flex-direction: row;
-                justify-content: space-between;
-                align-items: center;
-            }
-        }
-
-        .hero-text {
-            flex: 1;
-        }
-
-        .hero-photo {
-            flex-shrink: 0;
-        }
-        
-        .profile-img {
-            display: block;
-            width: 160px;
-            height: 160px;
-            border-radius: 20px;
-            object-fit: cover;
-            border: 1px solid var(--border-color);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
-            background-color: var(--card-bg);
-        }
-
-        @media (min-width: 768px) {
-            .profile-img {
-                width: 190px;
-                height: 190px;
-            }
-        }
-
-        .hero h1 {
-            font-size: clamp(1.75rem, 8vw, 3.5rem);
-            font-family: 'Space Grotesk', system-ui, sans-serif;
-            font-weight: 700;
-            letter-spacing: -0.01em;
-            margin-bottom: 1.25rem;
-            color: var(--text-primary);
-        }
-
-        .hero h2 {
-            font-size: clamp(1.2rem, 2.5vw, 1.75rem);
-            font-family: var(--font-body);
-            font-weight: 500;
-            font-style: normal;
-            color: var(--text-secondary);
-            margin-bottom: 2rem;
-        }
-
-        .hero p.subheadline {
-            font-size: 1.15rem;
-            max-width: 600px;
-            margin-bottom: 2.5rem;
-            color: var(--text-secondary);
-            line-height: 1.8;
-        }
-
-        .location-inline {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-            font-size: 0.95rem;
-            color: var(--text-secondary);
-            font-weight: 500;
-        }
-        
-        .location-inline svg {
-            width: 16px;
-            height: 16px;
-            fill: var(--text-secondary);
-        }
-
-        .hero-ctas {
-            margin-top: 1.75rem;
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-            align-items: flex-start;
-        }
-
-        .hero-cta-divider {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            display: flex;
-            align-items: center;
-            width: 100%;
-            gap: 1rem;
-            margin: 0.25rem 0;
-        }
-        
-        .hero-cta-divider::after {
-            content: "";
-            height: 1px;
-            background-color: var(--border-color);
-            flex-grow: 1;
-            max-width: 200px;
-        }
-
-        .hero-intent-btns {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.85rem;
-            align-items: center;
-            width: 100%;
-        }
-
-        .btn-outline {
-            background-color: transparent;
-            color: var(--accent) !important;
-            border: 1px solid var(--accent);
-        }
-
-        .btn-outline:hover, .btn-outline:focus {
-            background-color: var(--accent);
-            color: #FFFFFF !important;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(178, 93, 74, 0.2);
-        }
-
-        @media (max-width: 768px) {
-            .hero-intent-btns {
-                flex-direction: column;
-                align-items: stretch;
-            }
-            .hero-intent-btns .btn {
-                justify-content: center;
-                width: 100%;
-            }
-            .hero-cta-divider::after {
-                max-width: 100%;
-            }
-        }
-
-        .hero-resume-btn svg {
-            width: 18px;
-            height: 18px;
-            fill: currentColor;
-        }
-
-        .status-indicator {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-            font-size: 0.85rem;
-            font-family: var(--font-body);
-            font-weight: 500;
-            color: #34C759;
-            margin-left: 0.75rem;
-            vertical-align: middle;
-            letter-spacing: normal;
-        }
-        
-        .status-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background-color: #34C759;
-            display: inline-block;
-            flex-shrink: 0;
-        }
-        
-        @media (max-width: 768px) {
-            .status-indicator {
-                display: flex;
-                margin-left: 0;
-                margin-top: 0.5rem;
-            }
-        }
-
-        /* Sections */
-        section {
-            padding: 6rem 0;
-        }
-
-        .section-header {
-            margin-bottom: 3.5rem;
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-        }
-        
-        .section-header h3 {
-            font-size: 2.25rem;
-            font-weight: 600;
-            letter-spacing: -0.5px;
-        }
-
-        .section-header::after {
-            content: "";
-            height: 1px;
-            background-color: var(--border-color);
-            flex-grow: 1;
-            margin-top: 4px;
-        }
-
-        /* About */
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 3rem;
-        }
-
-        @media (min-width: 768px) {
-            .about-grid {
-                grid-template-columns: 3fr 2fr;
-                gap: 5rem;
-            }
-        }
-
-        .about-text p {
-            margin-bottom: 1.75rem;
-            font-size: 1.125rem;
-            color: var(--text-secondary);
-        }
-        
-        .about-text p strong {
-            color: var(--text-primary);
-            font-weight: 600;
-        }
-
-        .stats-pull {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 2.5rem;
-            display: flex;
-            flex-direction: column;
-            gap: 2.5rem;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
-        }
-
-        .stat-item h4 {
-            font-size: 2.75rem;
-            color: var(--accent);
-            margin-bottom: 0.25rem;
-            font-weight: 600;
-            font-family: var(--font-display);
-        }
-
-        .stat-item p {
-            font-size: 0.95rem;
-            line-height: 1.6;
-            color: var(--text-secondary);
-        }
-        
-        .stat-item p strong {
-            color: var(--text-primary);
-        }
-
-        /* Projects */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
-        }
-
-        @media (min-width: 768px) {
-            .projects-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        .project-card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 2.5rem;
-            display: flex;
-            flex-direction: column;
-            transition: var(--transition-smooth);
-            position: relative;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
-        }
-        
-        .project-card:hover {
-            transform: translateY(-4px);
-            border-color: var(--border-hover);
-            box-shadow: 0 12px 30px rgba(0,0,0,0.06);
-        }
-
-        .project-card h4 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            font-weight: 600;
-            letter-spacing: -0.2px;
-        }
-
-        .project-card p {
-            font-size: 1.05rem;
-            margin-bottom: 2rem;
-            flex-grow: 1;
-            color: var(--text-secondary);
-        }
-
-        .project-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.6rem;
-            margin-bottom: 2.5rem;
-        }
-
-        .tag {
-            background-color: var(--accent-soft);
-            color: var(--accent-hover);
-            font-size: 0.8rem;
-            font-weight: 500;
-            padding: 0.35rem 0.9rem;
-            border-radius: 20px;
-        }
-
-        .project-actions {
-            display: flex;
-            gap: 1.25rem;
-            flex-wrap: wrap;
-            margin-top: auto;
-        }
-
-        button.btn-link {
-            background: none;
-            border: none;
-            padding: 0;
-            font-family: inherit;
-            cursor: pointer;
-        }
-
-        .btn-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-weight: 500;
-            font-size: 0.95rem;
-            color: var(--accent);
-        }
-        
-        .btn-link svg {
-            width: 18px;
-            height: 18px;
-            fill: currentColor;
-            transition: transform 0.2s;
-        }
-        
-        .btn-link:hover {
-            color: var(--accent-hover);
-        }
-
-        .btn-link:hover svg {
-            transform: translateX(4px);
-        }
-
-        /* Contact / Footer */
-        .contact-section {
-            text-align: center;
-            padding: 7rem 0 5rem 0;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .contact-section h3 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            letter-spacing: -0.5px;
-            color: var(--text-primary);
-        }
-
-        .contact-section p {
-            margin: 0 auto 3rem;
-            font-size: 1.15rem;
-            color: var(--text-secondary);
-        }
-
-        .button-group {
-            display: flex;
-            justify-content: center;
-            gap: 1.25rem;
-            flex-wrap: wrap;
-            margin-bottom: 4rem;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.75rem;
-            padding: 0.85rem 1.75rem;
-            border-radius: 12px;
-            font-weight: 500;
-            font-size: 1rem;
-            transition: var(--transition-smooth);
-            font-family: var(--font-body);
-            cursor: pointer;
-            border: 1px solid transparent;
-            min-height: 48px; /* Touch target size */
-            outline: none;
-        }
-
-        .btn-primary {
-            background-color: var(--accent);
-            color: #FFFFFF !important;
-        }
-
-        .btn-primary:hover, .btn-primary:focus {
-            background-color: var(--accent-hover);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(178, 93, 74, 0.2);
-        }
-
-        .btn-secondary {
-            background-color: var(--card-bg);
-            color: var(--text-primary) !important;
-            border: 1px solid var(--border-color);
-            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
-        }
-
-        .btn-secondary:hover, .btn-secondary:focus {
-            background-color: var(--bg-color);
-            border-color: var(--border-hover);
-            transform: translateY(-2px);
-        }
-
-        .btn svg {
-            width: 20px;
-            height: 20px;
-            fill: currentColor;
-        }
-
-        /* Tooltip Styles */
-        .email-btn {
-            position: relative;
-        }
-        
-        .tooltip {
-            position: absolute;
-            bottom: 115%;
-            left: 50%;
-            transform: translateX(-50%) translateY(5px);
-            background-color: var(--text-primary);
-            color: #FAF9F5;
-            padding: 0.4rem 0.8rem;
-            border-radius: 6px;
-            font-size: 0.8rem;
-            font-weight: 500;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.2s ease;
-            white-space: nowrap;
-            pointer-events: none;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-
-        .tooltip::after {
-            content: '';
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            margin-left: -5px;
-            border-width: 5px;
-            border-style: solid;
-            border-color: var(--text-primary) transparent transparent transparent;
-        }
-
-        /* Show tooltip on hover (if supported) and focus */
-        @media (hover: hover) {
-            .email-btn:hover .tooltip {
-                opacity: 1;
-                visibility: visible;
-                transform: translateX(-50%) translateY(0);
-            }
-        }
-        
-        .email-btn:focus-visible .tooltip,
-        .email-btn .tooltip.copied {
-            opacity: 1;
-            visibility: visible;
-            transform: translateX(-50%) translateY(0);
-        }
-
-        footer {
-            text-align: center;
-            padding: 2.5rem 0;
-            border-top: 1px solid var(--border-color);
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-        }
-
-        /* Reveal Animations */
-        .reveal {
-            opacity: 0;
-            transform: translateY(15px);
-            transition: opacity 0.7s ease-out, transform 0.7s ease-out;
-        }
-
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        @media (min-width: 768px) {
-            .delay-1 { transition-delay: 0.05s; }
-            .delay-2 { transition-delay: 0.1s; }
-            .delay-3 { transition-delay: 0.15s; }
-            .delay-4 { transition-delay: 0.2s; }
-            .delay-5 { transition-delay: 0.25s; }
-            .delay-6 { transition-delay: 0.3s; }
-        }
-
-        /* Video Modal */
-        .video-modal-backdrop {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(44, 42, 41, 0.85); /* Dark matching theme */
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            z-index: 1000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .video-modal-backdrop.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .video-modal-container {
-            position: relative;
-            width: 90%;
-            max-width: 800px;
-            background-color: var(--bg-color);
-            border-radius: 16px;
-            padding: 1rem;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-            transform: scale(0.95);
-            transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-        }
-
-        .video-modal-backdrop.active .video-modal-container {
-            transform: scale(1);
-        }
-
-        .video-modal-close {
-            position: absolute;
-            top: -40px;
-            right: 0;
-            background: none;
-            border: none;
-            color: #FAF9F5;
-            font-size: 2.5rem;
-            font-weight: 300;
-            cursor: pointer;
-            padding: 0.5rem;
-            line-height: 1;
-            min-width: 44px;
-            min-height: 44px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .video-player {
-            width: 100%;
-            border-radius: 8px;
-            display: block;
-            background-color: #000;
-        }
-
-        @media (max-width: 768px) {
-            .video-modal-close {
-                top: -50px;
-                right: -10px;
-            }
-        }
-        
-        /* Case Study Modal */
-        .case-study-modal-backdrop {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background-color: rgba(44, 42, 41, 0.85);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            z-index: 1000;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            padding: 2rem 1rem;
-            overflow-y: auto;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-        }
-        .case-study-modal-backdrop.active {
-            opacity: 1; visibility: visible;
-        }
-        .case-study-modal-container {
-            position: relative;
-            width: 100%; max-width: 720px;
-            background-color: var(--bg-color);
-            border-radius: 16px;
-            padding: 3rem 3rem 2.5rem;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-            transform: scale(0.97);
-            transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-            margin: auto;
-        }
-        .case-study-modal-backdrop.active .case-study-modal-container {
-            transform: scale(1);
-        }
-        .case-study-close-top {
-            position: absolute;
-            top: 1rem; right: 1rem;
-            background: none; border: none;
-            color: var(--text-secondary);
-            font-size: 2rem; font-weight: 300;
-            cursor: pointer; padding: 0.5rem;
-            line-height: 1;
-            min-width: 44px; min-height: 44px;
-            display: flex; align-items: center; justify-content: center;
-            border-radius: 8px;
-            transition: background-color 0.2s;
-        }
-        .case-study-close-top:hover {
-            background-color: var(--accent-soft);
-            color: var(--accent);
-        }
-        .case-study-title {
-            font-family: var(--font-display);
-            font-size: 1.75rem; font-weight: 600;
-            color: var(--text-primary);
-            line-height: 1.25;
-            margin-bottom: 0.5rem;
-            letter-spacing: -0.3px;
-        }
-        .case-study-meta {
-            font-size: 0.9rem; color: var(--text-secondary);
-            margin-bottom: 2.5rem;
-            padding-bottom: 2rem;
-            border-bottom: 1px solid var(--border-color);
-        }
-        .case-study-section { margin-bottom: 2.25rem; }
-        .case-study-section h5 {
-            font-family: var(--font-display);
-            font-size: 1.15rem; font-weight: 600;
-            color: var(--accent);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 0.85rem;
-        }
-        .case-study-section p {
-            font-size: 1.05rem; line-height: 1.85;
-            color: var(--text-secondary);
-            margin-bottom: 1rem;
-        }
-        .case-study-section ul {
-            list-style: none; padding: 0; margin: 0;
-            display: flex; flex-direction: column; gap: 0.75rem;
-        }
-        .case-study-section ul li {
-            font-size: 1.05rem; line-height: 1.75;
-            color: var(--text-secondary);
-            padding-left: 1.5rem;
-            position: relative;
-        }
-        .case-study-section ul li::before {
-            content: '→';
-            position: absolute; left: 0;
-            color: var(--accent);
-            font-weight: 600;
-        }
-        .case-study-close-bottom {
-            display: flex; justify-content: center;
-            margin-top: 2.5rem; padding-top: 2rem;
-            border-top: 1px solid var(--border-color);
-        }
-        @media (max-width: 600px) {
-            .case-study-modal-container { padding: 2rem 1.5rem 2rem; }
-            .case-study-title { font-size: 1.4rem; }
-        }
-
-        /* What I Can Help With Section */
-        .services-section {
-            padding: 6rem 0;
-            border-top: 1px solid var(--border-color);
-        }
-        .services-list {
-            display: flex;
-            flex-direction: column;
-            gap: 0;
-            margin-top: 3rem;
-        }
-        .service-item {
-            display: grid;
-            grid-template-columns: 260px 1fr;
-            gap: 2rem 3rem;
-            padding: 2rem 0;
-            border-bottom: 1px solid var(--border-color);
-            align-items: start;
-        }
-        .service-item:first-child {
-            border-top: 1px solid var(--border-color);
-        }
-        .service-label {
-            font-family: var(--font-display);
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--text-primary);
-            line-height: 1.4;
-            padding-top: 0.15rem;
-        }
-        .service-label::before {
-            content: '';
-            display: inline-block;
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background-color: var(--accent);
-            margin-right: 0.75rem;
-            vertical-align: middle;
-            position: relative;
-            top: -1px;
-        }
-        .service-desc {
-            font-size: 1rem;
-            line-height: 1.75;
-            color: var(--text-secondary);
-        }
-        @media (max-width: 640px) {
-            .service-item {
-                grid-template-columns: 1fr;
-                gap: 0.5rem;
-                padding: 1.75rem 0;
-            }
-        }
-
-        /* Enterprise Experience Section */
-        .enterprise-section {
-            padding: 6rem 0;
-            border-top: 1px solid var(--border-color);
-        }
-        .client-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.25rem;
-            margin-top: 3rem;
-        }
-        @media (max-width: 900px) {
-            .client-grid { grid-template-columns: repeat(2, 1fr); }
-        }
-        @media (max-width: 560px) {
-            .client-grid { grid-template-columns: 1fr; }
-        }
-        .client-card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 1.5rem;
-        }
-        .client-name {
-            font-family: var(--font-display);
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 0.35rem;
-        }
-        .client-domain {
-            font-size: 0.75rem;
-            font-weight: 500;
-            color: var(--accent);
-            text-transform: uppercase;
-            letter-spacing: 0.07em;
-            margin-bottom: 0.75rem;
-        }
-        .client-desc {
-            font-size: 0.9rem;
-            line-height: 1.65;
-            color: var(--text-secondary);
-        }
-        .enterprise-stats {
-            display: flex;
-            gap: 0;
-            margin-top: 3rem;
-            border-top: 1px solid var(--border-color);
-            border-bottom: 1px solid var(--border-color);
-        }
-        .enterprise-stat {
-            flex: 1;
-            padding: 1.5rem 1rem;
-            text-align: center;
-            border-right: 1px solid var(--border-color);
-        }
-        .enterprise-stat:last-child { border-right: none; }
-        .enterprise-stat-number {
-            font-family: var(--font-display);
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: var(--text-primary);
-            display: block;
-            margin-bottom: 0.35rem;
-        }
-        .enterprise-stat-label {
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-            line-height: 1.4;
-        }
-        @media (max-width: 560px) {
-            .enterprise-stats { flex-direction: column; }
-            .enterprise-stat { border-right: none; border-bottom: 1px solid var(--border-color); }
-            .enterprise-stat:last-child { border-bottom: none; }
-        }
-
-        /* Testimonials Section */
-        .testimonials-section {
-            padding: 6rem 0;
-            border-top: 1px solid var(--border-color);
-        }
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-            gap: 1.75rem;
-            margin-top: 3rem;
-            /* Single card: constrain and center */
-            max-width: 700px;
-        }
-        /* When 2+ cards exist, let grid fill the full container */
-        .testimonials-grid:has(.testimonial-card:nth-child(2)) {
-            max-width: none;
-        }
-        .testimonial-card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 2.5rem 2.5rem 2rem;
-            position: relative;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.02);
-        }
-        .testimonial-card::before {
-            content: '\201C';
-            font-family: var(--font-display);
-            font-size: 7rem;
-            line-height: 1;
-            color: var(--accent);
-            opacity: 0.1;
-            position: absolute;
-            top: 1rem;
-            left: 1.75rem;
-            pointer-events: none;
-            user-select: none;
-        }
-        .testimonial-quote {
-            font-family: var(--font-display);
-            font-size: 1.2rem;
-            line-height: 1.75;
-            color: var(--text-primary);
-            font-weight: 400;
-            font-style: italic;
-            margin-bottom: 2rem;
-            position: relative;
-            z-index: 1;
-        }
-        .testimonial-attribution {
-            border-top: 1px solid var(--border-color);
-            padding-top: 1.25rem;
-        }
-        .testimonial-name {
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 0.2rem;
-        }
-        .testimonial-title {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            line-height: 1.4;
-        }
-        @media (max-width: 560px) {
-            .testimonials-grid { max-width: none; }
-            .testimonial-card { padding: 2rem 1.75rem 1.75rem; }
-            .testimonial-quote { font-size: 1.1rem; }
-        }
-
-        /* Now Section */
-        .now-section {
-            padding: 2.5rem 0;
-            border-top: 1px solid var(--border-color);
-        }
-        .now-card {
-            border-left: 3px solid var(--accent);
-            background-color: var(--card-bg);
-            border-radius: 0 12px 12px 0;
-            padding: 1.5rem 1.75rem;
-            max-width: 720px;
-        }
-        .now-label {
-            font-size: 0.7rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--accent);
-            margin-bottom: 0.6rem;
-        }
-        .now-text {
-            font-size: 1rem;
-            line-height: 1.75;
-            color: var(--text-secondary);
-            margin: 0;
-        }
-        .now-text strong {
-            color: var(--text-primary);
-            font-weight: 600;
-        }
-
-        /* Project card numbering */
-        .projects-grid {
-            counter-reset: project-counter;
-        }
-        .project-card {
-            counter-increment: project-counter;
-        }
-        .project-card::before {
-            content: counter(project-counter, decimal-leading-zero);
-            font-family: var(--font-display);
-            font-size: 0.75rem;
-            font-weight: 600;
-            color: var(--border-hover);
-            position: absolute;
-            top: 1.25rem;
-            right: 1.5rem;
-            letter-spacing: 0.05em;
-        }
-
-        /* FAQ Accordion Section */
-        .faq-section { padding: 6rem 0; border-top: 1px solid var(--border-color); }
-        .faq-list { max-width: 720px; margin-top: 3rem; }
-        .faq-item {
-            border-bottom: 1px solid var(--border-color);
-        }
-        .faq-item summary {
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 1.5rem 0; cursor: pointer; list-style: none;
-            font-family: var(--font-display); font-size: 1.1rem; font-weight: 500;
-            color: var(--text-primary); transition: color 0.2s;
-        }
-        .faq-item summary::-webkit-details-marker { display: none; }
-        .faq-item summary::after {
-            content: '+'; font-size: 1.5rem; font-weight: 300;
-            color: var(--text-secondary); transition: transform 0.2s;
-            flex-shrink: 0; margin-left: 1rem;
-        }
-        .faq-item[open] summary::after { content: '−'; }
-        .faq-item summary:hover { color: var(--accent); }
-        .faq-answer {
-            padding: 0 0 1.5rem 0; font-size: 1rem; line-height: 1.75;
-            color: var(--text-secondary);
-        }
-
-        /* Bold Footer Sign-off */
-        .footer-signoff {
-            text-align: center; padding: 5rem 0 3rem; border-top: 1px solid var(--border-color);
-        }
-        .footer-signoff-name {
-            font-family: var(--font-display); font-size: clamp(2.5rem, 8vw, 5rem);
-            font-weight: 600; color: var(--text-primary); letter-spacing: -1px;
-            line-height: 1.1; margin-bottom: 1rem; text-transform: uppercase;
-        }
-        .footer-signoff-copy {
-            font-size: 0.85rem; color: var(--text-secondary);
-        }
-
-        /* Reduced Motion */
-        @media (prefers-reduced-motion: reduce) {
-            .reveal {
-                opacity: 1 !important;
-                transform: none !important;
-                transition: none !important;
-            }
-            .hero::before {
-                animation: none !important;
-                opacity: 0.3;
-                transform: none !important;
-            }
-            .video-modal-backdrop, .video-modal-container,
-            .case-study-modal-backdrop, .case-study-modal-container {
-                transition: none !important;
-            }
-        }
-
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,700;0,800;1,700;1,800&display=swap" rel="stylesheet">
     
-    <!-- Google Analytics 4 - added July 2026 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W4B50CXSZ9"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-W4B50CXSZ9');
-    </script>
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
+<div class="site-boundary">
 
-    <!-- Navigation -->
-    <nav id="navbar">
-        <div class="container nav-inner">
-            <a href="#" class="nav-logo">JE<span>.</span></a>
-            
-            <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Menu">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
-            </button>
-            
-            <ul class="nav-links" id="nav-links">
-                <li><a href="#">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#enterprise">Enterprise</a></li>
-                <li><a href="#faq">FAQ</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+    <!-- Sticky Nav -->
+    <nav class="navbar" id="navbar">
+        <a href="#" class="nav-logo">JE<span>.</span></a>
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#enterprise">Enterprise</a>
+            <a href="#faq">FAQ</a>
+            <a href="#contact">Contact</a>
         </div>
+        <a href="#contact" class="btn btn--navy nav-cta">Hire Me &rarr;</a>
+        <button class="nav-toggle" aria-label="Toggle menu" onclick="document.querySelector('.nav-links').classList.toggle('active')">&#9776;</button>
     </nav>
 
-    <div class="container">
+    <main>
         <!-- Hero Section -->
-        <main class="hero reveal active">
+        <section class="container hero">
             <div class="hero-content">
-                <div class="hero-text">
-                    <h1>Johnson Elangbam</h1>
-                    <h2>Senior / Staff iOS Engineer <span class="status-indicator"><span class="status-dot"></span>Available for work</span></h2>
-                    <p class="subheadline">
-                        18+ years building iOS apps across enterprise VoIP, automotive, retail, and on-device AI/ML.<br><br>
-                        <span class="location-inline">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 0c-4.198 0-8 3.403-8 7.602 0 4.198 3.469 9.21 8 16.398 4.531-7.188 8-12.2 8-16.398 0-4.199-3.801-7.602-8-7.602zm0 11c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3z"/></svg>
-                            Based in Imphal, India (Remote-friendly)
-                        </span>
-                    </p>
-                    <div class="hero-ctas">
-                        <a href="assets/resume/Johnson_Elangbam_Resume_July_30_2026.pdf" download class="btn btn-secondary hero-resume-btn" aria-label="Download Johnson Elangbam's resume">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 16l-6-6h4V4h4v6h4l-6 6zm-6 4h12v-2H6v2z"/></svg>
-                            Download Resume
-                        </a>
-                        <div class="hero-cta-divider">or</div>
-                        <div class="hero-intent-btns">
-                            <a href="#contact" class="btn btn-primary" aria-label="Contact Johnson about full-time hiring">
-                                Looking to hire full-time?
-                            </a>
-                            <a href="#contact" class="btn btn-outline" aria-label="Contact Johnson about freelance engineering">
-                                Need a freelance engineer?
-                            </a>
+                <div class="status-badge">
+                    <div class="status-dot-wrap">
+                        <span class="status-dot-pulse"></span>
+                        <span class="status-dot"></span>
+                    </div>
+                    Available for work
+                </div>
+                
+                <h1 class="hero-title">
+                    <span class="hero-title-solid">Johnson</span>
+                    <span class="hero-title-outline">Elangbam</span>
+                </h1>
+                
+                <h2 class="hero-subtitle">Senior / Staff iOS Engineer</h2>
+                
+                <p class="hero-desc">
+                    18+ years building iOS apps across enterprise VoIP, automotive, retail, and on-device AI/ML.
+                </p>
+                
+                <div class="hero-location">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                    Based in Imphal, India &mdash; Remote-friendly
+                </div>
+                
+                <div class="hero-actions">
+                    <a href="assets/resume/Johnson_Elangbam_Resume_July_30_2026.pdf" target="_blank" rel="noopener noreferrer" class="btn btn--navy">
+                        <svg class="btn-icon" viewBox="0 0 24 24" style="width: 16px; height: 16px; fill: currentColor;"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+                        Download Resume
+                    </a>
+                    <a href="#contact" class="btn btn--pill-outline">Full-time hire?</a>
+                    <a href="#contact" class="btn btn--pill-outline">Freelance project?</a>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <img src="profile.png" alt="Johnson Elangbam" class="hero-photo">
+                
+                <!-- Float Card TL -->
+                <div class="float-card float-card--tl">
+                    <svg viewBox="0 0 24 24" class="float-icon-raw" style="fill:none;stroke:var(--gold-dark);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+                    <div class="float-text">
+                        <strong>99%</strong>
+                        <span>Crash-free rate</span>
+                    </div>
+                </div>
+
+                <!-- Float Card BR -->
+                <div class="float-card float-card--br">
+                    <svg viewBox="0 0 24 24" class="float-icon-raw" style="fill:none;stroke:var(--navy);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    <div class="float-text">
+                        <strong>30-70%</strong>
+                        <span>Build time faster</span>
+                    </div>
+                </div>
+
+                <!-- Float Pill Center Bottom -->
+                <div class="float-pill">
+                    <div class="gold-dot"></div>
+                    18+ years iOS
+                </div>
+            </div>
+        </section>
+        
+        <div class="hero-scroll-indicator">
+            <div class="hero-scroll-bounce">
+                <span class="scroll-text">SCROLL</span>
+                <svg viewBox="0 0 24 24" width="16" height="16" style="fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+        </div>
+
+        <!-- Working On & About Section -->
+        <section id="about" class="dark-section">
+            <div class="container">
+                
+                <!-- Working On Banner -->
+                <div class="working-on-banner">
+                    <div class="working-on-pill">
+                        <span class="gold-dot" style="background-color: #22c55e;"></span>
+                        WHAT I'M WORKING ON NOW
+                    </div>
+                    <div class="working-on-text">
+                        Currently maintaining <strong>AIAnalyzer</strong>, an open-source Swift static analysis CLI with hybrid on-device/cloud AI fix suggestions &mdash; recently shipped v0.2.0 with automated Homebrew releases. Also open to Staff/Lead iOS roles and freelance engagements in iOS development and on-device AI integration.
+                    </div>
+                </div>
+
+                <!-- About Me -->
+                <div class="about-grid">
+                    <div>
+                        <span class="section-label">ABOUT ME</span>
+                        <h2 class="about-headline">Engineer who builds AI-enabled, production-grade iOS systems.</h2>
+                        <div class="gold-underline"></div>
+                    </div>
+                    <div>
+                        <div class="about-text">
+                            <p>I specialize in both <strong>on-device AI/ML integration</strong> and API-based AI architecture. My work ranges from enterprise VoIP applications (like Avaya Workplace/Spaces SDK) to building hybrid AI pipelines, such as the Cloud/Local/Hybrid provider architecture driving AIAnalyzer.</p>
+                            <p>I prioritize developer experience and application health. By architecting systems that are robust and highly observable, I recently achieved a <strong>99% crash-free rate at Neurealm</strong> and drove a <strong>30-70% build time reduction</strong> through advanced CI/CD automation at Cognizant.</p>
+                        </div>
+                        
+                        <div class="about-stats">
+                            <div class="stat-box">
+                                <h4>99%</h4>
+                                <p>Crash-free rate at Neurealm, up from 96%</p>
+                                <span>through rigorous stability engineering</span>
+                            </div>
+                            <div class="stat-box">
+                                <h4>30-70%</h4>
+                                <p>Build time reduction at Cognizant</p>
+                                <span>through advanced CI/CD automation</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="hero-photo">
-                    <img src="profile.png" alt="Johnson Elangbam" class="profile-img">
-                </div>
-            </div>
-        </main>
-
-        <!-- Now Section -->
-        <aside class="now-section reveal">
-            <div class="now-card">
-                <div class="now-label">What I'm working on now</div>
-                <p class="now-text">Currently maintaining <strong>AIAnalyzer</strong>, an open-source Swift static analysis CLI with hybrid on-device/cloud AI fix suggestions — recently shipped v0.2.0 with automated Homebrew releases. Also open to Staff/Lead iOS roles and freelance engagements in iOS development and on-device AI integration.</p>
-            </div>
-        </aside>
-
-        <!-- About Section -->
-        <section id="about" class="reveal">
-            <div class="section-header">
-                <h3>About Me</h3>
-            </div>
-            
-            <div class="about-grid">
-                <div class="about-text">
-                    <p>As an engineer who builds AI-enabled, production-grade iOS systems, I specialize in both <strong>on-device AI/ML integration</strong> and API-based AI architecture. My work ranges from enterprise VoIP applications (like Avaya Workplace/Spaces SDK) to building hybrid AI pipelines, such as the Cloud/Local/Hybrid provider architecture driving AIAnalyzer.</p>
-                    <p>I prioritize developer experience and application health. By architecting systems that are robust and highly observable, I recently achieved a 99% crash-free rate at Neurealm and drove a 30-70% build time reduction through advanced CI/CD automation at Cognizant.</p>
-                </div>
-                
-                <!-- Highlights Pull-Quote Style -->
-                <div class="stats-pull">
-                    <div class="stat-item">
-                        <h4>99%</h4>
-                        <p><strong>Crash-free rate</strong> achieved at Neurealm, up from 96%, through rigorous stability engineering.</p>
-                    </div>
-                    <div class="stat-item">
-                        <h4>30-70%</h4>
-                        <p><strong>Build time reduction</strong> driven by advanced CI/CD automation initiatives at Cognizant.</p>
-                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Projects Section -->
-        <section id="projects">
-            <div class="section-header reveal">
-                <h3>Selected Projects</h3>
+        <!-- Selected Projects -->
+        <section id="projects" class="section-padding container">
+            <div class="section-header">
+                <div>
+                    <span class="section-label projects-label">SELECTED PROJECTS</span>
+                    <h2 class="section-title">What I've <br><em>been building.</em></h2>
+                </div>
+                <a href="https://github.com/elangbamjohnson" target="_blank" rel="noopener noreferrer" class="view-all-btn">View all on GitHub &nearr;</a>
             </div>
-            
-            <div class="projects-grid">
+
+            <div class="bento-grid">
                 
                 <!-- Project 1 -->
-                <div class="project-card reveal delay-1">
-                    <h4>AIAnalyzer</h4>
+                <div class="content-card bento-item bento-wide">
+                    <div class="card-accent-dot"></div>
+                    <div class="card-tags">
+                        <span class="tag-pill">Swift</span>
+                        <span class="tag-pill">CLI</span>
+                        <span class="tag-pill">Static Analysis</span>
+                        <span class="tag-pill">AI</span>
+                    </div>
+                    <h3>AIAnalyzer</h3>
                     <p>A Swift static analysis CLI distributed via Homebrew. Detects architectural smells (God Objects, Large Classes, High Method Density) with AI-powered fix suggestions across Cloud, Local, and Hybrid modes.</p>
-                    <div class="project-tags">
-                        <span class="tag">Swift</span>
-                        <span class="tag">CLI</span>
-                        <span class="tag">Static Analysis</span>
-                        <span class="tag">AI</span>
-                    </div>
-                    <div class="project-actions">
-                        <button class="btn-link" onclick="openVideoModal('assets/videos/AIAnalyzer.mp4')" aria-label="Watch AIAnalyzer demo video">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 22v-20l18 10-18 10z"/></svg>
-                            Watch Demo
-                        </button>
-                        <button class="btn-link" onclick="openCaseStudy()" aria-label="Read AIAnalyzer case study">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16h12a2 2 0 0 0 2-2V8l-6-6zm-1 1.5L16.5 7H13V3.5zM18 20H6V4h5v4h4v12zm-3-5H9v2h6v-2zm0-4H9v2h6v-2z"/></svg>
-                            View Case Study →
-                        </button>
-                        <a href="https://github.com/elangbamjohnson/AIAnalyzer" target="_blank" rel="noopener noreferrer" class="btn-link">
-                            View on GitHub
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 3c-1.105 0-2 .895-2 2v14c0 1.105.895 2 2 2h14c1.105 0 2-.895 2-2v-14c0-1.105-.895-2-2-2h-14zm9 4h4v4h-2v-2.586l-6.293 6.293-1.414-1.414 6.293-6.293h-2.586v-2z"/></svg>
-                        </a>
-                    </div>
+                    <a href="https://github.com/elangbamjohnson/AIAnalyzer" target="_blank" rel="noopener noreferrer" class="btn-github">
+                        <svg style="width:16px;height:16px;fill:currentColor;margin-right:0.5rem;" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                        GitHub
+                    </a>
                 </div>
 
                 <!-- Project 2 -->
-                <div class="project-card reveal delay-2">
-                    <h4>Smart Attendance System</h4>
-                    <p>An iOS app recognizing faces in real time using Apple Vision and a Core ML FaceNet model for embeddings (cosine similarity). Registers faces on-device with zero cloud dependency. Built with SwiftUI and MVVM.</p>
-                    <div class="project-tags">
-                        <span class="tag">Swift</span>
-                        <span class="tag">Core ML</span>
-                        <span class="tag">Vision</span>
-                        <span class="tag">On-Device AI</span>
+                <div class="content-card bento-item bento-narrow">
+                    <div class="card-accent-dot"></div>
+                    <div class="card-tags">
+                        <span class="tag-pill">SwiftUI</span>
+                        <span class="tag-pill">FastAPI</span>
+                        <span class="tag-pill">On-Device AI</span>
+                        <span class="tag-pill">MLX</span>
+                        <span class="tag-pill">Privacy-First</span>
                     </div>
-                    <a href="https://github.com/elangbamjohnson/Smart_Attendance_System" target="_blank" rel="noopener noreferrer" class="btn-link">
-                        View on GitHub
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 3c-1.105 0-2 .895-2 2v14c0 1.105.895 2 2 2h14c1.105 0 2-.895 2-2v-14c0-1.105-.895-2-2-2h-14zm9 4h4v4h-2v-2.586l-6.293 6.293-1.414-1.414 6.293-6.293h-2.586v-2z"/></svg>
+                    <h3 class="title-gold">Genesis</h3>
+                    <p>A full-stack, fully local AI system to preserve knowledge, voice, and memory. SwiftUI iOS front end backed by FastAPI + local MLX inference (Qwen2.5-14B) — no cloud dependency, no third party.</p>
+                    <a href="https://github.com/elangbamjohnson/Genesis" target="_blank" rel="noopener noreferrer" class="btn-github">
+                        <svg style="width:16px;height:16px;fill:currentColor;margin-right:0.5rem;" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                        GitHub
                     </a>
                 </div>
 
                 <!-- Project 3 -->
-                <div class="project-card reveal delay-3">
-                    <h4>Genesis — A Personal AI Legacy Platform</h4>
-                    <p>A full-stack, fully local AI system I'm building as a way to preserve my own knowledge, voice, and memory for future generations of my family. SwiftUI iOS front end backed by a FastAPI + local MLX inference engine (Qwen2.5-14B), running entirely on-device — no cloud dependency, no third party holding this data. Built with careful owner/visitor memory isolation, so the system knows the difference between me and someone interacting with it after I'm gone.</p>
-                    <div class="project-tags">
-                        <span class="tag">SwiftUI</span>
-                        <span class="tag">FastAPI</span>
-                        <span class="tag">On-Device AI</span>
-                        <span class="tag">MLX</span>
-                        <span class="tag">Privacy-First</span>
+                <div class="content-card bento-item bento-narrow">
+                    <div class="card-tags">
+                        <span class="tag-pill">Swift</span>
+                        <span class="tag-pill">Core ML</span>
+                        <span class="tag-pill">Vision</span>
+                        <span class="tag-pill">On-Device AI</span>
                     </div>
-                    <a href="https://github.com/elangbamjohnson/Genesis" target="_blank" rel="noopener noreferrer" class="btn-link">
-                        View on GitHub
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 3c-1.105 0-2 .895-2 2v14c0 1.105.895 2 2 2h14c1.105 0 2-.895 2-2v-14c0-1.105-.895-2-2-2h-14zm9 4h4v4h-2v-2.586l-6.293 6.293-1.414-1.414 6.293-6.293h-2.586v-2z"/></svg>
+                    <h3>Smart Attendance</h3>
+                    <p>iOS app recognizing faces in real time using Apple Vision and a Core ML FaceNet model. Registers faces on-device with zero cloud dependency.</p>
+                    <a href="https://github.com/elangbamjohnson/Smart_Attendance_System" target="_blank" rel="noopener noreferrer" class="btn-github">
+                        <svg style="width:16px;height:16px;fill:currentColor;margin-right:0.5rem;" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                        GitHub
                     </a>
                 </div>
-                
+
                 <!-- Project 4 -->
-                <div class="project-card reveal delay-4">
-                    <h4>Meitei Mayek Transliterator</h4>
-                    <p>An iOS app for OCR extraction and transliteration of the Meitei Mayek script. Includes a custom-built from-scratch glyph recognition pipeline since Apple Vision has no native support for this script.</p>
-                    <div class="project-tags">
-                        <span class="tag">Swift</span>
-                        <span class="tag">OCR</span>
-                        <span class="tag">Computer Vision</span>
-                        <span class="tag">Localization</span>
+                <div class="content-card bento-item bento-narrow">
+                    <div class="card-tags">
+                        <span class="tag-pill">Swift</span>
+                        <span class="tag-pill">OCR</span>
+                        <span class="tag-pill">Computer Vision</span>
+                        <span class="tag-pill">Localization</span>
                     </div>
-                    <a href="https://github.com/elangbamjohnson/MeiteiMayekTransliterator" target="_blank" rel="noopener noreferrer" class="btn-link">
-                        View on GitHub
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 3c-1.105 0-2 .895-2 2v14c0 1.105.895 2 2 2h14c1.105 0 2-.895 2-2v-14c0-1.105-.895-2-2-2h-14zm9 4h4v4h-2v-2.586l-6.293 6.293-1.414-1.414 6.293-6.293h-2.586v-2z"/></svg>
+                    <h3>Meitei Mayek Transliterator</h3>
+                    <p>iOS app for OCR extraction and transliteration of the Meitei Mayek script. Includes a custom glyph recognition pipeline — Apple Vision has no native support for this script.</p>
+                    <a href="https://github.com/elangbamjohnson/MeiteiMayekTransliterator" target="_blank" rel="noopener noreferrer" class="btn-github">
+                        <svg style="width:16px;height:16px;fill:currentColor;margin-right:0.5rem;" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                        GitHub
                     </a>
                 </div>
 
                 <!-- Project 5 -->
-                <div class="project-card reveal delay-5">
-                    <h4>SeekAndDestroy</h4>
-                    <p>A macOS security scanner for Apple Silicon. On-demand scanning covering SHA-256 hashing, code signature validation, persistence scanning, YARA integration, and FSEvents monitoring.</p>
-                    <div class="project-tags">
-                        <span class="tag">macOS</span>
-                        <span class="tag">Security</span>
-                        <span class="tag">Swift</span>
+                <div class="content-card bento-item bento-narrow">
+                    <div class="card-tags">
+                        <span class="tag-pill">macOS</span>
+                        <span class="tag-pill">Security</span>
+                        <span class="tag-pill">Swift</span>
                     </div>
-                    <a href="https://github.com/elangbamjohnson/SeekAndDestroy" target="_blank" rel="noopener noreferrer" class="btn-link">
-                        View on GitHub
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 3c-1.105 0-2 .895-2 2v14c0 1.105.895 2 2 2h14c1.105 0 2-.895 2-2v-14c0-1.105-.895-2-2-2h-14zm9 4h4v4h-2v-2.586l-6.293 6.293-1.414-1.414 6.293-6.293h-2.586v-2z"/></svg>
+                    <h3>SeekAndDestroy</h3>
+                    <p>macOS security scanner for Apple Silicon. On-demand scanning covering SHA-256 hashing, code signature validation, persistence scanning, YARA integration, and FSEvents monitoring.</p>
+                    <a href="https://github.com/elangbamjohnson/SeekAndDestroy" target="_blank" rel="noopener noreferrer" class="btn-github">
+                        <svg style="width:16px;height:16px;fill:currentColor;margin-right:0.5rem;" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                        GitHub
                     </a>
                 </div>
-                
+
                 <!-- Project 6 -->
-                <div class="project-card reveal delay-6">
-                    <h4>BLE Robot Controller</h4>
-                    <p>An iOS app for controlling a robot over Bluetooth Low Energy, demonstrating hardware/IoT integration alongside mobile AI work.</p>
-                    <div class="project-tags">
-                        <span class="tag">Swift</span>
-                        <span class="tag">Bluetooth LE</span>
-                        <span class="tag">IoT</span>
+                <div class="content-card bento-item bento-full">
+                    <div class="card-tags">
+                        <span class="tag-pill">Swift</span>
+                        <span class="tag-pill">Bluetooth LE</span>
+                        <span class="tag-pill">IoT</span>
                     </div>
-                    <a href="https://github.com/elangbamjohnson/BLERobotController" target="_blank" rel="noopener noreferrer" class="btn-link">
-                        View on GitHub
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 3c-1.105 0-2 .895-2 2v14c0 1.105.895 2 2 2h14c1.105 0 2-.895 2-2v-14c0-1.105-.895-2-2-2h-14zm9 4h4v4h-2v-2.586l-6.293 6.293-1.414-1.414 6.293-6.293h-2.586v-2z"/></svg>
+                    <h3>BLE Robot Controller</h3>
+                    <p>iOS app for controlling a robot over Bluetooth Low Energy, demonstrating hardware/IoT integration alongside mobile AI work.</p>
+                    <a href="https://github.com/elangbamjohnson/Bluetooth-LE-Robot-Controller" target="_blank" rel="noopener noreferrer" class="btn-github">
+                        <svg style="width:16px;height:16px;fill:currentColor;margin-right:0.5rem;" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                        GitHub
                     </a>
                 </div>
 
             </div>
         </section>
 
-        <!-- What I Can Help With Section -->
-        <section class="services-section reveal">
-            <div class="section-header">
-                <h3>What I can help with</h3>
-            </div>
-            <div class="services-list">
-                <div class="service-item">
-                    <div class="service-label">iOS Development &amp; Architecture</div>
-                    <div class="service-desc">Building and refactoring iOS apps with Clean Architecture / MVVM, Swift Concurrency, and modern SwiftUI — real track record of turning unstable codebases into reliable ones (96%→99% crash-free, 40-50% fewer production defects)</div>
+        <!-- Services Section -->
+        <section id="services" class="section-padding container">
+            <span class="section-label">WHAT I CAN HELP WITH</span>
+            <h2 class="section-title">Services</h2>
+
+            <div class="grid-3">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><path d="M17 1H7c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-2-2-2zm0 18H7V5h10v14zm-5 1c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1z"/></svg>
+                    </div>
+                    <h3>iOS Development &amp; Architecture</h3>
+                    <p>Building and refactoring iOS apps with Clean Architecture / MVVM, Swift Concurrency, and modern SwiftUI &mdash; real track record of turning unstable codebases into reliable ones (96%&rarr;99% crash-free, 40-50% fewer production defects).</p>
                 </div>
-                <div class="service-item">
-                    <div class="service-label">On-Device &amp; Cloud AI Integration</div>
-                    <div class="service-desc">Building hybrid AI systems that intelligently choose between local inference (Core ML, MLX, Ollama) and cloud APIs (Gemini) based on confidence — privacy-conscious, cost-conscious AI features for iOS apps</div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><path d="M21 2H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h7v2H8v2h8v-2h-2v-2h7c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H3V4h18v12z"/></svg>
+                    </div>
+                    <h3>On-Device &amp; Cloud AI Integration</h3>
+                    <p>Building hybrid AI systems that intelligently choose between local inference (Core ML, MLX, Ollama) and cloud APIs (Gemini) &mdash; privacy-conscious, cost-conscious AI features for iOS apps.</p>
                 </div>
-                <div class="service-item">
-                    <div class="service-label">CI/CD &amp; Release Automation</div>
-                    <div class="service-desc">Cutting build/release cycles from days to minutes (real track record: 30-70% faster releases), automated testing, GitHub Actions pipelines, Homebrew/App Store release automation</div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/></svg>
+                    </div>
+                    <h3>CI/CD &amp; Release Automation</h3>
+                    <p>Cutting build/release cycles from days to minutes (real track record: 30-70% faster releases), automated testing, GitHub Actions pipelines, Homebrew/App Store release automation.</p>
                 </div>
-                <div class="service-item">
-                    <div class="service-label">App Stability Engineering</div>
-                    <div class="service-desc">Swift Concurrency migrations (async/await, Actors), thread-safety fixes, crash diagnosis and resolution at production scale</div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+                    </div>
+                    <h3>App Stability Engineering</h3>
+                    <p>Swift Concurrency migrations (async/await, Actors), thread-safety fixes, crash diagnosis and resolution at production scale.</p>
                 </div>
-                <div class="service-item">
-                    <div class="service-label">VoIP &amp; Real-Time Communication</div>
-                    <div class="service-desc">Enterprise voice/video applications, SIP/PJSIP/WebRTC (background depth from 18 years in the space, available if it's the right fit)</div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
+                    </div>
+                    <h3>VoIP &amp; Real-Time Communication</h3>
+                    <p>Enterprise voice/video applications, SIP/PJSIP/WebRTC. Background depth from 18 years in the space &mdash; available if it's the right fit.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Enterprise Experience Section -->
-        <section id="enterprise" class="enterprise-section reveal">
-            <div class="section-header">
-                <h3>Enterprise Experience</h3>
-            </div>
-            <div class="client-grid">
-                <div class="client-card">
-                    <div class="client-name">Ford Motors</div>
-                    <div class="client-domain">Automotive</div>
-                    <div class="client-desc">Engineered CI/CD pipelines using CircleCI and Concourse CI, cutting release cycles from days/weeks to minutes (30-70% faster builds)</div>
+        <!-- Enterprise Experience -->
+        <section id="enterprise" class="section-padding container">
+            <div class="enterprise-grid">
+                
+                <!-- Left: List -->
+                <div class="client-list">
+                    <div style="margin-bottom: 3rem;">
+                        <span class="section-label">ENTERPRISE EXPERIENCE</span>
+                        <h2 class="section-title">Fortune 500<br><em>track record.</em></h2>
+                    </div>
+                    
+                    <div class="client-row">
+                        <div class="client-emoji">🚗</div>
+                        <div class="client-content">
+                            <div class="client-header">
+                                <h4>Ford Motors</h4>
+                                <span class="client-tag">AUTOMOTIVE</span>
+                            </div>
+                            <p>Engineered CI/CD pipelines using CircleCI and Concourse CI, cutting release cycles from days/weeks to minutes (30-70% faster builds).</p>
+                        </div>
+                        <div class="client-arrow">&rsaquo;</div>
+                    </div>
+                    
+                    <div class="client-row">
+                        <div class="client-emoji">🔧</div>
+                        <div class="client-content">
+                            <div class="client-header">
+                                <h4>AutoZone</h4>
+                                <span class="client-tag">RETAIL</span>
+                            </div>
+                            <p>Led iOS development, mentored engineers on architecture patterns.</p>
+                        </div>
+                        <div class="client-arrow">&rsaquo;</div>
+                    </div>
+                    
+                    <div class="client-row">
+                        <div class="client-emoji">📡</div>
+                        <div class="client-content">
+                            <div class="client-header">
+                                <h4>Avaya</h4>
+                                <span class="client-tag">ENTERPRISE VOIP</span>
+                            </div>
+                            <p>Workplace &amp; Spaces SDK across video conferencing and real-time communication.</p>
+                        </div>
+                        <div class="client-arrow">&rsaquo;</div>
+                    </div>
+                    
+                    <div class="client-row">
+                        <div class="client-emoji">🍕</div>
+                        <div class="client-content">
+                            <div class="client-header">
+                                <h4>Domino's Pizza</h4>
+                                <span class="client-tag">FOOD-TECH</span>
+                            </div>
+                            <p>Voice-ordering iOS app, national rollout to 5,000+ locations.</p>
+                        </div>
+                        <div class="client-arrow">&rsaquo;</div>
+                    </div>
+                    
+                    <div class="client-row">
+                        <div class="client-emoji">⚖️</div>
+                        <div class="client-content">
+                            <div class="client-header">
+                                <h4>Thomson Reuters</h4>
+                                <span class="client-tag">LEGAL &amp; FINANCIAL</span>
+                            </div>
+                            <p>Elite 3E, a law-firm management iPad app.</p>
+                        </div>
+                        <div class="client-arrow">&rsaquo;</div>
+                    </div>
                 </div>
-                <div class="client-card">
-                    <div class="client-name">AutoZone</div>
-                    <div class="client-domain">Retail</div>
-                    <div class="client-desc">Led iOS development, mentored engineers on architecture patterns</div>
+
+                <!-- Right: Numbers -->
+                <div class="numbers-card">
+                    <span class="numbers-label">BY THE NUMBERS</span>
+                    
+                    <div class="number-item">
+                        <h4>30-35%</h4>
+                        <p>Faster feature delivery velocity</p>
+                    </div>
+                    <div class="number-item">
+                        <h4>4-5</h4>
+                        <p>Engineers mentored per team</p>
+                    </div>
+                    <div class="number-item" style="margin-bottom: 0;">
+                        <h4>5</h4>
+                        <p>Fortune 500 <br>enterprise clients</p>
+                    </div>
+                    
+                    <div class="numbers-quote">
+                        "18 years of building production software means I've seen what breaks, what scales, and what actually ships."
+                    </div>
                 </div>
-                <div class="client-card">
-                    <div class="client-name">Avaya</div>
-                    <div class="client-domain">Enterprise VoIP</div>
-                    <div class="client-desc">Workplace &amp; Spaces SDK across video conferencing and real-time communication</div>
-                </div>
-                <div class="client-card">
-                    <div class="client-name">Domino's Pizza</div>
-                    <div class="client-domain">Food-Tech</div>
-                    <div class="client-desc">Voice-ordering iOS app, national rollout to 5,000+ locations</div>
-                </div>
-                <div class="client-card">
-                    <div class="client-name">Thomson Reuters</div>
-                    <div class="client-domain">Legal &amp; Financial</div>
-                    <div class="client-desc">Elite 3E, a law-firm management iPad app</div>
-                </div>
-            </div>
-            <div class="enterprise-stats">
-                <div class="enterprise-stat">
-                    <span class="enterprise-stat-number">30–35%</span>
-                    <span class="enterprise-stat-label">faster feature delivery velocity</span>
-                </div>
-                <div class="enterprise-stat">
-                    <span class="enterprise-stat-number">4–5</span>
-                    <span class="enterprise-stat-label">engineers mentored</span>
-                </div>
-                <div class="enterprise-stat">
-                    <span class="enterprise-stat-number">5</span>
-                    <span class="enterprise-stat-label">Fortune 500 / enterprise clients served</span>
-                </div>
+
             </div>
         </section>
 
-        <!-- Testimonials Section -->
-        <section class="testimonials-section reveal">
-            <div class="section-header">
-                <h3>What people say</h3>
-            </div>
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <p class="testimonial-quote">"Johnson is a very sound iOS lead. His technical grip as well as leadership skills are the right combination to get projects done... He has excellent communication skills with the team as well as with the customer."</p>
-                    <div class="testimonial-attribution">
-                        <div class="testimonial-name">Alok Kulkarni</div>
-                        <div class="testimonial-title">Principal Architect at Neurealm (CTO Office)</div>
+        <!-- Testimonial -->
+        <section class="section-padding container">
+            <div class="testimonial">
+                <div class="quote-glyph">&ldquo;</div>
+                <div class="testimonial-text">
+                    Johnson is a very sound iOS lead. His technical grip as well as leadership skills are the right combination to get projects done&hellip; He has excellent communication skills with the team as well as with the customer.
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-avatar">AK</div>
+                    <div class="author-info">
+                        <strong>Alok Kulkarni</strong>
+                        <span>Principal Architect at Neurealm (CTO Office)</span>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- FAQ Section -->
-        <section id="faq" class="faq-section reveal">
-            <div class="section-header">
-                <h3>FAQ</h3>
+        <section id="faq" class="section-padding container">
+            <div style="max-width: 800px; margin: 0 auto; text-align: left;">
+                <div style="margin-bottom: 3rem;">
+                    <span class="section-label">FAQ</span>
+                    <h2 class="section-title">Quick answers.</h2>
+                </div>
+                
+                <div class="faq-list">
+                <details class="faq-item">
+                    <summary class="faq-summary">
+                        What kind of engagements do you take?
+                        <span class="faq-icon">+</span>
+                    </summary>
+                    <div class="faq-content">Full-time Staff/Lead/Principal iOS roles, and freelance engagements in iOS development and on-device AI integration.</div>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-summary">
+                        Do you work remote-only?
+                        <span class="faq-icon">+</span>
+                    </summary>
+                    <div class="faq-content">Yes, remote-first, based in Imphal, India (GMT+5:30). Open to occasional travel if necessary for the right team.</div>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-summary">
+                        What's your typical availability?
+                        <span class="faq-icon">+</span>
+                    </summary>
+                    <div class="faq-content">Currently available for new opportunities. Please reach out via email to discuss timelines and capacity.</div>
+                </details>
+                <details class="faq-item">
+                    <summary class="faq-summary">
+                        What industries have you worked in?
+                        <span class="faq-icon">+</span>
+                    </summary>
+                    <div class="faq-content">Enterprise VoIP, automotive, retail, food-tech, and legal/financial. Check out the Enterprise Experience section above for details.</div>
+                </details>
             </div>
-            <div class="faq-list">
-                <details class="faq-item">
-                    <summary>What kind of engagements do you take?</summary>
-                    <div class="faq-answer">Full-time Staff/Lead/Principal iOS roles, and freelance engagements in iOS development and on-device AI integration.</div>
-                </details>
-                <details class="faq-item">
-                    <summary>Do you work remote-only?</summary>
-                    <div class="faq-answer">Yes, remote-first, based in Imphal, India (GMT+5:30).</div>
-                </details>
-                <details class="faq-item">
-                    <summary>What's your typical availability?</summary>
-                    <div class="faq-answer">Currently available for new opportunities — see the Contact section for the most up-to-date status.</div>
-                </details>
-                <details class="faq-item">
-                    <summary>What industries have you worked in?</summary>
-                    <div class="faq-answer">Enterprise VoIP, automotive, retail, and legal/financial — see the Enterprise Experience section for details.</div>
-                </details>
             </div>
         </section>
+    </main>
 
-        <!-- Contact Section -->
-        <section id="contact" class="contact-section reveal">
-            <h3>Let's Connect</h3>
-            <p>I'm currently looking for Staff, Lead, or Principal iOS engineering opportunities, and open to freelance engagements. My inbox is always open.</p>
+    <!-- Contact Band -->
+    <section id="contact" class="footer-band">
+        <div class="container">
+            <span class="section-label">CONTACT</span>
+            <h2 class="footer-title">Let's Connect</h2>
+            <p class="footer-desc">
+                I'm currently looking for Staff, Lead, or Principal iOS engineering opportunities, and open to freelance engagements. My inbox is always open.
+            </p>
             
-            <div class="button-group">
-                <button class="btn btn-primary email-btn" aria-label="Copy email address" onclick="copyEmail(event)" onkeydown="if(event.key==='Enter') copyEmail(event)">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z"/></svg>
+            <div class="footer-actions">
+                <a href="mailto:elangbamjohnson@gmail.com" class="btn btn--gold">
+                    <svg style="width:16px;height:16px;fill:currentColor;margin-right:0.5rem;" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
                     Say Hello
-                    <span class="tooltip" id="email-tooltip">Click to copy</span>
-                </button>
-                <a href="https://linkedin.com/in/elangbamjohnson" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                </a>
+                <a href="https://linkedin.com/in/elangbamjohnson" target="_blank" rel="noopener noreferrer" class="btn btn--outline-dark">
+                    <svg style="width:16px;height:16px;fill:currentColor;margin-right:0.5rem;" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                     LinkedIn
                 </a>
-                <a href="https://github.com/elangbamjohnson" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                <a href="https://github.com/elangbamjohnson" target="_blank" rel="noopener noreferrer" class="btn btn--outline-dark">
+                    <svg style="width:16px;height:16px;fill:currentColor;margin-right:0.5rem;" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
                     GitHub
                 </a>
             </div>
-        </section>
 
-    </div>
+            <div class="footer-info">
+                elangbamjohnson@gmail.com &middot; GMT+5:30 &middot; Imphal, India
+            </div>
+        </div>
+    </section>
 
-    <footer class="footer-signoff">
-        <div class="container">
-            <div class="footer-signoff-name">Johnson Elangbam</div>
-            <p class="footer-signoff-copy">&copy; 2026 Johnson Elangbam. All rights reserved.</p>
+    <!-- Footer Bottom -->
+    <footer class="footer-bottom container">
+        <div class="footer-logo">
+            <strong>JE<span>.</span></strong>
+            <span>Johnson Elangbam</span>
+        </div>
+        <div>&copy; 2026 Johnson Elangbam. All rights reserved.</div>
+        <div class="footer-links">
+            <a href="https://linkedin.com/in/elangbamjohnson" target="_blank" rel="noopener noreferrer">LinkedIn</a> &middot; 
+            <a href="https://github.com/elangbamjohnson" target="_blank" rel="noopener noreferrer">GitHub</a> &middot; 
+            <a href="assets/resume/Johnson_Elangbam_Resume_July_30_2026.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
         </div>
     </footer>
-
-    <!-- Video Modal -->
-    <div id="videoModal" class="video-modal-backdrop" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Demo Video Player">
-        <div class="video-modal-container" role="document">
-            <button id="closeVideoBtn" class="video-modal-close" aria-label="Close video">&times;</button>
-            <video id="demoVideo" class="video-player" controls preload="none" loop>
-                <source src="" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-    </div>
-
-    <!-- Case Study Modal -->
-    <div id="caseStudyModal" class="case-study-modal-backdrop" aria-hidden="true" role="dialog" aria-modal="true" aria-label="AIAnalyzer Case Study">
-        <div class="case-study-modal-container" role="document">
-            <button id="closeCaseStudyBtn" class="case-study-close-top" aria-label="Close case study">&times;</button>
-            <div class="case-study-title">AIAnalyzer: A Static Analysis Tool That Knows When to Ask AI for Help</div>
-            <div class="case-study-meta">Swift · CLI · Static Analysis · AI</div>
-            <div class="case-study-section">
-                <h5>The Problem</h5>
-                <p>Over 18 years of iOS work, I kept hitting the same wall: messy, hard-to-maintain Swift codebases with no good tooling to catch architectural rot early. Most static analysis tools for Swift are either too generic (linting style, not architecture) or don't exist at all for the specific smells that actually sink a codebase over time — God Objects, oversized classes, tangled responsibilities.</p>
-                <p>At the same time, I wanted to go deeper on something I'd started exploring in an earlier project: combining on-device AI with cloud AI in a single system that intelligently chooses between them, rather than picking one or the other.</p>
-            </div>
-            <div class="case-study-section">
-                <h5>The Approach</h5>
-                <p>AIAnalyzer is a Swift CLI that parses codebases with SwiftSyntax, detects architectural smells (God Objects, Large Classes, High Method Density), and — the part I'm most proud of — offers AI-powered fix suggestions through four provider modes:</p>
-                <ul>
-                    <li><strong>Gemini (Cloud)</strong> — best quality, requires network + API key</li>
-                    <li><strong>Ollama (Local LLM)</strong> — a full local language model running via Ollama, fully on-device, no data leaves the machine</li>
-                    <li><strong>Local (Core ML)</strong> — a lighter-weight on-device option with its own heuristic fallback, useful when a full Ollama-hosted model isn't available</li>
-                    <li><strong>Hybrid</strong> — attempts a local-preferred provider first, evaluates confidence based on output quality, and automatically escalates to Gemini only when the local result looks weak</li>
-                </ul>
-                <p>That fallback logic is the core engineering problem I wanted to solve: not "which AI should I use," but "how does the system know, in real time, whether its own answer is good enough to trust."</p>
-            </div>
-            <div class="case-study-section">
-                <h5>Eating My Own Dog Food</h5>
-                <p>Once the core tool worked, I turned it on itself — and found the irony immediately: AnalyzerApp.swift, the app's own entry point, was a 695-line God Object, the exact smell the tool exists to catch. I used that as the starting point for a full self-audit: migrating CLI parsing to Apple's swift-argument-parser, decomposing the God Object into focused components, fixing a real false-positive bug in the classification logic (the tool was misreading class names like DetailViewControllerDelegate as ViewControllers), and automating the entire release pipeline — tagging a version now builds, tests, and publishes to Homebrew with zero manual steps.</p>
-            </div>
-            <div class="case-study-section">
-                <h5>Outcome</h5>
-                <ul>
-                    <li>Fully automated CI/CD: 59 passing tests, automated Homebrew formula updates, SARIF output for GitHub code scanning integration</li>
-                    <li>A working, publicly installable tool (brew install elangbamjohnson/tap/aianalyzer), not just a demo</li>
-                    <li>A real answer to a real architecture question: how to build AI systems that make trustworthy decisions about when to rely on lighter local inference versus escalating to a stronger cloud model — directly relevant to teams building cost-conscious or privacy-sensitive AI features</li>
-                </ul>
-            </div>
-            <div class="case-study-section" style="text-align: center; padding-top: 1rem;">
-                <a href="https://dev.to/elangbamjohnson/building-aianalyzer-a-swift-static-analysis-tool-that-knows-when-to-trust-its-own-ai-46d7" target="_blank" rel="noopener noreferrer" class="btn-link" style="font-size: 1.05rem;">
-                    Read the full technical write-up →
-                </a>
-            </div>
-            <div class="case-study-close-bottom">
-                <button onclick="closeCaseStudy()" class="btn btn-secondary" style="border: 1px solid var(--border-color); background: none; font-weight: 500; font-family: inherit; font-size: 1rem; padding: 0.8rem 2rem; border-radius: 40px; color: var(--text-primary); cursor: pointer; transition: all 0.2s;">Close</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Scripts -->
+    
+</div>
+    <!-- Minimal JS for Nav Toggle -->
     <script>
-        // Check if browser supports IntersectionObserver
-        if ('IntersectionObserver' in window) {
-            // Scroll Animation Observer
-            const observerOptions = {
-                root: null,
-                rootMargin: '0px',
-                threshold: 0.15
-            };
-            
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('active');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, observerOptions);
-            
-            document.querySelectorAll('.reveal').forEach((el) => {
-                // Ensure elements below fold don't have active class initially
-                if(el.getBoundingClientRect().top > window.innerHeight) {
-                    el.classList.remove('active');
-                }
-                observer.observe(el);
-            });
-        } else {
-            // Fallback for older browsers: make everything visible immediately
-            document.querySelectorAll('.reveal').forEach((el) => {
-                el.classList.add('active');
-            });
-        }
-
-        // Navbar Scroll Effect
-        const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 20) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
+        const hamburger = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
         });
 
-        // Mobile Menu Toggle
-        const mobileToggle = document.getElementById('mobile-toggle');
-        const navLinks = document.getElementById('nav-links');
-        
-        if(mobileToggle && navLinks) {
-            mobileToggle.addEventListener('click', () => {
-                navLinks.classList.toggle('active');
-            });
-            
-            // Close mobile menu when a link is clicked
-            navLinks.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', () => {
-                    navLinks.classList.remove('active');
-                });
-            });
-        }
-
-        // Email Copy-to-Clipboard
-        function copyEmail(e) {
-            if (e) e.preventDefault();
-            
-            // Replace with your actual email
-            const email = 'elangbamjohnson@gmail.com';
-            const tooltip = document.getElementById('email-tooltip');
-            
-            // Modern Clipboard API
-            if (navigator.clipboard && window.isSecureContext) {
-                navigator.clipboard.writeText(email).then(() => {
-                    showCopied(tooltip);
-                }).catch(err => {
-                    console.error('Failed to copy text: ', err);
-                    fallbackCopy(email, tooltip);
-                });
-            } else {
-                fallbackCopy(email, tooltip);
-            }
-        }
-        
-        function fallbackCopy(text, tooltip) {
-            const textArea = document.createElement("textarea");
-            textArea.value = text;
-            
-            // Move out of view
-            textArea.style.position = "fixed";
-            textArea.style.left = "-999999px";
-            textArea.style.top = "-999999px";
-            document.body.appendChild(textArea);
-            
-            textArea.focus();
-            textArea.select();
-            
-            try {
-                document.execCommand('copy');
-                showCopied(tooltip);
-            } catch (err) {
-                console.error('Fallback: Oops, unable to copy', err);
-            }
-            
-            document.body.removeChild(textArea);
-        }
-        
-        function showCopied(tooltip) {
-            if (!tooltip) return;
-            tooltip.textContent = 'Copied!';
-            tooltip.classList.add('copied');
-            
-            // Reset tooltip text after 1.5s
-            setTimeout(() => {
-                tooltip.classList.remove('copied');
-                setTimeout(() => {
-                    tooltip.textContent = 'Click to copy';
-                }, 200); // Wait for fade out transition
-            }, 1500);
-        }
-
-        // Video Modal Logic
-        const videoModal = document.getElementById('videoModal');
-        const demoVideo = document.getElementById('demoVideo');
-        const closeVideoBtn = document.getElementById('closeVideoBtn');
-        let lastFocusedElement;
-
-        function openVideoModal(videoSrc) {
-            lastFocusedElement = document.activeElement;
-            demoVideo.querySelector('source').src = videoSrc;
-            demoVideo.load();
-            videoModal.classList.add('active');
-            videoModal.setAttribute('aria-hidden', 'false');
-            
-            // Wait for transition, then play and set focus
-            setTimeout(() => {
-                demoVideo.play().catch(e => console.log("Autoplay prevented:", e));
-                closeVideoBtn.focus();
-            }, 300);
-        }
-
-        function closeVideoModal() {
-            videoModal.classList.remove('active');
-            videoModal.setAttribute('aria-hidden', 'true');
-            demoVideo.pause();
-            demoVideo.currentTime = 0;
-            
-            if (lastFocusedElement) {
-                lastFocusedElement.focus();
-            }
-        }
-
-        if (closeVideoBtn) {
-            closeVideoBtn.addEventListener('click', closeVideoModal);
-        }
-
-        if (videoModal) {
-            videoModal.addEventListener('click', (e) => {
-                if (e.target === videoModal) {
-                    closeVideoModal();
-                }
-            });
-        }
-
-        // Case Study Modal Logic
-        const caseStudyModal = document.getElementById('caseStudyModal');
-        const closeCaseStudyBtn = document.getElementById('closeCaseStudyBtn');
-        let caseStudyLastFocused;
-
-        function openCaseStudy() {
-            caseStudyLastFocused = document.activeElement;
-            caseStudyModal.classList.add('active');
-            caseStudyModal.setAttribute('aria-hidden', 'false');
-            caseStudyModal.scrollTop = 0;
-            setTimeout(() => {
-                closeCaseStudyBtn.focus();
-            }, 300);
-        }
-
-        function closeCaseStudy() {
-            caseStudyModal.classList.remove('active');
-            caseStudyModal.setAttribute('aria-hidden', 'true');
-            if (caseStudyLastFocused) {
-                caseStudyLastFocused.focus();
-            }
-        }
-
-        if (closeCaseStudyBtn) {
-            closeCaseStudyBtn.addEventListener('click', closeCaseStudy);
-        }
-
-        if (caseStudyModal) {
-            caseStudyModal.addEventListener('click', (e) => {
-                if (e.target === caseStudyModal) {
-                    closeCaseStudy();
-                }
-            });
-        }
-
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                if (videoModal && videoModal.classList.contains('active')) {
-                    closeVideoModal();
-                }
-                if (caseStudyModal && caseStudyModal.classList.contains('active')) {
-                    closeCaseStudy();
-                }
-            }
-        });
-
-        // FAQ Accordion — only one open at a time
-        document.querySelectorAll('.faq-item').forEach(item => {
-            item.addEventListener('toggle', () => {
-                if (item.open) {
-                    document.querySelectorAll('.faq-item').forEach(other => {
-                        if (other !== item) other.removeAttribute('open');
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                e.preventDefault();
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
                     });
+                    // Close mobile nav if open
+                    document.querySelector('.nav-links').classList.remove('active');
                 }
             });
         });
