@@ -373,13 +373,13 @@ h1, h2, h3, h4, h5, h6 {
 .hero-visual {
     position: relative;
     width: 100%;
-    max-width: 500px;
+    max-width: 400px; /* Reduced from 500px */
     margin: 0 auto;
 }
 .hero-photo {
     width: 100%;
     height: auto;
-    aspect-ratio: 500 / 550;
+    aspect-ratio: 400 / 440; /* Updated ratio for smaller size */
     object-fit: cover;
     border-radius: var(--radius-xl);
     box-shadow: 0 20px 40px rgba(26, 27, 46, 0.1);
@@ -397,19 +397,19 @@ h1, h2, h3, h4, h5, h6 {
     z-index: 10;
 }
 .float-card--tl {
-    top: -20px;
-    left: -40px;
+    top: -15px;
+    left: -30px;
     animation: float 4s ease-in-out infinite;
 }
 .float-card--br {
-    bottom: 30px;
-    right: -40px;
+    bottom: 25px;
+    right: -30px;
     animation: float 4s ease-in-out -2s infinite;
 }
 .float-pill {
     position: absolute;
-    bottom: -20px;
-    left: 20px;
+    bottom: -15px;
+    left: 15px;
     background: var(--white);
     padding: 0.6rem 1.2rem;
     border-radius: var(--radius-pill);
