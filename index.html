@@ -179,10 +179,25 @@
                     </div>
                     <h3>AIAnalyzer</h3>
                     <p>A Swift static analysis CLI distributed via Homebrew. Detects architectural smells (God Objects, Large Classes, High Method Density) with AI-powered fix suggestions across Cloud, Local, and Hybrid modes.</p>
-                    <a href="https://github.com/elangbamjohnson/AIAnalyzer" target="_blank" rel="noopener noreferrer" class="btn-github">
-                        <svg style="width:16px;height:16px;fill:currentColor;margin-right:0.5rem;" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                        GitHub
-                    </a>
+                    <ul class="ai-features-list">
+                        <li><strong>Cloud, Local & Hybrid Modes:</strong> Evaluates confidence of on-device Qwen2.5 inference, seamlessly escalating to Gemini Cloud when required.</li>
+                        <li><strong>Deep Static Analysis:</strong> Uses SwiftSyntax AST parsing to detect structural rot rather than simple styling lint issues.</li>
+                        <li><strong>CI/CD Integrated:</strong> Outputs SARIF data for native integration into GitHub Code Scanning.</li>
+                    </ul>
+                    <div class="project-actions">
+                        <button class="btn-action" onclick="openVideoModal('assets/videos/AIAnalyzer.mp4')" aria-label="Watch AIAnalyzer demo video">
+                            <svg style="width:16px;height:16px;fill:currentColor;margin-right:0.5rem;" viewBox="0 0 24 24"><path d="M3 22v-20l18 10-18 10z"/></svg>
+                            Watch Demo
+                        </button>
+                        <button class="btn-action" onclick="openCaseStudy()" aria-label="Read AIAnalyzer case study">
+                            <svg style="width:16px;height:16px;fill:currentColor;margin-right:0.5rem;" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16h12a2 2 0 0 0 2-2V8l-6-6zm-1 1.5L16.5 7H13V3.5zM18 20H6V4h5v4h4v12zm-3-5H9v2h6v-2zm0-4H9v2h6v-2z"/></svg>
+                            Case Study
+                        </button>
+                        <a href="https://github.com/elangbamjohnson/AIAnalyzer" target="_blank" rel="noopener noreferrer" class="btn-action">
+                            <svg style="width:16px;height:16px;fill:currentColor;margin-right:0.5rem;" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                            GitHub
+                        </a>
+                    </div>
                 </div>
 
                 <!-- Project 2 -->
@@ -197,10 +212,12 @@
                     </div>
                     <h3 class="title-gold">Genesis</h3>
                     <p>A full-stack, fully local AI system to preserve knowledge, voice, and memory. SwiftUI iOS front end backed by FastAPI + local MLX inference (Qwen2.5-14B) — no cloud dependency, no third party.</p>
-                    <a href="https://github.com/elangbamjohnson/Genesis" target="_blank" rel="noopener noreferrer" class="btn-github">
-                        <svg style="width:16px;height:16px;fill:currentColor;margin-right:0.5rem;" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                        GitHub
-                    </a>
+                    <div class="project-actions">
+                        <a href="https://github.com/elangbamjohnson/Genesis" target="_blank" rel="noopener noreferrer" class="btn-action">
+                            <svg style="width:16px;height:16px;fill:currentColor;margin-right:0.5rem;" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                            GitHub
+                        </a>
+                    </div>
                 </div>
 
                 <!-- Project 3 -->
@@ -517,6 +534,56 @@
     </footer>
     
 </div>
+    <!-- Video Modal -->
+    <div id="videoModal" class="video-modal-backdrop" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Demo Video Player">
+        <div class="video-modal-container" role="document">
+            <button id="closeVideoBtn" class="video-modal-close" aria-label="Close video">&times;</button>
+            <video id="demoVideo" class="video-player" controls preload="none" loop>
+                <source src="" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+
+    <!-- Case Study Modal -->
+    <div id="caseStudyModal" class="case-study-modal-backdrop" aria-hidden="true" role="dialog" aria-modal="true" aria-label="AIAnalyzer Case Study">
+        <div class="case-study-modal-container" role="document">
+            <button id="closeCaseStudyBtn" class="case-study-close-top" aria-label="Close case study">&times;</button>
+            <div class="case-study-title">AIAnalyzer: A Static Analysis Tool That Knows When to Ask AI for Help</div>
+            <div class="case-study-meta">Swift · CLI · Static Analysis · AI</div>
+            <div class="case-study-section">
+                <h5>The Problem</h5>
+                <p>Over 18 years of iOS work, I kept hitting the same wall: messy, hard-to-maintain Swift codebases with no good tooling to catch architectural rot early. Most static analysis tools for Swift are either too generic (linting style, not architecture) or don't exist at all for the specific smells that actually sink a codebase over time — God Objects, oversized classes, tangled responsibilities.</p>
+                <p>At the same time, I wanted to go deeper on something I'd started exploring in an earlier project: combining on-device AI with cloud AI in a single system that intelligently chooses between them, rather than picking one or the other.</p>
+            </div>
+            <div class="case-study-section">
+                <h5>The Approach</h5>
+                <p>AIAnalyzer is a Swift CLI that parses codebases with SwiftSyntax, detects architectural smells (God Objects, Large Classes, High Method Density), and — the part I'm most proud of — offers AI-powered fix suggestions through three modes:</p>
+                <ul>
+                    <li><strong>Cloud (Google Gemini API)</strong> — best quality, requires network + API key</li>
+                    <li><strong>Local (Ollama + Qwen2.5 Coder)</strong> — fully on-device, no data leaves the machine, ideal for teams that can't send proprietary code to a third party</li>
+                    <li><strong>Hybrid</strong> — attempts local inference first, evaluates its own confidence based on output quality, and automatically escalates to cloud only when the local result looks weak</li>
+                </ul>
+                <p>That fallback logic is the core engineering problem I wanted to solve: not "which AI should I use," but "how does the system know, in real time, whether its own answer is good enough to trust."</p>
+            </div>
+            <div class="case-study-section">
+                <h5>Eating My Own Dog Food</h5>
+                <p>Once the core tool worked, I turned it on itself — and found the irony immediately: AnalyzerApp.swift, the app's own entry point, was a 695-line God Object, the exact smell the tool exists to catch. I used that as the starting point for a full self-audit: migrating CLI parsing to Apple's swift-argument-parser, decomposing the God Object into focused components, fixing a real false-positive bug in the classification logic (the tool was misreading class names like DetailViewControllerDelegate as ViewControllers), and automating the entire release pipeline — tagging a version now builds, tests, and publishes to Homebrew with zero manual steps.</p>
+            </div>
+            <div class="case-study-section">
+                <h5>Outcome</h5>
+                <ul>
+                    <li>Fully automated CI/CD: 59 passing tests, automated Homebrew formula updates, SARIF output for GitHub code scanning integration</li>
+                    <li>A working, publicly installable tool (brew install elangbamjohnson/tap/aianalyzer), not just a demo</li>
+                    <li>A real answer to a real architecture question: how to build AI systems that make trustworthy decisions about when to rely on lighter local inference versus escalating to a stronger cloud model — directly relevant to teams building cost-conscious or privacy-sensitive AI features</li>
+                </ul>
+            </div>
+            <div style="margin-top: 3rem; text-align: center;">
+                <button onclick="closeCaseStudy()" class="btn-action">Close Case Study</button>
+            </div>
+        </div>
+    </div>
+
     <!-- Minimal JS for Nav Toggle -->
     <script>
         const hamburger = document.querySelector('.nav-toggle');
@@ -615,6 +682,92 @@
                 updatePill(hoveredLink);
             } else if (scrollActiveLink) {
                 updatePill(scrollActiveLink);
+            }
+        });
+
+        // Video Modal Logic
+        const videoModal = document.getElementById('videoModal');
+        const demoVideo = document.getElementById('demoVideo');
+        const closeVideoBtn = document.getElementById('closeVideoBtn');
+        let videoLastFocused;
+
+        function openVideoModal(videoSrc) {
+            videoLastFocused = document.activeElement;
+            demoVideo.querySelector('source').src = videoSrc;
+            demoVideo.load();
+            videoModal.classList.add('active');
+            videoModal.setAttribute('aria-hidden', 'false');
+            
+            setTimeout(() => {
+                demoVideo.play().catch(e => console.log("Autoplay prevented:", e));
+                closeVideoBtn.focus();
+            }, 300);
+        }
+
+        function closeVideoModal() {
+            videoModal.classList.remove('active');
+            videoModal.setAttribute('aria-hidden', 'true');
+            demoVideo.pause();
+            demoVideo.currentTime = 0;
+            
+            if (videoLastFocused) {
+                videoLastFocused.focus();
+            }
+        }
+
+        if (closeVideoBtn) {
+            closeVideoBtn.addEventListener('click', closeVideoModal);
+        }
+        if (videoModal) {
+            videoModal.addEventListener('click', (e) => {
+                if (e.target === videoModal) {
+                    closeVideoModal();
+                }
+            });
+        }
+
+        // Case Study Modal Logic
+        const caseStudyModal = document.getElementById('caseStudyModal');
+        const closeCaseStudyBtn = document.getElementById('closeCaseStudyBtn');
+        let caseStudyLastFocused;
+
+        function openCaseStudy() {
+            caseStudyLastFocused = document.activeElement;
+            caseStudyModal.classList.add('active');
+            caseStudyModal.setAttribute('aria-hidden', 'false');
+            caseStudyModal.querySelector('.case-study-modal-container').scrollTop = 0;
+            setTimeout(() => {
+                closeCaseStudyBtn.focus();
+            }, 300);
+        }
+
+        function closeCaseStudy() {
+            caseStudyModal.classList.remove('active');
+            caseStudyModal.setAttribute('aria-hidden', 'true');
+            if (caseStudyLastFocused) {
+                caseStudyLastFocused.focus();
+            }
+        }
+
+        if (closeCaseStudyBtn) {
+            closeCaseStudyBtn.addEventListener('click', closeCaseStudy);
+        }
+        if (caseStudyModal) {
+            caseStudyModal.addEventListener('click', (e) => {
+                if (e.target === caseStudyModal) {
+                    closeCaseStudy();
+                }
+            });
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                if (videoModal && videoModal.classList.contains('active')) {
+                    closeVideoModal();
+                }
+                if (caseStudyModal && caseStudyModal.classList.contains('active')) {
+                    closeCaseStudy();
+                }
             }
         });
     </script>
