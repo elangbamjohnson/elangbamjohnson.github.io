@@ -20,7 +20,7 @@
     --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
 
     /* Spacing & Layout */
-    --max-width: 1200px;
+    --max-width: 1400px; /* Increased from 1200px */
     --radius-sm: 8px;
     --radius-md: 16px;
     --radius-lg: 24px;
@@ -44,12 +44,30 @@ html {
 }
 
 body {
-    background-color: var(--cream);
+    background-color: #E2E2E2; /* Darker gray background to frame the boxed content */
     color: var(--text-main);
     font-family: var(--font-sans);
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+.site-boundary {
+    background-color: var(--cream);
+    max-width: calc(100vw - 160px); /* Leaves roughly a 1-inch gap on each side */
+    margin: 0 auto;
+    border-left: 1px solid var(--border);
+    border-right: 1px solid var(--border);
+    min-height: 100vh;
+    box-shadow: 0 0 40px rgba(0,0,0,0.05);
+}
+
+@media (max-width: 1200px) {
+    .site-boundary {
+        max-width: 100%;
+        border-left: none;
+        border-right: none;
+    }
 }
 
 *:focus-visible {
@@ -769,6 +787,7 @@ h1, h2, h3, h4, h5, h6 {
     display: grid;
     grid-template-columns: 1.5fr 1fr;
     gap: 4rem;
+    align-items: stretch; /* Forces equal height */
 }
 
 .client-list {
@@ -834,6 +853,7 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    height: 100%; /* Ensure it spans full height of grid item */
 }
 .numbers-label {
     font-size: 0.75rem;
