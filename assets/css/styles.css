@@ -63,12 +63,22 @@ html {
 }
 
 body {
-    background-color: #E2E2E2; /* Darker gray background to frame the boxed content */
+    background-color: #000; /* Black background for Matrix effect */
     color: var(--text-main);
     font-family: var(--font-sans);
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+#matrix-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    pointer-events: none;
 }
 
 .site-boundary {
