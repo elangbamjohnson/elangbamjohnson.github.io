@@ -195,12 +195,15 @@ h1, h2, h3, h4, h5, h6 {
 
 .tag-pill {
     display: inline-block;
-    padding: 0.4rem 1rem;
-    border: 1px solid var(--border);
+    padding: 0.4rem 1rem; /* Slightly larger padding */
+    background-color: rgba(201, 151, 91, 0.1); /* Light tan */
+    border: none;
     border-radius: var(--radius-pill);
-    font-size: 0.85rem;
-    font-weight: 500;
+    font-size: 0.75rem;
+    font-weight: 700;
     color: var(--gold-dark);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
 
 /* ==========================================================================
@@ -641,7 +644,7 @@ h1, h2, h3, h4, h5, h6 {
 .bento-grid {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    gap: 2rem;
+    gap: 2.5rem; /* Larger gap */
 }
 .bento-item {
     grid-column: span 12;
@@ -656,17 +659,28 @@ h1, h2, h3, h4, h5, h6 {
 
 .content-card {
     background-color: var(--white);
-    border-radius: var(--radius-lg);
-    padding: 2.5rem;
+    border-radius: 40px; /* Highly rounded */
+    padding: 3rem; /* More internal padding */
     box-shadow: 0 4px 20px rgba(26, 27, 46, 0.03);
     border: 1px solid var(--border);
     display: flex;
     flex-direction: column;
+    position: relative;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 .content-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 12px 30px rgba(26, 27, 46, 0.08);
+}
+
+.card-accent-dot {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    width: 8px;
+    height: 8px;
+    background-color: var(--gold-dark);
+    border-radius: 50%;
 }
 
 .card-tags {
@@ -696,16 +710,30 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 1.5rem;
     margin-bottom: 1rem;
 }
+.title-gold {
+    color: var(--gold-dark);
+}
 .content-card p {
     color: var(--text-muted);
     font-size: 0.95rem;
     margin-bottom: 2rem;
     flex-grow: 1;
 }
-.content-card .btn {
+
+.btn-github {
     align-self: flex-start;
     padding: 0.6rem 1.2rem;
     font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--navy);
+    background-color: rgba(26, 27, 46, 0.05); /* Light gray pill */
+    border-radius: 100px;
+    display: inline-flex;
+    align-items: center;
+    transition: background-color 0.2s ease;
+}
+.btn-github:hover {
+    background-color: rgba(26, 27, 46, 0.1);
 }
 
 .section-header {
@@ -714,16 +742,26 @@ h1, h2, h3, h4, h5, h6 {
     align-items: flex-end;
     margin-bottom: 4rem;
 }
-.view-all {
-    font-size: 0.95rem;
-    font-weight: 600;
+.projects-label {
+    letter-spacing: 0.2em; /* Wider tracking */
+}
+.section-title {
+    font-size: clamp(3rem, 5vw, 4rem);
+    font-weight: 800;
+}
+.view-all-btn {
+    font-size: 0.85rem;
+    font-weight: 700;
     color: var(--navy);
+    border: 1px solid var(--gold-dark);
+    padding: 0.6rem 1rem;
     display: inline-flex;
     align-items: center;
     gap: 0.25rem;
+    transition: background-color 0.2s ease;
 }
-.view-all:hover {
-    color: var(--gold);
+.view-all-btn:hover {
+    background-color: rgba(201, 151, 91, 0.1);
 }
 
 /* Enterprise Experience */
