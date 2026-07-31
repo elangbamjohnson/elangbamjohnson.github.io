@@ -230,18 +230,26 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Navigation */
 .navbar {
-    position: sticky;
+    position: fixed;
     top: 0;
-    z-index: 100;
-    background-color: rgba(245, 243, 238, 0.65); /* Lowered opacity for glass effect */
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+    background-color: rgba(245, 243, 238, 0.5); /* Increased transparency */
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
     border-bottom: 1px solid rgba(26, 27, 46, 0.03); /* Subtle edge definition */
     padding: 1rem 4rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 100%;
+    max-width: calc(100vw - 160px);
+}
+@media (max-width: 1200px) {
+    .navbar {
+        max-width: 100%;
+    }
 }
 
 .nav-logo {
@@ -278,6 +286,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Hero Section */
+main {
+    padding-top: 90px; /* Offset for fixed navbar */
+}
 .hero {
     padding-top: 6rem;
     padding-bottom: 2rem; /* Reduced to tighten gap to scroll indicator */
