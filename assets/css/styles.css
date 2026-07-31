@@ -3,7 +3,7 @@
    ========================================================================== */
 :root {
     /* Colors */
-    --cream: rgba(245, 243, 238, 0.65); /* More transparent */
+    --cream: rgba(245, 243, 238, 0.45); /* Even more transparent */
     --navy: rgba(26, 27, 46, 0.65); /* More transparent */
     --gold: #C9975B;
     --gold-dark: #A67B45; /* Darker variant for accessible contrast on cream */
