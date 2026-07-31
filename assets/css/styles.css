@@ -161,9 +161,9 @@ svg    { display: block; flex-shrink: 0; }
     margin: 0 auto;
     padding: 0 2rem;
     display: grid;
-    grid-template-columns: 1fr auto;
+    grid-template-columns: 1.3fr 1fr;
     align-items: center;
-    gap: 5rem;
+    gap: 3rem;
 }
 
 /* ─── LEFT ─── */
@@ -338,20 +338,22 @@ svg    { display: block; flex-shrink: 0; }
 /* ─── RIGHT / PHOTO ─── */
 .hero-right {
     position: relative;
-    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .hero-photo-wrap {
     position: relative;
-    width: clamp(170px, 18vw, 248px); /* Reduced by another 1/4 */
+    width: clamp(280px, 30vw, 360px); /* Increased size */
 }
 
 .hero-photo {
     width: 100%;
     height: auto;
-    aspect-ratio: 248 / 270; /* Slightly taller than it is wide */
+    aspect-ratio: 360 / 380; /* Square-ish rounded */
     object-fit: cover;
-    border-radius: 40px;
+    border-radius: 44px; /* Smooth large rounding */
     box-shadow: 0 30px 80px rgba(26,27,46,0.14);
 }
 
@@ -372,15 +374,15 @@ svg    { display: block; flex-shrink: 0; }
 
 /* Top-left card — float-a animation */
 .stat-card--tl {
-    top: -10px;
-    left: -52px;
+    top: 30px;
+    left: -110px; /* Pull it far left */
     animation: float-a 3.5s ease-in-out infinite;
 }
 
 /* Bottom-right card — float-b animation (offset -1.75s so it's out of phase) */
 .stat-card--br {
-    bottom: 72px;
-    right: -44px;
+    bottom: 50px;
+    right: -110px; /* Pull it far right */
     animation: float-b 3.5s ease-in-out -1.75s infinite;
 }
 
@@ -436,8 +438,11 @@ svg    { display: block; flex-shrink: 0; }
     animation: float-a 4.5s ease-in-out -0.75s infinite;
 }
 .stat-pill--bl {
-    bottom: -16px;
-    left: 20px;
+    bottom: -20px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: max-content;
 }
 .pill-dot {
     width: 8px;
