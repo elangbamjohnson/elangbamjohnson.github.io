@@ -836,20 +836,47 @@ main {
     flex-grow: 1;
 }
 
-.btn-github {
-    align-self: flex-start;
+.project-actions {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: auto;
+}
+
+.btn-action {
     padding: 0.6rem 1.2rem;
     font-size: var(--text-sm);
     font-weight: 600;
     color: var(--navy);
-    background-color: rgba(26, 27, 46, 0.05); /* Light gray pill */
+    background-color: rgba(26, 27, 46, 0.05);
     border-radius: 100px;
     display: inline-flex;
     align-items: center;
     transition: background-color 0.2s ease;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    text-decoration: none;
 }
-.btn-github:hover {
+.btn-action:hover {
     background-color: rgba(26, 27, 46, 0.1);
+    text-decoration: none;
+}
+
+.ai-features-list {
+    margin-top: -1rem;
+    margin-bottom: 2rem;
+    padding-left: 1.5rem;
+    color: var(--text-muted);
+    font-size: var(--text-sm);
+    line-height: 1.6;
+}
+.ai-features-list li {
+    margin-bottom: 0.5rem;
+}
+.ai-features-list strong {
+    color: var(--navy);
 }
 
 .section-header {
@@ -1363,4 +1390,133 @@ details[open] .faq-icon {
     .reveal-delay-4 { transition-delay: 320ms; }
     .reveal-delay-5 { transition-delay: 400ms; }
     .reveal-delay-6 { transition-delay: 480ms; }
+}
+
+/* ==========================================================================
+   MODAL STYLES
+   ========================================================================== */
+.video-modal-backdrop, .case-study-modal-backdrop {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-color: rgba(26, 27, 46, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.video-modal-backdrop.active, .case-study-modal-backdrop.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.video-modal-container, .case-study-modal-container {
+    position: relative;
+    width: 90%;
+    max-width: 800px;
+    background-color: var(--cream);
+    border-radius: var(--radius-md);
+    padding: 1rem;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    transform: scale(0.95);
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.case-study-modal-container {
+    padding: 3rem 4rem;
+}
+
+.video-modal-backdrop.active .video-modal-container,
+.case-study-modal-backdrop.active .case-study-modal-container {
+    transform: scale(1);
+}
+
+.video-modal-close, .case-study-close-top {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 2rem;
+    font-weight: 300;
+    cursor: pointer;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s;
+}
+
+.video-modal-close {
+    top: -40px; right: 0; color: var(--white);
+}
+
+.case-study-close-top:hover { color: var(--navy); }
+.video-modal-close:hover { color: var(--gold); }
+
+.video-player {
+    width: 100%;
+    border-radius: 8px;
+    display: block;
+    background-color: #000;
+}
+
+.case-study-title {
+    font-family: var(--font-serif);
+    font-size: var(--text-2xl);
+    color: var(--navy);
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+}
+
+.case-study-meta {
+    font-size: var(--text-sm);
+    color: var(--gold);
+    font-weight: 600;
+    margin-bottom: 2rem;
+}
+
+.case-study-section {
+    margin-bottom: 2rem;
+}
+
+.case-study-section h5 {
+    font-size: var(--text-lg);
+    color: var(--navy);
+    margin-bottom: 1rem;
+}
+
+.case-study-section p, .case-study-section ul {
+    color: var(--text-muted);
+    font-size: var(--text-base);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.case-study-section ul {
+    padding-left: 1.5rem;
+}
+
+.case-study-section strong {
+    color: var(--navy);
+}
+
+@media (max-width: 768px) {
+    .case-study-modal-container { padding: 2rem 1.5rem; }
+    .video-modal-close { top: -50px; right: -10px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .video-modal-backdrop, .video-modal-container,
+    .case-study-modal-backdrop, .case-study-modal-container {
+        transition: none !important;
+    }
 }
