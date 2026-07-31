@@ -3,11 +3,11 @@
    ========================================================================== */
 :root {
     /* Colors */
-    --cream: rgba(245, 243, 238, 0.85); /* Slightly transparent */
-    --navy: rgba(26, 27, 46, 0.85); /* Slightly transparent */
+    --cream: rgba(245, 243, 238, 0.65); /* More transparent */
+    --navy: rgba(26, 27, 46, 0.65); /* More transparent */
     --gold: #C9975B;
     --gold-dark: #A67B45; /* Darker variant for accessible contrast on cream */
-    --white: rgba(255, 255, 255, 0.85); /* Slightly transparent */
+    --white: rgba(255, 255, 255, 0.65); /* More transparent */
     --border: rgba(26, 27, 46, 0.1); /* Dark border for cream bg */
     --border-dark: rgba(245, 243, 238, 0.1); /* Light border for dark bg */
     --text-main: #1A1B2E;
