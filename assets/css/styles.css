@@ -51,15 +51,6 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-.site-boundary {
-    max-width: 1400px; /* or a bit wider than container */
-    margin: 0 auto;
-    background-color: var(--cream);
-    box-shadow: 0 0 0 1px var(--border);
-    min-height: 100vh;
-    overflow: hidden;
-}
-
 a {
     color: inherit;
     text-decoration: none;
@@ -209,19 +200,16 @@ h1, h2, h3, h4, h5, h6 {
 /* Navigation */
 .navbar {
     position: sticky;
-    top: 1rem;
+    top: 0;
     z-index: 100;
-    background-color: rgba(245, 243, 238, 0.9);
+    background-color: rgba(245, 243, 238, 0.95);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border-radius: var(--radius-pill);
-    padding: 0.8rem 1.5rem;
+    padding: 1rem 4rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    max-width: 900px;
-    margin: 0 auto;
-    border: 1px solid rgba(26, 27, 46, 0.05);
+    width: 100%;
 }
 
 .nav-logo {
@@ -237,6 +225,10 @@ h1, h2, h3, h4, h5, h6 {
 .nav-links {
     display: flex;
     gap: 2rem;
+    background: rgba(26, 27, 46, 0.04);
+    padding: 0.6rem 2rem;
+    border-radius: var(--radius-pill);
+    border: 1px solid rgba(26, 27, 46, 0.05);
 }
 .nav-links a {
     font-size: 0.9rem;
@@ -848,7 +840,7 @@ details[open] .faq-icon {
 .footer-band {
     background-color: var(--navy);
     color: var(--text-light);
-    padding: 4rem 2rem;
+    padding: 3rem 2rem 2rem;
     text-align: center;
 }
 .footer-band .section-label {
@@ -882,7 +874,7 @@ details[open] .faq-icon {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.5rem 2rem;
+    padding: 1.5rem 4rem;
     font-size: 0.85rem;
     color: var(--text-muted);
 }
@@ -954,6 +946,9 @@ details[open] .faq-icon {
 }
 
 @media (max-width: 768px) {
+    .navbar {
+        padding: 1rem 1.5rem;
+    }
     .nav-links, .nav-cta {
         display: none;
     }
