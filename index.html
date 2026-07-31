@@ -18,172 +18,172 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,700;0,800;1,700;1,800&family=Lora:ital,wght@1,400;1,500&display=swap" rel="stylesheet">
 
-    <!-- Tailwind CSS -->
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+
+    <!-- Tailwind CDN (used by dark sections below the hero) -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
+            corePlugins: { preflight: false },
             theme: {
                 extend: {
                     fontFamily: {
                         sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
                         serif: ['Playfair Display', 'ui-serif', 'Georgia', 'serif'],
                     },
-                    colors: {
-                        slate: {
-                            950: '#020617', // Deep navy/slate background
-                            900: '#0f172a',
-                            800: '#1e293b',
-                        },
-                        amber: {
-                            500: '#f59e0b', // Gold highlights
-                        }
-                    },
                     keyframes: {
                         float: {
                             '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-10px)' },
+                            '50%': { transform: 'translateY(-8px)' },
                         }
                     },
                     animation: {
-                        'float': 'float 5s ease-in-out infinite',
-                        'float-delayed': 'float 5.5s ease-in-out 1s infinite',
-                        'float-more-delayed': 'float 6s ease-in-out 2s infinite',
+                        'float':              'float 3.5s ease-in-out infinite',
+                        'float-delayed':      'float 3.5s ease-in-out -1.75s infinite',
+                        'float-slow':         'float 4.5s ease-in-out -0.75s infinite',
                     }
                 }
             }
         }
     </script>
-
-    <!-- Custom CSS for specific overrides if necessary -->
     <style>
-        .text-stroke {
-            -webkit-text-stroke: 1.5px currentColor;
-            color: transparent;
-        }
-        /* Custom scrollbar for webkit */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #020617; }
-        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #475569; }
-
-        .faq-item[open] summary ~ * { animation: fadeIn 0.3s ease-in-out; }
-        @keyframes fadeIn { 0% { opacity: 0; transform: translateY(-10px); } 100% { opacity: 1; transform: translateY(0); } }
-        
-        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.25, 0.8, 0.25, 1); }
-        .reveal.active { opacity: 1; transform: translateY(0); }
+        /* FAQ accordion */
+        .faq-item[open] summary ~ * { animation: fadeIn 0.3s ease; }
+        @keyframes fadeIn { from { opacity:0; transform:translateY(-8px); } to { opacity:1; transform:none; } }
     </style>
 </head>
-<body class="bg-slate-950 text-slate-300 font-sans selection:bg-amber-500/30 selection:text-amber-200">
+<body>
 
     <!-- Navigation -->
-    <header class="fixed top-0 left-0 w-full bg-slate-950/80 backdrop-blur-md z-50 border-b border-slate-800/50 transition-all duration-300" id="navbar">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="font-serif text-2xl font-bold text-white tracking-tight">Johnson<span class="text-amber-500">.</span></a>
+    <header class="nav" id="navbar">
+        <div class="nav-inner">
+            <a href="#" class="nav-logo">JE<span>.</span></a>
             
-            <nav class="hidden md:flex gap-8 items-center bg-slate-900/50 px-6 py-2 rounded-full border border-slate-800">
-                <a href="#about" class="text-sm font-medium hover:text-white transition-colors">About</a>
-                <a href="#projects" class="text-sm font-medium hover:text-white transition-colors">Work</a>
-                <a href="#services" class="text-sm font-medium hover:text-white transition-colors">Services</a>
-                <a href="#contact" class="text-sm font-medium hover:text-white transition-colors">Contact</a>
+            <nav class="nav-links">
+                <a href="#">Home</a>
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#enterprise">Enterprise</a>
+                <a href="#faq">FAQ</a>
+                <a href="#contact">Contact</a>
             </nav>
 
-            <a href="#contact" class="hidden md:inline-flex items-center gap-2 bg-white text-slate-950 px-5 py-2 rounded-full font-medium hover:bg-slate-200 transition-colors">
-                Hire Me &rarr;
-            </a>
-            <button class="md:hidden text-white text-2xl" aria-label="Toggle menu">&#9776;</button>
+            <a href="#contact" class="nav-cta">Hire Me &rarr;</a>
+            <button class="nav-hamburger" aria-label="Toggle menu">&#9776;</button>
         </div>
     </header>
 
     <main>
-        <!-- Hero Section -->
-        <section id="hero" class="pt-40 pb-20 relative overflow-hidden">
-            <!-- Background glow -->
-            <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-amber-500/10 blur-[120px] rounded-full pointer-events-none"></div>
-            
-            <div class="max-w-7xl mx-auto px-6 relative z-10 flex flex-col lg:flex-row items-center gap-16">
-                <!-- Text Content -->
-                <div class="flex-1 max-w-2xl">
-                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-slate-800 bg-slate-900/50 backdrop-blur-sm text-sm font-medium text-white mb-8">
-                        <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+        <!-- ===== HERO SECTION ===== -->
+        <section id="hero" class="hero">
+            <div class="hero-inner">
+
+                <!-- ── LEFT COLUMN ── -->
+                <div class="hero-left">
+
+                    <!-- 1. Pill badge -->
+                    <div class="hero-badge">
+                        <span class="ping-wrapper">
+                            <span class="ping-ring"></span>
+                            <span class="ping-dot"></span>
+                        </span>
                         Available for work
                     </div>
-                    
-                    <h1 class="font-serif text-5xl md:text-7xl lg:text-[5.5rem] leading-none font-bold text-white mb-6 tracking-tight">
-                        <span class="block">Johnson</span>
-                        <span class="block text-stroke italic -mt-2">Elangbam</span>
+
+                    <!-- 2–3. Name -->
+                    <h1 class="hero-name">
+                        <span class="name-solid">Johnson</span>
+                        <span class="name-outline">Elangbam</span>
                     </h1>
-                    
-                    <h2 class="text-xl md:text-2xl text-amber-500 font-medium mb-6">Senior / Staff iOS Engineer</h2>
-                    
-                    <p class="text-lg md:text-xl text-slate-400 mb-8 max-w-xl leading-relaxed">
-                        Building resilient, scale-ready iOS applications with a focus on Clean Architecture, Swift Concurrency, and intelligent on-device AI integration.
+
+                    <!-- 4. Subheading -->
+                    <p class="hero-sub">Senior / Staff iOS Engineer</p>
+
+                    <!-- 5. Body paragraph -->
+                    <p class="hero-body">
+                        18+ years building iOS apps across enterprise VoIP,
+                        automotive, retail, and on-device AI/ML.
                     </p>
-                    
-                    <div class="flex flex-col sm:flex-row gap-4 mb-8">
-                        <a href="assets/resume/Johnson_Elangbam_Resume_July_30_2026.pdf" target="_blank" rel="noopener noreferrer" class="inline-flex justify-center items-center px-6 py-3 rounded-full bg-amber-500 text-slate-950 font-semibold hover:bg-amber-400 hover:-translate-y-0.5 transition-all">
+
+                    <!-- 6. Location -->
+                    <div class="hero-location">
+                        <svg class="pin-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 0c-4.198 0-8 3.403-8 7.602 0 4.198 3.469 9.21 8 16.398 4.531-7.188 8-12.2 8-16.398 0-4.199-3.801-7.602-8-7.602zm0 11c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3z"/></svg>
+                        Based in Imphal, India &mdash; Remote&#8209;friendly
+                    </div>
+
+                    <!-- 7. CTA buttons -->
+                    <div class="hero-ctas">
+                        <a href="assets/resume/Johnson_Elangbam_Resume_July_30_2026.pdf"
+                           target="_blank" rel="noopener noreferrer"
+                           class="btn btn-dark">
+                            <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
                             Download Resume
                         </a>
-                        <a href="#contact" class="inline-flex justify-center items-center px-6 py-3 rounded-full bg-slate-900 border border-slate-800 text-white font-medium hover:bg-slate-800 transition-all">
-                            Hire Full-time
-                        </a>
+                        <a href="#contact" class="btn btn-outline">Full&#8209;time hire?</a>
+                        <a href="#contact" class="btn btn-outline">Freelance project?</a>
                     </div>
-                    
-                    <div class="flex items-center gap-2 text-sm text-slate-500">
-                        <svg class="w-4 h-4 fill-amber-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 0c-4.198 0-8 3.403-8 7.602 0 4.198 3.469 9.21 8 16.398 4.531-7.188 8-12.2 8-16.398 0-4.199-3.801-7.602-8-7.602zm0 11c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3z"/></svg>
-                        Imphal, India (GMT+5:30) • Remote First
+
+                    <!-- 8. Scroll indicator -->
+                    <div class="hero-scroll">
+                        <span class="scroll-label">SCROLL</span>
+                        <svg class="scroll-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
+                    </div>
+
+                </div>
+
+                <!-- ── RIGHT COLUMN ── -->
+                <div class="hero-right">
+
+                    <!-- Profile photo -->
+                    <div class="hero-photo-wrap">
+                        <img src="profile.png" alt="Johnson Elangbam" class="hero-photo" width="500" height="550">
+
+                        <!-- Stat card 1: 99% — top-left -->
+                        <div class="stat-card stat-card--tl">
+                            <div class="stat-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+                            </div>
+                            <div class="stat-text">
+                                <strong class="stat-number">99%</strong>
+                                <span class="stat-label">Crash-free rate</span>
+                            </div>
+                        </div>
+
+                        <!-- Stat card 2: 30-70% — bottom-right -->
+                        <div class="stat-card stat-card--br">
+                            <div class="stat-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 21h-1l1-7H7.5c-.58 0-.57-.32-.38-.66C7.67 12.24 10.72 7 13 3h1l-1 7h3.5c.49 0 .56.33.47.51l-.07.15C12.96 17.55 11 21 11 21z"/></svg>
+                            </div>
+                            <div class="stat-text">
+                                <strong class="stat-number">30&ndash;70%</strong>
+                                <span class="stat-label">Build time faster</span>
+                            </div>
+                        </div>
+
+                        <!-- Pill: 18+ years iOS — bottom-left -->
+                        <div class="stat-pill stat-pill--bl">
+                            <span class="pill-dot"></span>
+                            18+ years iOS
+                        </div>
+
                     </div>
                 </div>
-                
-                <!-- Hero Visual with Badges -->
-                <div class="flex-shrink-0 relative w-full max-w-[500px]">
-                    <div class="relative rounded-2xl overflow-hidden border border-slate-800 shadow-2xl shadow-black/50 aspect-square">
-                        <img src="profile.png" alt="Johnson Elangbam" class="w-full h-full object-cover">
-                        <!-- Soft overlay to blend image nicely with dark mode -->
-                        <div class="absolute inset-0 bg-gradient-to-tr from-slate-950/40 to-transparent mix-blend-multiply"></div>
-                    </div>
-                    
-                    <!-- Top-Left Card -->
-                    <div class="absolute -top-6 -left-8 md:-left-12 bg-slate-900/80 backdrop-blur-md border border-slate-700/50 p-4 rounded-2xl shadow-xl flex items-center gap-4 animate-float z-20">
-                        <div class="w-10 h-10 rounded-full bg-amber-500/10 flex items-center justify-center text-amber-500">
-                            <svg class="w-5 h-5 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
-                        </div>
-                        <div>
-                            <div class="font-serif font-bold text-2xl text-white leading-none mb-1">99%</div>
-                            <div class="text-xs text-slate-400 font-medium">Crash-free rate</div>
-                        </div>
-                    </div>
-                    
-                    <!-- Bottom-Right Card -->
-                    <div class="absolute -bottom-8 -right-4 md:-right-12 bg-slate-900/80 backdrop-blur-md border border-slate-700/50 p-4 rounded-2xl shadow-xl flex items-center gap-4 animate-float-delayed z-20">
-                        <div class="w-10 h-10 rounded-full bg-amber-500/10 flex items-center justify-center text-amber-500">
-                            <svg class="w-5 h-5 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 21h-1l1-7H7.5c-.58 0-.57-.32-.38-.66C7.67 12.24 10.72 7 13 3h1l-1 7h3.5c.49 0 .56.33.47.51l-.07.15C12.96 17.55 11 21 11 21z"/></svg>
-                        </div>
-                        <div>
-                            <div class="font-serif font-bold text-2xl text-white leading-none mb-1">30–70%</div>
-                            <div class="text-xs text-slate-400 font-medium">Build time faster</div>
-                        </div>
-                    </div>
-                    
-                    <!-- Bottom-Center Pill -->
-                    <div class="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-slate-800 text-white px-5 py-2 rounded-full border border-slate-700 shadow-xl flex items-center gap-2 text-sm font-semibold animate-float-more-delayed z-20 whitespace-nowrap">
-                        <span class="w-2 h-2 rounded-full bg-green-500"></span>
-                        18+ years iOS
-                    </div>
-                </div>
+
             </div>
         </section>
 
         <!-- Status Banner -->
-        <section id="status-banner" class="bg-slate-900 border-y border-slate-800 py-6">
-            <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-center gap-4 text-center md:text-left">
-                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-slate-700 bg-slate-950 text-xs font-bold text-amber-500 tracking-wider">
-                    <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+        <section id="status-banner">
+            <div class="container">
+                <div class="status-pill">
+                    <span class="status-dot"></span>
                     WHAT I'M WORKING ON NOW
                 </div>
-                <p class="text-slate-300">
-                    Currently maintaining <strong class="text-white">AIAnalyzer</strong>... Open to Staff/Lead iOS roles.
+                <p>
+                    Currently maintaining <strong>AIAnalyzer</strong> — an open-source Swift static analysis CLI with hybrid on-device/cloud AI fix suggestions, recently shipped v0.2.0 with automated Homebrew releases. Also open to Staff/Lead iOS roles and freelance engagements in iOS development and on-device AI integration.
                 </p>
             </div>
         </section>
