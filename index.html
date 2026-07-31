@@ -24,7 +24,8 @@
     <nav class="navbar" id="navbar">
         <a href="#" class="nav-logo">JE<span>.</span></a>
         <div class="nav-links">
-            <a href="#">Home</a>
+            <div class="nav-pill"></div>
+            <a href="#home">Home</a>
             <a href="#about">About</a>
             <a href="#projects">Projects</a>
             <a href="#enterprise">Enterprise</a>
@@ -37,7 +38,7 @@
 
     <main>
         <!-- Hero Section -->
-        <section class="container hero">
+        <section id="home" class="container hero">
             <div class="hero-content">
                 <div class="status-badge">
                     <div class="status-dot-wrap">
@@ -543,6 +544,72 @@
                     document.querySelector('.nav-links').classList.remove('active');
                 }
             });
+        });
+
+        // Sliding Pill Nav Interaction
+        const navPill = document.querySelector('.nav-pill');
+        const navItems = document.querySelectorAll('.nav-links a');
+        const sections = document.querySelectorAll('section[id]');
+        let activeLink = document.querySelector('.nav-links a[href="#home"]');
+
+        function updatePill(link) {
+            if (!link || !navPill) return;
+            // Get relative position to .nav-links container
+            navPill.style.left = link.offsetLeft + 'px';
+            navPill.style.width = link.offsetWidth + 'px';
+        }
+
+        // Initial setup
+        if (activeLink) {
+            activeLink.classList.add('active');
+            // Timeout to ensure fonts/layout are loaded before calculating width
+            setTimeout(() => updatePill(activeLink), 100);
+        }
+
+        // 1. Intersection Observer for Scroll Tracking
+        const observerOptions = {
+            root: null,
+            rootMargin: '-40% 0px -60% 0px', // Trigger when section is in top half
+            threshold: 0
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+                    
+                    navItems.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === '#' + id) {
+                            link.classList.add('active');
+                            activeLink = link;
+                            updatePill(link);
+                        }
+                    });
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => observer.observe(section));
+
+        // 2. Hover Interactions
+        navItems.forEach(link => {
+            link.addEventListener('mouseenter', (e) => {
+                updatePill(e.target);
+            });
+        });
+
+        document.querySelector('.nav-links').addEventListener('mouseleave', () => {
+            if (activeLink) {
+                updatePill(activeLink);
+            }
+        });
+
+        // 3. Handle window resize
+        window.addEventListener('resize', () => {
+            if (activeLink) {
+                updatePill(activeLink);
+            }
         });
     </script>
 </body>
