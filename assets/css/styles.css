@@ -343,15 +343,15 @@ svg    { display: block; flex-shrink: 0; }
 
 .hero-photo-wrap {
     position: relative;
-    width: clamp(340px, 35vw, 500px);
+    width: clamp(300px, 32vw, 440px); /* Reduced size */
 }
 
 .hero-photo {
     width: 100%;
     height: auto;
-    aspect-ratio: 500 / 550;
+    aspect-ratio: 1 / 1; /* Changed to a perfect square */
     object-fit: cover;
-    border-radius: 40px;
+    border-radius: 44px; /* Slightly more rounded */
     box-shadow: 0 30px 80px rgba(26,27,46,0.14);
 }
 
