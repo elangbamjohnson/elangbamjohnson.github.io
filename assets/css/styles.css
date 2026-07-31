@@ -171,12 +171,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn--outline-dark {
-    background-color: transparent;
+    background-color: rgba(255, 255, 255, 0.1);
     color: var(--white);
-    border: 1px solid var(--border-dark);
+    border: 1px solid transparent;
 }
 .btn--outline-dark:hover {
-    background-color: rgba(255, 255, 255, 0.05);
+    background-color: rgba(255, 255, 255, 0.15);
 }
 
 .tag-pill {
@@ -839,8 +839,7 @@ details[open] .faq-icon {
 .footer-band {
     background-color: var(--navy);
     color: var(--text-light);
-    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
-    padding: 6rem 2rem 2rem;
+    padding: 6rem 2rem;
     text-align: center;
 }
 .footer-band .section-label {
@@ -874,30 +873,38 @@ details[open] .faq-icon {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-top: 2rem;
-    border-top: 1px solid var(--border-dark);
+    padding: 3rem 2rem;
     font-size: 0.85rem;
-    color: var(--text-light-muted);
+    color: var(--text-muted);
 }
 .footer-logo {
     display: flex;
-    align-items: center;
-    gap: 0.5rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.2rem;
 }
 .footer-logo strong {
     font-family: var(--font-serif);
     font-size: 1.2rem;
-    color: var(--white);
+    color: var(--navy);
 }
 .footer-logo strong span {
     color: var(--gold);
 }
+.footer-logo span {
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
 .footer-links {
     display: flex;
-    gap: 1rem;
+    gap: 1.5rem;
+}
+.footer-links a {
+    color: var(--text-muted);
 }
 .footer-links a:hover {
-    color: var(--white);
+    color: var(--navy);
 }
 
 /* ==========================================================================
