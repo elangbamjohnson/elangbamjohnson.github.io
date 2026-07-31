@@ -668,6 +668,60 @@ h1, h2, h3, h4, h5, h6 {
     grid-column: span 12;
 }
 
+/* Services Grid */
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+}
+@media (max-width: 1024px) {
+    .grid-3 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+    .grid-3 { grid-template-columns: 1fr; }
+}
+
+.service-card {
+    background-color: var(--white);
+    border-radius: 40px; /* Highly rounded */
+    padding: 2.5rem;
+    box-shadow: 0 4px 20px rgba(26, 27, 46, 0.02);
+    border: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(26, 27, 46, 0.06);
+}
+
+.service-icon {
+    color: var(--gold-dark);
+    width: 24px;
+    height: 24px;
+    margin-bottom: 1.5rem;
+}
+.service-icon svg {
+    width: 100%;
+    height: 100%;
+    fill: currentColor;
+}
+.service-card h3 {
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    color: var(--navy);
+    font-weight: 700;
+}
+.service-card p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+
 @media (min-width: 900px) {
     .bento-wide { grid-column: span 8; }
     .bento-narrow { grid-column: span 4; }
