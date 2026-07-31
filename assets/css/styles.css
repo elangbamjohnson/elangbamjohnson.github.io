@@ -855,9 +855,6 @@ h1, h2, h3, h4, h5, h6 {
     padding: 1.5rem 0;
     border-bottom: 1px solid var(--border);
 }
-.client-row:first-child {
-    border-top: 1px solid var(--border);
-}
 .client-emoji {
     width: 48px;
     height: 48px;
@@ -879,8 +876,10 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 0.25rem;
 }
 .client-header h4 {
-    font-family: var(--font-sans);
-    font-size: 1.1rem;
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--navy);
 }
 .client-tag {
     font-size: 0.65rem;
@@ -902,8 +901,8 @@ h1, h2, h3, h4, h5, h6 {
 .numbers-card {
     background-color: var(--navy);
     color: var(--text-light);
-    border-radius: var(--radius-lg);
-    padding: 3rem;
+    border-radius: var(--radius-xl);
+    padding: 4rem 3.5rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -918,12 +917,17 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 0.5rem;
 }
 .number-item {
-    margin-bottom: 2.5rem;
+    padding-bottom: 2rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 .number-item h4 {
-    font-size: 3.5rem;
+    font-size: 4rem;
+    font-family: var(--font-serif);
+    font-weight: 800;
     color: var(--gold);
     margin-bottom: 0.25rem;
+    line-height: 1.1;
 }
 .number-item p {
     font-size: 0.95rem;
@@ -931,12 +935,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 .numbers-quote {
     margin-top: 1rem;
-    padding-top: 2rem;
-    border-top: 1px solid var(--border-dark);
+    padding-top: 1rem;
     font-family: var(--font-serif);
     font-style: italic;
     font-size: 1.1rem;
     color: var(--white);
+    line-height: 1.6;
 }
 
 /* Testimonial */
