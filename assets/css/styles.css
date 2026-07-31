@@ -1318,3 +1318,28 @@ details[open] .faq-icon {
         display: none; 
     }
 }
+
+/* ==========================================================================
+   SCROLL ANIMATION STYLES
+   ========================================================================== */
+@media (prefers-reduced-motion: no-preference) {
+    .reveal-init {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 600ms cubic-bezier(0.4, 0, 0.2, 1), transform 600ms cubic-bezier(0.4, 0, 0.2, 1);
+        will-change: opacity, transform;
+    }
+    
+    .reveal-visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    /* Stagger delays */
+    .reveal-delay-1 { transition-delay: 80ms; }
+    .reveal-delay-2 { transition-delay: 160ms; }
+    .reveal-delay-3 { transition-delay: 240ms; }
+    .reveal-delay-4 { transition-delay: 320ms; }
+    .reveal-delay-5 { transition-delay: 400ms; }
+    .reveal-delay-6 { transition-delay: 480ms; }
+}
