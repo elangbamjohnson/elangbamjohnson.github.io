@@ -1198,6 +1198,8 @@ details[open] .faq-icon {
         margin-top: 1rem;
         padding: 1rem;
         border-radius: var(--radius-lg);
+        background-color: var(--white);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     }
     .nav-toggle {
         display: flex;
@@ -1215,6 +1217,7 @@ details[open] .faq-icon {
     .footer-bottom {
         flex-direction: column;
         gap: 1rem;
+        padding: 1.5rem;
     }
     
     .float-card {
@@ -1229,4 +1232,71 @@ details[open] .faq-icon {
         height: 16px;
     }
     .float-text strong { font-size: var(--text-lg); }
+
+    /* --- NEW MOBILE FIXES --- */
+    
+    /* FIX 2: About stats collapse */
+    .about-stats {
+        grid-template-columns: 1fr; 
+    }
+    .stat-box {
+        padding: 1.5rem;
+    }
+    .stat-box h4, .number-item h4 {
+        font-size: 3rem; /* Scale down giant stats */
+    }
+    
+    /* FIX: Hero padding and buttons */
+    .hero {
+        padding-top: 3rem; 
+    }
+    .hero-actions {
+        flex-direction: column; 
+        align-items: stretch;
+    }
+    .hero-actions .btn {
+        width: 100%;
+    }
+    
+    /* FIX: Section spacing reduction */
+    .section-padding {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+    }
+    .dark-section {
+        padding: 3rem 0;
+    }
+    
+    /* FIX: Card padding reduction */
+    .content-card {
+        padding: 1.5rem;
+    }
+    .service-card {
+        padding: 1.5rem;
+        border-radius: 24px;
+    }
+    .numbers-card {
+        padding: 2rem 1.5rem;
+    }
+    
+    /* FIX: Testimonial adjustments */
+    .testimonial {
+        padding: 2rem;
+    }
+    .quote-glyph {
+        font-size: 4rem;
+        margin-bottom: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    /* FIX: Container padding */
+    .container {
+        padding: 0 1.25rem; 
+    }
+    
+    /* FIX: Hide overflowing float cards on tiny screens */
+    .float-card {
+        display: none; 
+    }
 }
