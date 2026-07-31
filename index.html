@@ -550,20 +550,23 @@
         const navPill = document.querySelector('.nav-pill');
         const navItems = document.querySelectorAll('.nav-links a');
         const sections = document.querySelectorAll('section[id]');
-        let activeLink = document.querySelector('.nav-links a[href="#home"]');
+        let scrollActiveLink = document.querySelector('.nav-links a[href="#home"]');
 
         function updatePill(link) {
             if (!link || !navPill) return;
             // Get relative position to .nav-links container
             navPill.style.left = link.offsetLeft + 'px';
             navPill.style.width = link.offsetWidth + 'px';
+            
+            // Explicitly sync the text color class with the pill's location
+            navItems.forEach(item => item.classList.remove('active'));
+            link.classList.add('active');
         }
 
         // Initial setup
-        if (activeLink) {
-            activeLink.classList.add('active');
+        if (scrollActiveLink) {
             // Timeout to ensure fonts/layout are loaded before calculating width
-            setTimeout(() => updatePill(activeLink), 100);
+            setTimeout(() => updatePill(scrollActiveLink), 100);
         }
 
         // 1. Intersection Observer for Scroll Tracking
@@ -577,15 +580,15 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     const id = entry.target.getAttribute('id');
+                    const matchingLink = Array.from(navItems).find(link => link.getAttribute('href') === '#' + id);
                     
-                    navItems.forEach(link => {
-                        link.classList.remove('active');
-                        if (link.getAttribute('href') === '#' + id) {
-                            link.classList.add('active');
-                            activeLink = link;
-                            updatePill(link);
+                    if (matchingLink) {
+                        scrollActiveLink = matchingLink;
+                        // Update pill unless user is actively hovering the nav bar
+                        if (!document.querySelector('.nav-links:hover')) {
+                            updatePill(scrollActiveLink);
                         }
-                    });
+                    }
                 }
             });
         }, observerOptions);
@@ -600,15 +603,18 @@
         });
 
         document.querySelector('.nav-links').addEventListener('mouseleave', () => {
-            if (activeLink) {
-                updatePill(activeLink);
+            if (scrollActiveLink) {
+                updatePill(scrollActiveLink);
             }
         });
 
         // 3. Handle window resize
         window.addEventListener('resize', () => {
-            if (activeLink) {
-                updatePill(activeLink);
+            const hoveredLink = document.querySelector('.nav-links a:hover');
+            if (hoveredLink) {
+                updatePill(hoveredLink);
+            } else if (scrollActiveLink) {
+                updatePill(scrollActiveLink);
             }
         });
     </script>
