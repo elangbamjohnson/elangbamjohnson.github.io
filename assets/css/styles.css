@@ -262,7 +262,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Hero Section */
 .hero {
     padding-top: 6rem;
-    padding-bottom: 6rem;
+    padding-bottom: 2rem; /* Reduced to tighten gap to scroll indicator */
     display: grid;
     grid-template-columns: 1.3fr 1fr;
     gap: 4rem;
