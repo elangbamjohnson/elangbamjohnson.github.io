@@ -399,12 +399,12 @@ h1, h2, h3, h4, h5, h6 {
 .float-card--tl {
     top: -15px;
     left: -30px;
-    animation: float 4s ease-in-out infinite;
+    animation: float 4s ease-in-out 0s infinite;
 }
 .float-card--br {
     bottom: 25px;
     right: -30px;
-    animation: float 4s ease-in-out -2s infinite;
+    animation: float 4s ease-in-out 1.5s infinite;
 }
 .float-pill {
     position: absolute;
@@ -420,7 +420,7 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 0.85rem;
     font-weight: 700;
     z-index: 10;
-    animation: float 3s ease-in-out -1s infinite;
+    animation: float 4s ease-in-out 3s infinite;
 }
 .gold-dot {
     width: 8px;
@@ -456,7 +456,7 @@ h1, h2, h3, h4, h5, h6 {
 
 @keyframes float {
     0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-12px); }
+    50% { transform: translateY(-8px); }
 }
 
 /* Dark Navy Card (Working On + About) */
@@ -548,6 +548,22 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Projects & Services Cards */
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 2rem;
+}
+.bento-item {
+    grid-column: span 12;
+}
+
+@media (min-width: 900px) {
+    .bento-wide { grid-column: span 8; }
+    .bento-narrow { grid-column: span 4; }
+    .bento-half { grid-column: span 6; }
+    .bento-full { grid-column: span 12; }
+}
+
 .card-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
