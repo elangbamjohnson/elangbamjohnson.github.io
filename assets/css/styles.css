@@ -1434,7 +1434,7 @@ details[open] .faq-icon {
     }
     
     .numbers-card {
-        margin-bottom: 0;
+        margin-bottom: 4rem; /* FIX: Explicitly push down next section on Safari mobile */
     }
     .enterprise-grid {
         align-items: start;
@@ -1444,6 +1444,7 @@ details[open] .faq-icon {
     /* FIX: Testimonial adjustments */
     .testimonial-banner {
         padding: 2rem 1.5rem;
+        margin-top: 2rem; /* FIX: Explicitly separate from previous section */
     }
     .testimonial-quote-mark {
         font-size: 3rem;
@@ -1622,4 +1623,3 @@ details[open] .faq-icon {
     }
 }
 
-.numbers-card, .testimonial-banner { outline: 2px solid red !important; }
