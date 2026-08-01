@@ -278,9 +278,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .nav-menu-wrapper {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
+    display: contents;
 }
 
 .nav-links {
@@ -661,6 +659,7 @@ main {
     font-size: var(--text-3xl);
     line-height: 1.1;
     color: var(--white);
+    font-weight: 800; /* Ensure same weight as desktop */
 }
 .gold-underline {
     width: 40px;
@@ -1353,8 +1352,8 @@ details[open] .faq-icon {
         padding: 0.5rem 0.8rem;
         display: flex !important;
     }
-    .float-card--tl { left: -15px; top: 10%; }
-    .float-card--br { right: -15px; bottom: 15%; }
+    .float-card--tl { left: -40px; top: 5%; }
+    .float-card--br { right: -40px; bottom: 10%; }
 
     .float-icon {
         width: 30px;
