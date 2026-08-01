@@ -977,7 +977,8 @@ main {
     font-family: var(--font-serif);
     font-size: var(--text-lg);
     font-weight: 700;
-    color: var(--navy);
+    color: var(--heading-on-matrix);
+    text-shadow: var(--matrix-text-shadow);
 }
 .client-tag {
     font-size: var(--text-xs);
@@ -986,14 +987,17 @@ main {
     background: rgba(26, 27, 46, 0.05);
     border-radius: var(--radius-sm);
     letter-spacing: 0.05em;
-    color: var(--text-muted);
+    color: var(--text-muted-on-matrix);
+    text-shadow: var(--matrix-text-shadow);
 }
 .client-content p {
     font-size: var(--text-sm);
-    color: var(--text-muted);
+    color: var(--text-on-matrix);
+    text-shadow: var(--matrix-text-shadow);
 }
 .client-arrow {
-    color: var(--border);
+    color: var(--text-muted-on-matrix);
+    text-shadow: var(--matrix-text-shadow);
 }
 
 .numbers-card {
@@ -1126,14 +1130,16 @@ main {
     cursor: pointer;
     font-size: var(--text-base);       /* Reduced font size */
     font-weight: 500;      /* Reduced font weight */
-    color: var(--navy);    /* Ensure text is dark */
+    color: var(--heading-on-matrix);    /* Ensure text is dark */
+    text-shadow: var(--matrix-text-shadow);
     list-style: none;
 }
 .faq-summary::-webkit-details-marker {
     display: none;
 }
 .faq-icon {
-    color: var(--text-muted); /* Darker gray color for the plus */
+    color: var(--text-muted-on-matrix); /* Darker gray color for the plus */
+    text-shadow: var(--matrix-text-shadow);
     font-size: var(--text-lg);
     font-weight: 300;
     width: 28px;
@@ -1149,11 +1155,13 @@ main {
 details[open] .faq-icon {
     transform: rotate(45deg);
     border-color: var(--gold); /* Highlight circle when open */
-    color: var(--gold-dark);
+    color: var(--gold-on-matrix);
+    text-shadow: var(--matrix-text-shadow);
 }
 .faq-content {
     padding-bottom: 1.5rem;
-    color: var(--text-muted);
+    color: var(--text-on-matrix);
+    text-shadow: var(--matrix-text-shadow);
     line-height: 1.6;
     font-size: var(--text-sm);
 }
