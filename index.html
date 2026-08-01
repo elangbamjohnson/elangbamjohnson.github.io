@@ -23,16 +23,18 @@
     <!-- Sticky Nav -->
     <nav class="navbar" id="navbar">
         <a href="#" class="nav-logo">JE<span>.</span></a>
-        <div class="nav-links">
-            <div class="nav-pill"></div>
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#projects">Projects</a>
-            <a href="#enterprise">Enterprise</a>
-            <a href="#faq">FAQ</a>
-            <a href="#contact">Contact</a>
+        <div class="nav-menu-wrapper">
+            <div class="nav-links">
+                <div class="nav-pill"></div>
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#enterprise">Enterprise</a>
+                <a href="#faq">FAQ</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <a href="#contact" class="btn btn--navy nav-cta">Hire Me &rarr;</a>
         </div>
-        <a href="#contact" class="btn btn--navy nav-cta">Hire Me &rarr;</a>
         <button class="nav-toggle" aria-label="Toggle menu">&#9776;</button>
     </nav>
 
@@ -593,11 +595,28 @@
     <!-- Minimal JS for Nav Toggle -->
     <script>
         const hamburger = document.querySelector('.nav-toggle');
-        const navLinks = document.querySelector('.nav-links');
+        const navMenuWrapper = document.querySelector('.nav-menu-wrapper');
+        let savedScrollY = 0;
         
         hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            navLinks.classList.toggle('active');
+            const isActive = hamburger.classList.toggle('active');
+            navMenuWrapper.classList.toggle('active');
+            
+            if (isActive) {
+                // Lock body scroll
+                savedScrollY = window.scrollY;
+                document.body.style.position = 'fixed';
+                document.body.style.top = `-${savedScrollY}px`;
+                document.body.style.width = '100%';
+                document.body.style.overflow = 'hidden';
+            } else {
+                // Unlock and restore
+                document.body.style.position = '';
+                document.body.style.top = '';
+                document.body.style.width = '';
+                document.body.style.overflow = '';
+                window.scrollTo(0, savedScrollY);
+            }
         });
 
         // Smooth scrolling for anchor links
@@ -613,8 +632,11 @@
                     targetElement.scrollIntoView({
                         behavior: 'smooth'
                     });
+                    
                     // Close mobile nav if open
-                    document.querySelector('.nav-links').classList.remove('active');
+                    if (navMenuWrapper.classList.contains('active')) {
+                        hamburger.click();
+                    }
                 }
             });
         });

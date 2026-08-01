@@ -277,6 +277,12 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--gold);
 }
 
+.nav-menu-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
 .nav-links {
     position: relative;
     display: flex;
@@ -1246,10 +1252,10 @@ details[open] .faq-icon {
         padding: 1rem 1.5rem;
         flex-wrap: wrap;
     }
-    .nav-links, .nav-cta {
+    .nav-menu-wrapper, .nav-cta {
         display: none;
     }
-    .nav-links.active {
+    .nav-menu-wrapper.active {
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -1264,13 +1270,42 @@ details[open] .faq-icon {
         -webkit-backdrop-filter: blur(20px);
         z-index: 10000;
         box-shadow: none; border: none;
+        overflow: hidden;
+        overscroll-behavior: none;
     }
-    .nav-links.active a {
+    /* Only allow scrolling on very short screens if links don't fit */
+    @media (max-height: 600px) {
+        .nav-menu-wrapper.active {
+            overflow-y: auto;
+            justify-content: flex-start;
+            padding-top: 5rem;
+        }
+    }
+    
+    .nav-menu-wrapper.active .nav-links {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: none;
+        border: none;
+        padding: 0;
+    }
+    .nav-menu-wrapper.active .nav-pill {
+        display: none;
+    }
+    .nav-menu-wrapper.active .nav-links a {
         font-family: var(--font-serif);
         font-size: var(--text-2xl);
         color: var(--navy);
         margin: 0.75rem 0;
         font-weight: 700;
+        padding: 0;
+    }
+    .nav-menu-wrapper.active .nav-cta {
+        display: inline-flex !important;
+        margin-top: 2rem;
+        position: static;
+        transform: none;
     }
     .nav-toggle {
         display: flex;
@@ -1288,14 +1323,6 @@ details[open] .faq-icon {
         width: 44px; height: 44px;
         display: flex; align-items: center; justify-content: center;
         border-radius: 50%;
-    }
-    .nav-links.active + .nav-cta {
-        display: inline-flex !important;
-        position: fixed;
-        bottom: 15%;
-        left: 50%;
-        transform: translateX(-50%);
-        z-index: 10001;
     }
     
     .card-grid {
@@ -1404,6 +1431,14 @@ details[open] .faq-icon {
         padding: 1.5rem;
         border-radius: var(--radius-lg);
         height: auto;
+    }
+    
+    .numbers-card {
+        margin-bottom: 0;
+    }
+    .enterprise-grid {
+        align-items: start;
+        gap: 2rem;
     }
     
     /* FIX: Testimonial adjustments */
@@ -1586,3 +1621,5 @@ details[open] .faq-icon {
         transition: none !important;
     }
 }
+
+.numbers-card, .testimonial-banner { outline: 2px solid red !important; }
