@@ -1372,6 +1372,9 @@ details[open] .faq-icon {
     /* --- NEW MOBILE FIXES --- */
     
     /* FIX 2: About stats collapse */
+    .about-headline {
+        font-size: clamp(1.6rem, 7.5vw, 2.25rem); /* Scaled to perfectly wrap to 3 lines on mobile */
+    }
     .about-stats {
         grid-template-columns: 1fr; 
     }
