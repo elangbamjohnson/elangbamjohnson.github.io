@@ -15,6 +15,13 @@
     --text-light: #FFFFFF;
     --text-light-muted: rgba(255, 255, 255, 0.7);
 
+    /* Text on Matrix Background */
+    --text-on-matrix: #F5F5F0;
+    --text-muted-on-matrix: rgba(245, 245, 240, 0.65);
+    --gold-on-matrix: #F0C674;
+    --heading-on-matrix: #F5F5F0;
+    --matrix-text-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
+
     /* Typography */
     --font-serif: 'Playfair Display', Georgia, serif;
     --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
@@ -145,7 +152,8 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 600;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--gold-dark);
+    color: var(--gold-on-matrix);
+    text-shadow: var(--matrix-text-shadow);
     margin-bottom: 1rem;
 }
 
@@ -907,6 +915,8 @@ main {
 .section-title {
     font-size: var(--text-3xl);
     font-weight: 800;
+    color: var(--heading-on-matrix);
+    text-shadow: var(--matrix-text-shadow);
     margin-bottom: var(--space-xl);
 }
 .view-all-btn {
@@ -1188,7 +1198,8 @@ details[open] .faq-icon {
     align-items: center;
     padding: 1.5rem 4rem;
     font-size: var(--text-sm);
-    color: var(--text-muted);
+    color: var(--text-muted-on-matrix);
+    text-shadow: var(--matrix-text-shadow);
 }
 .footer-logo {
     display: flex;
@@ -1199,7 +1210,8 @@ details[open] .faq-icon {
 .footer-logo strong {
     font-family: var(--font-serif);
     font-size: var(--text-lg);
-    color: var(--navy);
+    color: var(--heading-on-matrix);
+    text-shadow: var(--matrix-text-shadow);
 }
 .footer-logo strong span {
     color: var(--gold);
@@ -1207,17 +1219,20 @@ details[open] .faq-icon {
 .footer-logo span {
     font-family: var(--font-sans);
     font-size: var(--text-sm);
-    color: var(--text-muted);
+    color: var(--text-muted-on-matrix);
+    text-shadow: var(--matrix-text-shadow);
 }
 .footer-links {
     display: flex;
     gap: 1.5rem;
 }
 .footer-links a {
-    color: var(--text-muted);
+    color: var(--text-muted-on-matrix);
+    text-shadow: var(--matrix-text-shadow);
 }
 .footer-links a:hover {
-    color: var(--navy);
+    color: var(--heading-on-matrix);
+    text-shadow: var(--matrix-text-shadow);
 }
 
 /* ==========================================================================
