@@ -1301,6 +1301,11 @@ details[open] .faq-icon {
     .card-grid {
         grid-template-columns: 1fr;
     }
+    .bento-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    .bento-item { grid-column: 1 / -1; }
     .section-header {
         flex-direction: column;
         align-items: flex-start;
@@ -1398,6 +1403,7 @@ details[open] .faq-icon {
     .content-card, .service-card, .numbers-card {
         padding: 1.5rem;
         border-radius: var(--radius-lg);
+        height: auto;
     }
     
     /* FIX: Testimonial adjustments */
