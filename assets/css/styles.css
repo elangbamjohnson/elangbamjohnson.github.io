@@ -1490,8 +1490,12 @@ details[open] .faq-icon {
         margin-bottom: var(--space-2xl); /* FIX: Explicitly push down next section on Safari mobile */
     }
     #enterprise .section-title {
-        font-size: var(--text-2xl);
-        font-weight: 400; /* Regular weight */
+        font-size: var(--text-3xl);
+        font-weight: 800;
+    }
+    #enterprise .section-title em {
+        font-size: var(--text-xl);
+        font-weight: 400;
     }
     .enterprise-grid {
         align-items: start;
