@@ -1273,11 +1273,10 @@ details[open] .faq-icon {
         position: fixed;
         top: 0; left: 0;
         width: 100vw; height: 100vh;
+        height: 100dvh;
         margin: 0; padding: 2rem;
         border-radius: 0;
-        background-color: rgba(245, 243, 238, 0.95);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
+        background-color: var(--cream);
         z-index: 10000;
         box-shadow: none; border: none;
         overflow: hidden;

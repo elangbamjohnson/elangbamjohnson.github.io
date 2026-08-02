@@ -629,14 +629,23 @@
                 const targetElement = document.querySelector(targetId);
                 
                 if (targetElement) {
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                    
-                    // Close mobile nav if open
+                    // Close mobile nav if open without triggering the scrollTo(0) bug
                     if (navMenuWrapper.classList.contains('active')) {
-                        hamburger.click();
+                        hamburger.classList.remove('active');
+                        navMenuWrapper.classList.remove('active');
+                        document.body.style.position = '';
+                        document.body.style.top = '';
+                        document.body.style.width = '';
+                        document.body.style.overflow = '';
+                        window.scrollTo(0, savedScrollY); // Instantly restore body to true scroll position
                     }
+                    
+                    // Small timeout ensures the body's position is fully restored before smooth scrolling starts
+                    setTimeout(() => {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }, 10);
                 }
             });
         });
