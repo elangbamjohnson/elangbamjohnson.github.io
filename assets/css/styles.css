@@ -861,6 +861,7 @@ main {
     border-radius: 100px;
     display: inline-flex;
     align-items: center;
+    width: fit-content;
     transition: background-color 0.2s ease;
     border: none;
     cursor: pointer;
@@ -1456,7 +1457,7 @@ details[open] .faq-icon {
     }
     
     /* FIX: Generous spacing for specific section headers on mobile */
-    #services, #enterprise, #faq {
+    #services, #enterprise, #faq, footer.footer-bottom.container {
         padding-top: var(--space-xl);
     }
     .dark-section {
