@@ -20,6 +20,7 @@
     --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
 
     /* Typography Scale */
+    --text-2xs: 0.65rem;
     --text-xs: 0.75rem;
     --text-sm: 0.875rem;
     --text-base: 1rem;
@@ -29,13 +30,16 @@
     --text-3xl: clamp(3rem, 5vw, 4rem);
     --text-4xl: clamp(4rem, 8vw, 7.5rem);
     --text-stat: 4rem;
+    --text-headline-mobile: clamp(1.6rem, 7.5vw, 2.25rem);
 
-    /* Spacing Scale */
+    /* Spacing System */
+    --space-2xs: 0.25rem;
     --space-xs: 0.5rem;
     --space-sm: 1rem;
     --space-md: 1.5rem;
     --space-lg: 2.5rem;
-    --space-xl: 4rem;
+    --space-2xl: 4rem;
+    --space-xl: 3rem;
     --space-section: 6rem;
 
     /* Spacing & Layout */
@@ -275,6 +279,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 .nav-logo span {
     color: var(--gold);
+}
+
+.nav-menu-wrapper {
+    display: contents;
 }
 
 .nav-links {
@@ -637,6 +645,7 @@ main {
 @media (max-width: 900px) {
     .working-on-banner {
         flex-direction: column;
+        align-items: flex-start;
         border-radius: var(--radius-xl);
         padding: 2rem;
         gap: 1.5rem;
@@ -655,6 +664,7 @@ main {
     font-size: var(--text-3xl);
     line-height: 1.1;
     color: var(--white);
+    font-weight: 800; /* Ensure same weight as desktop */
 }
 .gold-underline {
     width: 40px;
@@ -853,6 +863,7 @@ main {
     border-radius: 100px;
     display: inline-flex;
     align-items: center;
+    width: fit-content;
     transition: background-color 0.2s ease;
     border: none;
     cursor: pointer;
@@ -891,21 +902,25 @@ main {
 .section-title {
     font-size: var(--text-3xl);
     font-weight: 800;
-    margin-bottom: var(--space-xl);
+    margin-bottom: var(--space-2xl);
 }
 .view-all-btn {
     font-size: var(--text-sm);
     font-weight: 700;
     color: var(--navy);
-    border: 1px solid var(--gold-dark);
+    background-color: var(--white);
+    border: none;
+    box-shadow: 0 4px 12px rgba(26, 27, 46, 0.08);
     padding: 0.6rem 1rem;
     display: inline-flex;
     align-items: center;
     gap: 0.25rem;
-    transition: background-color 0.2s ease;
+    border-radius: var(--radius-pill);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 .view-all-btn:hover {
-    background-color: rgba(201, 151, 91, 0.1);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(26, 27, 46, 0.12);
 }
 
 /* Enterprise Experience */
@@ -1031,6 +1046,7 @@ main {
 .testimonial-banner-text {
     font-family: var(--font-serif);
     font-style: italic;
+    font-weight: 400; /* Regular weight for editorial look */
     font-size: var(--text-lg); /* Smaller to wrap to 3 lines */
     line-height: 1.6;
     color: var(--navy);
@@ -1211,7 +1227,7 @@ details[open] .faq-icon {
     .hero {
         grid-template-columns: 1fr;
         text-align: center;
-        gap: 3rem;
+        gap: var(--space-xl);
     }
     .hero-actions {
         justify-content: center;
@@ -1227,14 +1243,14 @@ details[open] .faq-icon {
     
     .about-grid {
         grid-template-columns: 1fr;
-        gap: 2rem;
+        gap: var(--space-lg);
     }
     .dark-card {
-        padding: 3rem 2rem;
+        padding: var(--space-xl) var(--space-lg);
     }
     .working-on {
         flex-direction: column;
-        gap: 1rem;
+        gap: var(--space-sm);
     }
     .enterprise-grid {
         grid-template-columns: 1fr;
@@ -1246,41 +1262,109 @@ details[open] .faq-icon {
         padding: 1rem 1.5rem;
         flex-wrap: wrap;
     }
-    .nav-links, .nav-cta {
+    .nav-menu-wrapper, .nav-cta {
         display: none;
     }
-    .nav-links.active {
+    .nav-menu-wrapper.active {
         display: flex;
         flex-direction: column;
-        width: 100%;
-        margin-top: 1rem;
-        padding: 1rem;
-        border-radius: var(--radius-lg);
-        background-color: var(--white);
-        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        top: 0; left: 0;
+        width: 100vw; height: 100vh;
+        height: 100dvh;
+        margin: 0; padding: 2rem;
+        border-radius: 0;
+        background-color: var(--cream);
+        z-index: 10000;
+        box-shadow: none; border: none;
+        overflow: hidden;
+        overscroll-behavior: none;
+    }
+    /* Only allow scrolling on very short screens if links don't fit */
+    @media (max-height: 600px) {
+        .nav-menu-wrapper.active {
+            overflow-y: auto;
+            justify-content: flex-start;
+            padding-top: 5rem;
+        }
+    }
+    
+    .nav-menu-wrapper.active .nav-links {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: none;
+        border: none;
+        padding: 0;
+    }
+    .nav-menu-wrapper.active .nav-pill {
+        display: none;
+    }
+    .nav-menu-wrapper.active .nav-links a {
+        font-family: var(--font-serif);
+        font-size: var(--text-2xl);
+        color: var(--navy);
+        margin: var(--space-sm) 0;
+        font-weight: 700;
+        padding: 0;
+    }
+    .nav-menu-wrapper.active .nav-cta {
+        display: inline-flex !important;
+        margin-top: var(--space-lg);
+        position: static;
+        transform: none;
     }
     .nav-toggle {
         display: flex;
+        z-index: 10001; 
+        position: relative;
+    }
+    .nav-toggle.active {
+        font-size: 0;
+    }
+    .nav-toggle.active::after {
+        content: '\00d7';
+        font-size: var(--text-3xl);
+        color: var(--navy);
+        background: rgba(26, 27, 46, 0.05);
+        width: 44px; height: 44px;
+        display: flex; align-items: center; justify-content: center;
+        border-radius: 50%;
     }
     
     .card-grid {
         grid-template-columns: 1fr;
     }
+    .bento-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-md);
+    }
+    .bento-item { grid-column: 1 / -1; }
     .section-header {
         flex-direction: column;
         align-items: flex-start;
-        gap: 1rem;
+        gap: var(--space-sm);
     }
     
     .footer-bottom {
         flex-direction: column;
-        gap: 1rem;
-        padding: 1.5rem;
+        align-items: center;
+        text-align: center;
+        gap: var(--space-md);
+        padding: var(--space-2xl) var(--space-md) var(--space-lg);
     }
+    .footer-logo { align-items: center; }
+    .footer-links { flex-wrap: wrap; justify-content: center; gap: var(--space-sm); }
     
     .float-card {
-        padding: 0.5rem 0.8rem;
+        padding: var(--space-xs) var(--space-sm);
+        display: flex !important;
     }
+    .float-card--tl { left: -40px; top: 5%; }
+    .float-card--br { right: -40px; bottom: 10%; }
+
     .float-icon {
         width: 30px;
         height: 30px;
@@ -1291,80 +1375,159 @@ details[open] .faq-icon {
     }
     .float-text strong { font-size: var(--text-lg); }
 
+    .hero-visual { max-width: 260px; margin: 0 auto; }
+    
+    body, .site-boundary { overflow-x: hidden; }
+
     /* --- NEW MOBILE FIXES --- */
     
     /* FIX 2: About stats collapse */
+    .about-headline {
+        font-size: var(--text-headline-mobile); /* Scaled to perfectly wrap to 3 lines on mobile */
+    }
     .about-stats {
         grid-template-columns: 1fr; 
     }
     .stat-box {
-        padding: 1.5rem;
+        padding: var(--space-md);
     }
     .stat-box h4, .number-item h4 {
-        font-size: 3rem; /* Scale down giant stats */
+        font-size: var(--text-3xl); /* Scale down giant stats */
     }
     
     /* FIX: Hero padding and buttons */
     .hero {
-        padding-top: 3rem; 
+        padding-top: var(--space-xl); 
+    }
+    .hero-subtitle {
+        font-size: var(--text-xl);
     }
     .hero-actions {
         flex-direction: column; 
         align-items: stretch;
+        gap: var(--space-sm);
     }
     .hero-actions .btn {
         width: 100%;
+        justify-content: center;
+    }
+    .footer-actions {
+        flex-direction: column;
+        align-items: stretch;
+        gap: var(--space-sm);
+    }
+    .footer-actions .btn {
+        width: 100%;
+        justify-content: center;
+    }
+    .client-row {
+        gap: var(--space-sm);
+        padding: var(--space-md) 0;
+        flex-direction: row;
+    }
+    .client-emoji {
+        width: 40px; height: 40px; font-size: var(--text-lg);
+    }
+    .client-header {
+        flex-wrap: wrap; align-items: center; gap: var(--space-xs);
     }
     
+    .working-on-banner {
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+    }
+    
+    #projects .section-header {
+        align-items: flex-end;
+        text-align: right;
+        margin-top: var(--space-lg);
+    }
+    #projects .section-header .section-title {
+        font-size: var(--text-2xl);
+    }
+
+    .ai-features-list {
+        display: none;
+    }
+    
+    .card-tags {
+        gap: var(--space-2xs);
+    }
+    .card-tags .tag-pill {
+        padding: var(--space-2xs) var(--space-xs);
+        font-size: var(--text-2xs);
+        font-weight: 500; /* Normal weight on mobile */
+    }
+
     /* FIX: Section spacing reduction */
     .section-padding {
-        padding-top: 3rem;
-        padding-bottom: 3rem;
+        padding-top: var(--space-xl);
+        padding-bottom: var(--space-xl);
     }
+    
+    /* FIX: Generous spacing for specific section headers on mobile */
+    #services, #enterprise, #faq, .footer-bottom {
+        padding-top: var(--space-2xl);
+    }
+    
+    .footer-title {
+        font-size: var(--text-2xl); /* Prevent wrap to 2 lines */
+    }
+    
     .dark-section {
-        padding: 3rem 0;
+        padding: var(--space-xl) 0;
     }
     
     /* FIX: Card padding reduction */
-    .content-card {
-        padding: 1.5rem;
+    .content-card, .service-card, .numbers-card {
+        padding: var(--space-md);
+        border-radius: var(--radius-lg);
+        height: auto;
     }
-    .service-card {
-        padding: 1.5rem;
-        border-radius: 24px;
-    }
+    
     .numbers-card {
-        padding: 2rem 1.5rem;
+        margin-bottom: var(--space-2xl); /* FIX: Explicitly push down next section on Safari mobile */
+    }
+    #enterprise .section-title {
+        font-size: var(--text-3xl);
+        font-weight: 800;
+    }
+    #enterprise .section-title em {
+        font-size: var(--text-xl);
+        font-weight: 400;
+    }
+    .enterprise-grid {
+        align-items: start;
+        gap: var(--space-lg);
     }
     
     /* FIX: Testimonial adjustments */
     .testimonial-banner {
-        padding: 2rem 1.5rem;
+        padding: var(--space-lg) var(--space-md);
+        margin-top: var(--space-lg); /* FIX: Explicitly separate from previous section */
     }
     .testimonial-quote-mark {
-        font-size: 3rem;
+        font-size: var(--text-3xl);
         left: 0;
         top: -0.5rem;
     }
     .testimonial-banner-text {
-        padding-left: 1.5rem;
+        padding-left: var(--space-md);
         font-size: var(--text-base);
     }
     .testimonial-banner-author {
-        padding-left: 1.5rem;
+        padding-left: var(--space-md);
     }
 }
 
 @media (max-width: 480px) {
-    /* FIX: Container padding */
+    /* FIX: Container horizontal padding */
     .container {
-        padding: 0 1.25rem; 
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
     }
     
-    /* FIX: Hide overflowing float cards on tiny screens */
-    .float-card {
-        display: none; 
-    }
+    /* FIX: Float cards are now scaled to fit, no longer hidden */
 }
 
 /* ==========================================================================
@@ -1520,3 +1683,4 @@ details[open] .faq-icon {
         transition: none !important;
     }
 }
+
