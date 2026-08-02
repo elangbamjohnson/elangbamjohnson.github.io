@@ -1346,7 +1346,7 @@ details[open] .faq-icon {
         align-items: center;
         text-align: center;
         gap: var(--space-md);
-        padding: var(--space-lg) var(--space-md);
+        padding: var(--space-xl) var(--space-md) var(--space-lg);
     }
     .footer-logo { align-items: center; }
     .footer-links { flex-wrap: wrap; justify-content: center; gap: var(--space-sm); }
@@ -1453,6 +1453,11 @@ details[open] .faq-icon {
     .section-padding {
         padding-top: var(--space-2xl);
         padding-bottom: var(--space-2xl);
+    }
+    
+    /* FIX: Generous spacing for specific section headers on mobile */
+    #services, #enterprise, #faq {
+        padding-top: var(--space-xl);
     }
     .dark-section {
         padding: var(--space-2xl) 0;
