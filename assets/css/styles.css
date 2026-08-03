@@ -249,26 +249,19 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Navigation */
 .navbar {
-    position: fixed;
-    top: 32px; /* Breathing room inside the frame on desktop */
-    left: 50%;
-    transform: translateX(-50%);
+    position: sticky;
+    top: 0;
     z-index: 9999;
-    background-color: rgba(245, 243, 238, 0.5); /* Increased transparency */
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
-    border-bottom: 1px solid rgba(26, 27, 46, 0.03); /* Subtle edge definition */
+    background-color: var(--cream); /* Same as site boundary */
+    border-bottom: 1px solid rgba(26, 27, 46, 0.05); /* Divider */
     padding: 1rem 4rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    max-width: calc(100vw - 160px);
 }
 @media (max-width: 1200px) {
-    .navbar {
-        max-width: 100%;
-    }
+    /* No longer need max-width override since max-width is removed */
 }
 
 .nav-logo {
@@ -1259,7 +1252,6 @@ details[open] .faq-icon {
 
 @media (max-width: 768px) {
     .navbar {
-        top: 16px; /* Reduced top breathing room on mobile to match reduced frame margin */
         padding: 1rem 1.5rem;
         flex-wrap: wrap;
     }
