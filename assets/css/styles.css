@@ -252,13 +252,21 @@ h1, h2, h3, h4, h5, h6 {
     position: sticky;
     top: 0;
     z-index: 9999;
-    background-color: var(--cream); /* Same as site boundary */
+    background-color: var(--cream); /* Fallback for browsers without backdrop-filter support */
     border-bottom: 1px solid rgba(26, 27, 46, 0.05); /* Divider */
     padding: 1rem 4rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 100%;
+}
+
+@supports (backdrop-filter: blur(12px)) or (-webkit-backdrop-filter: blur(12px)) {
+    .navbar {
+        background-color: rgba(245, 243, 238, 0.75); /* --cream with 75% opacity */
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+    }
 }
 @media (max-width: 1200px) {
     /* No longer need max-width override since max-width is removed */
