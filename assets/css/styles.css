@@ -250,7 +250,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Navigation */
 .navbar {
     position: fixed;
-    top: 0;
+    top: 32px; /* Breathing room inside the frame on desktop */
     left: 50%;
     transform: translateX(-50%);
     z-index: 9999;
@@ -1259,6 +1259,7 @@ details[open] .faq-icon {
 
 @media (max-width: 768px) {
     .navbar {
+        top: 16px; /* Reduced top breathing room on mobile to match reduced frame margin */
         padding: 1rem 1.5rem;
         flex-wrap: wrap;
     }
