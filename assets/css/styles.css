@@ -77,19 +77,19 @@ body {
 
 .site-boundary {
     background-color: var(--cream);
-    max-width: calc(100vw - 160px); /* Leaves roughly a 1-inch gap on each side */
-    margin: 0 auto;
-    border-left: 1px solid var(--border);
-    border-right: 1px solid var(--border);
-    min-height: 100vh;
+    margin: 16px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    min-height: calc(100vh - 32px);
     box-shadow: 0 0 40px rgba(0,0,0,0.05);
+    overflow: hidden;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 768px) {
     .site-boundary {
-        max-width: 100%;
-        border-left: none;
-        border-right: none;
+        margin: 8px;
+        min-height: calc(100vh - 16px);
+        border-radius: var(--radius-md);
     }
 }
 
