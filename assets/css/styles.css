@@ -1398,6 +1398,9 @@ details[open] .faq-icon {
     }
     
     /* FIX: Hero padding and buttons */
+    main {
+        padding-top: 0; /* Remove desktop offset, sticky nav handles flow naturally */
+    }
     .hero {
         padding-top: var(--space-xl); 
     }
