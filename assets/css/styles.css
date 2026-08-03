@@ -82,7 +82,7 @@ body {
     border-radius: var(--radius-lg);
     min-height: calc(100vh - 32px);
     box-shadow: 0 0 40px rgba(0,0,0,0.05);
-    overflow: hidden;
+    overflow: clip; /* clip instead of hidden to allow position: sticky on children */
 }
 
 @media (max-width: 768px) {
@@ -1370,7 +1370,8 @@ details[open] .faq-icon {
 
     .hero-visual { max-width: 260px; margin: 0 auto; }
     
-    body, .site-boundary { overflow-x: hidden; }
+    body { overflow-x: hidden; }
+    .site-boundary { overflow-x: clip; }
 
     /* --- NEW MOBILE FIXES --- */
     
