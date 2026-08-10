@@ -77,19 +77,19 @@ body {
 
 .site-boundary {
     background-color: var(--cream);
-    max-width: calc(100vw - 160px); /* Leaves roughly a 1-inch gap on each side */
-    margin: 0 auto;
-    border-left: 1px solid var(--border);
-    border-right: 1px solid var(--border);
-    min-height: 100vh;
+    margin: 16px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    min-height: calc(100vh - 32px);
     box-shadow: 0 0 40px rgba(0,0,0,0.05);
+    overflow: clip; /* clip instead of hidden to allow position: sticky on children */
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 768px) {
     .site-boundary {
-        max-width: 100%;
-        border-left: none;
-        border-right: none;
+        margin: 8px;
+        min-height: calc(100vh - 16px);
+        border-radius: var(--radius-md);
     }
 }
 
@@ -249,26 +249,27 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Navigation */
 .navbar {
-    position: fixed;
+    position: sticky;
     top: 0;
-    left: 50%;
-    transform: translateX(-50%);
     z-index: 9999;
-    background-color: rgba(245, 243, 238, 0.5); /* Increased transparency */
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
-    border-bottom: 1px solid rgba(26, 27, 46, 0.03); /* Subtle edge definition */
+    background-color: var(--cream); /* Fallback for browsers without backdrop-filter support */
+    border-bottom: 1px solid rgba(26, 27, 46, 0.05); /* Divider */
     padding: 1rem 4rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    max-width: calc(100vw - 160px);
+}
+
+@supports (backdrop-filter: blur(24px)) or (-webkit-backdrop-filter: blur(24px)) {
+    .navbar {
+        background-color: rgba(245, 243, 238, 0.3); /* --cream with 30% opacity */
+        backdrop-filter: blur(24px);
+        -webkit-backdrop-filter: blur(24px);
+    }
 }
 @media (max-width: 1200px) {
-    .navbar {
-        max-width: 100%;
-    }
+    /* No longer need max-width override since max-width is removed */
 }
 
 .nav-logo {
@@ -1377,7 +1378,8 @@ details[open] .faq-icon {
 
     .hero-visual { max-width: 260px; margin: 0 auto; }
     
-    body, .site-boundary { overflow-x: hidden; }
+    body { overflow-x: hidden; }
+    .site-boundary { overflow-x: clip; }
 
     /* --- NEW MOBILE FIXES --- */
     
@@ -1396,6 +1398,9 @@ details[open] .faq-icon {
     }
     
     /* FIX: Hero padding and buttons */
+    main {
+        padding-top: 0; /* Remove desktop offset, sticky nav handles flow naturally */
+    }
     .hero {
         padding-top: var(--space-xl); 
     }
