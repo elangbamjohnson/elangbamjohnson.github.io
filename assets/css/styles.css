@@ -1465,7 +1465,12 @@ details[open] .faq-icon {
         padding: 1rem 1.5rem;
         flex-wrap: wrap;
     }
-    .nav-menu-wrapper, .nav-cta {
+    .nav-links, .nav-cta {
+        display: none;
+    }
+    
+    /* Hide the text label of the matrix toggle on mobile to save space */
+    .theme-toggle-btn .toggle-label {
         display: none;
     }
     .nav-menu-wrapper.active {
