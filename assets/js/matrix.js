@@ -9,8 +9,8 @@ function resizeCanvas() {
 resizeCanvas();
 window.addEventListener('resize', resizeCanvas);
 
-// Katakana characters + latin + numbers
-const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()_+ｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖﾗﾘﾙﾚﾛﾜﾝ';
+// Meitei Mayek script — the ancient script of Manipur, India
+const characters = 'ꯀꯁꯂꯃꯄꯅꯆꯇꯈꯉꯊꯋꯌꯍꯎꯏꯐꯑꯒꯓꯔꯕꯖꯗꯘꯙꯚꯛꯜꯝꯞꯟꯠꯡꯢꯣꯤꯥꯦꯧꯨꯩꯪ꫰꫱ꫲꫳꫴꫵ꫶꯫';
 const charArray = characters.split('');
 
 const fontSize = 16;
@@ -56,7 +56,7 @@ function draw(time) {
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     ctx.fillStyle = '#0F0'; // Classic Matrix Green
-    ctx.font = fontSize + 'px monospace';
+    ctx.font = `${fontSize}px 'Noto Sans Meetei Mayek', monospace`;
 
     for (let i = 0; i < drops.length; i++) {
         const text = charArray[Math.floor(Math.random() * charArray.length)];
