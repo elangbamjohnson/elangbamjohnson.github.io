@@ -106,7 +106,9 @@ body.theme-matrix .hero-scroll {
     text-shadow: var(--matrix-text-shadow);
 }
 body.theme-matrix .status-badge {
-    color: var(--sans-on-matrix);
+    color: #6EE7A8;
+    background: rgba(15, 15, 15, 0.88);
+    border-color: rgba(0, 255, 70, 0.4);
 }
 body.theme-matrix .nav-logo {
     color: var(--serif-on-matrix);
