@@ -49,7 +49,118 @@
     --radius-lg: 24px;
     --radius-xl: 40px;
     --radius-pill: 9999px;
-    
+}
+
+/* ==========================================================================
+   MATRIX THEME OVERRIDES
+   ========================================================================== */
+body.theme-matrix {
+    --serif-on-matrix: #F4E9D8;          
+    --serif-accent: #D9AF6E;             
+    --sans-on-matrix: #F0F5F1;           
+    --sans-accent: #6EE7A8;              
+    --text-muted-on-matrix: rgba(245, 245, 240, 0.65);
+    --gold-on-matrix: #F0C674;
+    --matrix-text-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
+}
+:root {
+    /* Text mapped for Default Theme (Light Mode) */
+    --serif-on-matrix: var(--text-main);          /* Playfair headings/hero/company names */
+    --serif-accent: var(--gold-dark);             /* Playfair hover/emphasis only */
+    --sans-on-matrix: var(--text-main);           /* Inter body/nav on the boundary */
+    --sans-accent: var(--navy);                   /* Inter hover/active states only */
+    --text-muted-on-matrix: var(--text-muted);
+    --gold-on-matrix: var(--gold-dark);
+    --matrix-text-shadow: none;
+}
+
+
+/* ==========================================================================
+   MATRIX THEME - HERO & TEXT OVERRIDES
+   ========================================================================== */
+body.theme-matrix .hero-title-solid {
+    color: var(--serif-on-matrix);
+    text-shadow: var(--matrix-text-shadow);
+}
+body.theme-matrix .hero-title-outline {
+    -webkit-text-stroke: 1.5px var(--serif-on-matrix);
+    filter: drop-shadow(var(--matrix-text-shadow));
+}
+body.theme-matrix .hero-subtitle {
+    color: var(--serif-on-matrix);
+    text-shadow: var(--matrix-text-shadow);
+}
+body.theme-matrix .hero-desc {
+    color: var(--sans-on-matrix);
+    text-shadow: var(--matrix-text-shadow);
+}
+body.theme-matrix .hero-location {
+    color: var(--sans-on-matrix);
+    text-shadow: var(--matrix-text-shadow);
+}
+body.theme-matrix .hero-location svg {
+    fill: var(--gold-on-matrix);
+}
+body.theme-matrix .hero-scroll {
+    color: var(--sans-on-matrix);
+    text-shadow: var(--matrix-text-shadow);
+}
+body.theme-matrix .status-badge {
+    color: var(--sans-on-matrix);
+}
+body.theme-matrix .nav-logo {
+    color: var(--serif-on-matrix);
+    text-shadow: var(--matrix-text-shadow);
+}
+body.theme-matrix .section-label {
+    color: var(--gold-on-matrix);
+    text-shadow: var(--matrix-text-shadow);
+}
+body.theme-matrix .section-title {
+    color: var(--serif-on-matrix);
+    text-shadow: var(--matrix-text-shadow);
+}
+body.theme-matrix .view-all-btn {
+    color: var(--sans-on-matrix);
+    text-shadow: var(--matrix-text-shadow);
+}
+body.theme-matrix .view-all-btn:hover {
+    color: var(--sans-accent);
+}
+body.theme-matrix .client-header h4 {
+    color: var(--serif-on-matrix);
+    text-shadow: var(--matrix-text-shadow);
+}
+body.theme-matrix .client-tag {
+    color: var(--gold-on-matrix);
+}
+body.theme-matrix .client-content p {
+    color: var(--sans-on-matrix);
+    text-shadow: var(--matrix-text-shadow);
+}
+body.theme-matrix .faq-summary {
+    color: var(--sans-on-matrix);
+    text-shadow: var(--matrix-text-shadow);
+}
+body.theme-matrix .faq-content {
+    color: var(--sans-on-matrix);
+    text-shadow: var(--matrix-text-shadow);
+}
+body.theme-matrix .footer-bottom {
+    color: var(--sans-on-matrix);
+}
+body.theme-matrix .footer-logo strong {
+    color: var(--serif-on-matrix);
+    text-shadow: var(--matrix-text-shadow);
+}
+body.theme-matrix .footer-logo span {
+    color: var(--sans-on-matrix);
+}
+body.theme-matrix .footer-links a {
+    color: var(--sans-on-matrix);
+}
+body.theme-matrix .footer-links a:hover {
+    color: var(--sans-accent);
 }
 
 /* ==========================================================================
@@ -83,6 +194,28 @@ body {
     min-height: calc(100vh - 32px);
     box-shadow: 0 0 40px rgba(0,0,0,0.05);
     overflow: clip; /* clip instead of hidden to allow position: sticky on children */
+    transition: background-color 0.4s ease;
+}
+
+body.theme-matrix .site-boundary {
+    background-color: rgba(245, 243, 238, 0.15); /* Transparent to show matrix */
+    border-color: var(--border-dark);
+}
+
+#matrix-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    pointer-events: none;
+    display: none;
+    background-color: #000;
+}
+
+body.theme-matrix #matrix-bg {
+    display: block;
 }
 
 @media (max-width: 768px) {
@@ -222,13 +355,82 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn--outline-dark {
+    background-color: rgba(0, 0, 0, 0.05);
+    color: var(--sans-on-matrix);
+    border: 1px solid var(--border);
+    transition: color 0.2s ease, background-color 0.2s ease;
+}
+body.theme-matrix .btn--outline-dark {
     background-color: rgba(255, 255, 255, 0.1);
-    color: var(--white);
     border: 1px solid transparent;
 }
 .btn--outline-dark:hover {
+    color: var(--sans-accent);
+    background-color: rgba(0, 0, 0, 0.1);
+}
+body.theme-matrix .btn--outline-dark:hover {
     background-color: rgba(255, 255, 255, 0.15);
 }
+
+/* ==========================================================================
+   MATRIX THEME TOGGLE BUTTON
+   ========================================================================== */
+.theme-toggle-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 0.9rem;
+    margin-right: 0.75rem;
+    border-radius: var(--radius-pill);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    cursor: pointer;
+    border: 1.5px solid var(--border);
+    background: transparent;
+    color: var(--text-main);
+    transition: all 0.25s ease;
+    user-select: none;
+}
+
+/* The pill toggle track */
+.theme-toggle-btn .toggle-track {
+    position: relative;
+    width: 32px;
+    height: 18px;
+    background: rgba(26, 27, 46, 0.15);
+    border-radius: 999px;
+    transition: background 0.3s ease;
+    flex-shrink: 0;
+}
+/* The sliding thumb */
+.theme-toggle-btn .toggle-thumb {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--navy);
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+/* ACTIVE state - matrix ON */
+body.theme-matrix .theme-toggle-btn {
+    background: rgba(15, 255, 0, 0.08);
+    border-color: #0F0;
+    color: #6EE7A8;
+    box-shadow: 0 0 10px rgba(15, 255, 0, 0.2);
+}
+body.theme-matrix .theme-toggle-btn .toggle-track {
+    background: rgba(15, 255, 0, 0.3);
+}
+body.theme-matrix .theme-toggle-btn .toggle-thumb {
+    transform: translateX(14px);
+    background: #0F0;
+    box-shadow: 0 0 6px #0F0;
+}
+
+
 
 .tag-pill {
     display: inline-block;

@@ -48,6 +48,33 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+    // 4. Matrix Theme Toggle
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    
+    // Sync class from html to body if set in head
+    if (document.documentElement.classList.contains('theme-matrix')) {
+        document.body.classList.add('theme-matrix');
+    }
+    
+    if (themeToggleBtn) {
+        themeToggleBtn.addEventListener('click', () => {
+            const isMatrix = document.body.classList.contains('theme-matrix');
+            if (isMatrix) {
+                document.body.classList.remove('theme-matrix');
+                document.documentElement.classList.remove('theme-matrix');
+                localStorage.setItem('site-theme', 'light');
+                themeToggleBtn.setAttribute('aria-pressed', 'false');
+            } else {
+                document.body.classList.add('theme-matrix');
+                document.documentElement.classList.add('theme-matrix');
+                localStorage.setItem('site-theme', 'matrix');
+                themeToggleBtn.setAttribute('aria-pressed', 'true');
+            }
+        });
+        // Set initial aria-pressed state
+        const isMatrixOnLoad = document.body.classList.contains('theme-matrix');
+        themeToggleBtn.setAttribute('aria-pressed', isMatrixOnLoad ? 'true' : 'false');
+    }
 });
 
 // Global functions for inline handlers
