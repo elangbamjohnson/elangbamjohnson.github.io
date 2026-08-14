@@ -57,6 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     if (themeToggleBtn) {
+        const toggleLabel = themeToggleBtn.querySelector('.toggle-label');
         themeToggleBtn.addEventListener('click', () => {
             const isMatrix = document.body.classList.contains('theme-matrix');
             if (isMatrix) {
@@ -64,16 +65,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 document.documentElement.classList.remove('theme-matrix');
                 localStorage.setItem('site-theme', 'light');
                 themeToggleBtn.setAttribute('aria-pressed', 'false');
+                if (toggleLabel) toggleLabel.textContent = 'Enter the Matrix';
             } else {
                 document.body.classList.add('theme-matrix');
                 document.documentElement.classList.add('theme-matrix');
                 localStorage.setItem('site-theme', 'matrix');
                 themeToggleBtn.setAttribute('aria-pressed', 'true');
+                if (toggleLabel) toggleLabel.textContent = 'Exit the Matrix';
             }
         });
-        // Set initial aria-pressed state
+        // Set initial aria-pressed and label state
         const isMatrixOnLoad = document.body.classList.contains('theme-matrix');
         themeToggleBtn.setAttribute('aria-pressed', isMatrixOnLoad ? 'true' : 'false');
+        if (toggleLabel) toggleLabel.textContent = isMatrixOnLoad ? 'Exit the Matrix' : 'Enter the Matrix';
     }
 });
 
