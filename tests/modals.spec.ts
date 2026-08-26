@@ -125,4 +125,52 @@ test.describe('Modals (Video & Case Study)', () => {
       await expect(viewWriteUpBtn).toHaveAttribute('href', /dev\.to/);
     });
   });
+
+  test.describe('Gallery Modal', () => {
+    test('8.8 Open Gallery modal and check content', async ({ page }) => {
+      const openBtn = page.locator('button[aria-label="View Strike First screenshots"]');
+      await openBtn.scrollIntoViewIfNeeded();
+      await openBtn.click();
+
+      const modal = page.locator('#galleryModal');
+      await expect(modal).toHaveClass(/active/);
+      await expect(modal).toHaveAttribute('aria-hidden', 'false');
+
+      const img = modal.locator('img#galleryImg');
+      await expect(img).toBeVisible();
+    });
+
+    test('8.9 Close Gallery modal via X button', async ({ page }) => {
+      await page.locator('button[aria-label="View Strike First screenshots"]').click();
+      
+      const modal = page.locator('#galleryModal');
+      await page.evaluate(() => document.getElementById('closeGalleryBtn')?.click());
+
+      await expect(modal).not.toHaveClass(/active/);
+    });
+
+    test('8.10 Close Gallery modal via backdrop click', async ({ page }) => {
+      await page.locator('button[aria-label="View Strike First screenshots"]').click();
+      
+      const modal = page.locator('#galleryModal');
+      await page.evaluate(() => document.getElementById('galleryModal')?.click());
+      
+      await expect(modal).not.toHaveClass(/active/);
+    });
+
+    test('8.11 Navigate Gallery modal', async ({ page }) => {
+      await page.locator('button[aria-label="View Strike First screenshots"]').click();
+      
+      const nextBtn = page.locator('#galleryNext');
+      const counter = page.locator('#galleryCounter');
+      
+      await expect(counter).toContainText('1 / 5');
+      
+      await page.evaluate(() => document.getElementById('galleryNext')?.click());
+      await expect(counter).toContainText('2 / 5');
+      
+      await page.evaluate(() => document.getElementById('galleryPrev')?.click());
+      await expect(counter).toContainText('1 / 5');
+    });
+  });
 });

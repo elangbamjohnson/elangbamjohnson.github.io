@@ -13,9 +13,9 @@ test.describe('Projects Section', () => {
     await expect(heading).toContainText("What I've been building.");
   });
 
-  test('6.2 All 6 project cards are rendered', async ({ page }) => {
+  test('6.2 All 7 project cards are rendered', async ({ page }) => {
     const projectCards = page.locator('.bento-item');
-    await expect(projectCards).toHaveCount(6);
+    await expect(projectCards).toHaveCount(7);
   });
 
   test('6.3 Project cards have GitHub links', async ({ page }) => {
