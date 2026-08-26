@@ -327,7 +327,7 @@
                 </div>
 
                 <!-- Project 6 -->
-                <div class="content-card bento-item bento-full">
+                <div class="content-card bento-item bento-narrow">
                     <div class="card-tags">
                         <span class="tag-pill">Swift</span>
                         <span class="tag-pill">Bluetooth LE</span>
@@ -339,6 +339,33 @@
                         <svg style="width:16px;height:16px;fill:currentColor;margin-right:0.5rem;" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
                         GitHub
                     </a>
+                </div>
+
+                <!-- Project 7: Strike First -->
+                <div class="content-card bento-item bento-wide">
+                    <div class="card-accent-dot"></div>
+                    <div class="card-tags">
+                        <span class="tag-pill">JavaScript</span>
+                        <span class="tag-pill">PWA</span>
+                        <span class="tag-pill">Vanilla JS</span>
+                        <span class="tag-pill">Fitness</span>
+                    </div>
+                    <h3>Strike First</h3>
+                    <p>A mobile-first boxing power &amp; conditioning PWA covering strength, bag, and technical training days. Built entirely with Vanilla JS, HTML, and CSS &mdash; zero frameworks, offline-capable, and installable as a native app on Android, iOS, and macOS.</p>
+                    <div class="project-actions">
+                        <button class="btn-action" onclick="openGalleryModal()" aria-label="View Strike First screenshots">
+                            <svg style="width:16px;height:16px;fill:currentColor;margin-right:0.5rem;" viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+                            Screenshots
+                        </button>
+                        <a href="https://elangbamjohnson.github.io/Workout/" target="_blank" rel="noopener noreferrer" class="btn-action">
+                            <svg style="width:16px;height:16px;fill:currentColor;margin-right:0.5rem;" viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+                            Live Demo
+                        </a>
+                        <a href="https://github.com/elangbamjohnson/Workout" target="_blank" rel="noopener noreferrer" class="btn-action">
+                            <svg style="width:16px;height:16px;fill:currentColor;margin-right:0.5rem;" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                            GitHub
+                        </a>
+                    </div>
                 </div>
 
             </div>
@@ -649,6 +676,17 @@
         </div>
     </div>
 
+    <!-- Strike First Screenshot Gallery Modal -->
+    <div id="galleryModal" class="video-modal-backdrop" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Strike First Screenshots">
+        <div class="gallery-modal-container" role="document">
+            <button id="closeGalleryBtn" class="video-modal-close" aria-label="Close gallery">&times;</button>
+            <button class="gallery-nav gallery-prev" id="galleryPrev" aria-label="Previous screenshot">&#8249;</button>
+            <img id="galleryImg" class="gallery-image" src="" alt="Strike First screenshot" loading="lazy">
+            <button class="gallery-nav gallery-next" id="galleryNext" aria-label="Next screenshot">&#8250;</button>
+            <div class="gallery-counter" id="galleryCounter">1 / 5</div>
+        </div>
+    </div>
+
     <!-- Minimal JS for Nav Toggle -->
     <script>
         const hamburger = document.querySelector('.nav-toggle');
@@ -862,8 +900,72 @@
                 if (caseStudyModal && caseStudyModal.classList.contains('active')) {
                     closeCaseStudy();
                 }
+                if (galleryModal && galleryModal.classList.contains('active')) {
+                    closeGalleryModal();
+                }
+            }
+            if (galleryModal && galleryModal.classList.contains('active')) {
+                if (e.key === 'ArrowLeft') { navigateGallery(-1); }
+                if (e.key === 'ArrowRight') { navigateGallery(1); }
             }
         });
+
+        // Strike First Gallery Modal Logic
+        const galleryModal = document.getElementById('galleryModal');
+        const galleryImg = document.getElementById('galleryImg');
+        const galleryCounter = document.getElementById('galleryCounter');
+        const closeGalleryBtn = document.getElementById('closeGalleryBtn');
+        const galleryPrevBtn = document.getElementById('galleryPrev');
+        const galleryNextBtn = document.getElementById('galleryNext');
+        let galleryIndex = 0;
+        let galleryLastFocused;
+        let galleryImagesLoaded = false;
+
+        const galleryImages = [
+            { src: 'assets/images/strike-first/screenshot-1.png', alt: 'Strike First — Home screen with weekly program overview' },
+            { src: 'assets/images/strike-first/screenshot-2.png', alt: 'Strike First — Lower Body Power day detail' },
+            { src: 'assets/images/strike-first/screenshot-3.png', alt: 'Strike First — Bag Power Day session view' },
+            { src: 'assets/images/strike-first/screenshot-4.png', alt: 'Strike First — Technical Skills Day with drills' },
+            { src: 'assets/images/strike-first/screenshot-5.png', alt: 'Strike First — Upper Body Power exercises' },
+        ];
+
+        function updateGallerySlide() {
+            const item = galleryImages[galleryIndex];
+            galleryImg.src = item.src;
+            galleryImg.alt = item.alt;
+            galleryCounter.textContent = (galleryIndex + 1) + ' / ' + galleryImages.length;
+        }
+
+        function navigateGallery(direction) {
+            galleryIndex = (galleryIndex + direction + galleryImages.length) % galleryImages.length;
+            updateGallerySlide();
+        }
+
+        function openGalleryModal() {
+            galleryLastFocused = document.activeElement;
+            galleryIndex = 0;
+            updateGallerySlide();
+            galleryModal.classList.add('active');
+            galleryModal.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+            setTimeout(() => { closeGalleryBtn.focus(); }, 300);
+        }
+
+        function closeGalleryModal() {
+            galleryModal.classList.remove('active');
+            galleryModal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+            if (galleryLastFocused) { galleryLastFocused.focus(); }
+        }
+
+        if (closeGalleryBtn) { closeGalleryBtn.addEventListener('click', closeGalleryModal); }
+        if (galleryPrevBtn) { galleryPrevBtn.addEventListener('click', () => navigateGallery(-1)); }
+        if (galleryNextBtn) { galleryNextBtn.addEventListener('click', () => navigateGallery(1)); }
+        if (galleryModal) {
+            galleryModal.addEventListener('click', (e) => {
+                if (e.target === galleryModal) { closeGalleryModal(); }
+            });
+        }
     </script>
     <script src="assets/js/animations.js"></script>
     <script src="assets/js/matrix.js"></script>
