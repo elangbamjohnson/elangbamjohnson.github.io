@@ -1827,7 +1827,7 @@ details[open] .faq-icon {
     background-color: rgba(26, 27, 46, 0.85);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
-    z-index: 1000;
+    z-index: 99999;
     display: flex;
     justify-content: center;
     align-items: center;
