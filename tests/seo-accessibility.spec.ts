@@ -7,7 +7,7 @@ test.describe('16. SEO & Accessibility Tests', () => {
   });
 
   test('16.1 Page has correct <title>', async ({ page }) => {
-    await expect(page).toHaveTitle(/Johnson Elangbam \| Senior \/ Staff iOS Engineer/i);
+    await expect(page).toHaveTitle(/Johnson Elangbam \| Senior iOS Engineer/i);
   });
 
   test('16.2 Meta description exists and has content', async ({ page }) => {
