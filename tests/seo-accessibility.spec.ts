@@ -70,5 +70,10 @@ test.describe('16. SEO & Accessibility Tests', () => {
     await expect(caseStudyModal).toHaveAttribute('role', 'dialog');
     await expect(caseStudyModal).toHaveAttribute('aria-modal', 'true');
     await expect(caseStudyModal).toHaveAttribute('aria-label', 'AIAnalyzer Case Study');
+
+    const galleryModal = page.locator('#galleryModal');
+    await expect(galleryModal).toHaveAttribute('role', 'dialog');
+    await expect(galleryModal).toHaveAttribute('aria-modal', 'true');
+    await expect(galleryModal).toHaveAttribute('aria-label', 'Strike First Screenshots');
   });
 });
