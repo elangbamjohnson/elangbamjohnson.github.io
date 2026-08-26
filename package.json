@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "canvas": "^3.2.3"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.62.1",
+    "@types/node": "^26.3.0"
+  },
+  "scripts": {}
+}
