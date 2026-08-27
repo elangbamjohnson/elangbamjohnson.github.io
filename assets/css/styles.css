@@ -538,7 +538,7 @@ main {
     padding-top: 90px; /* Offset for fixed navbar */
 }
 .hero {
-    padding-top: 6rem;
+    padding-top: 3rem;
     padding-bottom: 2rem; /* Reduced to tighten gap to scroll indicator */
     display: grid;
     grid-template-columns: 1.3fr 1fr;
