@@ -40,7 +40,7 @@
     --space-lg: 2.5rem;
     --space-2xl: 4rem;
     --space-xl: 3rem;
-    --space-section: 6rem;
+    --space-section: 3rem;
 
     /* Spacing & Layout */
     --max-width: 1400px; /* Increased from 1200px */
@@ -538,7 +538,7 @@ main {
     padding-top: 90px; /* Offset for fixed navbar */
 }
 .hero {
-    padding-top: 6rem;
+    padding-top: 3rem;
     padding-bottom: 2rem; /* Reduced to tighten gap to scroll indicator */
     display: grid;
     grid-template-columns: 1.3fr 1fr;
@@ -805,7 +805,7 @@ main {
 .dark-section {
     background-color: var(--navy);
     color: var(--text-light);
-    padding: 6rem 0; /* vertical padding */
+    padding: 3rem 0; /* vertical padding */
     width: 100%;
 }
 .dark-section .container {
