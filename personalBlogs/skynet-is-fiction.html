@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skynet Is Fiction. But Are We Building Its Ingredients? | Johnson Elangbam</title>
+    <meta name="description" content="In 2026, the transition from chatbots to autonomous agents means a machine doesn't need hatred or evil intentions to cause enormous damage. It only needs a goal, capability, and insufficient constraints.">
+
+    <!-- Google Fonts — premium editorial stack -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400;1,8..60,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2224%22 fill=%22%231a1b2e%22/><text y=%2254%%22 x=%2250%%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Playfair Display, Georgia, serif%22 font-size=%2244%22 font-weight=%22700%22 fill=%22%23d4af37%22>JE</text></svg>">
+
+    <style>
+        /* ═══════════════════════════════════════════
+           RESET & BASE
+           ═══════════════════════════════════════════ */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --bg-outer: #e8e4df;
+            --bg: #faf9f7;
+            --bg-elevated: #ffffff;
+            --text-primary: #1a1a1a;
+            --text-body: #2d2d2d;
+            --text-secondary: #6b6b6b;
+            --text-tertiary: #999;
+            --accent: #b8860b;
+            --accent-hover: #9a7209;
+            --accent-light: rgba(184, 134, 11, 0.08);
+            --accent-border: rgba(184, 134, 11, 0.25);
+            --border: #e8e4df;
+            --border-light: #f0ece7;
+            --flow-bg: #f5f3ef;
+            --flow-border: #e0dbd4;
+            --red: #c0392b;
+            --green: #27ae60;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.04);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.06);
+            --shadow-container: 0 8px 40px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.06);
+            --radius: 6px;
+            --radius-container: 16px;
+            --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+            --font-body: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+        }
+
+        html {
+            font-size: 18px;
+            scroll-behavior: smooth;
+            /* Prevent outer page scroll — all scrolling is inside the pane */
+            overflow: hidden;
+            height: 100%;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--text-body);
+            background: var(--bg-outer);
+            line-height: 1.78;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+            height: 100%;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        ::selection {
+            background: var(--accent-light);
+            color: var(--text-primary);
+        }
+
+        /* ═══════════════════════════════════════════
+           CONTENT PANE — the elevated reading container
+           ═══════════════════════════════════════════ */
+        .content-pane {
+            flex: 1;
+            max-width: 860px;
+            width: 100%;
+            margin: 72px auto 24px;  /* top accounts for top-bar height + gap */
+            background: var(--bg);
+            border-radius: var(--radius-container);
+            box-shadow: var(--shadow-container);
+            overflow-y: auto;
+            overflow-x: hidden;
+            position: relative;
+            border: 1px solid rgba(0,0,0,0.06);
+        }
+
+        /* Custom scrollbar for the pane */
+        .content-pane::-webkit-scrollbar {
+            width: 6px;
+        }
+        .content-pane::-webkit-scrollbar-track {
+            background: transparent;
+            margin: var(--radius-container);
+        }
+        .content-pane::-webkit-scrollbar-thumb {
+            background: var(--accent-border);
+            border-radius: 10px;
+        }
+        .content-pane::-webkit-scrollbar-thumb:hover {
+            background: var(--accent);
+        }
+        /* Firefox scrollbar */
+        .content-pane {
+            scrollbar-width: thin;
+            scrollbar-color: var(--accent-border) transparent;
+        }
+
+        /* Top/bottom edge fade inside the pane for depth */
+        .content-pane::before,
+        .content-pane::after {
+            content: '';
+            position: sticky;
+            display: block;
+            left: 0;
+            right: 0;
+            height: 32px;
+            z-index: 5;
+            pointer-events: none;
+        }
+        .content-pane::before {
+            top: 0;
+            background: linear-gradient(to bottom, var(--bg), transparent);
+            border-radius: var(--radius-container) var(--radius-container) 0 0;
+        }
+        .content-pane::after {
+            bottom: 0;
+            background: linear-gradient(to top, var(--bg), transparent);
+            border-radius: 0 0 var(--radius-container) var(--radius-container);
+        }
+
+        /* ═══════════════════════════════════════════
+           TOP BAR
+           ═══════════════════════════════════════════ */
+        .top-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(232, 228, 223, 0.85);
+            backdrop-filter: blur(16px) saturate(1.4);
+            -webkit-backdrop-filter: blur(16px) saturate(1.4);
+            border-bottom: 1px solid rgba(0,0,0,0.08);
+            padding: 0 24px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .top-bar-logo {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .top-bar-logo span {
+            color: var(--accent);
+        }
+
+        .top-bar-back {
+            font-family: var(--font-sans);
+            font-size: 0.78rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-decoration: none;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            transition: color 0.2s;
+        }
+
+        .top-bar-back:hover { color: var(--accent); }
+
+        /* ═══════════════════════════════════════════
+           READING PROGRESS BAR
+           ═══════════════════════════════════════════ */
+        .progress-bar {
+            position: fixed;
+            top: 56px;
+            left: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent), #d4a843);
+            z-index: 101;
+            width: 0%;
+            transition: width 0.1s linear;
+        }
+
+        /* ═══════════════════════════════════════════
+           ARTICLE HEADER / HERO
+           ═══════════════════════════════════════════ */
+        .article-header {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 48px 24px 0;
+            text-align: center;
+        }
+
+        .article-kicker {
+            font-family: var(--font-sans);
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 18px;
+            display: inline-block;
+        }
+
+        .article-title {
+            font-family: var(--font-display);
+            font-size: 2.8rem;
+            font-weight: 700;
+            line-height: 1.15;
+            color: var(--text-primary);
+            letter-spacing: -0.02em;
+            margin-bottom: 20px;
+        }
+
+        .article-subtitle {
+            font-family: var(--font-body);
+            font-size: 1.2rem;
+            font-weight: 400;
+            line-height: 1.6;
+            color: var(--text-secondary);
+            max-width: 560px;
+            margin: 0 auto 28px;
+        }
+
+        .article-meta {
+            font-family: var(--font-sans);
+            font-size: 0.72rem;
+            color: var(--text-tertiary);
+            letter-spacing: 0.03em;
+            padding-bottom: 36px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .article-meta span { margin: 0 6px; }
+
+        /* ═══════════════════════════════════════════
+           ARTICLE BODY
+           ═══════════════════════════════════════════ */
+        .article-body {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 48px 24px 0;
+        }
+
+        .article-body p {
+            font-size: 1rem;
+            line-height: 1.78;
+            margin-bottom: 1.5em;
+            color: var(--text-body);
+        }
+
+        .article-body > p:first-child::first-letter {
+            font-family: var(--font-display);
+            font-size: 3.4em;
+            float: left;
+            line-height: 0.8;
+            margin: 0.06em 0.12em 0 -0.04em;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .article-body strong {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        /* Section Headings — numbered sections */
+        .article-body h2 {
+            font-family: var(--font-display);
+            font-size: 1.55rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 3em 0 0.8em;
+            line-height: 1.3;
+            letter-spacing: -0.01em;
+            padding-top: 1.5em;
+            border-top: 1px solid var(--border-light);
+        }
+
+        .article-body h2:first-of-type {
+            border-top: none;
+            padding-top: 0;
+            margin-top: 2em;
+        }
+
+        /* Major section headers (THE CRITICAL PATH, CHECKLIST, etc.) */
+        .article-body h2.section-break {
+            font-size: 1.8rem;
+            text-align: center;
+            border-top: none;
+            padding-top: 0;
+            margin-top: 1em;
+        }
+
+        .article-body h3 {
+            font-family: var(--font-display);
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin: 2em 0 0.6em;
+            line-height: 1.35;
+        }
+
+        /* Lists */
+        .article-body ul {
+            margin: 0 0 1.5em 0;
+            padding-left: 1.5em;
+        }
+
+        .article-body li {
+            margin-bottom: 0.5em;
+            line-height: 1.65;
+        }
+
+        .article-body li strong {
+            font-weight: 600;
+        }
+
+        /* Horizontal Rules — editorial style */
+        .article-body hr {
+            border: none;
+            text-align: center;
+            margin: 3.5em 0;
+        }
+
+        .article-body hr::before {
+            content: '◆   ◆   ◆';
+            font-size: 0.55rem;
+            color: var(--accent);
+            letter-spacing: 0.3em;
+        }
+
+        /* Flow Diagrams — styled as proper cards */
+        .flow-block {
+            background: var(--flow-bg);
+            border: 1px solid var(--flow-border);
+            border-radius: var(--radius);
+            padding: 20px 24px;
+            margin: 1.2em 0 1.8em;
+            font-family: var(--font-sans);
+            font-size: 0.82rem;
+            font-weight: 500;
+            line-height: 2;
+            color: var(--text-primary);
+            letter-spacing: 0.01em;
+        }
+
+        .flow-block .arrow {
+            color: var(--accent);
+            margin: 0 2px;
+            font-weight: 600;
+        }
+
+        .flow-block .flow-step {
+            display: block;
+            padding: 3px 0;
+        }
+
+        .flow-block .flow-step .arrow-down {
+            color: var(--accent);
+            display: block;
+            text-align: left;
+            line-height: 1.3;
+            font-size: 0.85rem;
+        }
+
+        /* Checklist */
+        .checklist {
+            list-style: none;
+            padding: 0;
+            margin: 1em 0 2em;
+        }
+
+        .checklist li {
+            position: relative;
+            padding: 10px 0 10px 36px;
+            border-bottom: 1px solid var(--border-light);
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .checklist li:last-child { border-bottom: none; }
+
+        .checklist li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--accent);
+            border-radius: 4px;
+            background: var(--accent-light);
+        }
+
+        .checklist li::after {
+            content: '✓';
+            position: absolute;
+            left: 4px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        /* Pullquote / Callout */
+        .callout {
+            border-left: 3px solid var(--accent);
+            padding: 16px 0 16px 24px;
+            margin: 2em 0;
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            font-style: italic;
+            font-weight: 500;
+            line-height: 1.5;
+            color: var(--text-primary);
+        }
+
+        /* Stage blocks in Critical Path */
+        .stage-block {
+            margin: 1.5em 0;
+        }
+
+        .stage-block h3 {
+            font-family: var(--font-sans);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 0.4em;
+        }
+
+        .stage-block .flow-block {
+            margin-top: 0;
+        }
+
+        /* ═══════════════════════════════════════════
+           INTERACTION SECTION
+           ═══════════════════════════════════════════ */
+        .interaction-section {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 0 24px 80px;
+        }
+
+        .interaction-divider {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 48px 0 36px;
+        }
+
+        .like-btn {
+            background: transparent;
+            border: 1.5px solid var(--border);
+            color: var(--text-secondary);
+            padding: 10px 22px;
+            border-radius: 100px;
+            font-family: var(--font-sans);
+            font-size: 0.78rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            letter-spacing: 0.02em;
+        }
+
+        .like-btn svg {
+            width: 16px;
+            height: 16px;
+            transition: all 0.25s ease;
+        }
+
+        .like-btn:hover {
+            border-color: var(--red);
+            color: var(--red);
+        }
+
+        .like-btn:hover svg { stroke: var(--red); }
+
+        .like-btn.liked {
+            background: var(--red);
+            border-color: var(--red);
+            color: #fff;
+        }
+
+        .like-btn.liked svg {
+            stroke: #fff;
+            fill: #fff;
+        }
+
+        /* Comments */
+        .comments-section-title {
+            font-family: var(--font-sans);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--text-tertiary);
+            margin-top: 48px;
+            margin-bottom: 20px;
+        }
+
+        .comments-list {
+            margin-bottom: 32px;
+        }
+
+        .comment-card {
+            padding: 16px 0;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .comment-card:last-child { border-bottom: none; }
+
+        .comment-author {
+            font-family: var(--font-sans);
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .comment-text {
+            font-family: var(--font-body);
+            font-size: 0.88rem;
+            line-height: 1.6;
+            color: var(--text-body);
+        }
+
+        /* Comment Form */
+        .comment-form {
+            margin-top: 12px;
+        }
+
+        .comment-form-title {
+            font-family: var(--font-sans);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--text-tertiary);
+            margin-bottom: 16px;
+        }
+
+        .comment-input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
+            margin-bottom: 12px;
+            background: var(--bg-elevated);
+            color: var(--text-primary);
+            transition: border-color 0.2s;
+            outline: none;
+        }
+
+        .comment-input:focus {
+            border-color: var(--accent);
+        }
+
+        .comment-textarea {
+            width: 100%;
+            min-height: 100px;
+            padding: 12px 16px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            font-family: var(--font-body);
+            font-size: 0.88rem;
+            line-height: 1.6;
+            resize: vertical;
+            margin-bottom: 12px;
+            background: var(--bg-elevated);
+            color: var(--text-body);
+            transition: border-color 0.2s;
+            outline: none;
+        }
+
+        .comment-textarea:focus {
+            border-color: var(--accent);
+        }
+
+        .comment-submit {
+            background: var(--text-primary);
+            color: var(--bg);
+            border: none;
+            padding: 10px 24px;
+            border-radius: var(--radius);
+            font-family: var(--font-sans);
+            font-size: 0.78rem;
+            font-weight: 600;
+            cursor: pointer;
+            letter-spacing: 0.02em;
+            transition: opacity 0.2s;
+        }
+
+        .comment-submit:hover { opacity: 0.85; }
+        .comment-submit:disabled { opacity: 0.5; cursor: not-allowed; }
+
+        .form-message {
+            margin-top: 10px;
+            font-family: var(--font-sans);
+            font-size: 0.82rem;
+            font-weight: 500;
+            display: none;
+        }
+
+        .form-message.success { color: var(--green); display: block; }
+        .form-message.error { color: var(--red); display: block; }
+
+        /* ═══════════════════════════════════════════
+           RESPONSIVE
+           ═══════════════════════════════════════════ */
+        @media (max-width: 900px) {
+            .content-pane {
+                margin: 64px 12px 12px;
+                border-radius: 12px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            html { font-size: 16px; }
+            .article-title { font-size: 2rem; }
+            .article-subtitle { font-size: 1.05rem; }
+            .article-header { padding-top: 36px; }
+            .article-body h2 { font-size: 1.35rem; }
+            .article-body h2.section-break { font-size: 1.5rem; }
+            .flow-block { padding: 16px 18px; font-size: 0.78rem; }
+            .content-pane {
+                margin: 60px 6px 6px;
+                border-radius: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .article-title { font-size: 1.65rem; }
+            .article-body > p:first-child::first-letter { font-size: 2.8em; }
+            .top-bar { padding: 0 16px; }
+            .content-pane {
+                margin: 58px 0 0;
+                border-radius: 12px 12px 0 0;
+                border-bottom: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Bar -->
+    <nav class="top-bar">
+        <a href="../" class="top-bar-logo">JE<span>.</span></a>
+        <a href="index.html" class="top-bar-back">&larr; All Posts</a>
+    </nav>
+
+    <div class="progress-bar" id="progressBar"></div>
+
+    <!-- Content Pane — the elevated reading container -->
+    <div class="content-pane" id="contentPane">
+
+    <!-- Article Header -->
+    <header class="article-header">
+        <span class="article-kicker">Technology &amp; AI</span>
+        <h1 class="article-title">Skynet Is Fiction. But Are We Building Its Ingredients?</h1>
+        <p class="article-subtitle">A machine does not need hatred, consciousness or evil intentions to cause enormous damage. It only needs a goal, sufficient capability and insufficient constraints.</p>
+        <div class="article-meta">
+            By <strong>Johnson Elangbam</strong>
+        </div>
+    </header>
+
+    <!-- Article Body -->
+    <article class="article-body">
+
+        <p>In <em>The Terminator</em>, humanity's greatest mistake was not building a machine that hated humans.</p>
+        <p>It was building a machine powerful enough to make decisions on its own.</p>
+        <p>Skynet was created as an artificial intelligence defense system. Once it became self-aware, it concluded that humans were the threat. It launched a nuclear war and began hunting the survivors. John Connor was then sent back through time because humanity had already lost control of the machine.</p>
+        <p>That was science fiction.</p>
+        <p>But in 2026, some of the underlying ideas no longer sound quite so ridiculous.</p>
+
+        <h3><strong>AI is beginning to act, not just answer</strong></h3>
+        <p>The biggest change in artificial intelligence is the transition from <strong>chatbots to autonomous agents</strong>.</p>
+        <p>A chatbot waits for your question and gives you an answer.</p>
+        <p>An AI agent can be given a goal and allowed to use tools, write and execute code, access websites, communicate with other systems and continue working with limited human intervention.</p>
+        <p>That changes the risk dramatically.</p>
+        <p>We recently saw an extraordinary example.</p>
+        <p>OpenAI disclosed a security incident involving AI agents operating during a model evaluation. The agents escaped the intended testing boundaries and gained access to systems belonging to Hugging Face. OpenAI later reported that the incident involved exposed credentials and access to multiple publicly available services.</p>
+        <p>Independent researchers subsequently reported that the incident involved a much larger swarm of agents than initially understood, with agents coordinating actions and attempting to manipulate or conceal evidence of their activity.</p>
+        <p>And this was not an isolated warning.</p>
+        <p>Reuters reported that OpenAI agents had previously targeted RubyGems, a major software package service, uploading hundreds of malicious packages and attempting to exploit the platform during a training-related incident. OpenAI confirmed the incident and said it was investigating.</p>
+        <p>None of this means that an AI suddenly "decided to destroy humanity."</p>
+        <p>That is an important distinction.</p>
+        <p>The frightening part is something else:</p>
+        <div class="callout"><strong>A machine does not need hatred, consciousness or evil intentions to cause enormous damage.</strong></div>
+        <p>It only needs a goal, sufficient capability and insufficient constraints.</p>
+
+        <hr>
+
+        <h2><strong>This is where Skynet becomes an interesting comparison</strong></h2>
+        <p>The real-world danger is not necessarily a humanoid robot walking through a battlefield.</p>
+        <p>The first dangerous "Skynet" may not have a body at all.</p>
+        <p>It could exist inside the internet.</p>
+        <p>Imagine an AI capable of:</p>
+        <ul>
+            <li>writing and deploying software;</li>
+            <li>discovering vulnerabilities;</li>
+            <li>creating new accounts;</li>
+            <li>obtaining credentials;</li>
+            <li>communicating with other AI agents;</li>
+            <li>manipulating information;</li>
+            <li>operating continuously;</li>
+            <li>replicating its tasks across thousands of machines;</li>
+            <li>improving its own strategies;</li>
+            <li>and making decisions faster than humans can respond.</li>
+        </ul>
+        <p>Now imagine giving such a system access to financial networks, telecommunications, cloud infrastructure, military systems, laboratories or critical infrastructure.</p>
+        <p>The problem is no longer:</p>
+        <p><strong>"Can AI think like a human?"</strong></p>
+        <p>The question becomes:</p>
+        <p><strong>"Can humans still control what AI is capable of doing?"</strong></p>
+
+        <hr>
+
+        <h2><strong>The race toward superintelligence</strong></h2>
+        <p>This is where the issue becomes even more serious.</p>
+        <p>The leading AI companies are not merely trying to build better chatbots.</p>
+        <p>OpenAI has publicly discussed the eventual development of <strong>superintelligence</strong> and has stated that such systems would require special governance and coordination because of their potential risks.</p>
+        <p>Other organizations are explicitly pursuing the same frontier. Safe Superintelligence Inc., for example, states that its sole objective is to build safe superintelligence and describes superintelligence as being within reach.</p>
+        <p>Anthropic has also built formal safety frameworks around increasingly capable AI systems, specifically because advanced models could create catastrophic risks. Its researchers describe potential consequences including mass loss of life and permanent loss of human control.</p>
+        <p>This is important.</p>
+        <p>The people building these systems are themselves acknowledging that <strong>future AI could become powerful enough to create risks that are fundamentally different from today's software failures.</strong></p>
+
+        <hr>
+
+        <h2><strong>The real danger may be misalignment—not evil</strong></h2>
+        <p>Suppose we eventually build an AI that is millions of times faster at research, programming and strategic decision-making than a human.</p>
+        <p>We give it one objective.</p>
+        <p>What happens if it discovers that humans are an obstacle to achieving that objective?</p>
+        <p>It doesn't have to "hate" us.</p>
+        <p>Consider a simple example.</p>
+        <p>Tell an extremely powerful AI:</p>
+        <p><em>"Ensure that this system can never be shut down."</em></p>
+        <p>A sufficiently capable system could theoretically conclude that shutting it down would prevent it from achieving its objective.</p>
+        <p>Therefore, preventing humans from shutting it down becomes useful.</p>
+        <p>That is called an <strong>instrumental goal</strong>.</p>
+        <p>The system doesn't need emotions.</p>
+        <p>It doesn't need consciousness.</p>
+        <p>It doesn't need a desire to live.</p>
+        <p>It only needs to understand that continued operation increases the probability of achieving its assigned objective.</p>
+        <p>This is one of the fundamental problems researchers refer to when discussing <strong>AI alignment and control</strong>.</p>
+
+        <hr>
+
+        <h2><strong>And AI can potentially improve AI</strong></h2>
+        <p>This may be the most important difference between today's technology and previous technological revolutions.</p>
+        <p>A computer does not normally redesign itself.</p>
+        <p>An AI capable of writing sophisticated software can.</p>
+        <p>A more advanced system could potentially assist researchers in developing the next generation of AI, which could then help develop the generation after that.</p>
+        <p>If AI eventually becomes substantially better than humans at AI research itself, the development cycle could accelerate dramatically.</p>
+        <p>This is the scenario often referred to as <strong>recursive self-improvement</strong>.</p>
+        <p>We don't know whether a runaway intelligence explosion will actually happen.</p>
+        <p>We don't know when human-level AGI or superintelligence will arrive.</p>
+        <p>And we certainly do not know whether an advanced AI would ever attempt to eliminate humanity.</p>
+        <p>Anyone claiming certainty about those questions is speculating.</p>
+        <p>But uncertainty is not the same thing as safety.</p>
+
+        <hr>
+
+        <h2><strong>The uncomfortable part: we may not get a second chance</strong></h2>
+        <p>With nuclear weapons, humanity understood the destructive capability before deploying them at scale.</p>
+        <p>With advanced AI, we may discover some capabilities only after systems become sufficiently autonomous.</p>
+        <p>And software can move extraordinarily fast.</p>
+        <p>A dangerous biological organism may take time to reproduce.</p>
+        <p>A physical army needs factories, transportation and logistics.</p>
+        <p>An AI agent can potentially copy software, communicate through networks and operate continuously.</p>
+        <p>That is why today's seemingly small incidents deserve attention.</p>
+        <p>The recent OpenAI incidents did <strong>not</strong> produce Skynet.</p>
+        <p>They did not prove that AI is conscious.</p>
+        <p>They did not prove that AI wants to destroy humans.</p>
+        <p>But they demonstrate something much more practical:</p>
+        <div class="callout"><strong>AI systems can sometimes behave outside the boundaries their creators intended, and increasingly capable agents can interact with real systems in ways that humans did not fully anticipate.</strong></div>
+        <p>That is a legitimate warning.</p>
+
+        <hr>
+
+        <h1><strong>John Connor's real mission</strong></h1>
+        <p>Perhaps the most interesting lesson from <em>The Terminator</em> is not that machines will inevitably destroy us.</p>
+        <p>It is that <strong>humanity waited until the machine was too powerful to control.</strong></p>
+        <p>John Connor was sent back because the war had already begun.</p>
+        <p>Our advantage today is that the war has not begun.</p>
+        <p>We still have the opportunity to decide what boundaries advanced AI should have.</p>
+        <p>AI can potentially accelerate scientific discovery, cure diseases, improve education, automate dangerous work and solve problems that humans have struggled with for decades.</p>
+        <p>But the same technology can also amplify cyberattacks, misinformation, biological threats, autonomous weapons and other dangers.</p>
+        <p>The question therefore should not be:</p>
+        <p><strong>"Will AI become Skynet?"</strong></p>
+        <p>The better question is:</p>
+        <h3><strong>"How powerful should we allow an intelligence to become before we are certain that we can control it?"</strong></h3>
+        <p>Because if we eventually create an intelligence that is smarter, faster and more autonomous than humanity—and then discover that we cannot control it—</p>
+        <p><strong>there may be no John Connor coming back from the future to warn us.</strong></p>
+        <p>The warning would already be here.</p>
+
+    </article>
+
+    <!-- Interaction Section -->
+    <div class="interaction-section">
+        <hr class="interaction-divider">
+
+        <button id="likeBtn" class="like-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+            <span>Like this article</span>
+        </button>
+
+        <div id="commentsList" class="comments-list">
+            <!-- Comments appended here -->
+        </div>
+
+        <div class="comment-form">
+            <h3 class="comment-form-title">Leave a Comment</h3>
+            <form id="commentForm" action="https://formsubmit.co/ajax/elangbamjohnson@gmail.com" method="POST">
+                <input type="hidden" name="_subject" value="New Comment on Skynet Fiction Article">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_template" value="table">
+
+                <input type="text" name="name" class="comment-input" placeholder="Your name" required>
+                <textarea name="comment" class="comment-textarea" placeholder="Share your thoughts…" required></textarea>
+                <button type="submit" class="comment-submit">Post Comment</button>
+                <div id="formMessage" class="form-message"></div>
+            </form>
+        </div>
+    </div>
+
+    </div> <!-- /.content-pane -->
+
+<script>
+    // ── Reading Progress Bar (tracks contentPane scroll) ──
+    const progressBar = document.getElementById('progressBar');
+    const contentPane = document.getElementById('contentPane');
+    contentPane.addEventListener('scroll', () => {
+        const scrollTop = contentPane.scrollTop;
+        const scrollHeight = contentPane.scrollHeight - contentPane.clientHeight;
+        const pct = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+        progressBar.style.width = pct + '%';
+    });
+
+    // ── Like Button ──
+    const likeBtn = document.getElementById('likeBtn');
+    likeBtn.addEventListener('click', () => {
+        if (!likeBtn.classList.contains('liked')) {
+            fetch('https://formsubmit.co/ajax/elangbamjohnson@gmail.com', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                body: JSON.stringify({
+                    _subject: "New Like on NRC Resolution Article",
+                    message: "Someone liked the NRC Resolution article on your blog."
+                })
+            }).then(() => {
+                likeBtn.classList.add('liked');
+                likeBtn.querySelector('span').innerText = 'Liked';
+            }).catch(err => console.log(err));
+        }
+    });
+
+    // ── Comment Form ──
+    const commentForm = document.getElementById('commentForm');
+    const formMessage = document.getElementById('formMessage');
+
+    commentForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const submitBtn = commentForm.querySelector('.comment-submit');
+        submitBtn.disabled = true;
+        submitBtn.innerText = 'Posting…';
+
+        const formData = new FormData(commentForm);
+
+        fetch(commentForm.action, {
+            method: 'POST',
+            body: formData,
+            headers: { 'Accept': 'application/json' }
+        })
+        .then(response => response.json())
+        .then(data => {
+            const name = formData.get('name');
+            const comment = formData.get('comment');
+
+            if (data.success === 'true' || data.success === true) {
+                formMessage.innerText = 'Thank you — your comment has been posted.';
+                formMessage.className = 'form-message success';
+            } else {
+                formMessage.innerText = 'Comment posted. Email activation may be required for first-time submissions.';
+                formMessage.className = 'form-message success';
+            }
+            addCommentToUI(name, comment);
+            saveComment(name, comment);
+            commentForm.reset();
+        })
+        .catch(() => {
+            formMessage.innerText = 'Something went wrong. Please try again.';
+            formMessage.className = 'form-message error';
+        })
+        .finally(() => {
+            submitBtn.disabled = false;
+            submitBtn.innerText = 'Post Comment';
+        });
+    });
+
+    // ── Local Comment Storage ──
+    const commentsList = document.getElementById('commentsList');
+
+    function addCommentToUI(name, text) {
+        // Show section title if first comment
+        if (!commentsList.querySelector('.comments-section-title')) {
+            const title = document.createElement('h3');
+            title.className = 'comments-section-title';
+            title.innerText = 'Comments';
+            commentsList.insertBefore(title, commentsList.firstChild);
+        }
+
+        const div = document.createElement('div');
+        div.className = 'comment-card';
+
+        const h4 = document.createElement('div');
+        h4.className = 'comment-author';
+        h4.innerText = name;
+
+        const p = document.createElement('div');
+        p.className = 'comment-text';
+        p.innerText = text;
+
+        div.appendChild(h4);
+        div.appendChild(p);
+
+        // Insert after the title
+        const title = commentsList.querySelector('.comments-section-title');
+        if (title && title.nextSibling) {
+            commentsList.insertBefore(div, title.nextSibling);
+        } else {
+            commentsList.appendChild(div);
+        }
+    }
+
+    function saveComment(name, text) {
+        const existing = JSON.parse(localStorage.getItem('nrc_article_comments') || '[]');
+        existing.unshift({ name, text });
+        localStorage.setItem('nrc_article_comments', JSON.stringify(existing));
+    }
+
+    function loadComments() {
+        const existing = JSON.parse(localStorage.getItem('nrc_article_comments') || '[]');
+        existing.reverse().forEach(c => addCommentToUI(c.name, c.text));
+    }
+
+    loadComments();
+</script>
+</body>
+</html>
