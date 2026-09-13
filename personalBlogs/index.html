@@ -18,6 +18,7 @@
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
         :root {
+            --bg-outer: #e8e4df;
             --bg: #faf9f7;
             --text-primary: #1a1a1a;
             --text-body: #2d2d2d;
@@ -26,29 +27,100 @@
             --accent: #b8860b;
             --border: #e8e4df;
             --border-light: #f0ece7;
+            --shadow-container: 0 8px 40px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.06);
+            --radius-container: 16px;
             --font-display: 'Playfair Display', Georgia, serif;
             --font-body: 'Source Serif 4', Georgia, serif;
             --font-sans: 'Inter', -apple-system, sans-serif;
         }
 
-        html { font-size: 18px; }
+        html {
+            font-size: 18px;
+            overflow: hidden;
+            height: 100%;
+        }
 
         body {
             font-family: var(--font-body);
             color: var(--text-body);
-            background: var(--bg);
+            background: var(--bg-outer);
             -webkit-font-smoothing: antialiased;
             text-rendering: optimizeLegibility;
+            height: 100%;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
         }
 
-        /* Top Bar */
+        /* ═══════════════════════════════════════════
+           CONTENT PANE — elevated reading container
+           ═══════════════════════════════════════════ */
+        .content-pane {
+            flex: 1;
+            max-width: 860px;
+            width: 100%;
+            margin: 72px auto 24px;
+            background: var(--bg);
+            border-radius: var(--radius-container);
+            box-shadow: var(--shadow-container);
+            overflow-y: auto;
+            overflow-x: hidden;
+            position: relative;
+            border: 1px solid rgba(0,0,0,0.06);
+        }
+
+        /* Custom scrollbar */
+        .content-pane::-webkit-scrollbar { width: 6px; }
+        .content-pane::-webkit-scrollbar-track {
+            background: transparent;
+            margin: var(--radius-container);
+        }
+        .content-pane::-webkit-scrollbar-thumb {
+            background: rgba(184, 134, 11, 0.25);
+            border-radius: 10px;
+        }
+        .content-pane::-webkit-scrollbar-thumb:hover {
+            background: var(--accent);
+        }
+        .content-pane {
+            scrollbar-width: thin;
+            scrollbar-color: rgba(184, 134, 11, 0.25) transparent;
+        }
+
+        /* Top/bottom edge fade */
+        .content-pane::before,
+        .content-pane::after {
+            content: '';
+            position: sticky;
+            display: block;
+            left: 0;
+            right: 0;
+            height: 32px;
+            z-index: 5;
+            pointer-events: none;
+        }
+        .content-pane::before {
+            top: 0;
+            background: linear-gradient(to bottom, var(--bg), transparent);
+            border-radius: var(--radius-container) var(--radius-container) 0 0;
+        }
+        .content-pane::after {
+            bottom: 0;
+            background: linear-gradient(to top, var(--bg), transparent);
+            border-radius: 0 0 var(--radius-container) var(--radius-container);
+        }
+
+        /* ═══════════════════════════════════════════
+           TOP BAR
+           ═══════════════════════════════════════════ */
         .top-bar {
             position: fixed;
             top: 0; left: 0; right: 0;
             z-index: 100;
-            background: rgba(250, 249, 247, 0.92);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border);
+            background: rgba(232, 228, 223, 0.85);
+            backdrop-filter: blur(16px) saturate(1.4);
+            -webkit-backdrop-filter: blur(16px) saturate(1.4);
+            border-bottom: 1px solid rgba(0,0,0,0.08);
             padding: 0 24px;
             height: 56px;
             display: flex;
@@ -79,11 +151,13 @@
 
         .top-bar-back:hover { color: var(--accent); }
 
-        /* Page Container */
+        /* ═══════════════════════════════════════════
+           PAGE CONTENT
+           ═══════════════════════════════════════════ */
         .page {
             max-width: 680px;
             margin: 0 auto;
-            padding: 120px 24px 80px;
+            padding: 48px 24px 80px;
         }
 
         .page-kicker {
@@ -157,10 +231,33 @@
             color: var(--text-secondary);
         }
 
+        /* ═══════════════════════════════════════════
+           RESPONSIVE
+           ═══════════════════════════════════════════ */
+        @media (max-width: 900px) {
+            .content-pane {
+                margin: 64px 12px 12px;
+                border-radius: 12px;
+            }
+        }
+
         @media (max-width: 768px) {
             html { font-size: 16px; }
             .page-title { font-size: 2rem; }
-            .page { padding-top: 84px; }
+            .page { padding-top: 36px; }
+            .content-pane {
+                margin: 60px 6px 6px;
+                border-radius: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .top-bar { padding: 0 16px; }
+            .content-pane {
+                margin: 58px 0 0;
+                border-radius: 12px 12px 0 0;
+                border-bottom: none;
+            }
         }
     </style>
 </head>
@@ -169,6 +266,9 @@
         <a href="../" class="top-bar-logo">JE<span>.</span></a>
         <a href="../" class="top-bar-back">&larr; Portfolio</a>
     </nav>
+
+    <!-- Content Pane — elevated reading container -->
+    <div class="content-pane">
 
     <main class="page">
         <div class="page-kicker">Essays &amp; Analysis</div>
@@ -187,5 +287,8 @@
             </li>
         </ul>
     </main>
+
+    </div> <!-- /.content-pane -->
+
 </body>
 </html>

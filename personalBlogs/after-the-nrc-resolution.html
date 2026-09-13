@@ -21,6 +21,7 @@
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
         :root {
+            --bg-outer: #e8e4df;
             --bg: #faf9f7;
             --bg-elevated: #ffffff;
             --text-primary: #1a1a1a;
@@ -39,28 +40,101 @@
             --green: #27ae60;
             --shadow-sm: 0 1px 3px rgba(0,0,0,0.04);
             --shadow-md: 0 4px 12px rgba(0,0,0,0.06);
+            --shadow-container: 0 8px 40px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.06);
             --radius: 6px;
+            --radius-container: 16px;
             --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
             --font-body: 'Source Serif 4', Georgia, 'Times New Roman', serif;
             --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
         }
 
-        html { font-size: 18px; scroll-behavior: smooth; }
+        html {
+            font-size: 18px;
+            scroll-behavior: smooth;
+            /* Prevent outer page scroll — all scrolling is inside the pane */
+            overflow: hidden;
+            height: 100%;
+        }
 
         body {
             font-family: var(--font-body);
             color: var(--text-body);
-            background: var(--bg);
+            background: var(--bg-outer);
             line-height: 1.78;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
             text-rendering: optimizeLegibility;
+            height: 100%;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
         }
 
         ::selection {
             background: var(--accent-light);
             color: var(--text-primary);
+        }
+
+        /* ═══════════════════════════════════════════
+           CONTENT PANE — the elevated reading container
+           ═══════════════════════════════════════════ */
+        .content-pane {
+            flex: 1;
+            max-width: 860px;
+            width: 100%;
+            margin: 72px auto 24px;  /* top accounts for top-bar height + gap */
+            background: var(--bg);
+            border-radius: var(--radius-container);
+            box-shadow: var(--shadow-container);
+            overflow-y: auto;
+            overflow-x: hidden;
+            position: relative;
+            border: 1px solid rgba(0,0,0,0.06);
+        }
+
+        /* Custom scrollbar for the pane */
+        .content-pane::-webkit-scrollbar {
+            width: 6px;
+        }
+        .content-pane::-webkit-scrollbar-track {
+            background: transparent;
+            margin: var(--radius-container);
+        }
+        .content-pane::-webkit-scrollbar-thumb {
+            background: var(--accent-border);
+            border-radius: 10px;
+        }
+        .content-pane::-webkit-scrollbar-thumb:hover {
+            background: var(--accent);
+        }
+        /* Firefox scrollbar */
+        .content-pane {
+            scrollbar-width: thin;
+            scrollbar-color: var(--accent-border) transparent;
+        }
+
+        /* Top/bottom edge fade inside the pane for depth */
+        .content-pane::before,
+        .content-pane::after {
+            content: '';
+            position: sticky;
+            display: block;
+            left: 0;
+            right: 0;
+            height: 32px;
+            z-index: 5;
+            pointer-events: none;
+        }
+        .content-pane::before {
+            top: 0;
+            background: linear-gradient(to bottom, var(--bg), transparent);
+            border-radius: var(--radius-container) var(--radius-container) 0 0;
+        }
+        .content-pane::after {
+            bottom: 0;
+            background: linear-gradient(to top, var(--bg), transparent);
+            border-radius: 0 0 var(--radius-container) var(--radius-container);
         }
 
         /* ═══════════════════════════════════════════
@@ -72,10 +146,10 @@
             left: 0;
             right: 0;
             z-index: 100;
-            background: rgba(250, 249, 247, 0.92);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border);
+            background: rgba(232, 228, 223, 0.85);
+            backdrop-filter: blur(16px) saturate(1.4);
+            -webkit-backdrop-filter: blur(16px) saturate(1.4);
+            border-bottom: 1px solid rgba(0,0,0,0.08);
             padding: 0 24px;
             height: 56px;
             display: flex;
@@ -117,7 +191,7 @@
             top: 56px;
             left: 0;
             height: 2px;
-            background: var(--accent);
+            background: linear-gradient(90deg, var(--accent), #d4a843);
             z-index: 101;
             width: 0%;
             transition: width 0.1s linear;
@@ -129,7 +203,7 @@
         .article-header {
             max-width: 720px;
             margin: 0 auto;
-            padding: 100px 24px 0;
+            padding: 48px 24px 0;
             text-align: center;
         }
 
@@ -560,20 +634,36 @@
         /* ═══════════════════════════════════════════
            RESPONSIVE
            ═══════════════════════════════════════════ */
+        @media (max-width: 900px) {
+            .content-pane {
+                margin: 64px 12px 12px;
+                border-radius: 12px;
+            }
+        }
+
         @media (max-width: 768px) {
             html { font-size: 16px; }
             .article-title { font-size: 2rem; }
             .article-subtitle { font-size: 1.05rem; }
-            .article-header { padding-top: 84px; }
+            .article-header { padding-top: 36px; }
             .article-body h2 { font-size: 1.35rem; }
             .article-body h2.section-break { font-size: 1.5rem; }
             .flow-block { padding: 16px 18px; font-size: 0.78rem; }
+            .content-pane {
+                margin: 60px 6px 6px;
+                border-radius: 10px;
+            }
         }
 
         @media (max-width: 480px) {
             .article-title { font-size: 1.65rem; }
             .article-body > p:first-child::first-letter { font-size: 2.8em; }
             .top-bar { padding: 0 16px; }
+            .content-pane {
+                margin: 58px 0 0;
+                border-radius: 12px 12px 0 0;
+                border-bottom: none;
+            }
         }
     </style>
 </head>
@@ -586,6 +676,9 @@
     </nav>
 
     <div class="progress-bar" id="progressBar"></div>
+
+    <!-- Content Pane — the elevated reading container -->
+    <div class="content-pane" id="contentPane">
 
     <!-- Article Header -->
     <header class="article-header">
@@ -942,13 +1035,16 @@
         </div>
     </div>
 
+    </div> <!-- /.content-pane -->
+
 <script>
-    // ── Reading Progress Bar ──
+    // ── Reading Progress Bar (tracks contentPane scroll) ──
     const progressBar = document.getElementById('progressBar');
-    window.addEventListener('scroll', () => {
-        const scrollTop = window.scrollY;
-        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-        const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    const contentPane = document.getElementById('contentPane');
+    contentPane.addEventListener('scroll', () => {
+        const scrollTop = contentPane.scrollTop;
+        const scrollHeight = contentPane.scrollHeight - contentPane.clientHeight;
+        const pct = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
         progressBar.style.width = pct + '%';
     });
 

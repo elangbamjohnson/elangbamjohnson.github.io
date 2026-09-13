@@ -11,8 +11,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Setup Intersection Observer
+    const scrollContainer = document.querySelector('.site-boundary');
     const observerOptions = {
-        root: null,
+        root: scrollContainer,
         rootMargin: '0px 0px -10% 0px', // Trigger slightly before the bottom
         threshold: 0.05
     };
