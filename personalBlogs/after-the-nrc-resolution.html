@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>After the NRC Resolution: What Must the Manipur Government Do Next? | Johnson Elangbam</title>
+    <meta name="description" content="A detailed analysis of the 12 steps the Manipur government must take after the Assembly's NRC resolution — from securing Centre approval to building the administrative machinery.">
+
+    <!-- Google Fonts — premium editorial stack -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400;1,8..60,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2224%22 fill=%22%231a1b2e%22/><text y=%2254%%22 x=%2250%%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Playfair Display, Georgia, serif%22 font-size=%2244%22 font-weight=%22700%22 fill=%22%23d4af37%22>JE</text></svg>">
+
+    <style>
+        /* ═══════════════════════════════════════════
+           RESET & BASE
+           ═══════════════════════════════════════════ */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --bg: #faf9f7;
+            --bg-elevated: #ffffff;
+            --text-primary: #1a1a1a;
+            --text-body: #2d2d2d;
+            --text-secondary: #6b6b6b;
+            --text-tertiary: #999;
+            --accent: #b8860b;
+            --accent-hover: #9a7209;
+            --accent-light: rgba(184, 134, 11, 0.08);
+            --accent-border: rgba(184, 134, 11, 0.25);
+            --border: #e8e4df;
+            --border-light: #f0ece7;
+            --flow-bg: #f5f3ef;
+            --flow-border: #e0dbd4;
+            --red: #c0392b;
+            --green: #27ae60;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.04);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.06);
+            --radius: 6px;
+            --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+            --font-body: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+        }
+
+        html { font-size: 18px; scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--text-body);
+            background: var(--bg);
+            line-height: 1.78;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+        }
+
+        ::selection {
+            background: var(--accent-light);
+            color: var(--text-primary);
+        }
+
+        /* ═══════════════════════════════════════════
+           TOP BAR
+           ═══════════════════════════════════════════ */
+        .top-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(250, 249, 247, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            padding: 0 24px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .top-bar-logo {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .top-bar-logo span {
+            color: var(--accent);
+        }
+
+        .top-bar-back {
+            font-family: var(--font-sans);
+            font-size: 0.78rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-decoration: none;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            transition: color 0.2s;
+        }
+
+        .top-bar-back:hover { color: var(--accent); }
+
+        /* ═══════════════════════════════════════════
+           READING PROGRESS BAR
+           ═══════════════════════════════════════════ */
+        .progress-bar {
+            position: fixed;
+            top: 56px;
+            left: 0;
+            height: 2px;
+            background: var(--accent);
+            z-index: 101;
+            width: 0%;
+            transition: width 0.1s linear;
+        }
+
+        /* ═══════════════════════════════════════════
+           ARTICLE HEADER / HERO
+           ═══════════════════════════════════════════ */
+        .article-header {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 100px 24px 0;
+            text-align: center;
+        }
+
+        .article-kicker {
+            font-family: var(--font-sans);
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 18px;
+            display: inline-block;
+        }
+
+        .article-title {
+            font-family: var(--font-display);
+            font-size: 2.8rem;
+            font-weight: 700;
+            line-height: 1.15;
+            color: var(--text-primary);
+            letter-spacing: -0.02em;
+            margin-bottom: 20px;
+        }
+
+        .article-subtitle {
+            font-family: var(--font-body);
+            font-size: 1.2rem;
+            font-weight: 400;
+            line-height: 1.6;
+            color: var(--text-secondary);
+            max-width: 560px;
+            margin: 0 auto 28px;
+        }
+
+        .article-meta {
+            font-family: var(--font-sans);
+            font-size: 0.72rem;
+            color: var(--text-tertiary);
+            letter-spacing: 0.03em;
+            padding-bottom: 36px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .article-meta span { margin: 0 6px; }
+
+        /* ═══════════════════════════════════════════
+           ARTICLE BODY
+           ═══════════════════════════════════════════ */
+        .article-body {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 48px 24px 0;
+        }
+
+        .article-body p {
+            font-size: 1rem;
+            line-height: 1.78;
+            margin-bottom: 1.5em;
+            color: var(--text-body);
+        }
+
+        .article-body > p:first-child::first-letter {
+            font-family: var(--font-display);
+            font-size: 3.4em;
+            float: left;
+            line-height: 0.8;
+            margin: 0.06em 0.12em 0 -0.04em;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .article-body strong {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        /* Section Headings — numbered sections */
+        .article-body h2 {
+            font-family: var(--font-display);
+            font-size: 1.55rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 3em 0 0.8em;
+            line-height: 1.3;
+            letter-spacing: -0.01em;
+            padding-top: 1.5em;
+            border-top: 1px solid var(--border-light);
+        }
+
+        .article-body h2:first-of-type {
+            border-top: none;
+            padding-top: 0;
+            margin-top: 2em;
+        }
+
+        /* Major section headers (THE CRITICAL PATH, CHECKLIST, etc.) */
+        .article-body h2.section-break {
+            font-size: 1.8rem;
+            text-align: center;
+            border-top: none;
+            padding-top: 0;
+            margin-top: 1em;
+        }
+
+        .article-body h3 {
+            font-family: var(--font-display);
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin: 2em 0 0.6em;
+            line-height: 1.35;
+        }
+
+        /* Lists */
+        .article-body ul {
+            margin: 0 0 1.5em 0;
+            padding-left: 1.5em;
+        }
+
+        .article-body li {
+            margin-bottom: 0.5em;
+            line-height: 1.65;
+        }
+
+        .article-body li strong {
+            font-weight: 600;
+        }
+
+        /* Horizontal Rules — editorial style */
+        .article-body hr {
+            border: none;
+            text-align: center;
+            margin: 3.5em 0;
+        }
+
+        .article-body hr::before {
+            content: '◆   ◆   ◆';
+            font-size: 0.55rem;
+            color: var(--accent);
+            letter-spacing: 0.3em;
+        }
+
+        /* Flow Diagrams — styled as proper cards */
+        .flow-block {
+            background: var(--flow-bg);
+            border: 1px solid var(--flow-border);
+            border-radius: var(--radius);
+            padding: 20px 24px;
+            margin: 1.2em 0 1.8em;
+            font-family: var(--font-sans);
+            font-size: 0.82rem;
+            font-weight: 500;
+            line-height: 2;
+            color: var(--text-primary);
+            letter-spacing: 0.01em;
+        }
+
+        .flow-block .arrow {
+            color: var(--accent);
+            margin: 0 2px;
+            font-weight: 600;
+        }
+
+        .flow-block .flow-step {
+            display: block;
+            padding: 3px 0;
+        }
+
+        .flow-block .flow-step .arrow-down {
+            color: var(--accent);
+            display: block;
+            text-align: left;
+            line-height: 1.3;
+            font-size: 0.85rem;
+        }
+
+        /* Checklist */
+        .checklist {
+            list-style: none;
+            padding: 0;
+            margin: 1em 0 2em;
+        }
+
+        .checklist li {
+            position: relative;
+            padding: 10px 0 10px 36px;
+            border-bottom: 1px solid var(--border-light);
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .checklist li:last-child { border-bottom: none; }
+
+        .checklist li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--accent);
+            border-radius: 4px;
+            background: var(--accent-light);
+        }
+
+        .checklist li::after {
+            content: '✓';
+            position: absolute;
+            left: 4px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        /* Pullquote / Callout */
+        .callout {
+            border-left: 3px solid var(--accent);
+            padding: 16px 0 16px 24px;
+            margin: 2em 0;
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            font-style: italic;
+            font-weight: 500;
+            line-height: 1.5;
+            color: var(--text-primary);
+        }
+
+        /* Stage blocks in Critical Path */
+        .stage-block {
+            margin: 1.5em 0;
+        }
+
+        .stage-block h3 {
+            font-family: var(--font-sans);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 0.4em;
+        }
+
+        .stage-block .flow-block {
+            margin-top: 0;
+        }
+
+        /* ═══════════════════════════════════════════
+           INTERACTION SECTION
+           ═══════════════════════════════════════════ */
+        .interaction-section {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 0 24px 80px;
+        }
+
+        .interaction-divider {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 48px 0 36px;
+        }
+
+        .like-btn {
+            background: transparent;
+            border: 1.5px solid var(--border);
+            color: var(--text-secondary);
+            padding: 10px 22px;
+            border-radius: 100px;
+            font-family: var(--font-sans);
+            font-size: 0.78rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            letter-spacing: 0.02em;
+        }
+
+        .like-btn svg {
+            width: 16px;
+            height: 16px;
+            transition: all 0.25s ease;
+        }
+
+        .like-btn:hover {
+            border-color: var(--red);
+            color: var(--red);
+        }
+
+        .like-btn:hover svg { stroke: var(--red); }
+
+        .like-btn.liked {
+            background: var(--red);
+            border-color: var(--red);
+            color: #fff;
+        }
+
+        .like-btn.liked svg {
+            stroke: #fff;
+            fill: #fff;
+        }
+
+        /* Comments */
+        .comments-section-title {
+            font-family: var(--font-sans);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--text-tertiary);
+            margin-top: 48px;
+            margin-bottom: 20px;
+        }
+
+        .comments-list {
+            margin-bottom: 32px;
+        }
+
+        .comment-card {
+            padding: 16px 0;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .comment-card:last-child { border-bottom: none; }
+
+        .comment-author {
+            font-family: var(--font-sans);
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .comment-text {
+            font-family: var(--font-body);
+            font-size: 0.88rem;
+            line-height: 1.6;
+            color: var(--text-body);
+        }
+
+        /* Comment Form */
+        .comment-form {
+            margin-top: 12px;
+        }
+
+        .comment-form-title {
+            font-family: var(--font-sans);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--text-tertiary);
+            margin-bottom: 16px;
+        }
+
+        .comment-input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
+            margin-bottom: 12px;
+            background: var(--bg-elevated);
+            color: var(--text-primary);
+            transition: border-color 0.2s;
+            outline: none;
+        }
+
+        .comment-input:focus {
+            border-color: var(--accent);
+        }
+
+        .comment-textarea {
+            width: 100%;
+            min-height: 100px;
+            padding: 12px 16px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            font-family: var(--font-body);
+            font-size: 0.88rem;
+            line-height: 1.6;
+            resize: vertical;
+            margin-bottom: 12px;
+            background: var(--bg-elevated);
+            color: var(--text-body);
+            transition: border-color 0.2s;
+            outline: none;
+        }
+
+        .comment-textarea:focus {
+            border-color: var(--accent);
+        }
+
+        .comment-submit {
+            background: var(--text-primary);
+            color: var(--bg);
+            border: none;
+            padding: 10px 24px;
+            border-radius: var(--radius);
+            font-family: var(--font-sans);
+            font-size: 0.78rem;
+            font-weight: 600;
+            cursor: pointer;
+            letter-spacing: 0.02em;
+            transition: opacity 0.2s;
+        }
+
+        .comment-submit:hover { opacity: 0.85; }
+        .comment-submit:disabled { opacity: 0.5; cursor: not-allowed; }
+
+        .form-message {
+            margin-top: 10px;
+            font-family: var(--font-sans);
+            font-size: 0.82rem;
+            font-weight: 500;
+            display: none;
+        }
+
+        .form-message.success { color: var(--green); display: block; }
+        .form-message.error { color: var(--red); display: block; }
+
+        /* ═══════════════════════════════════════════
+           RESPONSIVE
+           ═══════════════════════════════════════════ */
+        @media (max-width: 768px) {
+            html { font-size: 16px; }
+            .article-title { font-size: 2rem; }
+            .article-subtitle { font-size: 1.05rem; }
+            .article-header { padding-top: 84px; }
+            .article-body h2 { font-size: 1.35rem; }
+            .article-body h2.section-break { font-size: 1.5rem; }
+            .flow-block { padding: 16px 18px; font-size: 0.78rem; }
+        }
+
+        @media (max-width: 480px) {
+            .article-title { font-size: 1.65rem; }
+            .article-body > p:first-child::first-letter { font-size: 2.8em; }
+            .top-bar { padding: 0 16px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Bar -->
+    <nav class="top-bar">
+        <a href="../" class="top-bar-logo">JE<span>.</span></a>
+        <a href="index.html" class="top-bar-back">&larr; All Posts</a>
+    </nav>
+
+    <div class="progress-bar" id="progressBar"></div>
+
+    <!-- Article Header -->
+    <header class="article-header">
+        <span class="article-kicker">Analysis &amp; Opinion</span>
+        <h1 class="article-title">After the NRC Resolution: What Must the Manipur Government Do Next?</h1>
+        <p class="article-subtitle">The Assembly has spoken. Now comes the administrative test — a 12-step roadmap for implementation.</p>
+        <div class="article-meta">
+            By <strong>Johnson Elangbam</strong>
+        </div>
+    </header>
+
+    <!-- Article Body -->
+    <article class="article-body">
+
+        <p>The Manipur Legislative Assembly has now reaffirmed its demand for an <strong>NRC update before the Census</strong>, and the government has stated that <strong>1951 will be the base year</strong>. The next challenge is no longer about passing another resolution.</p>
+
+        <p><strong>The government now has to build the machinery to actually implement it.</strong></p>
+
+        <p>The process should begin with a clear, time-bound roadmap.</p>
+
+        <!-- Section 1 -->
+        <h2>1. Secure the Centre's Formal Approval</h2>
+
+        <p>The State cannot implement an NRC entirely on its own.</p>
+
+        <p>The immediate task is to formally take the Assembly's resolution and the <strong>1951 base-year proposal</strong> to the Government of India and obtain the necessary approval, directions and administrative framework.</p>
+
+        <div class="flow-block">
+            Assembly resolution <span class="arrow">→</span> Centre <span class="arrow">→</span> Formal approval <span class="arrow">→</span> Implementation framework
+        </div>
+
+        <p>This should be treated as the first administrative milestone.</p>
+
+        <!-- Section 2 -->
+        <h2>2. Issue a Time-Bound Government Roadmap</h2>
+
+        <p>The government should publish a <strong>White Paper / NRC Roadmap</strong> specifying:</p>
+
+        <ul>
+            <li>Legal framework</li>
+            <li>1951 baseline</li>
+            <li>Eligibility criteria</li>
+            <li>Documentary requirements</li>
+            <li>Verification methodology</li>
+            <li>Administrative structure</li>
+            <li>Claims and appeals process</li>
+            <li>Data-security safeguards</li>
+            <li>Target dates for every stage</li>
+        </ul>
+
+        <p>The public should know <strong>what happens, when it happens and who is responsible.</strong></p>
+
+        <!-- Section 3 -->
+        <h2>3. Recover and Secure the 1951 Records</h2>
+
+        <p>This is the most urgent technical task.</p>
+
+        <p>The government has already stated that it is tracing the old physical records. The next steps should be:</p>
+
+        <div class="flow-block">
+            Locate <span class="arrow">→</span> Collect <span class="arrow">→</span> Preserve <span class="arrow">→</span> Digitise <span class="arrow">→</span> Authenticate <span class="arrow">→</span> Index <span class="arrow">→</span> Secure
+        </div>
+
+        <p>Every available 1951 record should be preserved before further deterioration, loss or manipulation becomes possible.</p>
+
+        <p>And importantly, the database should be <strong>independently audited</strong>.</p>
+
+        <p>A defective historical database can produce a defective NRC.</p>
+
+        <!-- Section 4 -->
+        <h2>4. Build the 1951 Legacy Database</h2>
+
+        <p>The government should create a searchable, authenticated <strong>Legacy Data System</strong> containing relevant historical records.</p>
+
+        <p>This should include, wherever legally relevant:</p>
+
+        <ul>
+            <li>1951 records</li>
+            <li>Electoral records</li>
+            <li>Census-related records</li>
+            <li>Village records</li>
+            <li>Land/revenue records</li>
+            <li>Birth and death records</li>
+            <li>School records</li>
+            <li>Government records</li>
+            <li>Other admissible historical documents</li>
+        </ul>
+
+        <p>The objective is to establish a reliable historical reference point.</p>
+
+        <!-- Section 5 -->
+        <h2>5. Design the Family-Linkage System Before Applications Begin</h2>
+
+        <p>A person born after 1951 obviously cannot appear in a 1951 record.</p>
+
+        <p>Therefore the government must establish beforehand how an applicant can demonstrate a legitimate connection:</p>
+
+        <div class="flow-block">
+            1951 ancestor <span class="arrow">→</span> child <span class="arrow">→</span> grandchild <span class="arrow">→</span> present applicant
+        </div>
+
+        <p>through admissible evidence.</p>
+
+        <p>This is one of the most important safeguards against both <strong>false exclusion and fraudulent claims</strong>.</p>
+
+        <!-- Section 6 -->
+        <h2>6. Establish a Document-Verification &amp; Fraud-Detection System</h2>
+
+        <p>The NRC should not simply become a document-collection exercise.</p>
+
+        <p>Authorities should be prepared to identify:</p>
+
+        <ul>
+            <li><strong>Forged documents</strong></li>
+            <li><strong>Backdated records</strong></li>
+            <li><strong>Duplicate identities</strong></li>
+            <li><strong>False parentage</strong></li>
+            <li><strong>Fabricated family linkages</strong></li>
+            <li><strong>Conflicting government records</strong></li>
+        </ul>
+
+        <p>Technology, database cross-checking and forensic document examination should be incorporated from the beginning.</p>
+
+        <!-- Section 7 -->
+        <h2>7. Map High-Risk Areas — Without Targeting Communities</h2>
+
+        <p>Manipur's international border and the documented concern over undocumented migration require stronger verification and immigration monitoring.</p>
+
+        <p>But there is an important distinction:</p>
+
+        <div class="callout">Geographic or migration risk should trigger verification — not automatic exclusion.</div>
+
+        <p>Likewise, <strong>ethnicity must never become proof of foreign nationality.</strong></p>
+
+        <p>The system should investigate <strong>people, records and evidence</strong>, not communities.</p>
+
+        <p>This is essential for the credibility of the NRC in Manipur's present ethnic environment.</p>
+
+        <!-- Section 8 -->
+        <h2>8. Integrate NRC With Immigration Enforcement</h2>
+
+        <p>The NRC and immigration enforcement should work together, but they should not become the same process.</p>
+
+        <p>The government should maintain appropriate systems for:</p>
+
+        <div class="flow-block">
+            <span class="flow-step">Border surveillance</span>
+            <span class="flow-step"><span class="arrow-down">↓</span></span>
+            <span class="flow-step">Detection of undocumented entry</span>
+            <span class="flow-step"><span class="arrow-down">↓</span></span>
+            <span class="flow-step">Identity verification</span>
+            <span class="flow-step"><span class="arrow-down">↓</span></span>
+            <span class="flow-step">Immigration investigation</span>
+            <span class="flow-step"><span class="arrow-down">↓</span></span>
+            <span class="flow-step">Legal determination</span>
+        </div>
+
+        <p>This prevents the NRC from becoming the only tool for dealing with illegal immigration.</p>
+
+        <!-- Section 9 -->
+        <h2>9. Build the Administrative Machinery</h2>
+
+        <p>Before applications open, the government needs:</p>
+
+        <div class="flow-block">
+            <span class="flow-step"><strong>State-level authority</strong></span>
+            <span class="flow-step"><span class="arrow-down">→</span> District teams</span>
+            <span class="flow-step"><span class="arrow-down">→</span> Local verification officers</span>
+            <span class="flow-step"><span class="arrow-down">→</span> Record specialists</span>
+            <span class="flow-step"><span class="arrow-down">→</span> Technical/data teams</span>
+            <span class="flow-step"><span class="arrow-down">→</span> Document-forensics capability</span>
+            <span class="flow-step"><span class="arrow-down">→</span> Legal officers</span>
+            <span class="flow-step"><span class="arrow-down">→</span> Grievance and appeal machinery</span>
+        </div>
+
+        <p>Every official must receive uniform training.</p>
+
+        <p>There must be <strong>one standard — not different standards in different districts.</strong></p>
+
+        <!-- Section 10 -->
+        <h2>10. Open the Legacy Records to the Public</h2>
+
+        <p>Before the actual NRC application process begins, citizens should have a reasonable opportunity to search the available legacy records and identify:</p>
+
+        <div class="flow-block">
+            Their own name <span class="arrow">→</span> parents <span class="arrow">→</span> grandparents <span class="arrow">→</span> ancestral village <span class="arrow">→</span> family linkage
+        </div>
+
+        <p>This will reduce confusion and fraudulent middlemen.</p>
+
+        <p>It will also allow errors in historical records to be identified early.</p>
+
+        <!-- Section 11 -->
+        <h2>11. Create the Claims &amp; Appeals System Before the NRC Starts</h2>
+
+        <p>Do not design the appeal mechanism after people begin getting excluded.</p>
+
+        <p>The process should already be established:</p>
+
+        <div class="flow-block">
+            <span class="flow-step">Application</span>
+            <span class="flow-step"><span class="arrow-down">↓</span></span>
+            <span class="flow-step">Verification</span>
+            <span class="flow-step"><span class="arrow-down">↓</span></span>
+            <span class="flow-step">Draft NRC</span>
+            <span class="flow-step"><span class="arrow-down">↓</span></span>
+            <span class="flow-step">Notice</span>
+            <span class="flow-step"><span class="arrow-down">↓</span></span>
+            <span class="flow-step">Claim / Objection</span>
+            <span class="flow-step"><span class="arrow-down">↓</span></span>
+            <span class="flow-step">Hearing</span>
+            <span class="flow-step"><span class="arrow-down">↓</span></span>
+            <span class="flow-step">Reasoned decision</span>
+            <span class="flow-step"><span class="arrow-down">↓</span></span>
+            <span class="flow-step">Appeal / Review</span>
+        </div>
+
+        <p>Every adverse decision should have a recorded legal and evidentiary basis.</p>
+
+        <!-- Section 12 -->
+        <h2>12. Create a Public Communication System</h2>
+
+        <p>The government should launch a statewide information campaign explaining:</p>
+
+        <ul>
+            <li><strong>What is the NRC?</strong></li>
+            <li><strong>Why is 1951 the baseline?</strong></li>
+            <li><strong>What evidence can be used?</strong></li>
+            <li><strong>How does family linkage work?</strong></li>
+            <li><strong>What happens if records are missing?</strong></li>
+            <li><strong>How can a person challenge an adverse decision?</strong></li>
+        </ul>
+
+        <p>Information should be available in accessible languages and formats across both hills and valley.</p>
+
+        <hr>
+
+        <!-- THE CRITICAL PATH -->
+        <h2 class="section-break">The Critical Path</h2>
+
+        <p>The government does not need another vague declaration.</p>
+
+        <p>It needs execution.</p>
+
+        <div class="stage-block">
+            <h3>Stage 1 — Political &amp; Legal</h3>
+            <div class="flow-block">Assembly Resolution <span class="arrow">→</span> Centre <span class="arrow">→</span> Approval <span class="arrow">→</span> Rules</div>
+        </div>
+
+        <div class="stage-block">
+            <h3>Stage 2 — Historical</h3>
+            <div class="flow-block">1951 Records <span class="arrow">→</span> Preservation <span class="arrow">→</span> Digitisation <span class="arrow">→</span> Authentication <span class="arrow">→</span> Legacy Database</div>
+        </div>
+
+        <div class="stage-block">
+            <h3>Stage 3 — Technical</h3>
+            <div class="flow-block">Family Linkage <span class="arrow">→</span> Database Integration <span class="arrow">→</span> Fraud Detection <span class="arrow">→</span> Data Security</div>
+        </div>
+
+        <div class="stage-block">
+            <h3>Stage 4 — Administrative</h3>
+            <div class="flow-block">Officials <span class="arrow">→</span> Training <span class="arrow">→</span> Verification Teams <span class="arrow">→</span> NRC Centres <span class="arrow">→</span> Appeals System</div>
+        </div>
+
+        <div class="stage-block">
+            <h3>Stage 5 — Public Preparation</h3>
+            <div class="flow-block">Legacy-data access <span class="arrow">→</span> Awareness <span class="arrow">→</span> Document assistance <span class="arrow">→</span> Application preparation</div>
+        </div>
+
+        <div class="stage-block">
+            <h3>Stage 6 — NRC</h3>
+            <div class="flow-block">Application <span class="arrow">→</span> Verification <span class="arrow">→</span> Draft List <span class="arrow">→</span> Claims &amp; Objections <span class="arrow">→</span> Appeals <span class="arrow">→</span> Final NRC</div>
+        </div>
+
+        <div class="stage-block">
+            <h3>Parallel Track — Border &amp; Immigration</h3>
+            <div class="flow-block">Border surveillance <span class="arrow">→</span> Detection <span class="arrow">→</span> Identification <span class="arrow">→</span> Legal proceedings <span class="arrow">→</span> Enforcement</div>
+        </div>
+
+        <hr>
+
+        <!-- CHECKLIST -->
+        <h2 class="section-break">The Government's Next Checklist</h2>
+
+        <ul class="checklist">
+            <li>Secure Centre's approval</li>
+            <li>Officially notify 1951 as the proposed baseline</li>
+            <li>Recover and preserve original records</li>
+            <li>Digitise and authenticate the legacy database</li>
+            <li>Establish family-linkage rules</li>
+            <li>Establish document-fraud detection</li>
+            <li>Create uniform verification procedures</li>
+            <li>Establish claims and appeals mechanisms</li>
+            <li>Train the administrative machinery</li>
+            <li>Give citizens access to legacy records</li>
+            <li>Strengthen border and immigration monitoring</li>
+            <li>Publish a time-bound NRC implementation calendar</li>
+        </ul>
+
+        <hr>
+
+        <!-- BOTTOM LINE -->
+        <h2 class="section-break">The Bottom Line</h2>
+
+        <p>The Assembly has made the political decision.</p>
+
+        <p><strong>Now comes the administrative test.</strong></p>
+
+        <p>The government must ensure that the NRC is:</p>
+
+        <p><strong>Fast enough to be meaningful.</strong></p>
+
+        <p><strong>Strong enough to detect illegal immigration.</strong></p>
+
+        <p><strong>Accurate enough to protect genuine citizens.</strong></p>
+
+        <p><strong>Transparent enough to command public confidence.</strong></p>
+
+        <p>And above all:</p>
+
+        <div class="callout">The NRC must identify people through evidence — not ethnicity.</div>
+
+        <p><strong>The resolution was the starting point.</strong></p>
+
+        <p><strong>Building the system is the real work.</strong></p>
+
+    </article>
+
+    <!-- Interaction Section -->
+    <div class="interaction-section">
+        <hr class="interaction-divider">
+
+        <button id="likeBtn" class="like-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+            <span>Like this article</span>
+        </button>
+
+        <div id="commentsList" class="comments-list">
+            <!-- Comments appended here -->
+        </div>
+
+        <div class="comment-form">
+            <h3 class="comment-form-title">Leave a Comment</h3>
+            <form id="commentForm" action="https://formsubmit.co/ajax/elangbamjohnson@gmail.com" method="POST">
+                <input type="hidden" name="_subject" value="New Comment on NRC Resolution Article">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_template" value="table">
+
+                <input type="text" name="name" class="comment-input" placeholder="Your name" required>
+                <textarea name="comment" class="comment-textarea" placeholder="Share your thoughts…" required></textarea>
+                <button type="submit" class="comment-submit">Post Comment</button>
+                <div id="formMessage" class="form-message"></div>
+            </form>
+        </div>
+    </div>
+
+<script>
+    // ── Reading Progress Bar ──
+    const progressBar = document.getElementById('progressBar');
+    window.addEventListener('scroll', () => {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+        progressBar.style.width = pct + '%';
+    });
+
+    // ── Like Button ──
+    const likeBtn = document.getElementById('likeBtn');
+    likeBtn.addEventListener('click', () => {
+        if (!likeBtn.classList.contains('liked')) {
+            fetch('https://formsubmit.co/ajax/elangbamjohnson@gmail.com', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                body: JSON.stringify({
+                    _subject: "New Like on NRC Resolution Article",
+                    message: "Someone liked the NRC Resolution article on your blog."
+                })
+            }).then(() => {
+                likeBtn.classList.add('liked');
+                likeBtn.querySelector('span').innerText = 'Liked';
+            }).catch(err => console.log(err));
+        }
+    });
+
+    // ── Comment Form ──
+    const commentForm = document.getElementById('commentForm');
+    const formMessage = document.getElementById('formMessage');
+
+    commentForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const submitBtn = commentForm.querySelector('.comment-submit');
+        submitBtn.disabled = true;
+        submitBtn.innerText = 'Posting…';
+
+        const formData = new FormData(commentForm);
+
+        fetch(commentForm.action, {
+            method: 'POST',
+            body: formData,
+            headers: { 'Accept': 'application/json' }
+        })
+        .then(response => response.json())
+        .then(data => {
+            const name = formData.get('name');
+            const comment = formData.get('comment');
+
+            if (data.success === 'true' || data.success === true) {
+                formMessage.innerText = 'Thank you — your comment has been posted.';
+                formMessage.className = 'form-message success';
+            } else {
+                formMessage.innerText = 'Comment posted. Email activation may be required for first-time submissions.';
+                formMessage.className = 'form-message success';
+            }
+            addCommentToUI(name, comment);
+            saveComment(name, comment);
+            commentForm.reset();
+        })
+        .catch(() => {
+            formMessage.innerText = 'Something went wrong. Please try again.';
+            formMessage.className = 'form-message error';
+        })
+        .finally(() => {
+            submitBtn.disabled = false;
+            submitBtn.innerText = 'Post Comment';
+        });
+    });
+
+    // ── Local Comment Storage ──
+    const commentsList = document.getElementById('commentsList');
+
+    function addCommentToUI(name, text) {
+        // Show section title if first comment
+        if (!commentsList.querySelector('.comments-section-title')) {
+            const title = document.createElement('h3');
+            title.className = 'comments-section-title';
+            title.innerText = 'Comments';
+            commentsList.insertBefore(title, commentsList.firstChild);
+        }
+
+        const div = document.createElement('div');
+        div.className = 'comment-card';
+
+        const h4 = document.createElement('div');
+        h4.className = 'comment-author';
+        h4.innerText = name;
+
+        const p = document.createElement('div');
+        p.className = 'comment-text';
+        p.innerText = text;
+
+        div.appendChild(h4);
+        div.appendChild(p);
+
+        // Insert after the title
+        const title = commentsList.querySelector('.comments-section-title');
+        if (title && title.nextSibling) {
+            commentsList.insertBefore(div, title.nextSibling);
+        } else {
+            commentsList.appendChild(div);
+        }
+    }
+
+    function saveComment(name, text) {
+        const existing = JSON.parse(localStorage.getItem('nrc_article_comments') || '[]');
+        existing.unshift({ name, text });
+        localStorage.setItem('nrc_article_comments', JSON.stringify(existing));
+    }
+
+    function loadComments() {
+        const existing = JSON.parse(localStorage.getItem('nrc_article_comments') || '[]');
+        existing.reverse().forEach(c => addCommentToUI(c.name, c.text));
+    }
+
+    loadComments();
+</script>
+</body>
+</html>
