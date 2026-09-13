@@ -27,7 +27,18 @@ export async function ensureMatrixMode(page: Page) {
  */
 export async function scrollToSection(page: Page, sectionId: string) {
   const section = page.locator(`#${sectionId}`);
-  await section.scrollIntoViewIfNeeded();
+  // Explicitly scroll the custom scroll container to the element's position
+  await page.evaluate((id) => {
+    const el = document.getElementById(id);
+    const container = document.querySelector('.site-boundary');
+    if (el && container) {
+      // Calculate position relative to container
+      const topPos = el.getBoundingClientRect().top + container.scrollTop - container.getBoundingClientRect().top;
+      container.scrollTo({ top: topPos, behavior: 'smooth' });
+    }
+  }, sectionId);
+  // Wait a bit for smooth scroll and IntersectionObserver animations
+  await page.waitForTimeout(1000);
   await expect(section).toBeVisible();
 }
 

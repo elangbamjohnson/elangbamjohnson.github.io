@@ -36,11 +36,11 @@ test.describe('Navigation', () => {
       await expect(navbar).not.toHaveClass(/scrolled/);
 
       // Scroll down
-      await page.evaluate(() => window.scrollTo(0, 100));
+      await page.evaluate(() => document.querySelector('.site-boundary')?.scrollTo(0, 100));
       await expect(navbar).toHaveClass(/scrolled/);
 
       // Scroll back to top
-      await page.evaluate(() => window.scrollTo(0, 0));
+      await page.evaluate(() => document.querySelector('.site-boundary')?.scrollTo(0, 0));
       await expect(navbar).not.toHaveClass(/scrolled/);
     });
 
@@ -56,7 +56,7 @@ test.describe('Navigation', () => {
       await page.waitForTimeout(1000);
       
       // Verify scroll position is > 0
-      const scrollY = await page.evaluate(() => window.scrollY);
+      const scrollY = await page.evaluate(() => document.querySelector('.site-boundary')?.scrollTop || 0);
       expect(scrollY).toBeGreaterThan(0);
     });
   });
@@ -97,7 +97,7 @@ test.describe('Navigation', () => {
       await page.waitForTimeout(1000);
       
       // Verify scroll position changes
-      const scrollY = await page.evaluate(() => window.scrollY);
+      const scrollY = await page.evaluate(() => document.querySelector('.site-boundary')?.scrollTop || 0);
       expect(scrollY).toBeGreaterThan(0);
     });
   });
