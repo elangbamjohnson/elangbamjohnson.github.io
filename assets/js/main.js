@@ -11,30 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // 2. Scroll Reveal Animation
-    if ('IntersectionObserver' in window) {
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.15
-        };
-        
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.reveal').forEach(element => {
-            observer.observe(element);
-        });
-    } else {
-        // Fallback for older browsers
-        document.querySelectorAll('.reveal').forEach(el => el.classList.add('active'));
-    }
 
     // 3. FAQ Accordion (One at a time)
     const faqItems = document.querySelectorAll('.faq-item');
