@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Blogs | Johnson Elangbam</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Meetei+Mayek&family=Playfair+Display:ital,wght@0,700;0,800;1,700;1,800&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    
+    <!-- Theme Script -->
+    <script>
+        const savedTheme = localStorage.getItem('site-theme');
+        if (savedTheme === 'matrix') {
+            document.documentElement.classList.add('theme-matrix');
+        }
+    </script>
+    
+    <style>
+        .blog-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 120px 20px 60px;
+            font-family: 'Inter', sans-serif;
+            color: var(--text-color, #333);
+            line-height: 1.6;
+        }
+        .theme-matrix .blog-container {
+            color: #d4af37;
+        }
+        .blog-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: var(--heading-color, #1a1b2e);
+        }
+        .theme-matrix .blog-title {
+            color: #0f0;
+        }
+        .blog-list {
+            list-style: none;
+            padding: 0;
+        }
+        .blog-list li {
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--border-color, #eaeaea);
+            padding-bottom: 20px;
+        }
+        .theme-matrix .blog-list li {
+            border-color: #333;
+        }
+        .blog-list h2 {
+            font-size: 1.5rem;
+            margin: 0 0 10px 0;
+        }
+        .blog-list h2 a {
+            text-decoration: none;
+            color: var(--primary-color, #0056b3);
+        }
+        .theme-matrix .blog-list h2 a {
+            color: #0f0;
+        }
+        .blog-list h2 a:hover {
+            text-decoration: underline;
+        }
+        .blog-meta {
+            font-size: 0.9rem;
+            color: var(--text-color-muted, #666);
+            margin-bottom: 10px;
+        }
+        .theme-matrix .blog-meta {
+            color: #888;
+        }
+        .blog-excerpt {
+            font-size: 1rem;
+        }
+        /* Overrides for nav border to make it consistent */
+        .navbar {
+            background: var(--bg-color, #fff); 
+            border-bottom: 1px solid var(--border-color, #eaeaea);
+        }
+        .theme-matrix .navbar {
+            background: #000;
+            border-bottom: 1px solid #333;
+        }
+    </style>
+</head>
+<body>
+<div class="site-boundary">
+    <nav class="navbar" id="navbar">
+        <a href="../" class="nav-logo">JE<span>.</span></a>
+    </nav>
+
+    <main class="blog-container">
+        <h1 class="blog-title">Personal Blogs</h1>
+        
+        <ul class="blog-list">
+            <li>
+                <h2><a href="after-the-nrc-resolution.html">AFTER THE NRC RESOLUTION: WHAT MUST THE MANIPUR GOVERNMENT DO NEXT?</a></h2>
+                <div class="blog-meta">Thoughts &amp; Opinions</div>
+                <div class="blog-excerpt">
+                    The Manipur Legislative Assembly has now reaffirmed its demand for an NRC update before the Census, and the government has stated that 1951 will be the base year. The next challenge is no longer about passing another resolution...
+                </div>
+            </li>
+        </ul>
+    </main>
+</div>
+</body>
+</html>
