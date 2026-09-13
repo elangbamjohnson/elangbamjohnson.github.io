@@ -177,6 +177,8 @@ body.theme-matrix .footer-links a:hover {
 html {
     scroll-behavior: smooth;
     font-size: 16px;
+    overflow: hidden;
+    height: 100%;
 }
 
 body {
@@ -186,6 +188,8 @@ body {
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    height: 100%;
+    overflow: hidden;
 }
 
 .site-boundary {
@@ -193,10 +197,32 @@ body {
     margin: 16px;
     border: 1px solid var(--border);
     border-radius: var(--radius-lg);
-    min-height: calc(100vh - 32px);
+    height: calc(100vh - 32px);
     box-shadow: 0 0 40px rgba(0,0,0,0.05);
-    overflow: clip; /* clip instead of hidden to allow position: sticky on children */
+    overflow-y: auto;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
     transition: background-color 0.4s ease;
+}
+
+/* Custom scrollbar for site-boundary */
+.site-boundary::-webkit-scrollbar {
+    width: 6px;
+}
+.site-boundary::-webkit-scrollbar-track {
+    background: transparent;
+    margin: var(--radius-lg);
+}
+.site-boundary::-webkit-scrollbar-thumb {
+    background: rgba(26, 27, 46, 0.15);
+    border-radius: 10px;
+}
+.site-boundary::-webkit-scrollbar-thumb:hover {
+    background: rgba(26, 27, 46, 0.3);
+}
+.site-boundary {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(26, 27, 46, 0.15) transparent;
 }
 
 body.theme-matrix .site-boundary {
@@ -223,7 +249,7 @@ body.theme-matrix #matrix-bg {
 @media (max-width: 768px) {
     .site-boundary {
         margin: 8px;
-        min-height: calc(100vh - 16px);
+        height: calc(100vh - 16px);
         border-radius: var(--radius-md);
     }
 }
