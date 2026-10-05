@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Right Moment | Johnson Elangbam</title>
+    <meta name="description" content="We never truly miss the moment itself—we miss who we were when we lived it. A reflection on time, memory, and why the right time to live is now.">
+
+    <!-- Open Graph (Facebook, LinkedIn, WhatsApp) -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://elangbamjohnson.github.io/personalBlogs/the-right-moment.html">
+    <meta property="og:title" content="The Right Moment | Johnson Elangbam">
+    <meta property="og:description" content="We never truly miss the moment itself—we miss who we were when we lived it. A reflection on time, memory, and why the right time to live is now.">
+    <meta property="og:site_name" content="Johnson Elangbam — Personal Blogs">
+
+    <!-- Twitter / X Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="The Right Moment | Johnson Elangbam">
+    <meta name="twitter:description" content="We never truly miss the moment itself—we miss who we were when we lived it. The right time to live is now.">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://elangbamjohnson.github.io/personalBlogs/the-right-moment.html">
+
+    <!-- Google Fonts — premium editorial stack -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400;1,8..60,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2224%22 fill=%22%231a1b2e%22/><text y=%2254%%22 x=%2250%%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Playfair Display, Georgia, serif%22 font-size=%2244%22 font-weight=%22700%22 fill=%22%23d4af37%22>JE</text></svg>">
+
+    <style>
+        /* ═══════════════════════════════════════════
+           RESET & BASE
+           ═══════════════════════════════════════════ */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --bg-outer: #e8e4df;
+            --bg: #faf9f7;
+            --bg-elevated: #ffffff;
+            --text-primary: #1a1a1a;
+            --text-body: #2d2d2d;
+            --text-secondary: #6b6b6b;
+            --text-tertiary: #999;
+            --accent: #b8860b;
+            --accent-hover: #9a7209;
+            --accent-light: rgba(184, 134, 11, 0.08);
+            --accent-border: rgba(184, 134, 11, 0.25);
+            --border: #e8e4df;
+            --border-light: #f0ece7;
+            --red: #c0392b;
+            --green: #27ae60;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.04);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.06);
+            --shadow-container: 0 8px 40px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.06);
+            --radius: 6px;
+            --radius-container: 16px;
+            --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+            --font-body: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        html {
+            font-size: 18px;
+            scroll-behavior: smooth;
+            overflow: hidden;
+            height: 100%;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--text-body);
+            background: var(--bg-outer);
+            line-height: 1.78;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+            height: 100%;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        ::selection {
+            background: var(--accent-light);
+            color: var(--text-primary);
+        }
+
+        /* ═══════════════════════════════════════════
+           CONTENT PANE — elevated reading container
+           ═══════════════════════════════════════════ */
+        .content-pane {
+            flex: 1;
+            max-width: 860px;
+            width: 100%;
+            margin: 72px auto 24px;
+            background: var(--bg);
+            border-radius: var(--radius-container);
+            box-shadow: var(--shadow-container);
+            overflow-y: auto;
+            overflow-x: hidden;
+            position: relative;
+            border: 1px solid rgba(0,0,0,0.06);
+        }
+
+        /* Custom scrollbar */
+        .content-pane::-webkit-scrollbar {
+            width: 6px;
+        }
+        .content-pane::-webkit-scrollbar-track {
+            background: transparent;
+            margin: var(--radius-container);
+        }
+        .content-pane::-webkit-scrollbar-thumb {
+            background: rgba(184, 134, 11, 0.25);
+            border-radius: 10px;
+        }
+        .content-pane::-webkit-scrollbar-thumb:hover {
+            background: var(--accent);
+        }
+        .content-pane {
+            scrollbar-width: thin;
+            scrollbar-color: rgba(184, 134, 11, 0.25) transparent;
+        }
+
+        /* Top/bottom edge fade */
+        .content-pane::before,
+        .content-pane::after {
+            content: '';
+            position: sticky;
+            display: block;
+            left: 0;
+            right: 0;
+            height: 32px;
+            z-index: 5;
+            pointer-events: none;
+        }
+        .content-pane::before {
+            top: 0;
+            background: linear-gradient(to bottom, var(--bg), transparent);
+            border-radius: var(--radius-container) var(--radius-container) 0 0;
+        }
+        .content-pane::after {
+            bottom: 0;
+            background: linear-gradient(to top, var(--bg), transparent);
+            border-radius: 0 0 var(--radius-container) var(--radius-container);
+        }
+
+        /* ═══════════════════════════════════════════
+           TOP BAR
+           ═══════════════════════════════════════════ */
+        .top-bar {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            background: rgba(232, 228, 223, 0.85);
+            backdrop-filter: blur(16px) saturate(1.4);
+            -webkit-backdrop-filter: blur(16px) saturate(1.4);
+            border-bottom: 1px solid rgba(0,0,0,0.08);
+            padding: 0 24px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .top-bar-logo {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .top-bar-logo span {
+            color: var(--accent);
+        }
+
+        .top-bar-back {
+            font-family: var(--font-sans);
+            font-size: 0.78rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-decoration: none;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            transition: color 0.2s;
+        }
+
+        .top-bar-back:hover { color: var(--accent); }
+
+        /* ═══════════════════════════════════════════
+           READING PROGRESS BAR
+           ═══════════════════════════════════════════ */
+        .progress-bar {
+            position: fixed;
+            top: 56px;
+            left: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent), #d4a843);
+            z-index: 101;
+            width: 0%;
+            transition: width 0.1s linear;
+        }
+
+        /* ═══════════════════════════════════════════
+           ARTICLE HEADER / HERO
+           ═══════════════════════════════════════════ */
+        .article-header {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 48px 24px 0;
+            text-align: center;
+        }
+
+        .article-kicker {
+            font-family: var(--font-sans);
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 18px;
+            display: inline-block;
+        }
+
+        .article-title {
+            font-family: var(--font-display);
+            font-size: 2.8rem;
+            font-weight: 700;
+            line-height: 1.15;
+            color: var(--text-primary);
+            letter-spacing: -0.02em;
+            margin-bottom: 20px;
+        }
+
+        .article-subtitle {
+            font-family: var(--font-body);
+            font-size: 1.15rem;
+            font-weight: 400;
+            line-height: 1.6;
+            color: var(--text-secondary);
+            max-width: 580px;
+            margin: 0 auto 28px;
+        }
+
+        .article-meta {
+            font-family: var(--font-sans);
+            font-size: 0.72rem;
+            color: var(--text-tertiary);
+            letter-spacing: 0.03em;
+            padding-bottom: 36px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        /* ═══════════════════════════════════════════
+           ARTICLE BODY
+           ═══════════════════════════════════════════ */
+        .article-body {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 48px 24px 0;
+        }
+
+        .article-body p {
+            font-size: 1.05rem;
+            line-height: 1.85;
+            margin-bottom: 1.6em;
+            color: var(--text-body);
+        }
+
+        .article-body > p:first-child::first-letter {
+            font-family: var(--font-display);
+            font-size: 3.4em;
+            float: left;
+            line-height: 0.8;
+            margin: 0.06em 0.12em 0 -0.04em;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .article-body strong {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        /* Poetic Stanza / Reflection Lines */
+        .reflection-lines {
+            font-style: italic;
+            font-size: 1.1rem;
+            line-height: 2.1;
+            color: var(--text-primary);
+            padding: 12px 0 12px 24px;
+            margin: 2em 0;
+            border-left: 2px solid var(--accent);
+            background: linear-gradient(90deg, var(--accent-light) 0%, transparent 100%);
+            border-radius: 0 var(--radius) var(--radius) 0;
+        }
+
+        /* Pullquote / Callout */
+        .callout {
+            border-left: 3px solid var(--accent);
+            padding: 18px 0 18px 24px;
+            margin: 2.2em 0;
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            font-style: italic;
+            font-weight: 500;
+            line-height: 1.55;
+            color: var(--text-primary);
+        }
+
+        /* Highlight Focal Box */
+        .focus-card {
+            background: linear-gradient(135deg, rgba(184, 134, 11, 0.07) 0%, rgba(184, 134, 11, 0.02) 100%);
+            border: 1px solid var(--accent-border);
+            border-radius: 12px;
+            padding: 32px 28px;
+            margin: 2.6em 0;
+            text-align: center;
+        }
+
+        .focus-card-text {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            line-height: 1.7;
+            color: var(--text-primary);
+            margin-bottom: 0 !important;
+            letter-spacing: -0.01em;
+        }
+
+        .focus-card-text .accent-highlight {
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 1.45rem;
+            display: inline-block;
+            margin-top: 4px;
+        }
+
+        /* Editorial separator */
+        .article-body hr {
+            border: none;
+            text-align: center;
+            margin: 3.5em 0;
+        }
+
+        .article-body hr::before {
+            content: '◆   ◆   ◆';
+            font-size: 0.55rem;
+            color: var(--accent);
+            letter-spacing: 0.3em;
+        }
+
+        /* ═══════════════════════════════════════════
+           INTERACTION SECTION
+           ═══════════════════════════════════════════ */
+        .interaction-section {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 0 24px 80px;
+        }
+
+        .interaction-divider {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 48px 0 36px;
+        }
+
+        .like-btn {
+            background: transparent;
+            border: 1.5px solid var(--border);
+            color: var(--text-secondary);
+            padding: 10px 22px;
+            border-radius: 100px;
+            font-family: var(--font-sans);
+            font-size: 0.78rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            letter-spacing: 0.02em;
+        }
+
+        .like-btn svg {
+            width: 16px;
+            height: 16px;
+            transition: all 0.25s ease;
+        }
+
+        .like-btn:hover {
+            border-color: var(--red);
+            color: var(--red);
+        }
+
+        .like-btn:hover svg { stroke: var(--red); }
+
+        .like-btn.liked {
+            background: var(--red);
+            border-color: var(--red);
+            color: #fff;
+        }
+
+        .like-btn.liked svg {
+            stroke: #fff;
+            fill: #fff;
+        }
+
+        /* Comments */
+        .comments-section-title {
+            font-family: var(--font-sans);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin: 36px 0 16px;
+        }
+
+        .comments-list { margin-bottom: 32px; }
+
+        .comment-card {
+            background: var(--bg-elevated);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius);
+            padding: 14px 18px;
+            margin-bottom: 12px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .comment-author {
+            font-family: var(--font-sans);
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .comment-text {
+            font-size: 0.88rem;
+            line-height: 1.55;
+            color: var(--text-body);
+        }
+
+        .comment-form { margin-top: 24px; }
+
+        .comment-form-title {
+            font-family: var(--font-display);
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+        }
+
+        .comment-input {
+            width: 100%;
+            padding: 10px 16px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
+            margin-bottom: 12px;
+            background: var(--bg-elevated);
+            color: var(--text-body);
+            transition: border-color 0.2s;
+            outline: none;
+        }
+
+        .comment-input:focus {
+            border-color: var(--accent);
+        }
+
+        .comment-textarea {
+            width: 100%;
+            min-height: 100px;
+            padding: 12px 16px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            font-family: var(--font-body);
+            font-size: 0.88rem;
+            line-height: 1.6;
+            resize: vertical;
+            margin-bottom: 12px;
+            background: var(--bg-elevated);
+            color: var(--text-body);
+            transition: border-color 0.2s;
+            outline: none;
+        }
+
+        .comment-textarea:focus {
+            border-color: var(--accent);
+        }
+
+        .comment-submit {
+            background: var(--text-primary);
+            color: var(--bg);
+            border: none;
+            padding: 10px 24px;
+            border-radius: var(--radius);
+            font-family: var(--font-sans);
+            font-size: 0.78rem;
+            font-weight: 600;
+            cursor: pointer;
+            letter-spacing: 0.02em;
+            transition: opacity 0.2s;
+        }
+
+        .comment-submit:hover { opacity: 0.85; }
+        .comment-submit:disabled { opacity: 0.5; cursor: not-allowed; }
+
+        .form-message {
+            margin-top: 10px;
+            font-family: var(--font-sans);
+            font-size: 0.82rem;
+            font-weight: 500;
+            display: none;
+        }
+
+        .form-message.success { color: var(--green); display: block; }
+        .form-message.error { color: var(--red); display: block; }
+
+        /* ═══════════════════════════════════════════
+           RESPONSIVE
+           ═══════════════════════════════════════════ */
+        @media (max-width: 900px) {
+            .content-pane {
+                margin: 64px 12px 12px;
+                border-radius: 12px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            html { font-size: 16px; }
+            .article-title { font-size: 2.1rem; }
+            .article-subtitle { font-size: 1.05rem; }
+            .article-header { padding-top: 36px; }
+            .focus-card { padding: 24px 20px; }
+            .focus-card-text { font-size: 1.15rem; }
+            .content-pane {
+                margin: 60px 6px 6px;
+                border-radius: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .article-title { font-size: 1.75rem; }
+            .article-body > p:first-child::first-letter { font-size: 2.8em; }
+            .top-bar { padding: 0 16px; }
+            .content-pane {
+                margin: 58px 0 0;
+                border-radius: 12px 12px 0 0;
+                border-bottom: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Bar -->
+    <nav class="top-bar">
+        <a href="../" class="top-bar-logo">JE<span>.</span></a>
+        <a href="index.html" class="top-bar-back">&larr; All Posts</a>
+    </nav>
+
+    <div class="progress-bar" id="progressBar"></div>
+
+    <!-- Content Pane — the elevated reading container -->
+    <div class="content-pane" id="contentPane">
+
+    <!-- Article Header -->
+    <header class="article-header">
+        <span class="article-kicker">Thoughts &amp; Reflections</span>
+        <h1 class="article-title">The Right Moment</h1>
+        <p class="article-subtitle">We never truly miss the moment itself—we miss who we were when we lived it. The right time to live is now.</p>
+        <div class="article-meta">
+            By <strong>Johnson Elangbam</strong>
+        </div>
+    </header>
+
+    <!-- Article Body -->
+    <article class="article-body">
+
+        <p>Sometimes, we close our eyes and return to a beautiful moment from the past.</p>
+
+        <p>We remember how it felt—the laughter, the people, the warmth of those days—and we imagine that if we could somehow go back, even for a little while, we would finally feel that happiness again.</p>
+
+        <p>But when we do return, something feels strangely different.</p>
+
+        <div class="reflection-lines">
+            The place may still be there.<br>
+            The faces may still be familiar.<br>
+            The memories may still live inside us.
+        </div>
+
+        <p>Yet the feeling is gone.</p>
+
+        <p>And suddenly, what we thought would be a reunion with happiness becomes melancholy. Because we realize that we never truly miss the moment itself—we miss <strong>who we were when we lived it</strong>.</p>
+
+        <div class="callout">
+            Time has moved quietly through everything. People have changed. Places have changed. And so have we.
+        </div>
+
+        <p>The past is beautiful precisely because it cannot be lived again.</p>
+
+        <p>So don't spend the present longing for a moment that has already become a memory. One day, you may look back at <strong>this very moment</strong> with the same ache in your heart, wishing you had stayed a little longer, laughed a little louder, loved a little deeper, and noticed how beautiful it was while it was still happening.</p>
+
+        <div class="focus-card">
+            <p class="focus-card-text">
+                The right time to live is not yesterday.<br>
+                It is not tomorrow.<br>
+                <span class="accent-highlight">It is now.</span>
+            </p>
+        </div>
+
+        <p>Be present enough to recognize the moment you are living—because someday, this moment too will become the past you wish you could return to.</p>
+
+    </article>
+
+    <!-- Interaction Section -->
+    <div class="interaction-section">
+        <hr class="interaction-divider">
+
+        <button id="likeBtn" class="like-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+            <span>Like this thought</span>
+        </button>
+
+        <div id="commentsList" class="comments-list">
+            <!-- Comments appended here -->
+        </div>
+
+        <div class="comment-form">
+            <h3 class="comment-form-title">Leave a Comment</h3>
+            <form id="commentForm" action="https://formsubmit.co/ajax/elangbamjohnson@gmail.com" method="POST">
+                <input type="hidden" name="_subject" value="New Comment on The Right Moment">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_template" value="table">
+
+                <input type="text" name="name" class="comment-input" placeholder="Your name" required>
+                <textarea name="comment" class="comment-textarea" placeholder="Share your thoughts…" required></textarea>
+                <button type="submit" class="comment-submit">Post Comment</button>
+                <div id="formMessage" class="form-message"></div>
+            </form>
+        </div>
+    </div>
+
+    </div> <!-- /.content-pane -->
+
+<script>
+    // ── Reading Progress Bar (tracks contentPane scroll) ──
+    const progressBar = document.getElementById('progressBar');
+    const contentPane = document.getElementById('contentPane');
+    contentPane.addEventListener('scroll', () => {
+        const scrollTop = contentPane.scrollTop;
+        const scrollHeight = contentPane.scrollHeight - contentPane.clientHeight;
+        const pct = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+        progressBar.style.width = pct + '%';
+    });
+
+    // ── Like Button ──
+    const likeBtn = document.getElementById('likeBtn');
+    likeBtn.addEventListener('click', () => {
+        if (!likeBtn.classList.contains('liked')) {
+            fetch('https://formsubmit.co/ajax/elangbamjohnson@gmail.com', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                body: JSON.stringify({
+                    _subject: "New Like on The Right Moment",
+                    message: "Someone liked 'The Right Moment' thought on your blog."
+                })
+            }).then(() => {
+                likeBtn.classList.add('liked');
+                likeBtn.querySelector('span').innerText = 'Liked';
+            }).catch(err => console.log(err));
+        }
+    });
+
+    // ── Comment Form ──
+    const commentForm = document.getElementById('commentForm');
+    const formMessage = document.getElementById('formMessage');
+
+    commentForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const submitBtn = commentForm.querySelector('.comment-submit');
+        submitBtn.disabled = true;
+        submitBtn.innerText = 'Posting…';
+
+        const formData = new FormData(commentForm);
+
+        fetch(commentForm.action, {
+            method: 'POST',
+            body: formData,
+            headers: { 'Accept': 'application/json' }
+        })
+        .then(response => response.json())
+        .then(data => {
+            const name = formData.get('name');
+            const comment = formData.get('comment');
+
+            if (data.success === 'true' || data.success === true) {
+                formMessage.innerText = 'Thank you — your comment has been posted.';
+                formMessage.className = 'form-message success';
+            } else {
+                formMessage.innerText = 'Comment posted. Email activation may be required for first-time submissions.';
+                formMessage.className = 'form-message success';
+            }
+            addCommentToUI(name, comment);
+            saveComment(name, comment);
+            commentForm.reset();
+        })
+        .catch(() => {
+            formMessage.innerText = 'Something went wrong. Please try again.';
+            formMessage.className = 'form-message error';
+        })
+        .finally(() => {
+            submitBtn.disabled = false;
+            submitBtn.innerText = 'Post Comment';
+        });
+    });
+
+    // ── Local Comment Storage ──
+    const commentsList = document.getElementById('commentsList');
+
+    function addCommentToUI(name, text) {
+        if (!commentsList.querySelector('.comments-section-title')) {
+            const title = document.createElement('h3');
+            title.className = 'comments-section-title';
+            title.innerText = 'Comments';
+            commentsList.insertBefore(title, commentsList.firstChild);
+        }
+
+        const div = document.createElement('div');
+        div.className = 'comment-card';
+
+        const h4 = document.createElement('div');
+        h4.className = 'comment-author';
+        h4.innerText = name;
+
+        const p = document.createElement('div');
+        p.className = 'comment-text';
+        p.innerText = text;
+
+        div.appendChild(h4);
+        div.appendChild(p);
+
+        const title = commentsList.querySelector('.comments-section-title');
+        if (title && title.nextSibling) {
+            commentsList.insertBefore(div, title.nextSibling);
+        } else {
+            commentsList.appendChild(div);
+        }
+    }
+
+    function saveComment(name, text) {
+        const existing = JSON.parse(localStorage.getItem('the_right_moment_comments') || '[]');
+        existing.unshift({ name, text });
+        localStorage.setItem('the_right_moment_comments', JSON.stringify(existing));
+    }
+
+    function loadComments() {
+        const existing = JSON.parse(localStorage.getItem('the_right_moment_comments') || '[]');
+        existing.reverse().forEach(c => addCommentToUI(c.name, c.text));
+    }
+
+    loadComments();
+</script>
+</body>
+</html>
