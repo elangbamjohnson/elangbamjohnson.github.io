@@ -198,6 +198,13 @@
 
         .post-item:first-child { padding-top: 0; }
 
+        .post-meta {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
         .post-category {
             font-family: var(--font-sans);
             font-size: 0.65rem;
@@ -205,7 +212,20 @@
             letter-spacing: 0.12em;
             text-transform: uppercase;
             color: var(--accent);
-            margin-bottom: 8px;
+        }
+
+        .post-dot {
+            color: var(--text-tertiary);
+            font-size: 0.5rem;
+            line-height: 1;
+        }
+
+        .post-date {
+            font-family: var(--font-sans);
+            font-size: 0.68rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            letter-spacing: 0.02em;
         }
 
         .post-title {
@@ -277,7 +297,11 @@
 
         <ul class="post-list">
             <li class="post-item">
-                <div class="post-category">Thoughts &amp; Reflections</div>
+                <div class="post-meta">
+                    <span class="post-category">Thoughts &amp; Reflections</span>
+                    <span class="post-dot">&bull;</span>
+                    <time class="post-date" datetime="2026-10-05">October 5, 2026</time>
+                </div>
                 <h2 class="post-title">
                     <a href="the-right-moment.html">The Right Moment</a>
                 </h2>
@@ -286,7 +310,11 @@
                 </p>
             </li>
             <li class="post-item">
-                <div class="post-category">Technology &amp; AI</div>
+                <div class="post-meta">
+                    <span class="post-category">Technology &amp; AI</span>
+                    <span class="post-dot">&bull;</span>
+                    <time class="post-date" datetime="2026-09-13">September 13, 2026</time>
+                </div>
                 <h2 class="post-title">
                     <a href="skynet-is-fiction.html">Skynet Is Fiction. But Are We Building Its Ingredients?</a>
                 </h2>
@@ -295,7 +323,11 @@
                 </p>
             </li>
             <li class="post-item">
-                <div class="post-category">Analysis &amp; Opinion</div>
+                <div class="post-meta">
+                    <span class="post-category">Analysis &amp; Opinion</span>
+                    <span class="post-dot">&bull;</span>
+                    <time class="post-date" datetime="2026-09-13">September 13, 2026</time>
+                </div>
                 <h2 class="post-title">
                     <a href="after-the-nrc-resolution.html">After the NRC Resolution: What Must the Manipur Government Do Next?</a>
                 </h2>
