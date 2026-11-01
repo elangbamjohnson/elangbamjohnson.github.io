@@ -16,7 +16,7 @@ test.describe('Navigation', () => {
     });
 
     test('1.2 All nav links are present', async ({ page }) => {
-      const links = ['Home', 'About', 'Projects', 'Enterprise', 'FAQ', 'Contact'];
+      const links = ['Home', 'Experience', 'Projects', 'Work With Me', 'Contact'];
       for (const linkText of links) {
         const link = page.locator(`.nav-links a:has-text("${linkText}")`);
         await expect(link).toBeVisible();
@@ -75,7 +75,7 @@ test.describe('Navigation', () => {
 
     test('2.3 All nav links visible in mobile menu', async ({ page }) => {
       await openMobileMenu(page);
-      const links = ['Home', 'About', 'Projects', 'Enterprise', 'FAQ', 'Contact'];
+      const links = ['Home', 'Experience', 'Projects', 'Work With Me', 'Contact'];
       for (const linkText of links) {
         const link = page.locator(`.nav-links a:has-text("${linkText}")`);
         await expect(link).toBeVisible();

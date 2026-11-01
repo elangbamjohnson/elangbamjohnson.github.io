@@ -34,7 +34,7 @@ test.describe('Hero Section', () => {
     await expect(statusBadge).toContainText('Available for work');
   });
 
-  test('4.5 & 4.6 CTA pills link to #contact', async ({ page }) => {
+  test('4.5 & 4.6 Secondary CTA button links to work with me / inquiry section', async ({ page }) => {
     const pills = page.locator('.hero-actions .btn--pill-outline');
     
     // Ensure we have at least 1 pill to test
@@ -42,7 +42,7 @@ test.describe('Hero Section', () => {
     expect(count).toBeGreaterThan(0);
     
     for (let i = 0; i < count; i++) {
-      await expect(pills.nth(i)).toHaveAttribute('href', '#contact');
+      await expect(pills.nth(i)).toHaveAttribute('href', /#work-with-me|#inquiry|#contact/);
     }
   });
 
