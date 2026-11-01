@@ -129,6 +129,7 @@ body.theme-matrix .view-all-btn {
 body.theme-matrix .view-all-btn:hover {
     color: var(--sans-accent);
 }
+body.theme-matrix .client-header h3,
 body.theme-matrix .client-header h4 {
     color: var(--serif-on-matrix);
     text-shadow: var(--matrix-text-shadow);
@@ -938,7 +939,8 @@ body.theme-matrix .hero-subline {
     border-radius: 24px;
     padding: 2rem;
 }
-.stat-box h4 {
+.stat-box h4,
+.stat-box .stat-number {
     font-family: var(--font-serif);
     font-size: var(--text-stat);
     color: var(--gold-dark);
@@ -1766,6 +1768,7 @@ body.theme-matrix .timeline-recognition {
     gap: 1rem;
     margin-bottom: 0.25rem;
 }
+.client-header h3,
 .client-header h4 {
     font-family: var(--font-serif);
     font-size: var(--text-lg);
@@ -1812,7 +1815,8 @@ body.theme-matrix .timeline-recognition {
     margin-bottom: 2rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
-.number-item h4 {
+.number-item h4,
+.number-item .number-stat {
     font-size: var(--text-stat);
     font-family: var(--font-serif);
     font-weight: 800;
@@ -2000,7 +2004,7 @@ details[open] .faq-icon {
 .footer-info {
     font-size: var(--text-sm);
     color: var(--text-light-muted);
-    margin-bottom: 4rem;
+    margin-bottom: 0;
 }
 
 .footer-bottom {
@@ -2306,7 +2310,7 @@ body.theme-matrix .footer-easter-egg .theme-toggle-btn {
     .stat-box {
         padding: var(--space-md);
     }
-    .stat-box h4, .number-item h4 {
+    .stat-box h4, .stat-box .stat-number, .number-item h4, .number-item .number-stat {
         font-size: var(--text-3xl); /* Scale down giant stats */
     }
     
@@ -2608,6 +2612,7 @@ body.theme-matrix .footer-easter-egg .theme-toggle-btn {
     margin-bottom: 2rem;
 }
 
+.case-study-section h4,
 .case-study-section h5 {
     font-size: var(--text-lg);
     color: var(--navy);

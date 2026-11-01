@@ -195,12 +195,12 @@
                         
                         <div class="about-stats">
                             <div class="stat-box reveal reveal-delay-2">
-                                <h4>99%</h4>
+                                <div class="stat-number">99%</div>
                                 <p>Crash-free rate at Neurealm, up from 96%</p>
                                 <span>through rigorous stability engineering</span>
                             </div>
                             <div class="stat-box reveal reveal-delay-3">
-                                <h4>30-70%</h4>
+                                <div class="stat-number">30-70%</div>
                                 <p>Build time reduction at Cognizant</p>
                                 <span>through advanced CI/CD automation</span>
                             </div>
@@ -350,7 +350,7 @@
                         <div class="client-emoji">📡</div>
                         <div class="client-content">
                             <div class="client-header">
-                                <h4>Avaya</h4>
+                                <h3>Avaya</h3>
                                 <span class="client-tag">ENTERPRISE VOIP &middot; SDK ARCHITECTURE</span>
                                 <span class="award-pill">🏆 STAR Performer (Q1 2023)</span>
                             </div>
@@ -361,7 +361,7 @@
                             </p>
                             <div class="avaya-card-details">
                                 <div class="avaya-detail-item">
-                                    <strong>Scope &amp; Ownership:</strong>
+                                     <strong>Scope &amp; Ownership:</strong>
                                     <span>Technical owner for the production iOS SDK powering Avaya Workplace &amp; Avaya Spaces across enterprise clients; owned architectural decisions, threading model, VoIP (SIP/PJSIP) pipelines, third-party SDK integrations, and release stability.</span>
                                 </div>
                                 <div class="avaya-detail-item">
@@ -380,7 +380,7 @@
                         <div class="client-emoji">🚗</div>
                         <div class="client-content">
                             <div class="client-header">
-                                <h4>Ford Motors</h4>
+                                <h3>Ford Motors</h3>
                                 <span class="client-tag">AUTOMOTIVE</span>
                             </div>
                             <p>Engineered CI/CD pipelines using CircleCI and Concourse CI, cutting release cycles from days/weeks to minutes (30-70% faster builds).</p>
@@ -392,7 +392,7 @@
                         <div class="client-emoji">🔧</div>
                         <div class="client-content">
                             <div class="client-header">
-                                <h4>AutoZone</h4>
+                                <h3>AutoZone</h3>
                                 <span class="client-tag">RETAIL</span>
                             </div>
                             <p>Led iOS development, mentored engineers on architecture patterns.</p>
@@ -404,7 +404,7 @@
                         <div class="client-emoji">🍕</div>
                         <div class="client-content">
                             <div class="client-header">
-                                <h4>Domino's Pizza</h4>
+                                <h3>Domino's Pizza</h3>
                                 <span class="client-tag">FOOD-TECH</span>
                             </div>
                             <p>Voice-ordering iOS app, national rollout to 5,000+ locations.</p>
@@ -416,7 +416,7 @@
                         <div class="client-emoji">⚖️</div>
                         <div class="client-content">
                             <div class="client-header">
-                                <h4>Thomson Reuters</h4>
+                                <h3>Thomson Reuters</h3>
                                 <span class="client-tag">LEGAL &amp; FINANCIAL</span>
                             </div>
                             <p>Elite 3E, a law-firm management iPad app.</p>
@@ -430,15 +430,15 @@
                     <span class="numbers-label">BY THE NUMBERS</span>
                     
                     <div class="number-item">
-                        <h4>30-35%</h4>
+                        <div class="number-stat">30-35%</div>
                         <p>Faster feature delivery velocity <!-- TODO: Specify employer/role context for 30-35% faster feature delivery --></p>
                     </div>
                     <div class="number-item">
-                        <h4>4-5</h4>
+                        <div class="number-stat">4-5</div>
                         <p>Engineers mentored per team</p>
                     </div>
                     <div class="number-item" style="margin-bottom: 0;">
-                        <h4>5</h4>
+                        <div class="number-stat">5</div>
                         <p>Enterprise <br>clients</p>
                     </div>
                     
@@ -713,7 +713,7 @@
         </section>
 
         <!-- Testimonial -->
-        <section class="section-padding container reveal">
+        <section id="testimonials" class="section-padding container reveal" aria-label="Client & Peer Recommendations">
             <div class="testimonial-banner reveal reveal-delay-1">
                 <div class="testimonial-quote-mark">&ldquo;</div>
                 <div class="testimonial-banner-text">
@@ -1082,15 +1082,15 @@
     <div id="caseStudyModal" class="case-study-modal-backdrop" aria-hidden="true" role="dialog" aria-modal="true" aria-label="AIAnalyzer Case Study">
         <div class="case-study-modal-container" role="document">
             <button id="closeCaseStudyBtn" class="case-study-close-top" aria-label="Close case study">&times;</button>
-            <div class="case-study-title">AIAnalyzer: A Static Analysis Tool That Knows When to Ask AI for Help</div>
+            <h3 class="case-study-title">AIAnalyzer: A Static Analysis Tool That Knows When to Ask AI for Help</h3>
             <div class="case-study-meta">Swift · CLI · Static Analysis · AI</div>
             <div class="case-study-section">
-                <h5>The Problem</h5>
+                <h4>The Problem</h4>
                 <p>Over 18 years of iOS work, I kept hitting the same wall: messy, hard-to-maintain Swift codebases with no good tooling to catch architectural rot early. Most static analysis tools for Swift are either too generic (linting style, not architecture) or don't exist at all for the specific smells that actually sink a codebase over time — God Objects, oversized classes, tangled responsibilities.</p>
                 <p>At the same time, I wanted to go deeper on something I'd started exploring in an earlier project: combining on-device AI with cloud AI in a single system that intelligently chooses between them, rather than picking one or the other.</p>
             </div>
             <div class="case-study-section">
-                <h5>The Approach</h5>
+                <h4>The Approach</h4>
                 <p>AIAnalyzer is a Swift CLI that parses codebases with SwiftSyntax, detects architectural smells (God Objects, Large Classes, High Method Density), and — the part I'm most proud of — offers AI-powered fix suggestions through four provider modes:</p>
                 <ul>
                     <li><strong>Gemini (Cloud)</strong> — best quality, requires network + API key</li>
@@ -1101,11 +1101,11 @@
                 <p>That fallback logic is the core engineering problem I wanted to solve: not "which AI should I use," but "how does the system know, in real time, whether its own answer is good enough to trust."</p>
             </div>
             <div class="case-study-section">
-                <h5>Eating My Own Dog Food</h5>
+                <h4>Eating My Own Dog Food</h4>
                 <p>Once the core tool worked, I turned it on itself — and found the irony immediately: AnalyzerApp.swift, the app's own entry point, was a 695-line God Object, the exact smell the tool exists to catch. I used that as the starting point for a full self-audit: migrating CLI parsing to Apple's swift-argument-parser, decomposing the God Object into focused components, fixing a real false-positive bug in the classification logic (the tool was misreading class names like DetailViewControllerDelegate as ViewControllers), and automating the entire release pipeline — tagging a version now builds, tests, and publishes to Homebrew with zero manual steps.</p>
             </div>
             <div class="case-study-section">
-                <h5>Outcome</h5>
+                <h4>Outcome</h4>
                 <ul>
                     <li>Fully automated CI/CD: 59 passing tests, automated Homebrew formula updates, SARIF output for GitHub code scanning integration</li>
                     <li>A working, publicly installable tool (brew install elangbamjohnson/tap/aianalyzer), not just a demo</li>
