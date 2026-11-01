@@ -22,7 +22,7 @@ test.describe('15. Responsive Layout Tests', () => {
     expect(heroDisplay).toBe('grid');
     
     // Bento grid should have multiple columns
-    const bentoGrid = page.locator('.bento-grid');
+    const bentoGrid = page.locator('.bento-grid').first();
     const bentoDisplay = await bentoGrid.evaluate((el) => window.getComputedStyle(el).display);
     expect(bentoDisplay).toBe('grid');
   });
