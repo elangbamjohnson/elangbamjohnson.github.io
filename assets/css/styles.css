@@ -1834,18 +1834,7 @@ body.theme-matrix .timeline-recognition {
     line-height: 1.6;
 }
 
-/* Testimonials */
-.testimonials-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
-}
-@media (max-width: 860px) {
-    .testimonials-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-}
+/* Testimonial Banner */
 .testimonial-banner {
     position: relative;
     width: 100%;
@@ -1858,14 +1847,6 @@ body.theme-matrix .timeline-recognition {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-}
-.testimonial-banner--placeholder {
-    border: 1.5px dashed var(--border);
-    background: rgba(26, 27, 46, 0.02);
-}
-body.theme-matrix .testimonial-banner--placeholder {
-    border-color: rgba(0, 255, 70, 0.3);
-    background: rgba(13, 17, 23, 0.5);
 }
 body.theme-matrix .testimonial-banner {
     background-color: rgba(13, 17, 23, 0.7);
