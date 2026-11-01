@@ -56,6 +56,29 @@ document.addEventListener('DOMContentLoaded', () => {
         themeToggleBtn.setAttribute('aria-pressed', isMatrixOnLoad ? 'true' : 'false');
         if (toggleLabel) toggleLabel.textContent = isMatrixOnLoad ? 'Exit the Matrix' : 'Enter the Matrix';
     }
+
+    // 5. Project Inquiry Form (Mailto Fallback)
+    const inquiryForm = document.getElementById('project-inquiry-form');
+    if (inquiryForm) {
+        inquiryForm.addEventListener('submit', (e) => {
+            const action = inquiryForm.getAttribute('action');
+            if (action && action.startsWith('mailto:')) {
+                e.preventDefault();
+                const name = document.getElementById('inquiry-name')?.value || '';
+                const email = document.getElementById('inquiry-email')?.value || '';
+                const project = document.getElementById('inquiry-project')?.value || '';
+                const timeline = document.getElementById('inquiry-timeline')?.value || '';
+                const budget = document.getElementById('inquiry-budget')?.value || '';
+                const message = document.getElementById('inquiry-message')?.value || '';
+                
+                const subject = encodeURIComponent(`Project Inquiry: ${project} - from ${name}`);
+                const body = encodeURIComponent(
+                    `Name: ${name}\nEmail: ${email}\nProject Type: ${project}\nTimeline: ${timeline}\nBudget Range: ${budget}\n\nProject Details:\n${message}`
+                );
+                window.location.href = `mailto:elangbamjohnson@gmail.com?subject=${subject}&body=${body}`;
+            }
+        });
+    }
 });
 
 // Global functions for inline handlers
