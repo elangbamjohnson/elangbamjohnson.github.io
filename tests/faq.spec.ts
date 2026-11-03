@@ -14,13 +14,13 @@ test.describe('FAQ Section', () => {
   });
 
   test('12.2 All 4 FAQ items are rendered', async ({ page }) => {
-    const faqItems = page.locator('.faq-item');
+    const faqItems = page.locator('#faq .faq-item');
     await expect(faqItems).toHaveCount(4);
   });
 
   test('12.3 Expanding one FAQ item closes the others (Accordion behavior)', async ({ page }) => {
-    const firstFaq = page.locator('.faq-item').nth(0);
-    const secondFaq = page.locator('.faq-item').nth(1);
+    const firstFaq = page.locator('#faq .faq-item').nth(0);
+    const secondFaq = page.locator('#faq .faq-item').nth(1);
 
     // Expand the first FAQ
     await firstFaq.locator('summary').click();
@@ -35,7 +35,7 @@ test.describe('FAQ Section', () => {
   });
 
   test('12.4 Icon rotates on expansion', async ({ page }) => {
-    const firstFaq = page.locator('.faq-item').nth(0);
+    const firstFaq = page.locator('#faq .faq-item').nth(0);
     const icon = firstFaq.locator('.faq-icon');
     
     // Default state: not rotated (rotation might not be directly observable via Playwright expect simply,

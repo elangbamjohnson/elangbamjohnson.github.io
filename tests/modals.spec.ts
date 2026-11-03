@@ -127,6 +127,15 @@ test.describe('Modals (Video & Case Study)', () => {
   });
 
   test.describe('Gallery Modal', () => {
+    test.beforeEach(async ({ page }) => {
+      const moreProjects = page.locator('#more-projects');
+      if (await moreProjects.count() > 0) {
+        await page.evaluate(() => {
+          document.getElementById('more-projects')?.setAttribute('open', '');
+        });
+      }
+    });
+
     test('8.8 Open Gallery modal and check content', async ({ page }) => {
       const openBtn = page.locator('button[aria-label="View Strike First screenshots"]');
       await openBtn.scrollIntoViewIfNeeded();
